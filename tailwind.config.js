@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily : {
+        'urbanist' : ['Urbanist', 'sans-serif'],
+        'poiretone' : ['Poiret One', 'sans-serif'],
+        'julius' : ['Julius Sans One', 'sans-serif'],
+      }  
+    },
   },
   plugins: [],
 }
