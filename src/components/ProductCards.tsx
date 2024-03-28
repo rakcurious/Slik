@@ -13,6 +13,7 @@ const ProductCards : React.FC<{
     imageAlt: string;
     price: string;
     brand: string;
+    category: string;
   }[];
 }> = ({ products }) => {
   return (

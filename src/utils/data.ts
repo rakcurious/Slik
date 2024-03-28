@@ -22,6 +22,7 @@ interface ProductData {
     imageAlt: string;
     price: string;
     brand: string;
+    category: string;
   }
 
 const banners: ImageData[] = [
@@ -36,49 +37,49 @@ const banners: ImageData[] = [
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/Mobile_34.jpg",
     collectionLink: "/collection2",
-    category: "Collection 2",
+    category: "women",
     size: "small",
   },
   {
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/Mobile-banner-copy-2_copy.jpg",
     collectionLink: "/collection3",
-    category: "Collection 3",
+    category: "women",
     size: "small",
   },
   {
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/Mobile-Banner_43.jpg",
     collectionLink: "/collection4",
-    category: "Men",
+    category: "men",
     size: "small",
   },
   {
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage_banner_oversized_t-shirt_bif_vive_big_print.jpg?format=webp&w=1366&dpr=1.0",
     collectionLink: "/collection1",
-    category: "Men",
+    category: "men",
     size: "big",
   },
   {
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage-banner_16.jpg?format=webp&w=1366&dpr=1.0",
     collectionLink: "/collection2",
-    category: "Men",
+    category: "women",
     size: "big",
   },
   {
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/Homepage-Banner-copy_copy.jpg?format=webp&w=1366&dpr=1.0",
     collectionLink: "/collection3",
-    category: "Men",
+    category: "women",
     size: "big",
   },
   {
     imageUrl:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/Homepage-Banner_21.jpg?format=webp&w=1366&dpr=1.0",
     collectionLink: "/collection4",
-    category: "Men",
+    category: "men",
     size: "big",
   },
 ];
@@ -91,7 +92,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_L540YKc.jpg?format=webp&w=480&dpr=2.0",
     imageAlt: "Oversized T-Shirts",
-    category: "Women",
+    category: "women",
   },
   {
     id: 2,
@@ -100,7 +101,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Big-Tile1.jpg?format=webp&w=200&dpr=3.0",
     imageAlt: "Shirts",
-    category: "Men",
+    category: "men",
   },
   {
     id: 3,
@@ -109,7 +110,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Big-Tile-dresses_BkMF7iR.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Dresses",
-    category: "Women",
+    category: "women",
   },
   {
     id: 4,
@@ -118,7 +119,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small_Tile_33_copy_fIV1sMS.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Jackets",
-    category: "Men",
+    category: "men",
   },
   {
     id: 5,
@@ -127,7 +128,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Big-Tile-Tops_gsWjXW5.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Tops",
-    category: "Women",
+    category: "women",
   },
   {
     id: 6,
@@ -136,7 +137,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-31_1_3ZbB97R.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Shorts",
-    category: "Men",
+    category: "men",
   },
 
   {
@@ -146,7 +147,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-botoms_299jpjf.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Bottoms",
-    category: "Women",
+    category: "women",
   },
 
   {
@@ -156,7 +157,7 @@ const categories: CategoryData[] = [
     imageSrc:
       "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-37_c07CpXP.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "T-Shirts",
-    category: "Men",
+    category: "men",
   },
 ];
 
@@ -170,6 +171,7 @@ const products: ProductData[] = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: "₹350",
       brand: "AJIO",
+      category: "men"
     },
     {
       id: 2,
@@ -180,6 +182,7 @@ const products: ProductData[] = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: "₹354",
       brand: "MYNTRA",
+      category: "women"
     },
     {
       id: 3,
@@ -190,6 +193,7 @@ const products: ProductData[] = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: "₹345",
       brand: "THE SOULED STORE",
+      category: "men"
     },
     {
       id: 4,
@@ -200,6 +204,7 @@ const products: ProductData[] = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: "₹435",
       brand: "GUCCI",
+      category: "women"
     },
     {
       id: 5,
@@ -210,6 +215,7 @@ const products: ProductData[] = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: "₹235",
       brand: "H&M",
+      category: "women"
     },
     {
       id: 6,
@@ -220,6 +226,7 @@ const products: ProductData[] = [
       imageAlt: "Front of men's Basic Tee in black.",
       price: "₹355",
       brand: "ZARA",
+      category: "men"
     },
   ];
 
