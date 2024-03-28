@@ -10,9 +10,14 @@ export default {
         'urbanist' : ['Urbanist', 'sans-serif'],
         'poiretone' : ['Poiret One', 'sans-serif'],
         'julius' : ['Julius Sans One', 'sans-serif'],
+      },
+      screens: {
+        'lol': {'max': '1025px'},
       }  
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
 
