@@ -1,72 +1,20 @@
-
+import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "₹350",
-    color: "Black",
-  },
-  {
-    id: 2,
-    name: "Basic Teessssssssssssssss dhhhhhhhh dhhhhhhhhhhs",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "₹354",
-    color: "White",
-  },
-  {
-    id: 3,
-    name: "Lasic Tee",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "₹345",
-    color: "Purple",
-  },
-  {
-    id: 4,
-    name: "Pink Tee",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 5,
-    name: "Lol Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$235",
-    color: "Hue",
-  },
-  {
-    id: 6,
-    name: "Super Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$355",
-    color: "Beige",
-  },
-  // More products...
-];
 
 
-export default function ProductCards() {
+
+const ProductCards : React.FC<{
+  products: {
+    id: number;
+    name: string;
+    href: string;
+    imageSrc: string;
+    imageAlt: string;
+    price: string;
+    brand: string;
+  }[];
+}> = ({ products }) => {
   return (
     <>
     <h1 className="text-center font-urbanist font-bold text-4xl mt-10">PRODUCTS</h1>
@@ -94,8 +42,8 @@ export default function ProductCards() {
                     <div className="truncate max-w-60">
                         {product.name}
                     </div>
-                    <div className=" text-lg font-medium  truncate max-w-60">
-                        {product.color}
+                    <div className=" text-sm font-semibold  truncate max-w-60">
+                        {product.brand}
                     </div>
                     
                   </CardItem>
@@ -117,3 +65,5 @@ export default function ProductCards() {
     </>
   );
 }
+
+export default ProductCards

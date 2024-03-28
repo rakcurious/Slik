@@ -1,86 +1,19 @@
-
+import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
-const categories = [
-  {
-    id: 1,
-    name: "Oversized T-Shirts",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_L540YKc.jpg?format=webp&w=480&dpr=2.0",
-    imageAlt: "Oversized T-Shirts",
-    cat :"Women"
-  },
-  {
-    id: 2,
-    name: "Shirts",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Big-Tile1.jpg?format=webp&w=200&dpr=3.0",
-    imageAlt: "Shirts",
-    cat: "Men"
-  },
-  {
-    id: 3,
-    name: "Dresses",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Big-Tile-dresses_BkMF7iR.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Dresses",
-    cat: "Women"
-  },
-  {
-    id: 4,
-    name: "Jackets",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small_Tile_33_copy_fIV1sMS.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Jackets",
-    cat: "Men"
-  },
-  {
-    id: 5,
-    name: "Tops",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Big-Tile-Tops_gsWjXW5.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Tops",
-    cat: "Women"
-  },
-  {
-    id: 6,
-    name: "Shorts",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-31_1_3ZbB97R.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Shorts",
-    cat: "Men"
-  },
-  
-  {
-    id: 7,
-    name: "Bottoms",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-botoms_299jpjf.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "Bottoms",
-    cat: "Women"
-  },
-  
-  {
-    id: 8,
-    name: "T-Shirts",
-    href: "#",
-    imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-37_c07CpXP.jpg?format=webp&w=480&dpr=1.0",
-    imageAlt: "T-Shirts",
-    cat: "Men"
-  },
-  
-];
 
 
-export default function CategoryCards() {
+
+const CategoryCards : React.FC<{
+  categories: {
+    id: number;
+    name: string;
+    href: string;
+    imageSrc: string;
+    imageAlt: string;
+    category: string;
+  }[];
+}> = ({ categories }) => {
   return (
     <>
     <h1 className="text-center font-urbanist font-bold text-4xl mt-6">CATEGORIES</h1>
@@ -117,3 +50,5 @@ export default function CategoryCards() {
     </>
   );
 }
+
+export default CategoryCards

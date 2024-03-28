@@ -1,12 +1,10 @@
 import sliklogo from './assets/sliklogo.webp'
 import profile from './assets/rakp.webp'
-import ImageSlider from './components/ImageSlider'
-import ProductCards from './components/ProductCards'
-import CategoryCards from './components/CategoryCards'
+import { banners, categories, products, CategoryCards, BannerSlider, ProductCards } from './index'
 
 
 function App() {
-  
+
 
   return (
     <>
@@ -29,9 +27,9 @@ function App() {
         
       </nav>
       
-       <ImageSlider /> 
-      <CategoryCards />
-      <ProductCards />
+      <BannerSlider images={banners} />
+      <CategoryCards categories={categories}/>
+      <ProductCards products={products}/>
      </div>
     </>
   )
