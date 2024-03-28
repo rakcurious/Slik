@@ -1,8 +1,9 @@
-import sliklogo from './assets/sliklogomain.webp'
-import profile from './assets/slikbear.webp'
+import sliklogo from './assets/sliklogo.webp'
+import profile from './assets/rakp.webp'
 import ImageSlider from './components/ImageSlider'
 import ProductCards from './components/ProductCards'
 import CategoryCards from './components/CategoryCards'
+
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
         <h1 className='lol:hidden'>BRANDS</h1>
         </div>
         <div className='w-1/3 flex justify-center'>
-          <img src={sliklogo} className='h-10 w-auto m-0 ' />
+          <img src={sliklogo} className='h-14 w-auto m-0 ' />
         </div>
         <div className='w-1/3 flex justify-end pr-4'>
           <img src={profile} className='h-10 w-10 rounded-full'/>

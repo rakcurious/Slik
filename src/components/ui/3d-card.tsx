@@ -38,7 +38,7 @@ export const CardContainer = ({
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
-        className={`py-20 flex items-center justify-center ${containerClassName}`}
+        className={`py-5 flex items-center justify-center ${containerClassName}`}
         style={{
           perspective: '1000px',
         }}
@@ -69,7 +69,7 @@ export const CardBody = ({
 }) => {
   return (
     <div
-      className={`h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d] ${className}`}
+      className={`h-96 w-96 py-0 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d] ${className}`}
     >
       {children}
     </div>
@@ -126,7 +126,6 @@ export const CardItem = ({
   );
 };
 
-// Create a hook to use the context
 export const useMouseEnter = () => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {

@@ -44,14 +44,14 @@ const smallImages: ImageData[] = [
 const images: ImageData[] = [
   {
     imageUrl:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage-banner_16.jpg?format=webp&w=1366&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage_banner_oversized_t-shirt_bif_vive_big_print.jpg?format=webp&w=1366&dpr=1.0",
     collectionLink: "/collection1",
     title: "Collection 1",
     description: "Click to view Collection 1",
   },
   {
     imageUrl:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage_banner_oversized_t-shirt_bif_vive_big_print.jpg?format=webp&w=1366&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage-banner_16.jpg?format=webp&w=1366&dpr=1.0",
     collectionLink: "/collection2",
     title: "Collection 2",
     description: "Click to view Collection 2",

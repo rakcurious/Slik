@@ -7,19 +7,19 @@ const products = [
     name: "Basic Tee",
     href: "#",
     imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_L540YKc.jpg?format=webp&w=480&dpr=2.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
+    price: "₹350",
     color: "Black",
   },
   {
     id: 2,
-    name: "Basic Teesss",
+    name: "Basic Teessssssssssssssss dhhhhhhhh dhhhhhhhhhhs",
     href: "#",
     imageSrc:
-      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710599760_7139593.jpg?format=webp&w=300&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "$354",
+    price: "₹354",
     color: "White",
   },
   {
@@ -27,9 +27,9 @@ const products = [
     name: "Lasic Tee",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "$345",
+    price: "₹345",
     color: "Purple",
   },
   {
@@ -37,7 +37,7 @@ const products = [
     name: "Pink Tee",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
@@ -69,11 +69,11 @@ const products = [
 export default function ProductCards() {
   return (
     <>
-    <h1 className="text-center font-urbanist font-bold text-4xl mt-6">PRODUCTS</h1>
-      <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 font-urbanist text-black">
+    <h1 className="text-center font-urbanist font-bold text-4xl mt-10">PRODUCTS</h1>
+      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-0 font-urbanist text-black">
         {products.map((product) => (
           <CardContainer key={product.id} className="inter-var ">
-            <CardBody className=" flex flex-col items-center justify-center  h-full w-full relative group/card rounded-xl p-10">
+            <CardBody className=" flex flex-col items-center justify-center  h-full w-full lg:h-96 lg:w-96 relative group/card  rounded-xl p-10">
               
                 <CardItem
                   translateZ="100"
@@ -91,10 +91,10 @@ export default function ProductCards() {
                     translateZ="50"
                     className="text-sm font-semibold"
                   >
-                    <div className="">
+                    <div className="truncate max-w-60">
                         {product.name}
                     </div>
-                    <div className=" text-lg font-medium  ">
+                    <div className=" text-lg font-medium  truncate max-w-60">
                         {product.color}
                     </div>
                     
@@ -103,7 +103,7 @@ export default function ProductCards() {
                   <CardItem
                     as="p"
                     translateZ="60"
-                    className="text-xl mt-1 font-semibold"
+                    className="text-xl mt-1 font-normal "
                   >
                     {product.price}
                   </CardItem>

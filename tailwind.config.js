@@ -13,7 +13,7 @@ export default {
       },
       screens: {
         'lol': {'max': '1025px'},
-      }  
+      },  
     },
   },
   plugins: [
