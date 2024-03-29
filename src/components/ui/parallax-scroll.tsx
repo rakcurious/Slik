@@ -43,7 +43,7 @@ export const ParallaxScroll: React.FC<{
       ref={gridRef}
     >
       <div
-        className="overflow-x-hidden grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 items-start  mx-auto gap:1 md:gap-2 lg:gap-10 py-0 px-0 md:px-10"
+        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 items-start  mx-auto gap:1 md:gap-2 lg:gap-10 py-0 px-0 md:px-10"
         ref={gridRef}
       >
         {partsArr.map((part, id) => (
