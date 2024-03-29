@@ -38,12 +38,12 @@ export const ParallaxScroll: React.FC<{
   return (
     <div
       className={cn(
-        " min-h-screen items-start py-40 w-full overflow-y-auto absolute inset-0"
+        " min-h-screen items-start py-28 w-full overflow-y-auto absolute inset-0"
       )}
       ref={gridRef}
     >
       <div
-        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 items-start  mx-auto gap:1 md:gap-2 lg:gap-10 py-0 px-0 md:px-10"
+        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 items-start  mx-auto gap:1 md:gap-2 lg:gap-10 mb-10 lg:py-4 px-0 md:px-10"
         ref={gridRef}
       >
         {partsArr.map((part, id) => (
@@ -54,25 +54,25 @@ export const ParallaxScroll: React.FC<{
                 key={`grid-1${idx}`}
               >
                 <CardContainer key={product.id} className="inter-var ">
-                  <CardBody className=" flex flex-col items-center justify-center h-60 w-52 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl p-5 md:p-10">
+                  <CardBody className=" flex flex-col items-center justify-start h-60 w-60 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl p-5 md:p-10">
                     <CardItem
                       translateZ="100"
                       className="w-full flex justify-center mb-2"
                     >
                       <img
                         src={product.imageSrc}
-                        className="h-full w-full lg:h-72 lg:w-60  object-cover  rounded-lg group-hover/card:shadow-xl"
+                        className="h-60 w-52 md:h-72 md:w-60  object-cover  rounded-lg group-hover/card:shadow-xl"
                         alt="thumbnail"
                       />
                     </CardItem>
 
-                    <div className="flex justify-between w-full">
+                    <div className="flex justify-between w-48 md:w-60 lg:w-52">
                       <CardItem
                         translateZ="50"
                         className="text-xs md:text-sm font-semibold"
                       >
-                        <div className="truncate max-w-60">{product.name}</div>
-                        <div className="text-xs md:text-sm font-semibold  truncate max-w-60">
+                        <div className="truncate max-w-40 pl-1 md:max-w-52">{product.name}</div>
+                        <div className="text-xs pl-1 md:text-sm font-semibold  truncate max-w-52">
                           {product.brand}
                         </div>
                       </CardItem>
@@ -80,7 +80,7 @@ export const ParallaxScroll: React.FC<{
                       <CardItem
                         as="p"
                         translateZ="60"
-                        className="text-sm  md:text-xl mt-1 font-normal"
+                        className="text-sm pr-1 md:text-lg font-normal"
                       >
                         {product.price}
                       </CardItem>

@@ -8,7 +8,6 @@ export const AnimatedTooltip = () => {
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0);
 
-  setOnprofile(false)
   const rotate = useSpring(
     useTransform(x, [-100, 100], [-45, 45]),
     springConfig

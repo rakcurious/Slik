@@ -17,10 +17,10 @@ const CategoryCards : React.FC<{
   return (
     <>
     <h1 className="text-center font-urbanist font-bold text-4xl mt-6">CATEGORIES</h1>
-      <div className="mt-4 grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-0 font-urbanist text-black">
+      <div className="mt-4 grid grid-cols-1 gap-x-6 lg:grid-cols-2 xl:grid-cols-4 xl:gap-x-0 font-urbanist text-black pb-10 mb-10">
         {categories.map((product) => (
           <CardContainer key={product.id} className="inter-var">
-            <CardBody className="h-full w-full lg:h-96 lg:w-96 relative group/card rounded-xl p-10 py-0 -my-px">
+            <CardBody className="h-80 w-80 md:h-full md:w-full lg:h-96 lg:w-96 relative group/card rounded-xl md:p-10 xl:p-10 lg:px-0 py-0 -my-px">
               
                 <CardItem
                   translateZ="100"
@@ -28,7 +28,7 @@ const CategoryCards : React.FC<{
                 >
                   <img
                     src={product.imageSrc}
-                    className="h-full w-full lg:h-96 lg:w-80  object-cover  rounded-lg group-hover/card:shadow-xl"
+                    className="h-80 w-80 md:h-full md:w-full lg:h-96 lg:w-96  object-cover  rounded-lg group-hover/card:shadow-xl"
                     alt="thumbnail"
                   />
                   
