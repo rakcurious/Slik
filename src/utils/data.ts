@@ -228,6 +228,204 @@ const products: ProductData[] = [
       brand: "ZARA",
       category: "men"
     },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
+    {
+      id: 5,
+      name: "Lol Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹235",
+      brand: "H&M",
+      category: "women"
+    },
+    {
+      id: 6,
+      name: "Super Tee",
+      href: "#",
+      imageSrc:
+        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "₹355",
+      brand: "ZARA",
+      category: "men"
+    },
   ];
 
 
