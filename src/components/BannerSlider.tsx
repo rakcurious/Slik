@@ -25,7 +25,8 @@ const BannerSlider: React.FC<{
 
   return (
     <div className="w-screen px-4 lg:px-10 mb-20">
-      <Slider {...settings} className=" lol:hidden">
+      <div className=" lol:hidden">
+      <Slider {...settings} >
         {images
           .filter((image) => image.size === "big")
           .map((image, index) => (
@@ -40,8 +41,9 @@ const BannerSlider: React.FC<{
             </div>
           ))}
       </Slider>
-
-      <Slider {...settings} className="lg:hidden">
+      </div>
+            <div className="lg:hidden"> 
+      <Slider {...settings}>
         {images
           .filter((image) => image.size === "small")
           .map((image, index) => (
@@ -56,6 +58,7 @@ const BannerSlider: React.FC<{
             </div>
           ))}
       </Slider>
+      </div>
     </div>
   );
 };

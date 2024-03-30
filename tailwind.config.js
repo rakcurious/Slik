@@ -12,7 +12,7 @@ export default {
         'julius' : ['Julius Sans One', 'sans-serif'],
       },
       screens: {
-        'lol': {'max': '1025px'},
+        'lol': {'max': '1024px'},
       },  
     },
   },
