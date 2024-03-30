@@ -54,25 +54,25 @@ export const ParallaxScroll: React.FC<{
                 key={`grid-1${idx}`}
               >
                 <CardContainer key={product.id} className="inter-var ">
-                  <CardBody className=" flex flex-col items-center justify-start h-60 w-60 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl p-5 md:p-10">
+                  <CardBody className=" flex flex-col items-center justify-start h-52 w-44 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl md:mb-8 xl:mb-12 px-5 p-0">
                     <CardItem
                       translateZ="100"
                       className="w-full flex justify-center mb-2"
                     >
                       <img
                         src={product.imageSrc}
-                        className="h-60 w-52 md:h-72 md:w-60  object-cover  rounded-lg group-hover/card:shadow-xl"
+                        className="h-auto w-auto md:h-72 md:w-60  object-cover  rounded-lg group-hover/card:shadow-xl"
                         alt="thumbnail"
                       />
                     </CardItem>
 
-                    <div className="flex justify-between w-48 md:w-60 lg:w-52">
+                    <div className="flex justify-between w-32 md:w-60 lg:w-52">
                       <CardItem
                         translateZ="50"
                         className="text-xs md:text-sm font-semibold"
                       >
-                        <div className="truncate max-w-40 pl-1 md:max-w-52">{product.name}</div>
-                        <div className="text-xs pl-1 md:text-sm font-semibold  truncate max-w-52">
+                        <div className="truncate max-w-40 md:max-w-52">{product.name}</div>
+                        <div className="text-xs md:text-sm font-semibold  truncate max-w-52">
                           {product.brand}
                         </div>
                       </CardItem>
@@ -80,7 +80,7 @@ export const ParallaxScroll: React.FC<{
                       <CardItem
                         as="p"
                         translateZ="60"
-                        className="text-sm pr-1 md:text-lg font-normal"
+                        className="text-sm  md:text-lg font-normal"
                       >
                         {product.price}
                       </CardItem>
