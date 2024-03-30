@@ -54,7 +54,7 @@ const ProductCards : React.FC<{
                     translateZ="60"
                     className="text-xs md:text-lg font-normal"
                   >
-                    {product.price}
+                    {`${product.price}`}
                   </CardItem>
                   
                 </div>

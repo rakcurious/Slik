@@ -25,6 +25,19 @@ interface ProductData {
     category: string;
   }
 
+  interface Product {
+    id: number;
+    name: string;
+    target: string;
+    images: string[];
+    price: string;
+    brand: string;
+    likes?: number;
+    category: string;
+    clicks: number;
+    userid: string;
+  }
+
 const banners: ImageData[] = [
   {
     imageUrl:
