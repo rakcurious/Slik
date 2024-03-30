@@ -10,15 +10,25 @@ function Navbar() {
         <NavLink to='/women'>
         <h1 className="lol:hidden">WOMEN</h1>
         </NavLink>
+        <NavLink to='/men'>
         <h1 className="lol:hidden">MEN</h1>
+        </NavLink>
+        <NavLink to='/'>
         <h1 className="lol:hidden">GIFTING</h1>
+        </NavLink>
+        <NavLink to='/'>
         <h1 className="lol:hidden">BRANDS</h1>
+        </NavLink>
       </div>
       <div className="w-1/3 flex justify-center">
+        <NavLink to='/'>
         <img src={sliklogo} className="h-14 w-auto m-0 " />
+        </NavLink>
       </div>
       <div className="w-1/3 flex justify-end pr-4">
+        <NavLink to='/profile'>
         <AnimatedTooltip />
+        </NavLink>
       </div>
     </nav>
   );
