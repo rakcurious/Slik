@@ -22,7 +22,6 @@ const LoginComponent: React.FC = () => {
       const currentUser = await account.get();
       setIsLoggedIn(true);
       setUserProfile(currentUser);
-      console.log("Login successful:", currentUser);
     } catch (error) {
       console.error("Login failed:", error);
     }
@@ -34,7 +33,6 @@ const LoginComponent: React.FC = () => {
       await account.deleteSession("current");
       setIsLoggedIn(false);
       setUserProfile(null);
-      console.log("Logout successful");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -46,13 +44,11 @@ const LoginComponent: React.FC = () => {
       const currentUser = await account.get();
       setIsLoggedIn(true);
       setUserProfile(currentUser);
-      console.log("Current session:", currentUser);
     } catch (error) {
       console.error("Failed to get current session:", error);
     }
   };
 
-  // Call getCurrentSession on component mount
   useEffect(() => {
     getCurrentSession();
   }, []);

@@ -25,17 +25,30 @@ interface ProductData {
     category: string;
   }
 
-  interface Product {
-    id: number;
-    name: string;
+  export interface Product {
+    title: string;
     target: string;
-    images: string[];
-    price: string;
+    image: string;
+    price: number;
     brand: string;
     likes?: number;
     category: string;
-    clicks: number;
+    clicks?: number;
     userid: string;
+    collection: string;
+  }
+
+  export const productD = {
+    title: "Polo Oversized",
+    target: "https://www.thesouledstore.com/product/tss-originals-wandering-soul-women-playsuit?gte=2",
+    image: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    price: 499,
+    brand: "The Souled Store",
+    likes: 1,
+    category: "Men",
+    clicks: 0,
+    userid: "rak",
+    collection: "Oversized",
   }
 
 const banners: ImageData[] = [
