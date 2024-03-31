@@ -7,14 +7,14 @@ import {
     BannerSlider,
     ProductCards,
   } from "../index";
+import LoginComponent from "./login";
   
   
   function Home() {
     return (
       <>
-          <BannerSlider images={banners} />
-          <CategoryCards categories={categories} />
-          <ProductCards products={products} />
+          
+          <LoginComponent />
       </>
     );
   }
