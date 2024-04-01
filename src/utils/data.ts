@@ -26,9 +26,10 @@ interface ProductData {
   }
 
   export interface Product {
+    id: string;
     title: string;
     target: string;
-    image: string;
+    images: string[];
     price: number;
     brand: string;
     likes?: number;
@@ -453,6 +454,25 @@ const products: ProductData[] = [
       category: "men"
     },
   ];
+export interface Prods  {
+  $collectionId?: string,
+  $createdAt?: string,
+  $databaseId?: string,
+  $id?: string,
+  $permissions?: string[],
+  $updatedAt?: string,
+  brand: string,
+  category: string,
+  clicks?: number,
+  id: string,
+  images: string[],
+  likes?: number,
+  price: number,
+  target: string,
+  title: string,
+  userid: string,
+  collection: string
+}
 
 
   export {banners, categories, products}

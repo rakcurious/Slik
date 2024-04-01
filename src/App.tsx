@@ -10,7 +10,7 @@ function App() {
   
   return (
     <>
-      <div className="h-full w-screen p-0 bg-gradient-to-br from-purple-100 to-indigo-100">
+      <div className="h-full min-h-screen w-screen p-0 bg-gradient-to-br from-purple-100 to-indigo-100">
         <Navbar />
         <Outlet />
       </div>
