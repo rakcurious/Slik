@@ -18,8 +18,10 @@ export const createProductInAppwrite = async (product: Prods) => {
       product
     );
     console.log("Document created successfully:", response);
+    return response;
   } catch (error) {
     console.log(`Appwrite createDocument error: ${error}`);
+    return null;
   }
 };
 
@@ -35,10 +37,10 @@ export const updateProductInAppwrite = async (
       updatedData
     );
     console.log("Document updated successfully:", response);
-    return true;
+    return response;
   } catch (error) {
     console.log(`Appwrite updateDocument error: ${error}`);
-    return false;
+    return null;
   }
 };
 
@@ -50,10 +52,10 @@ export const deleteProductInAppwrite = async (id: string) => {
       id
     );
     console.log(response)
-    return true;
+    return response;
   } catch (error) {
     console.log(`Appwrite deleteDocument error: ${error}`);
-    return false;
+    return null;
   }
 };
 
@@ -67,5 +69,6 @@ export const fetchAllDocuments = async ()  => {
       return response.documents;
     } catch (error) {
       console.log(`Appwrite listDocuments error: ${error}`);
+      return null;
     }
   }

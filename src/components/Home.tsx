@@ -8,13 +8,15 @@ import {
     ProductCards,
   } from "../index";
 import Admin from "./Admin";
+import Upload from "./UploadImages";
+import Loki from "./login";
 import LoginComponent from "./login";
   
   
   function Home() {
     return (
       <> 
-          <LoginComponent />
+          <Upload />
       </>
     );
   }

@@ -13,12 +13,12 @@ import {
   deleteProductInAppwrite,
   fetchAllDocuments,
 } from "../appwrite/config";
-import { nanoid } from "@reduxjs/toolkit";
 import { Prods } from "../utils/data";
+import failed from '../assets/failedemoji.svg'
 
 const ProductsPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const products = useAppSelector((state) => state.products);
+  const products = useAppSelector((state) => state.products.products);
 
   const [productId, setProductId] = useState('')
   
@@ -32,6 +32,7 @@ const ProductsPage: React.FC = () => {
   const [collection, setCollection] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [toggle, setToggle] = useState("create");
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,6 +64,10 @@ const ProductsPage: React.FC = () => {
     const createdProduct = await createProductInAppwrite(newProduct);
     if (createdProduct) {
       dispatch(addProduct(createdProduct));
+      setError(false)
+    }
+    else {
+      setError(true)
     }
   };
   
@@ -82,6 +87,10 @@ const ProductsPage: React.FC = () => {
     if (isUpdated) {
       dispatch(updateProduct(updatedProduct));
       setProductId('');
+      setError(false)
+    }
+    else {
+      setError(true)
     }
   };
   
@@ -90,6 +99,10 @@ const ProductsPage: React.FC = () => {
     if (isDeleted) {
       dispatch(deleteProduct(productId));
       setProductId('');
+      setError(false)
+    }
+    else {
+      setError(true)
     }
   };
 
@@ -253,7 +266,11 @@ const ProductsPage: React.FC = () => {
           </button>
         </div>
       )}
+      {error && <div className="w-screen h-auto flex justify-center">
 
+      
+      <img src={failed} className="animate-bounce   h-20 w-20"/>
+      </div>}
       <hr />
       <h1 className="text-2xl mb-6 font-urbanist font-bold text-center ">
         PRODUCTS
@@ -269,11 +286,11 @@ const ProductsPage: React.FC = () => {
           {products.map((product: Prods) => (
             <div
               className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip "
-              key={product.id}
+              key={product.$id}
             >
+              <p>{product.$id}</p>
               <p>{product.brand}</p>
               <p>{product.title}</p>
-              <p>{product.id}</p>
               <p>{product.collection}</p>
               <p>{product.category}</p>
               <p>{Number(product.price)}</p>
