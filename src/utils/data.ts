@@ -464,7 +464,6 @@ export interface Prods  {
   brand: string,
   category: string,
   clicks?: number,
-  id: string,
   images: string[],
   likes?: number,
   price: number,

@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { motion, useTransform, useMotionValue, useSpring } from "framer-motion";
 import pfp from '../../assets/rakp.webp'
+import { logout } from "../../appwrite/auth";
+import { useAppSelector } from "../../app/hooks";
+import { selectUserData } from "../../features/users/userSlice";
+import { NavLink } from "react-router-dom";
 
 export const AnimatedTooltip = () => {
+
+const userdata = useAppSelector(selectUserData)
+
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [onProfile, setOnprofile] = useState(true)
   const springConfig = { stiffness: 100, damping: 5 };
@@ -33,13 +40,14 @@ export const AnimatedTooltip = () => {
     }, 1000); 
   };
 
-  const handleLogout = () => {
-    console.log("Logging out...");
+  const handleLogout = async () => {
+    await logout();
+
   };
 
   return (
     <div
-      className="flex justify-center mr-4 relative group"
+      className="flex justify-center items-center mr-4 relative group"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -64,21 +72,31 @@ export const AnimatedTooltip = () => {
     
       >
         
-        {(showLogoutButton && onProfile) && (
-          <button
-            onClick={handleLogout}
-            className="bg-purple-500 text-white px-2 py-1 rounded hover:bg-purple-600 transition-colors duration-300"
-          >
-            Logout
-          </button>
+        {(userdata && onProfile && showLogoutButton) && (
+          
+          <div className="relative bg-transparent h-18 w-40 flex flex-col justify-center items-center rounded-xl gap-1 ring-2 ring-violet-200 font-urbanist text-sm font-normal *:w-40 *:text-center">
+            <p>
+              {userdata.name}
+            </p>
+            <p>
+              {userdata.email}
+            </p >
+            <NavLink to='/'>
+            <button onClick={handleLogout} className="w-40 rounded-xl font-semibold hover:ring-2 hover:ring-violet-300">
+              Logout
+            </button>
+            </NavLink>
+          </div>
         )}
       </motion.div>
+      <NavLink to='/profile'>
       <img
         onMouseMove={handleMouseMove}
         src={pfp}
         alt="pfp"
-        className="object-cover !m-0 !p-0 object-top rounded-full h-10 w-10 border-2 group-hover:scale-105 group-hover:z-30 border-purple-200 relative transition duration-500"
+        className=" cursor-pointer object-cover !m-0 !p-0 object-top rounded-full h-10 w-10 border-2 group-hover:scale-105 group-hover:z-30 border-purple-200 relative transition duration-500"
       />
+      </NavLink>
     </div>
   );
 };

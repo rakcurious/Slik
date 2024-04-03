@@ -1,9 +1,6 @@
-import { Client, Databases } from "appwrite";
+import { Client, Databases, ID } from "appwrite";
 import confvars from "../confvars/confvars";
-import { Prods, Product } from "../utils/data";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getProducts } from "../features/users/userSlice";
+import { Prods } from "../utils/data";
 
 
 
@@ -12,26 +9,12 @@ const client = new Client()
   .setProject(confvars.appwriteProjectId);
 const databases = new Databases(client);
 
-// interface Product {
-//   id: string;
-//   title: string;
-//   target: string;
-//   images: string[];
-//   price: string;
-//   brand: string;
-//   likes?: number;
-//   category: string;
-//   clicks?: number;
-//   userid: string;
-//   collection: string;
-// }
-
 export const createProductInAppwrite = async (product: Prods) => {
   try {
     const response = await databases.createDocument(
       confvars.appwriteDatabaseId,
       confvars.appwriteCollectionId,
-      product.id, 
+      ID.unique() , 
       product
     );
     console.log("Document created successfully:", response);
@@ -52,8 +35,10 @@ export const updateProductInAppwrite = async (
       updatedData
     );
     console.log("Document updated successfully:", response);
+    return true;
   } catch (error) {
     console.log(`Appwrite updateDocument error: ${error}`);
+    return false;
   }
 };
 
@@ -64,9 +49,11 @@ export const deleteProductInAppwrite = async (id: string) => {
       confvars.appwriteCollectionId,
       id
     );
-    console.log("Document deleted successfully:", response);
+    console.log(response)
+    return true;
   } catch (error) {
     console.log(`Appwrite deleteDocument error: ${error}`);
+    return false;
   }
 };
 

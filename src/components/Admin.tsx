@@ -6,7 +6,7 @@ import {
   updateProduct,
   deleteProduct,
   getProducts,
-} from "../features/users/userSlice";
+} from "../features/products/productSlice";
 import {
   createProductInAppwrite,
   updateProductInAppwrite,
@@ -15,13 +15,13 @@ import {
 } from "../appwrite/config";
 import { nanoid } from "@reduxjs/toolkit";
 import { Prods } from "../utils/data";
-import { store } from "../app/store";
 
 const ProductsPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products);
 
-  const [productId, setProductId] = useState(nanoid());
+  const [productId, setProductId] = useState('')
+  
   const [title, setTitle] = useState("");
   const [target, setTarget] = useState("");
   const [images, setImages] = useState<string[]>([]);
@@ -48,7 +48,6 @@ const ProductsPage: React.FC = () => {
 
   const handleCreateProduct = async () => {
     const newProduct: Prods = {
-      id: productId,
       title,
       target,
       images,
@@ -60,12 +59,15 @@ const ProductsPage: React.FC = () => {
       likes: 0,
       clicks: 0,
     };
-    dispatch(addProduct(newProduct));
-    await createProductInAppwrite(newProduct);
+  
+    const createdProduct = await createProductInAppwrite(newProduct);
+    if (createdProduct) {
+      dispatch(addProduct(createdProduct));
+    }
   };
+  
   const handleUpdateProduct = async () => {
     const updatedProduct: Prods = {
-      id: productId,
       title,
       target,
       images,
@@ -74,15 +76,21 @@ const ProductsPage: React.FC = () => {
       category,
       userid,
       collection,
-
     };
-    dispatch(updateProduct(updatedProduct));
-    await updateProductInAppwrite(productId, updatedProduct);
+  
+    const isUpdated = await updateProductInAppwrite(productId, updatedProduct);
+    if (isUpdated) {
+      dispatch(updateProduct(updatedProduct));
+      setProductId('');
+    }
   };
-
+  
   const handleDeleteProduct = async () => {
-    dispatch(deleteProduct(productId));
-    await deleteProductInAppwrite(productId);
+    const isDeleted = await deleteProductInAppwrite(productId);
+    if (isDeleted) {
+      dispatch(deleteProduct(productId));
+      setProductId('');
+    }
   };
 
   return (

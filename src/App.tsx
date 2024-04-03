@@ -4,9 +4,15 @@ import Men from "./components/Men";
 import Women from "./components/Women";
 import Profile from "./components/Profile";
 import { Outlet } from "react-router-dom";
+import { getCurrentSession } from "./appwrite/auth";
+import { useEffect } from "react";
 
 
 function App() {
+  
+  useEffect(()=> {
+    getCurrentSession()
+  }, [])
   
   return (
     <>

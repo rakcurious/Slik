@@ -14,7 +14,7 @@ import LoginComponent from "./login";
   function Home() {
     return (
       <> 
-          <Admin />
+          <LoginComponent />
       </>
     );
   }
