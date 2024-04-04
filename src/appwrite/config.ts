@@ -1,6 +1,8 @@
 import { Client, Databases, ID } from "appwrite";
 import confvars from "../confvars/confvars";
 import { Prods } from "../utils/data";
+import { store } from "../app/store";
+import { getProducts } from "../features/products/productSlice";
 
 
 
@@ -66,6 +68,7 @@ export const fetchAllDocuments = async ()  => {
         confvars.appwriteCollectionId
       );
       console.log(response.documents);
+      store.dispatch(getProducts(response.documents))
       return response.documents;
     } catch (error) {
       console.log(`Appwrite listDocuments error: ${error}`);
