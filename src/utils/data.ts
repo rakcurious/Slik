@@ -470,7 +470,7 @@ export interface Prods  {
   target: string,
   title: string,
   userid: string,
-  collection: string
+  type: string
 }
 
 

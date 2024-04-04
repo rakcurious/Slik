@@ -4,10 +4,8 @@ import { updateProductInAppwrite } from "../appwrite/config";
 import { updateProduct } from "../features/products/productSlice";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { useEffect, useState } from "react";
-import failed from "../assets/failedemoji.svg";
 
 const UpdateProducts: React.FC = () => {
-  const [error, setError] = useState(false);
   const [product, setProduct] = useState<Partial<
     Omit<
       Prods,
@@ -113,12 +111,10 @@ const UpdateProducts: React.FC = () => {
     });
     if (updatedProduct) {
       dispatch(updateProduct(updatedProduct));
-      setError(false);
       reset();
       setId("");
       alert("Product updated successfully");
     } else {
-      setError(true);
       alert("Failed to update product");
     }
   };
@@ -139,34 +135,33 @@ const UpdateProducts: React.FC = () => {
           Get product
         </button>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
-          <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
-            <input placeholder="Title" {...register("title")} required />
-            <input placeholder="Target" {...register("target")} required />
-            <input placeholder="Images" {...register("images")} required />
-            <input placeholder="Price" {...register("price")} required />
-            <input placeholder="Brand" {...register("brand")} required />
-            <input placeholder="Category" {...register("category")} required />
-            <input placeholder="UserID" {...register("userid")} required />
-            <input
-              placeholder="Collection"
-              {...register("collection")}
-              required
-            />
-          </div>
-          <input
-            type="submit"
-            value="Update Products"
-            className="h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
-            disabled={!isDirty}
-          />
-        </div>
-      </form>
-      {error && (
-        <div className="w-screen h-auto flex justify-center">
-          <img src={failed} className="animate-bounce h-20 w-20" />
-        </div>
+      {product && (
+        <>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+              <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
+                <input placeholder="Title" {...register("title")} required />
+                <input placeholder="Target" {...register("target")} required />
+                <input placeholder="Images" {...register("images")} required />
+                <input placeholder="Price" {...register("price")} required />
+                <input placeholder="Brand" {...register("brand")} required />
+                <input
+                  placeholder="Category"
+                  {...register("category")}
+                  required
+                />
+                <input placeholder="UserID" {...register("userid")} required />
+                <input placeholder="Type" {...register("type")} required />
+              </div>
+              <input
+                type="submit"
+                value="Update Products"
+                className="h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
+                disabled={!isDirty}
+              />
+            </div>
+          </form>
+        </>
       )}
       <hr />
     </>

@@ -4,8 +4,6 @@ import { Prods } from "../utils/data";
 import { store } from "../app/store";
 import { getProducts } from "../features/products/productSlice";
 
-
-
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)
   .setProject(confvars.appwriteProjectId);
@@ -16,7 +14,7 @@ export const createProductInAppwrite = async (product: Prods) => {
     const response = await databases.createDocument(
       confvars.appwriteDatabaseId,
       confvars.appwriteCollectionId,
-      ID.unique() , 
+      ID.unique(),
       product
     );
     console.log("Document created successfully:", response);
@@ -53,7 +51,7 @@ export const deleteProductInAppwrite = async (id: string) => {
       confvars.appwriteCollectionId,
       id
     );
-    console.log(response)
+    console.log(response);
     return response;
   } catch (error) {
     console.log(`Appwrite deleteDocument error: ${error}`);
@@ -61,17 +59,17 @@ export const deleteProductInAppwrite = async (id: string) => {
   }
 };
 
-export const fetchAllDocuments = async ()  => {
-    try {
-      const response = await databases.listDocuments(
-        confvars.appwriteDatabaseId,
-        confvars.appwriteCollectionId
-      );
-      console.log(response.documents);
-      store.dispatch(getProducts(response.documents))
-      return response.documents;
-    } catch (error) {
-      console.log(`Appwrite listDocuments error: ${error}`);
-      return null;
-    }
+export const fetchAllDocuments = async () => {
+  try {
+    const response = await databases.listDocuments(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteCollectionId
+    );
+    console.log(response.documents);
+    store.dispatch(getProducts(response.documents));
+    return response.documents;
+  } catch (error) {
+    console.log(`Appwrite listDocuments error: ${error}`);
+    return null;
   }
+};
