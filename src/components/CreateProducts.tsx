@@ -3,6 +3,7 @@ import { Prods } from "../utils/data";
 import { createProductInAppwrite } from "../appwrite/config";
 import { addProduct } from "../features/products/productSlice";
 import { useAppDispatch } from "../app/hooks";
+import Upload from "./UploadImages";
 const CreateProducts: React.FC = () => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit, reset } = useForm<Prods>();
@@ -25,6 +26,7 @@ const CreateProducts: React.FC = () => {
 
   return (
     <>
+    <Upload />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
           <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
