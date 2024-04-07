@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-import { Prods } from "../utils/data";
-import DeleteProducts from "./DeleteProducts";
-import UpdateProducts from "./UpdateProducts";
-import CreateProducts from "./CreateProducts";
-import { fetchAllDocuments } from "../appwrite/config";
+import { Prods, CreateProducts, UpdateProducts, DeleteProducts, fetchAllDocuments, useAppSelector, useAppDispatch } from "../index";
 
 const Admin: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -18,7 +13,7 @@ const Admin: React.FC = () => {
   return (
     <>
       <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100 font-urbanist">
-        <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-6 rounded-3xl ring-2 ring-violet-200 font-urbanist text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
+        <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 font-urbanist text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
           <p
             onClick={() => setToggle("create")}
             className={

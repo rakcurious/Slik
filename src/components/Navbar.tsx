@@ -1,11 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import sliklogo from "../assets/sliklogo.webp";
-import { AnimatedTooltip } from "./ui/animated-tooltip";
-import { getCurrentSession, login, logout } from "../appwrite/auth";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { selectUserData } from "../features/users/userSlice";
+import {login, UserInfoLogout, useAppDispatch, useAppSelector } from "../index";
+import { selectUserData } from "../redux_toolkit/userSlice";
 import signinwithgoogle from '../assets/signinwithgoogle.svg'
-import { useEffect } from "react";
 
 
 function Navbar() {
@@ -47,7 +44,7 @@ function Navbar() {
       <div className="w-1/3 flex justify-end">
         {
           userdata? (
-        <AnimatedTooltip />) : 
+        <UserInfoLogout />) : 
         <img className="cursor-pointer h-6 md:h-10" src={signinwithgoogle} onClick={handleLogin}/>
         }
         

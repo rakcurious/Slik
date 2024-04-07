@@ -1,8 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Prods } from "../utils/data";
-import { updateProductInAppwrite } from "../appwrite/config";
-import { updateProduct } from "../features/products/productSlice";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { Prods, updateProductInAppwrite, useAppDispatch, useAppSelector } from "../index";
+import { updateProduct } from "../redux_toolkit/productSlice";
 import { useEffect, useState } from "react";
 
 const UpdateProducts: React.FC = () => {

@@ -1,8 +1,8 @@
 // appwriteAuth.ts
 import { Account, Client } from "appwrite";
-import confvars from "../confvars/confvars";
-import { setUserData } from "../features/users/userSlice";
-import { store } from "../app/store"; 
+import {confvars} from "../index";
+import { setUserData } from "../redux_toolkit/userSlice";
+import { store } from "../redux_toolkit/store"; 
 
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)

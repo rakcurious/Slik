@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
-import { Prods } from "../../utils/data";
+import { RootState } from "./store";
+import { Prods } from "../index";
 
 interface ProductState {
   products: any[];

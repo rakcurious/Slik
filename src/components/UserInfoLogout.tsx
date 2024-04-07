@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { motion, useTransform, useMotionValue, useSpring } from "framer-motion";
-import pfp from '../../assets/rakp.webp'
-import { logout } from "../../appwrite/auth";
-import { useAppSelector } from "../../app/hooks";
-import { selectUserData } from "../../features/users/userSlice";
+import pfp from '../assets/rakp.webp'
+import { logout, useAppSelector } from "../index";
+import { selectUserData } from "../redux_toolkit/userSlice";
 import { NavLink } from "react-router-dom";
 
-export const AnimatedTooltip = () => {
+export const UserInfoLogout = () => {
 
 const userdata = useAppSelector(selectUserData)
 

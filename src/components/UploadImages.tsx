@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 
-export default function Upload() {
+export default function UploadImages() {
   const [imageUrls, setImageUrls] = useState([]);
   const picsRef = useRef();
   const urlRef = useRef(null);

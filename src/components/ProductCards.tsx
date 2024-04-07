@@ -1,5 +1,5 @@
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
+import { CardBody, CardContainer, CardItem } from "../index";
 
 
 
@@ -22,7 +22,7 @@ const ProductCards : React.FC<{
       <div className="mt-4 xl:gap-x-0 font-urbanist grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 items-start mx-auto gap:2 md:gap-2 lg:gap-10 pb-10 px-0 md:px-10">
         {products.map((product) => (
           <CardContainer key={product.id} className="inter-var ">
-            <CardBody className=" flex flex-col items-center justify-start h-52 w-44 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl mb-0 md:mb-8 xl:mb-12 px-5 p-0">
+            <CardBody className=" flex flex-col items-center justify-start h-52 w-44 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl mb-10 md:mb-6 xl:mb-12 px-5 p-0">
               
                 <CardItem
                   translateZ="100"

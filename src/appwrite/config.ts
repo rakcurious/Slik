@@ -1,8 +1,7 @@
 import { Client, Databases, ID } from "appwrite";
-import confvars from "../confvars/confvars";
-import { Prods } from "../utils/data";
-import { store } from "../app/store";
-import { getProducts } from "../features/products/productSlice";
+import { Prods, confvars } from "../index";
+import { store } from "../redux_toolkit/store";
+import { getProducts } from "../redux_toolkit/productSlice";
 
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)
@@ -13,7 +12,7 @@ export const createProductInAppwrite = async (product: Prods) => {
   try {
     const response = await databases.createDocument(
       confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionId,
+      confvars.appwriteProductsCollectionId,
       ID.unique(),
       product
     );
@@ -32,7 +31,7 @@ export const updateProductInAppwrite = async (
   try {
     const response = await databases.updateDocument(
       confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionId,
+      confvars.appwriteProductsCollectionId,
       id,
       updatedData
     );
@@ -48,7 +47,7 @@ export const deleteProductInAppwrite = async (id: string) => {
   try {
     const response = await databases.deleteDocument(
       confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionId,
+      confvars.appwriteProductsCollectionId,
       id
     );
     console.log(response);
@@ -63,7 +62,7 @@ export const fetchAllDocuments = async () => {
   try {
     const response = await databases.listDocuments(
       confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionId
+      confvars.appwriteProductsCollectionId
     );
     console.log(response.documents);
     store.dispatch(getProducts(response.documents));

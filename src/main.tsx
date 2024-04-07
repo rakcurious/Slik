@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
@@ -9,12 +8,12 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./components/Home.tsx";
-import Men from "./components/Men.tsx";
-import Women from "./components/Women.tsx";
-import Profile from "./components/Profile.tsx";
+import Home from "./pages/Home.tsx";
+import Men from "./pages/Men.tsx";
+import Women from "./pages/Women.tsx";
+import Profile from "./pages/Profile.tsx";
 import { Provider } from "react-redux";
-import { store } from "./app/store.ts";
+import { store } from "./redux_toolkit/store.ts";
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(
