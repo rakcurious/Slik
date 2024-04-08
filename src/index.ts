@@ -6,7 +6,7 @@ import DeleteProducts from "./components/DeleteProducts";
 import Navbar from "./components/Navbar";
 import ProductCards from "./components/ProductCards";
 import ProductInfo from "./components/ProductInfo";
-import ProfileCards  from "./components/ProfileCards";
+import WishlistCards  from "./components/WishlistCards";
 import UpdateProducts from "./components/UpdateProducts";
 import UploadImages from "./components/UploadImages";
 import { UserInfoLogout } from "./components/UserInfoLogout";
@@ -60,7 +60,7 @@ export {
   getCurrentSession,
   Navbar,
   ProductInfo,
-  ProfileCards,
+  WishlistCards,
   UserInfoLogout,
   cn,
   confvars,

@@ -3,6 +3,7 @@ import sliklogo from "../assets/sliklogo.webp";
 import {login, UserInfoLogout, useAppDispatch, useAppSelector } from "../index";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import signinwithgoogle from '../assets/signinwithgoogle.svg'
+import pfp from '../assets/rakp.webp'
 
 
 function Navbar() {
@@ -44,7 +45,12 @@ function Navbar() {
       <div className="w-1/3 flex justify-end">
         {
           userdata? (
-        <UserInfoLogout />) : 
+            <img 
+            onClick={()=> navigate('/profile')}
+            src={pfp}
+            alt="pfp"
+            className=" cursor-pointer object-cover !m-0 !p-0 object-top rounded-full h-10 w-10 border-2  border-purple-200 transition duration-500"
+          />) : 
         <img className="cursor-pointer h-6 md:h-10" src={signinwithgoogle} onClick={handleLogin}/>
         }
         

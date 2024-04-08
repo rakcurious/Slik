@@ -43,7 +43,7 @@ export default function UploadImages() {
 
   return (
     <>
-      <div className="font-urbanist mt-10 w-screen h-auto flex-col gap-y-4 flex items-center mb-10">
+      <div className="font-urbanist w-screen h-auto flex-col gap-y-4 flex items-center mb-10">
         <input type="file" multiple ref={picsRef} />
         <button
           className="h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"

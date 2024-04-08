@@ -1,23 +1,33 @@
-import { useState } from "react";
-import { products, ProfileCards } from "../index";
+import { logout, products, useAppSelector, WishlistCards } from "../index";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
-  const [toggle, setToggle] = useState("wishlist");
+
+  const navigate = useNavigate()
+
+  const userdata = useAppSelector(selectUserData);
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/')
+  };
 
   return (
     <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
-      <div className="z-10 sticky bg-transparent top-24 h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-0 -m-16 px-2 md:px-6 rounded-3xl  ring-2 ring-violet-200">
-        <p className="w-auto px-6 py-1 text-xl font-urbanist font-semibold rounded-full hover:ring-1  hover:ring-violet-300  ">
-          Wishboards
-        </p>
-        <p className="w-auto px-6 py-1 bg-violet-100 text-xl font-urbanist font-semibold rounded-3xl ring-1 ring-violet-200">
-          Wishlist
-        </p>
-        <p className="w-auto px-6 py-1 text-xl font-urbanist font-semibold rounded-3xl hover:ring-1 hover:ring-violet-200">
-          Creations
-        </p>
+      <div className="z-20 font-urbanist bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10"> 
+      <div className="flex flex-col justify-start w-1/3">
+      <p className="font-semibold text-lg truncate">{userdata.name.split(' ')[0]}</p>
+      <p className="font-normal text-xs md:text-sm truncate">{userdata.email}</p>
       </div>
-      <ProfileCards products={products} />
+      <h1 className="font-bold text-xl text-center w-1/3">WISHLIST</h1>
+      <div className="w-1/3 flex justify-end">
+<button onClick={handleLogout} className="font-bold text-lg rounded-xl px-4 py-1 bg-purple-300 text-center cursor-pointer hover:bg-purple-400 transition duration-500 -translate-y-1 hover:-translate-y-2">Logout</button>
+      </div>
+      
+      </div>
+      
+      <WishlistCards products={products} />
     </div>
   );
 }

@@ -54,7 +54,7 @@ const Admin: React.FC = () => {
         PRODUCTS
       </h1>
       {products && products.length > 0 ? (
-        <div className="h-auto w-screen px-10 flex flex-col justify-start items-center gap-4 text-sm font-semibold *:h-auto *:w-auto *:text-center *:rounded-xl *:px-1">
+        <div className="h-auto w-screen px-10 pb-10 flex flex-col justify-start items-center gap-4 text-sm font-semibold *:h-auto *:w-auto *:text-center *:rounded-xl *:px-1">
           {products.map((product: Prods) => (
             <div
               className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"

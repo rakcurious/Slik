@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { CardBody, CardContainer, CardItem, cn } from "../index";
 
- const ProfileCards: React.FC<{
+ const WishlistCards: React.FC<{
     products: {
       id: number;
       name: string;
@@ -37,7 +37,7 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
   return (
     <div
       className={cn(
-        " min-h-screen items-start py-28 w-full overflow-y-auto overflow-x-hidden absolute inset-0"
+        "pt-32 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
       )}
       ref={gridRef}
     >
@@ -95,4 +95,4 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
   );
 };
 
-export default ProfileCards;
+export default WishlistCards;
