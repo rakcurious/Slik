@@ -10,8 +10,7 @@ const CreateProducts: React.FC = () => {
     const createdProduct = await createProductInAppwrite({
       ...data,
       images: data.images.split(","),
-      likes: 0,
-      clicks: 0,
+      wishlist: []
     });
     if (createdProduct) {
       dispatch(addProduct(createdProduct));

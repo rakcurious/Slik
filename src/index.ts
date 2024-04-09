@@ -28,14 +28,13 @@ export interface Prods {
   category: string,
   clicks?: number,
   images: string[],
-  likes?: number,
+  wishlist: string[],
   price: number,
   target: string,
   title: string,
   userid: string,
   type: string
 }
-
 
 export {
   CategoryCards,

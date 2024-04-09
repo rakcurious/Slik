@@ -16,6 +16,8 @@ const ProductCards : React.FC<{
     category: string;
   }[];
 }> = ({ products }) => {
+
+
   return (
     <>
     <h1 className="text-center font-urbanist font-bold text-4xl mt-10">PRODUCTS</h1>

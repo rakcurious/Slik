@@ -25,17 +25,17 @@ const ProductInfo: React.FC = () => {
         </div>
         <div className="w-1/3  px-4 py-10 rounded-xl fixed top-32 right-4 h-auto font-urbanist">
           <h1 className="text-xl font-bold mb-4 capitalize text-center">
-            Formal attire shadow grey trouser sfdfjsgfsfjshf
+            Formal attire shadow grey trouser
           </h1>
           <p className="mb-2 gap-2 text-lg capitalize font-medium text-center">
             Adah by Leesha
           </p>
           <p className="text-lg font-semibold text-center mb-4">₹1299</p>
-          <div className="flex flex-col gap-2 w-full">
-            <button className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
+          <div className="flex flex-col items-center gap-2 w-full">
+            <button className="bg-black text-xl w-4/5 font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100">
               Add to Wishlist
             </button>
-            <button className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
+            <button className="bg-black text-xl w-4/5 font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
               Buy Now
             </button>
           </div>

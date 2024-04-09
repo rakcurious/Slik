@@ -104,8 +104,8 @@ const UpdateProducts: React.FC = () => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
-      likes: 0,
-      clicks: 0,
+      wishlist: products.find((product) => product.$id === id).wishlist
+
     });
     if (updatedProduct) {
       dispatch(updateProduct(updatedProduct));
