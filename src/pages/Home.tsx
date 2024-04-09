@@ -1,9 +1,10 @@
-import Admin from "./Admin";
+import ProductInfo from "./ProductInfo";
+
 
 function Home() {
   return (
     <>
-      <Admin />
+      <ProductInfo />
     </>
   );
 }

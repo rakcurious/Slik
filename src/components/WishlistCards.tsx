@@ -1,6 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { CardBody, CardContainer, CardItem, cn } from "../index";
+import heart from '../assets/heart.svg'
+import heartfill from '../assets/heartfill.svg'
 
  const WishlistCards: React.FC<{
     products: {
@@ -22,6 +24,8 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
     container: gridRef,
     offset: ["start start", "end start"],
   });
+
+  const [loved, setLoved] = useState(true)
 
   const translateFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const translateSecond = useTransform(scrollYProgress, [0, 1], [0, 200]);
@@ -53,7 +57,7 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
                 key={`grid-1${idx}`}
               >
                 <CardContainer key={product.id} className="inter-var ">
-                  <CardBody className=" flex flex-col items-center justify-start h-52 w-44 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl mb-10 md:mb-6 xl:mb-12 px-5 p-0">
+                  <CardBody className=" flex flex-col items-center justify-start h-52 w-44 md:h-full md:w-full lg:h-72 lg:w-72 relative group/card  rounded-xl mb-10 md:mb-6 xl:mb-12 px-1 md:px-5 p-0">
                     <CardItem
                       translateZ="100"
                       className="w-full flex justify-center mb-2"
@@ -65,7 +69,7 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
                       />
                     </CardItem>
 
-                    <div className="flex justify-between w-32 md:w-60 lg:w-52">
+                    <div className="flex justify-between w-48 md:w-60 lg:w-52">
                       <CardItem
                         translateZ="50"
                         className="text-xs md:text-sm font-semibold"
@@ -74,6 +78,9 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
                         <div className="text-xs md:text-sm font-semibold  truncate max-w-52">
                           {product.brand}
                         </div>
+                        <div className="text-xs md:text-sm font-semibold  truncate max-w-52">
+                        {product.price}
+                        </div>
                       </CardItem>
 
                       <CardItem
@@ -81,7 +88,11 @@ import { CardBody, CardContainer, CardItem, cn } from "../index";
                         translateZ="60"
                         className="text-sm  md:text-lg font-normal"
                       >
-                        {product.price}
+                        <img onClick={()=>setLoved((prev)=>!prev)} src={loved? heartfill: heart } className="h-6 w-6 cursor-pointer"/>
+                        <div className="text-center h-6 w-6 text-lg md:text-lg font-semibold">
+                        {`0`}
+                        </div>
+                        
                       </CardItem>
                     </div>
                   </CardBody>

@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import sliklogo from "../assets/sliklogo.webp";
-import {login, UserInfoLogout, useAppDispatch, useAppSelector } from "../index";
+import {login, useAppDispatch, useAppSelector } from "../index";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import signinwithgoogle from '../assets/signinwithgoogle.svg'
 import pfp from '../assets/rakp.webp'

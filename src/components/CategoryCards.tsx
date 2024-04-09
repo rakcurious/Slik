@@ -26,7 +26,7 @@ const CategoryCards: React.FC<{
               >
                 <img
                   src={product.imageSrc}
-                  className="h-80 w-80 md:h-full md:w-full lg:h-96 lg:w-96  object-cover  rounded-lg group-hover/card:shadow-xl"
+                  className=" h-80 w-80 md:h-full md:w-full lg:h-96 lg:w-96  object-cover  rounded-lg group-hover/card:shadow-xl"
                   alt="thumbnail"
                 />
               </CardItem>

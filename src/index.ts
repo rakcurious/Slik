@@ -5,7 +5,7 @@ import CreateProducts from "./components/CreateProducts";
 import DeleteProducts from "./components/DeleteProducts";
 import Navbar from "./components/Navbar";
 import ProductCards from "./components/ProductCards";
-import ProductInfo from "./components/ProductInfo";
+import ProductInfo from "./pages/ProductInfo";
 import WishlistCards  from "./components/WishlistCards";
 import UpdateProducts from "./components/UpdateProducts";
 import UploadImages from "./components/UploadImages";
