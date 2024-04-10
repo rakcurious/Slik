@@ -1,4 +1,4 @@
-import { logout, products, useAppSelector, WishlistCards } from "../index";
+import { logout, useAppSelector, WishlistCards } from "../index";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +7,11 @@ function Profile() {
   const navigate = useNavigate()
 
   const userdata = useAppSelector(selectUserData);
+
+  let products = useAppSelector((store)=>store.products.products)
+
+ 
+    products = products.filter((product)=> product.wishlist.includes(userdata.$id))
 
   const handleLogout = async () => {
     await logout();

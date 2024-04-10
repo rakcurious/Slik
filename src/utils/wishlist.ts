@@ -4,10 +4,6 @@ import { useAppDispatch, useAppSelector } from "../redux_toolkit/hooks";
 import { updateProduct } from "../redux_toolkit/productSlice";
 import { store } from "../redux_toolkit/store";
 
-
-// const products = useAppSelector((store)=> store.products.products);
-// const dispatch = useAppDispatch();
-
 export const wishlistUpdate = async (products: Prods[], id:string, userid:string) => {
 const product = products.find((product)=>product.$id === id)
 let wishlist = product.wishlist
@@ -16,7 +12,7 @@ if(wishlist.includes(userid)){
 }
 else {
     console.log(wishlist)
-    wishlist = [...wishlist, userid]
+    wishlist = [userid, ...wishlist]
 }
 
 const updatedProduct = await updateProductInAppwrite(id, {
