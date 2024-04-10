@@ -1,27 +1,38 @@
+import { Prods } from "..";
 import { updateProductInAppwrite } from "../appwrite/config";
 import { useAppDispatch, useAppSelector } from "../redux_toolkit/hooks";
 import { updateProduct } from "../redux_toolkit/productSlice";
+import { store } from "../redux_toolkit/store";
 
-const products = useAppSelector((store)=> store.products.products);
-const dispatch = useAppDispatch();
 
-export const wishlistUpdate = async (id:string) => {
+// const products = useAppSelector((store)=> store.products.products);
+// const dispatch = useAppDispatch();
+
+export const wishlistUpdate = async (products: Prods[], id:string, userid:string) => {
 const product = products.find((product)=>product.$id === id)
 let wishlist = product.wishlist
-if(wishlist.has(id)){
-    wishlist = wishlist.filter((userid:string) => userid !== id)
+if(wishlist.includes(userid)){
+    wishlist = wishlist.filter((user:string) => user !== userid)
 }
 else {
-    wishlist.push(id)
+    console.log(wishlist)
+    wishlist = [...wishlist, userid]
 }
 
 const updatedProduct = await updateProductInAppwrite(id, {
-    ...product,
+    title: product?.title,
+    target:product?.target,
+    images:product?.images,
+    price:product?.price,
+    brand:product?.brand,
+    category:product?.category,
+    type:product?.type,
+    userid:product?.userid,
     wishlist: wishlist
 
   });
   if (updatedProduct) {
-    dispatch(updateProduct(updatedProduct));
+    store.dispatch(updateProduct(updatedProduct));
     console.log("Product added to wishlist");
   } else {
     console.log("Failed to add the product to wishlist");

@@ -1,10 +1,12 @@
+import Admin from "./Admin";
+import Men from "./Men";
 import ProductInfo from "./ProductInfo";
 
 
 function Home() {
   return (
     <>
-      <ProductInfo />
+      <Admin />
     </>
   );
 }

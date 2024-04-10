@@ -41,6 +41,8 @@ const UpdateProducts: React.FC = () => {
 
   const getProductDetails = () => {
     const foundProduct = products.find((product) => product.$id === id);
+    console.log(products)
+    console.log(foundProduct)
     if (foundProduct) {
       const updatedProduct: Partial<
         Omit<
@@ -128,7 +130,7 @@ const UpdateProducts: React.FC = () => {
         />
         <button
           onClick={getProductDetails}
-          className="h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
+          className="h-12 w-48 text-2xl font-semibold text-center bg-black text-white rounded-lg transition duration-200"
         >
           Get product
         </button>
@@ -153,8 +155,8 @@ const UpdateProducts: React.FC = () => {
               </div>
               <input
                 type="submit"
-                value="Update Products"
-                className="h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
+                value="Update Product"
+                className="h-12 w-48 text-2xl font-semibold text-center bg-black rounded-lg text-white transition duration-200"
                 disabled={!isDirty}
               />
             </div>

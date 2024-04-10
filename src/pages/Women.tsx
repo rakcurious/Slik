@@ -17,7 +17,7 @@ import {
         
           <BannerSlider images={womenBanners} />
           <CategoryCards categories={womenCategories} />
-          <ProductCards products={womenProducts} />
+          <ProductCards category='women' />
       </>
     );
   }

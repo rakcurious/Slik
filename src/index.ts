@@ -26,7 +26,6 @@ export interface Prods {
   $updatedAt?: string,
   brand: string,
   category: string,
-  clicks?: number,
   images: string[],
   wishlist: string[],
   price: number,

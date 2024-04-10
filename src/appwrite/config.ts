@@ -1,5 +1,6 @@
 import { Client, Databases, ID } from "appwrite";
-import { Prods, confvars } from "../index";
+import { Prods } from "../index";
+import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
 import { getProducts } from "../redux_toolkit/productSlice";
 

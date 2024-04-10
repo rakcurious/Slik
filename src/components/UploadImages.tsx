@@ -46,7 +46,7 @@ export default function UploadImages() {
       <div className="font-urbanist w-screen h-auto flex-col gap-y-4 flex items-center mb-10">
         <input type="file" multiple ref={picsRef} />
         <button
-          className="h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
+          className="h-12 w-48 text-2xl font-medium text-center bg-black text-white rounded-lg  transition duration-200"
           onClick={submitImages}
         >
           Upload
@@ -67,7 +67,7 @@ export default function UploadImages() {
                 />
                 <button
                   onClick={() => copyUrlToClipboard(index)}
-                  className="h-10 w-20 outline-none rounded-lg bg-purple-300 px-3 py-0.5 shrink-0"
+                  className="h-10 w-20 outline-none rounded-lg bg-black text-white px-3 py-0.5 shrink-0"
                 >
                   copy
                 </button>
@@ -76,7 +76,7 @@ export default function UploadImages() {
           {imageUrls.length > 0 && (
             <button
               onClick={copyAll}
-              className="h-10 w-40 text-xl font-semibold outline-none rounded-lg bg-purple-300 px-3 my-2 py-1 shrink-0"
+              className="h-10 w-40 text-xl font-semibold outline-none rounded-lg bg-black text-white px-3 my-2 py-1 shrink-0"
             >
               copy all
             </button>
