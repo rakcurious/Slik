@@ -1,9 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { CardBody, CardContainer, CardItem, Prods, cn, useAppSelector } from "../index";
-import heart from '../assets/heart.svg'
-import heartfill from '../assets/heartfill.svg'
-import { wishlistUpdate } from "../utils/wishlist";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import { useNavigate } from "react-router-dom";
 

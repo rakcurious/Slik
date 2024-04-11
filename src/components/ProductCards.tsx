@@ -27,33 +27,33 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
   return (
     <>
     <h1 className="text-center font-urbanist font-bold text-4xl mt-10">PRODUCTS</h1>
-      <div className="mt-4 xl:gap-x-0 font-urbanist grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 items-start mx-auto gap:2 md:gap-2 lg:gap-10 pb-40 px-0 md:px-10">
+      <div className="mt-4 pb-40 font-urbanis items-start mx-auto grid grid-cols-2 gap-x-2 gap-y-10 px-2 md:grid-cols-3 md:gap-y-10 md:px-5 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4">
         {products.map((product:Prods) => (
-          <CardContainer key={product.$id} className="inter-var ">
-            <CardBody className=" flex flex-col items-center justify-start h-52 w-44 md:h-full md:w-full lg:h-96 lg:w-auto relative group/card  rounded-xl mb-10 md:mb-6 xl:mb-12 px-5 p-0">
+          <CardContainer key={product.$id} className="inter-var col-span-1">
+            <CardBody className="flex flex-col items-center justify-start  relative group/card rounded-xl w-44 sm:w-60 md:w-52 lg:w-64">
               
                 <CardItem
                   translateZ="100"
-                  className="w-full flex justify-center mb-2"
+                  className="w-auto flex justify-center mb-2"
                 >
                   
                   <img onClick={()=>navigate(`/product/${product.$id}`)}
                     src={product.images[0]}
-                    className="h-auto w-auto md:h-auto xl:h-96 xl:w-auto md:w-auto object-cover  rounded-lg group-hover/card:shadow-xl cursor-pointer"
+                    className="w-full aspect-[3/4] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
                     alt={product.title}
                   />
                 </CardItem>
                 
-                <div className="flex justify-between w-48 md:w-60 lg:w-60">
+                <div className="flex justify-start w-full">
                       <CardItem
                         translateZ="50"
-                        className="text-xs md:text-sm"
+                        className="text-xs lg:text-sm w-5/6 pl-2"
                       >
-                        <div className="truncate font-semibold text-base max-w-40 md:max-w-52">{product.title}</div>
-                        <div className="text-xs md:text-sm font-normal  truncate max-w-52 uppercase">
+                        <div className="truncate font-semibold">{product.title}</div>
+                        <div className=" font-normal truncate uppercase">
                           {product.brand}
                         </div>
-                        <div className="text-xs mb-1 md:text-sm font-semibold  truncate max-w-52">
+                        <div className=" mb-1 font-semibold  truncate">
                         {`₹${product.price}`}
                         </div>
                       </CardItem>
@@ -61,10 +61,10 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
                       <CardItem
                         as="div"
                         translateZ="60"
-                        className="text-sm  md:text-lg font-normal"
+                        className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/6"
                       >
-                        <img onClick={()=>wishlistUpdate(products, product.$id, userdata?.$id)} src={product.wishlist.includes(userdata?.$id)? heartfill: heart } className="h-6 w-6 cursor-pointer"/>
-                        <div className="text-center h-6 w-6 text-lg md:text-lg font-semibold">
+                        <img onClick={()=>wishlistUpdate(products, product.$id, userdata?.$id)} src={product.wishlist.includes(userdata?.$id)? heartfill: heart } className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"/>
+                        <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
                         {product.wishlist.length}
                         </div>
                         
