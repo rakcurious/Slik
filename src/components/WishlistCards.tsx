@@ -5,6 +5,7 @@ import heart from '../assets/heart.svg'
 import heartfill from '../assets/heartfill.svg'
 import { wishlistUpdate } from "../utils/wishlist";
 import { selectUserData } from "../redux_toolkit/userSlice";
+import { useNavigate } from "react-router-dom";
 
  const WishlistCards: React.FC<{
     products: Prods[];
@@ -13,6 +14,7 @@ import { selectUserData } from "../redux_toolkit/userSlice";
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const userdata = useAppSelector(selectUserData);
+  const navigate = useNavigate();
 
   const { scrollYProgress } = useScroll({
     container: gridRef,
@@ -45,7 +47,7 @@ import { selectUserData } from "../redux_toolkit/userSlice";
         ref={gridRef}
       >
         {partsArr.map((part, id) => (
-          <div className="grid gap-4 md:gap-6 lg:gap-20">
+          <div key={id} className="grid gap-4 md:gap-6 lg:gap-20">
             {part.map((product, idx) => (
               <motion.div
                 style={{ y: id % 2 == 0 ? translateFirst : translateSecond }}
@@ -59,8 +61,9 @@ import { selectUserData } from "../redux_toolkit/userSlice";
                 className="w-full flex justify-center mb-2"
               >
                 <img
+                  onClick={()=>navigate(`/product/${product.$id}`)}
                   src={product.images[0]}
-                  className="w-full aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
+                  className="w-full aspect-[3/4] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
                   alt={product.title}
                 />
               </CardItem>

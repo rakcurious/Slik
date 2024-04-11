@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
     banners,
     categories,
@@ -8,6 +9,11 @@ import {
   } from "../index";
   
   function Women() {
+
+
+    useEffect(() => {
+      document.body.scrollTo(0, 0); 
+  });
   
       let womenBanners = banners.filter((banner)=> banner.category === "women")
       let womenCategories = categories.filter((category)=> category.category === "women")

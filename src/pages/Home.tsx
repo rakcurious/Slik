@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import BannerSlider from "../components/BannerSlider";
 import CategoryCards from "../components/CategoryCards";
 import ProductCards from "../components/ProductCards";
@@ -8,6 +9,10 @@ import ProductInfo from "./ProductInfo";
 
 
 function Home() {
+
+  useEffect(() => {
+    document.body.scrollTo(0, 0); 
+});
   return (
     <>
       <BannerSlider images={banners} />

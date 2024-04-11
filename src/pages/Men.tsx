@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   banners,
   categories,
@@ -9,7 +10,9 @@ import {
 
 function Men() {
 
-  const products = useAppSelector((store)=> store.products.products)
+  useEffect(() => {
+    document.body.scrollTo(0, 0); 
+});
 
     let menBanners = banners.filter((banner)=> banner.category === "men")
     let menCategories = categories.filter((category)=> category.category === "men")

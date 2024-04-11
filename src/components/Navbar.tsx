@@ -36,7 +36,7 @@ function Navbar() {
         <NavLink to='/' className={({isActive}) =>
                                         `lol:hidden rounded ${isActive ? "text-fuchsia-800" : ""}`
                                     } >
-        BRANDS
+        HOME
         </NavLink>
       </div>
       <div className="w-1/3 flex justify-center">

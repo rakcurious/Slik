@@ -5,15 +5,17 @@ import { selectUserData } from "../redux_toolkit/userSlice";
 import heartfill from '../assets/heartfill.svg'
 import heart from '../assets/heart.svg'
 import { selectProducts } from "../redux_toolkit/productSlice";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const ProductCards : React.FC<{category: string}> = ({category}) => {
 
+  const navigate = useNavigate();
 
   const userdata = useAppSelector(selectUserData);
-  let products = useAppSelector((store)=>store.products.products)
+  let products = useAppSelector(selectProducts).products;
 
   if(category === "men"){
     products = products.filter((product)=> product.category === "men")
@@ -34,7 +36,8 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
                   translateZ="100"
                   className="w-full flex justify-center mb-2"
                 >
-                  <img
+                  
+                  <img onClick={()=>navigate(`/product/${product.$id}`)}
                     src={product.images[0]}
                     className="h-auto w-auto md:h-auto xl:h-96 xl:w-auto md:w-auto object-cover  rounded-lg group-hover/card:shadow-xl cursor-pointer"
                     alt={product.title}

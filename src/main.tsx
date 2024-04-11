@@ -6,7 +6,7 @@ import {
   RouteObject,
   createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import Men from "./pages/Men.tsx";
@@ -15,6 +15,7 @@ import Profile from "./pages/Profile.tsx";
 import { Provider } from "react-redux";
 import { store } from "./redux_toolkit/store.ts";
 import Admin from "./pages/Admin.tsx";
+import ProductInfo from "./pages/ProductInfo.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/women" element={<Women />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin" element={<Admin/>} />
+      <Route path="/product/:productid" element={<ProductInfo/>} />
     </Route>
   )
 );
