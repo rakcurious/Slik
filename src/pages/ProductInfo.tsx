@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../redux_toolkit/hooks";
-import { selectUserData } from "../redux_toolkit/userSlice";
+import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
 import { selectProducts } from "../redux_toolkit/productSlice";
-import { wishlistUpdate } from "../utils/wishlist";
+import { handleWishlistUpdate } from "../utils/wishlist";
 import { useEffect } from "react";
 import React from "react";
 import Slider from "react-slick";
@@ -10,8 +10,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ProductInfo: React.FC = () => {
-  const products = useAppSelector(selectProducts).products;
+  const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
+  const wishlist = useAppSelector(selectWishlist);
 
   const { productid } = useParams();
 
@@ -62,17 +63,17 @@ const ProductInfo: React.FC = () => {
               <div className="flex flex-col items-center gap-2 w-full">
                 <button
                   onClick={() =>
-                    wishlistUpdate(products, product.$id, userdata?.$id)
+                    handleWishlistUpdate(product.$id, userdata, wishlist, products)
                   }
                   className="bg-black text-xl w-4/5 font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
-                  {product?.wishlist.includes(userdata.$id)
+                  {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <button className="bg-black text-xl w-4/5 font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
+                <a href={product.target} className="bg-black text-xl w-4/5 font-semibold h-14 text-center text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
                   Buy Now
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -104,17 +105,17 @@ const ProductInfo: React.FC = () => {
               <div className="flex flex-col gap-2 w-full">
                 <button
                   onClick={() =>
-                    wishlistUpdate(products, product.$id, userdata?.$id)
+                    handleWishlistUpdate(product.$id, userdata, wishlist, products)
                   }
                   className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
-                  {product?.wishlist.includes(userdata.$id)
+                  {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <button className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
+                <a href={product.target} className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg text-center transition duration-500 hover:-translate-y-0.5">
                   Buy Now
-                </button>
+                </a>
               </div>
             </div>
           </div>

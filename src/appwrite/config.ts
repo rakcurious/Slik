@@ -1,4 +1,4 @@
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, ID, Query } from "appwrite";
 import { Prods } from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
@@ -70,6 +70,57 @@ export const fetchAllDocuments = async () => {
     return response.documents;
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
+    return null;
+  }
+};
+
+export const fetchWishlist = async (id: string) => {
+  try {
+    const response = await databases.listDocuments(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteUsersCollectionId,
+    );
+
+    if (response.documents.length > 0) {
+      return response.documents[0];
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log(`Appwrite listDocuments error: ${error}`);
+    console.log(id)
+    return null;
+  }
+};
+
+export const createWishlist = async (id: string) => {
+  try {
+    const response = await databases.createDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteUsersCollectionId,
+      id,
+      { wishlist: [] }
+    );
+    console.log("Wishlist created successfully:", response);
+    return response;
+  } catch (error) {
+    console.log(`Appwrite createDocument error: Wishlist:: ${error}`);
+    return null;
+  }
+};
+
+export const updateWishlist = async (id: string, updatedData: string[]) => {
+  try {
+    const response = await databases.updateDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteUsersCollectionId,
+      id,
+      { wishlist: updatedData }
+    );
+    console.log("Wishlist updated successfully:", response);
+    return response;
+  } catch (error) {
+    console.log(`Appwrite updateDocument error: Wishlist:: ${error}`);
     return null;
   }
 };

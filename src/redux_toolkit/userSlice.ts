@@ -5,12 +5,12 @@ import { Models } from "appwrite";
 
 interface UserState {
     userData: Models.Account<Models.Preferences> | null;
-    isLoggedIn: boolean;
+    wishlist: any;
   }
   
   const initialState: UserState = {
     userData: null,
-    isLoggedIn: false,
+    wishlist: []
   };
 const userSlice = createSlice({
     name: "user",
@@ -19,13 +19,13 @@ const userSlice = createSlice({
       setUserData: (state, action: PayloadAction<Models.Account<Models.Preferences> | null>) => {
         state.userData = action.payload;
       },
-      setLoginStatus: (state, action: PayloadAction<boolean>) => {
-        state.isLoggedIn = action.payload;
+      setWishlist: (state, action: PayloadAction<string[]>) => {
+        state.wishlist = action.payload;
       },
     },
   });
   
-  export const { setUserData, setLoginStatus } = userSlice.actions;
+  export const { setUserData, setWishlist } = userSlice.actions;
   export const selectUserData = (state: RootState) => state.user.userData;
-  export const selectIsLoggedIn = (state: RootState) => state.user.isLoggedIn;
+  export const selectWishlist = (state: RootState) => state.user.wishlist;
   export default userSlice.reducer;
