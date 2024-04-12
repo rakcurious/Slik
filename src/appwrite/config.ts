@@ -80,12 +80,9 @@ export const fetchWishlist = async (id: string) => {
       confvars.appwriteDatabaseId,
       confvars.appwriteUsersCollectionId,
     );
-
-    if (response.documents.length > 0) {
-      return response.documents[0];
-    } else {
-      return null;
-    }
+    const wishlist = response.documents.find((user)=> user.$id == id).wishlist;
+      return wishlist;
+    
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
     console.log(id)

@@ -20,22 +20,6 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
   const wishlist = useAppSelector(selectWishlist);
 
 
-// const handleWishlistUpdate = async (productId: any) => {
-//   if (userdata) {
-//     const updatedWishlist = wishlist.includes(productId)
-//       ? wishlist.filter((id:string) => id !== productId)
-//       : [...wishlist, productId];
-
-//     const response = await updateWishlist(userdata.$id, updatedWishlist);
-//     if (response) {
-//       dispatch(setWishlist(updatedWishlist));
-//       console.log("Wishlist updated successfully");
-//     } else {
-//       console.log("Failed to update wishlist");
-//     }
-//     wishlistUpdate(products, productId, userdata?.$id)
-//   }
-// };
 
   if(category === "men"){
     products = products.filter((product)=> product.category === "men")
@@ -71,7 +55,7 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
                         translateZ="50"
                         className="text-xs lg:text-sm w-5/6 pl-2"
                       >
-                        <div className="truncate font-semibold">{product.title}</div>
+                        <div className="truncate capitalize font-semibold">{product.title}</div>
                         <div className=" font-normal truncate uppercase">
                           {product.brand}
                         </div>

@@ -82,4 +82,7 @@ export const handleWishlistUpdate = async (productId: any, userdata:any, wishlis
       }
 
   }
+  else {
+    console.log('please login')
+  }
 };

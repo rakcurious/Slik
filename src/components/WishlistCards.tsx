@@ -34,12 +34,12 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
   return (
     <div
       className={cn(
-        "py-32 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
+        "pt-32 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
       )}
       ref={gridRef}
     >
       <div
-        className={`mt-4 pb-40 font-urbanis items-start mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-10 px-2 md:gap-y-10 md:px-5 lg:gap-x-10 lg:gap-y-10`}
+        className={`mt-4 pb-4 font-urbanis items-start mx-auto grid grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-10 px-2 md:gap-y-10 md:px-5 lg:gap-x-10 lg:gap-y-10`}
         ref={gridRef}
       >
         {columnArrays.map((columnProducts, columnIndex) => (
