@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <div className="h-full min-h-screen w-screen p-0 bg-gradient-to-br from-purple-100 to-indigo-100">
+      <div className="h-full min-h-screen w-screen p-0 bg-gradient-to-br from-purple-100 via-indigo-100 to-purple-100">
         
         <Outlet />
       </div>

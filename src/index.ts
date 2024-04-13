@@ -14,7 +14,7 @@ import { cn } from "./utils/cn";
 import {categories, banners, products } from "./utils/data";
 import confvars from "./appwrite/confvars";
 import { createProductInAppwrite, updateProductInAppwrite, deleteProductInAppwrite, fetchAllDocuments } from "./appwrite/config";
-import { login, logout, getCurrentSession } from "./appwrite/auth";
+import { loginWithEmailAndPassword, logout, getCurrentSession } from "./appwrite/auth";
 import { useAppSelector, useAppDispatch } from "./redux_toolkit/hooks";
 
 export interface Prods {
@@ -53,7 +53,7 @@ export {
   updateProductInAppwrite,
   deleteProductInAppwrite,
   fetchAllDocuments,
-  login,
+  loginWithEmailAndPassword,
   logout,
   getCurrentSession,
   Navbar,

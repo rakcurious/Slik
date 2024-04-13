@@ -24,11 +24,6 @@ function Navbar() {
   }
 
 
-  const handleLogin = async () => {
-    await login();
-  };
-
-
 
   return (
     <nav className="sticky z-20 top-0 w-screen h-20 flex mt-0 py-2 items-center justify-center px-4 bg-purple-100">
@@ -66,7 +61,7 @@ function Navbar() {
           onClick={()=>navigate('/login')}
           className="font-bold text-lg rounded-xl px-4 py-1 bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2"
         >
-          Logout
+          Login
         </button>
         }
         
