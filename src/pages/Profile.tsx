@@ -1,4 +1,4 @@
-import { logout, useAppSelector, WishlistCards } from "../index";
+import { logout, Navbar, useAppSelector, WishlistCards } from "../index";
 import { selectProducts } from "../redux_toolkit/productSlice";
 import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
 import { useNavigate } from "react-router-dom";
@@ -23,6 +23,7 @@ function Profile() {
 
   return (
     <>
+    <Navbar />
       {userdata && (
         <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
           <div className="z-20 font-urbanist bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10">

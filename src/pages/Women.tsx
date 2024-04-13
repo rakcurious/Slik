@@ -6,6 +6,7 @@ import {
     CategoryCards,
     BannerSlider,
     ProductCards,
+    Navbar,
   } from "../index";
   
   function Women() {
@@ -20,7 +21,7 @@ import {
       let womenProducts = products.filter((product)=> product.category === "women")
     return (
       <>
-        
+        <Navbar />
           <BannerSlider images={womenBanners} />
           <CategoryCards categories={womenCategories} />
           <ProductCards category='women' />

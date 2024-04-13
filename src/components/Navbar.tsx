@@ -62,7 +62,12 @@ function Navbar() {
             alt="pfp"
             className=" cursor-pointer object-cover !m-0 !p-0 object-top rounded-full h-10 w-10 border-2  border-purple-200 transition duration-500"
           />) : 
-        <img className="cursor-pointer h-6 md:h-10" src={signinwithgoogle} onClick={handleLogin}/>
+          <button
+          onClick={()=>navigate('/login')}
+          className="font-bold text-lg rounded-xl px-4 py-1 bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2"
+        >
+          Logout
+        </button>
         }
         
       </div>

@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux_toolkit/store.ts";
 import Admin from "./pages/Admin.tsx";
 import ProductInfo from "./pages/ProductInfo.tsx";
+import Login from "./pages/Login.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="/women" element={<Women />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin" element={<Admin/>} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/product/:productid" element={<ProductInfo/>} />
     </Route>
   )

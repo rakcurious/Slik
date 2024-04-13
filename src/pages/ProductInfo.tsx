@@ -8,6 +8,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Navbar } from "..";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
@@ -36,6 +37,7 @@ const ProductInfo: React.FC = () => {
 
   return (
     <>
+    <Navbar />
       {product && (
         <>
           <div className="hidden xl:flex h-auto overflow-hidden">

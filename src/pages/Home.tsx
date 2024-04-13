@@ -6,6 +6,8 @@ import { banners, categories } from "../utils/data";
 import Admin from "./Admin";
 import Men from "./Men";
 import ProductInfo from "./ProductInfo";
+import Login from "./Login";
+import { Navbar } from "..";
 
 
 function Home() {
@@ -15,9 +17,8 @@ function Home() {
 });
   return (
     <>
-      <BannerSlider images={banners} />
-      <CategoryCards categories={categories} />
-      <ProductCards category="all"/>
+      <Navbar />
+      <Login />
     </>
   );
 }

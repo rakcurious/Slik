@@ -6,6 +6,7 @@ import {
   BannerSlider,
   ProductCards,
   useAppSelector,
+  Navbar,
 } from "../index";
 
 function Men() {
@@ -19,7 +20,7 @@ function Men() {
     
   return (
     <>
-      
+      <Navbar />
         <BannerSlider images={menBanners} />
         <CategoryCards categories={menCategories} />
         <ProductCards category='men' />

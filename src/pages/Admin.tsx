@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Prods, CreateProducts, UpdateProducts, DeleteProducts, fetchAllDocuments, useAppSelector, useAppDispatch } from "../index";
+import { Prods, CreateProducts, UpdateProducts, DeleteProducts, fetchAllDocuments, useAppSelector, useAppDispatch, Navbar } from "../index";
 
 const Admin: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -12,6 +12,7 @@ const Admin: React.FC = () => {
 
   return (
     <>
+    <Navbar />
       <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100 font-urbanist">
         <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 font-urbanist text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
           <p
