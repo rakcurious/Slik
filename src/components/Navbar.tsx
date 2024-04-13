@@ -59,7 +59,7 @@ function Navbar() {
           />) : 
           <button
           onClick={()=>navigate('/login')}
-          className="font-bold text-lg rounded-xl px-4 py-1 bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2"
+          className="font-semibold text-lg rounded-xl py-2 px-8 bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2 mr-4"
         >
           Login
         </button>

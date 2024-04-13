@@ -1,21 +1,31 @@
 import { useState } from "react"
 import sliklogo from '../assets/sliklogo.webp'
 import signinwithgoogle from '../assets/signinwithgoogle.svg'
-import { loginWithEmailAndPassword, loginWithGoogle, signup } from "../appwrite/auth";
+import { loginWithEmailAndPassword, loginWithGoogle, signup, startVerification } from "../appwrite/auth";
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
     const [login, setLogin] = useState(true);
+    const [verificationStarted, setVerificationStarted] = useState(false)
 
 
     const handleLoginWithGoogle = async () => {
         await loginWithGoogle()
       };
 
-      const handleLogin = () => {
-        login? loginWithEmailAndPassword(email, password) : signup(email, password, name)
+      const handleLogin = async () => {
+        if(login) {
+           const response = await loginWithEmailAndPassword(email, password)
+           console.log(response)
+        }
+        else {
+            const response = await signup(email, password, name)
+            if(response){
+               setVerificationStarted(true)
+            }
+        }  
       }
 
     
@@ -113,6 +123,7 @@ export default function Login() {
               {login? 'New user? ': 'Already have an account? '}<span onClick={()=>setLogin((prev)=>!prev)} className="text-indigo-700 cursor-pointer text-md font-semibold">{login? 'Sign up': 'Login'}</span>
               
             </p>
+            {verificationStarted && <p className="text-center text-2xl font-semibold">Please check your email for verification</p>}
             <p className="text-center font-medium text-sm my-5">OR</p>
             <img className=" cursor-pointer h-10 md:h-12 flex w-full justify-center leading-6" src={signinwithgoogle} onClick={handleLoginWithGoogle}/>
           </div>

@@ -46,13 +46,22 @@ export const signup = async (email:string, password:any, name:any) => {
     
     const currentUser = await account.create(ID.unique(), email, password, name)
     if(currentUser){
-      loginWithEmailAndPassword(email, password) 
+      await loginWithEmailAndPassword(email, password)
+      const lol = await startVerification();
+      if(lol){
+        console.log('please check your email inbox to verify')
+        return lol
+       }
+       else {
+        console.log('no email lol')
+        return lol;
+       }
     }
     else {
       return null;
     }
   } catch (error) {
-    console.error("Login failed:", error);
+    console.error("signup failed:", error);
     return null;
   }
 }
@@ -66,6 +75,42 @@ export const logout = async () => {
     console.error("Logout failed:", error);
   }
 };
+
+export const startVerification = async () => {
+  try {
+    const response = await account.createVerification('http://localhost:5173/verification');
+    if(response) {
+      return response;
+    }
+    else {
+      return null;
+    }
+  } catch (error) {
+    
+    console.error("verification start failed:", error);
+    return null;
+  }
+};
+
+export const updateVerification = async () => {
+const urlParams = new URLSearchParams(window.location.search);
+const secret = urlParams.get('secret');
+const userId = urlParams.get('userId');
+
+try {
+  const response = await account.updateVerification(userId, secret)
+  if(response) {
+    console.log(response)
+    return response;
+  }
+  else {
+    return null
+  }
+} catch (error) {
+  console.error('Verification failed:',error)
+  return null;
+}
+}
 
 export const getCurrentSession = async () => {
   try {
