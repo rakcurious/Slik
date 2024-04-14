@@ -29,7 +29,7 @@ function Profile() {
           <div className="z-20 font-urbanist bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10">
             <div className="flex flex-col justify-start w-1/3">
               <p className="font-semibold text-lg truncate">
-                {userdata.name.split(" ")[0]}
+                {userdata.name}
               </p>
               <p className="font-normal text-xs md:text-sm truncate">
                 {userdata.email}
