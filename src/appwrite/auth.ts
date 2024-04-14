@@ -34,7 +34,7 @@ export const loginWithGoogle = async () => {
     const currentUser = await account.get();
     store.dispatch(setUserData(currentUser));
     return { success: true, data: currentUser };
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -48,7 +48,7 @@ export const loginWithEmailAndPassword = async (email: string, password: any) =>
     } else {
       return { success: false, error: 'Login failed' };
     }
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -71,7 +71,7 @@ export const signup = async (email: string, password: any, name: any) => {
     } else {
       return { success: false, error: 'Signup failed' };
     }
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -80,7 +80,7 @@ export const logout = async () => {
   try {
     await account.deleteSession("current");
     store.dispatch(setUserData(null));
-  } catch (error) {
+  } catch (error:any) {
     console.error("Logout failed:", error);
   }
 };
@@ -93,7 +93,7 @@ export const startVerification = async () => {
     } else {
       return { success: false, error: 'Failed to start verification' };
     }
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -110,7 +110,7 @@ export const updateVerification = async () => {
     } else {
       return { success: false, error: 'Verification failed' };
     }
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -119,7 +119,7 @@ export const startPasswordRecovery = async (email: string) => {
   try {
     const response = await account.createRecovery(email, 'http://localhost:5173/passwordrecovery');
     return { success: true, data: response };
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -132,7 +132,7 @@ export const updatePasswordRecovery = async (password: any) => {
   try {
     const response = await account.updateRecovery(userId, secret, password, password);
     return { success: true, data: response };
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };
@@ -142,7 +142,7 @@ export const getCurrentSession = async () => {
     const currentUser = await account.get();
     store.dispatch(setUserData(currentUser));
     return { success: true, data: currentUser };
-  } catch (error) {
+  } catch (error:any) {
     return { success: false, error: error.message };
   }
 };

@@ -24,8 +24,8 @@ const BannerSlider: React.FC<{
   };
 
   return (
-    <div className="w-screen px-4 lg:px-10 mb-20">
-      <div className=" lol:hidden">
+    <div className="w-screen px-4 mb-20">
+      <div className="hidden lg:block">
       <Slider {...settings} >
         {images
           .filter((image) => image.size === "big")

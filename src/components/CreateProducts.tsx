@@ -26,7 +26,7 @@ const CreateProducts: React.FC = () => {
       <UploadImages />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
-          <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
+          <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1">
             <input placeholder="Title" {...register("title")} required />
             <input placeholder="Target" {...register("target")} required />
             <input placeholder="Images" {...register("images")} required />
@@ -39,7 +39,7 @@ const CreateProducts: React.FC = () => {
           <input
             type="submit"
             value="Add Products"
-            className="h-12 w-48 text-2xl font-semibold text-center bg-black rounded-lg text-white transition duration-200"
+            className="h-12 w-48 text-2xl font-medium text-center bg-black rounded-lg text-white transition duration-200"
           />
         </div>
       </form>

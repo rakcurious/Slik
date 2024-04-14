@@ -17,12 +17,12 @@ function App() {
     const lol = async () => {
       const userdata = await getCurrentSession();
       if (userdata) {
-        const wishlist = await fetchWishlist(userdata.$id);
+        const wishlist = await fetchWishlist(userdata.data?.$id);
         console.log(wishlist)
         if (wishlist) {
           dispatch(setWishlist(wishlist));
         } else {
-          createWishlist(userdata.$id);
+          createWishlist(userdata.data.$id);
         }
       }
     };

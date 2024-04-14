@@ -67,7 +67,7 @@ const ProductInfo: React.FC = () => {
                   onClick={() =>
                     handleWishlistUpdate(product.$id, userdata, wishlist, products)
                   }
-                  className="bg-black text-xl w-4/5 font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
+                  className="bg-black text-xl  w-4/5 font-semibold h-14 text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
                   {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
