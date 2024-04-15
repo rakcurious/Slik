@@ -43,7 +43,7 @@ export default function Login() {
       const { success, error } = await startPasswordRecovery(email);
       if (success) {
         setErrorMsg('')
-        setSuccessMsg('We have sent you a Password reset email. You can reset your password using the link in the email');
+        setSuccessMsg('We have sent you a Password reset email from appwrite. You can reset your password using the link in the email');
       } else {
         setErrorMsg(error);
       }
@@ -65,7 +65,13 @@ export default function Login() {
           </div>
   
          
-          {page === 'Verification' ? <p className="font-urbanist text-center text-2xl font-semibold mt-10">We have sent you a verification email. Please verify your email address using the link in the email to make the most out of Slik</p> : 
+          {page === 'Verification' ? <div className="flex flex-col items-center"> <p className="font-urbanist text-center text-2xl font-semibold mt-10">We have sent you a verification email from appwrite. Please verify your email address using the link in the email to make the most out of Slik</p> 
+          <button
+              onClick={() => navigate('/')}
+              className="text-center text-2xl font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
+            >
+              Home
+            </button></div>: 
            <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
             <form onSubmit={(e)=>e.preventDefault()} className="space-y-6" >
               {(page == 'Login' || page === 'Sign up' || page === 'Reset Password') && <div>

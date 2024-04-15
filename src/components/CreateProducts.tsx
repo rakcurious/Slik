@@ -39,7 +39,7 @@ const CreateProducts: React.FC = () => {
           <input
             type="submit"
             value="Add Products"
-            className="h-12 w-48 text-2xl font-medium text-center bg-black rounded-lg text-white transition duration-200"
+            className="h-12 w-48 text-2xl font-normal text-center bg-black rounded-lg text-white transition duration-200"
           />
         </div>
       </form>

@@ -18,7 +18,6 @@ function App() {
       const userdata = await getCurrentSession();
       if (userdata) {
         const wishlist = await fetchWishlist(userdata.data?.$id);
-        console.log(wishlist)
         if (wishlist) {
           dispatch(setWishlist(wishlist));
         } else {

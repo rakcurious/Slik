@@ -36,7 +36,7 @@ function Navbar() {
     <>
       <nav className="sticky z-20 top-0 w-screen h-20 flex mt-0 py-2 items-center justify-center px-4 bg-purple-100">
         <div className="flex justify-between font-bold text-lg font-urbanist gap-x-6 w-full">
-          <div className="md:hidden my-auto">
+          <div className="md:hidden my-auto w-1/3">
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-gray-900"
@@ -56,7 +56,7 @@ function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center w-1/3">
             <NavLink
               to="/women"
               className={({ isActive }) =>
@@ -82,7 +82,7 @@ function Navbar() {
               HOME
             </NavLink>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center w-1/3">
             <img
               onClick={() => navigate("/")}
               src={sliklogo}
@@ -90,7 +90,7 @@ function Navbar() {
               alt="Slik Logo"
             />
           </div>
-          <div className="flex justify-end items-center">
+          <div className="flex justify-end items-center w-1/3">
             {userdata ? (
               <img
                 onClick={profileClick}

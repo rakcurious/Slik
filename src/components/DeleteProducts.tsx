@@ -35,7 +35,7 @@ const DeleteProducts: React.FC = () => {
         />
         <button
           onClick={getProductDetails}
-          className="h-12 w-48 text-2xl font-semibold text-center bg-black rounded-lg text-white transition duration-200"
+          className="h-12 w-48 text-2xl font-normal text-center bg-black rounded-lg text-white transition duration-200"
         >
           Get product
         </button>
@@ -55,7 +55,7 @@ const DeleteProducts: React.FC = () => {
             </div>
 
             <button
-              className=" h-12 w-48 text-2xl font-semibold text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
+              className="h-12 w-48 text-2xl font-normal text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
               onClick={handleDeleteProduct}
             >
               delete product

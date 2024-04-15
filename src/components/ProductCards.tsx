@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem, Prods, useAppDispatch, useAppSelector } from "../index";
 import { handleWishlistUpdate } from "../utils/wishlist";
 import { selectUserData, selectWishlist, setWishlist } from "../redux_toolkit/userSlice";
@@ -6,20 +6,23 @@ import heartfill from '../assets/heartfill.svg'
 import heart from '../assets/heart.svg'
 import { selectProducts } from "../redux_toolkit/productSlice";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "./AuthModal";
 
 
 
 
 const ProductCards : React.FC<{category: string}> = ({category}) => {
 
+  const [showModal, setShowModal] = useState(false);
+
   const navigate = useNavigate();
 
   const userdata = useAppSelector(selectUserData);
   let products = useAppSelector(selectProducts);
-  const dispatch = useAppDispatch();
   const wishlist = useAppSelector(selectWishlist);
 
-
+  const isAuthenticated = !!userdata;
+  const isVerified = userdata?.emailVerification || false;
 
   if(category === "men"){
     products = products.filter((product)=> product.category === "men")
@@ -69,7 +72,7 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
                         translateZ="60"
                         className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/6"
                       >
-                        <img onClick={()=>handleWishlistUpdate(product.$id, userdata, wishlist, products)} src={wishlist.includes(product?.$id)? heartfill: heart } className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"/>
+                        <img onClick={()=>handleWishlistUpdate(product.$id, userdata, wishlist, products,setShowModal)} src={wishlist.includes(product?.$id)? heartfill: heart } className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"/>
                         <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
                         {product?.wishlist.length}
                         </div>
@@ -81,6 +84,16 @@ const ProductCards : React.FC<{category: string}> = ({category}) => {
           </CardContainer>
         ))}
       </div>
+      <Modal
+        isOpen={showModal}
+        isAuthenticated={isAuthenticated}
+        isVerified={isVerified}
+        onClose={() => setShowModal(false)}
+        onLogin={() => {
+          navigate('/login')
+          setShowModal(false);
+        }}
+      />
     </>
   );
 }

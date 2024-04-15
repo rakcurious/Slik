@@ -21,6 +21,8 @@ function Profile() {
     navigate("/");
   };
 
+  console.log(userdata)
+
   return (
     <>
     <Navbar />
@@ -39,7 +41,7 @@ function Profile() {
             <div className="w-1/3 flex justify-end">
               <button
                 onClick={handleLogout}
-                className="font-bold text-sm rounded-lg px-4 py-1 bg-black/80  hover:bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2"
+                className="font-bold text-sm rounded-lg px-4 py-1 bg-black/70  hover:bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2"
               >
                 Logout
               </button>

@@ -43,7 +43,6 @@ export const loginWithEmailAndPassword = async (email: string, password: any) =>
   try {
     const currentUser = await account.createEmailPasswordSession(email, password);
     if (currentUser) {
-      store.dispatch(setUserData(currentUser));
       return { success: true, data: currentUser };
     } else {
       return { success: false, error: 'Login failed' };

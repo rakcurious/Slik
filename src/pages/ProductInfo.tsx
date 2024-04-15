@@ -1,23 +1,32 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
 import { selectProducts } from "../redux_toolkit/productSlice";
 import { handleWishlistUpdate } from "../utils/wishlist";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Navbar } from "..";
+import { Modal } from "../components/AuthModal";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
 
+  const navigate = useNavigate();
+
   const { productid } = useParams();
+  const [showModal, setShowModal] = useState(false);
+
 
   const product = products.find((product) => product.$id == productid);
+
+  
+  const isAuthenticated = !!userdata;
+  const isVerified = userdata?.emailVerification || false;
 
   useEffect(() => {
     document.body.scrollTo(0, 0);
@@ -65,7 +74,7 @@ const ProductInfo: React.FC = () => {
               <div className="flex flex-col items-center gap-2 w-full">
                 <button
                   onClick={() =>
-                    handleWishlistUpdate(product.$id, userdata, wishlist, products)
+                    handleWishlistUpdate(product.$id, userdata, wishlist, products, setShowModal)
                   }
                   className="bg-black text-xl  w-4/5 font-semibold h-14 text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
@@ -107,7 +116,7 @@ const ProductInfo: React.FC = () => {
               <div className="flex flex-col gap-2 w-full">
                 <button
                   onClick={() =>
-                    handleWishlistUpdate(product.$id, userdata, wishlist, products)
+                    handleWishlistUpdate(product.$id, userdata, wishlist, products, setShowModal)
                   }
                   className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
@@ -121,6 +130,16 @@ const ProductInfo: React.FC = () => {
               </div>
             </div>
           </div>
+          <Modal
+        isOpen={showModal}
+        isAuthenticated={isAuthenticated}
+        isVerified={isVerified}
+        onClose={() => setShowModal(false)}
+        onLogin={() => {
+          navigate('/login')
+          setShowModal(false);
+        }}
+      />
         </>
       )}
     </>

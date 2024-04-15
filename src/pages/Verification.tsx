@@ -40,7 +40,7 @@ export default function Verification() {
             </p>
             <button
               onClick={() => navigate('/')}
-              className="text-center font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
+              className="text-center text-xl font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
             >
               Home
             </button>
