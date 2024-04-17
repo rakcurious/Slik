@@ -1,5 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { UploadImages, Prods, useAppDispatch, createCollections, Colls } from "../index";
+import {
+  UploadImages,
+  useAppDispatch,
+  createCollections,
+  Colls,
+} from "../index";
 import { addCollection } from "../redux_toolkit/productSlice";
 
 const CreateCollections: React.FC = () => {
@@ -22,7 +27,7 @@ const CreateCollections: React.FC = () => {
 
   return (
     <>
-      <UploadImages folder={'slik/misc'}/>
+      <UploadImages folder={"slik/misc"} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
           <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1">
@@ -30,9 +35,21 @@ const CreateCollections: React.FC = () => {
             <input placeholder="Type" {...register("type")} required />
             <input placeholder="Gender" {...register("gender")} required />
             <input placeholder="Link" {...register("link")} required />
-            <input placeholder="Card Image" {...register("cardImage")} required />
-            <input placeholder="Header Image" {...register("headerImage")} required />
-            <input placeholder="Banner Image" {...register("bannerImages")} required />
+            <input
+              placeholder="Card Image"
+              {...register("cardImage")}
+              required
+            />
+            <input
+              placeholder="Header Image"
+              {...register("headerImage")}
+              required
+            />
+            <input
+              placeholder="Banner Images"
+              {...register("bannerImages")}
+              required
+            />
           </div>
           <input
             type="submit"

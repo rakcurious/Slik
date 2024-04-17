@@ -21,10 +21,8 @@ const ProductInfo: React.FC = () => {
   const { productid } = useParams();
   const [showModal, setShowModal] = useState(false);
 
-
   const product = products.find((product) => product.$id == productid);
 
-  
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
 
@@ -46,7 +44,7 @@ const ProductInfo: React.FC = () => {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       {product && (
         <>
           <div className="hidden xl:flex h-auto overflow-hidden">
@@ -74,7 +72,13 @@ const ProductInfo: React.FC = () => {
               <div className="flex flex-col items-center gap-2 w-full">
                 <button
                   onClick={() =>
-                    handleWishlistUpdate(product.$id, userdata, wishlist, products, setShowModal)
+                    handleWishlistUpdate(
+                      product.$id,
+                      userdata,
+                      wishlist,
+                      products,
+                      setShowModal
+                    )
                   }
                   className="bg-black text-xl  w-4/5 font-semibold h-14 text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
@@ -82,7 +86,10 @@ const ProductInfo: React.FC = () => {
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <a href={product.target} className="bg-black text-xl w-4/5 font-semibold h-14 text-center text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5">
+                <a
+                  href={product.target}
+                  className="bg-black text-xl w-4/5 font-semibold h-14 text-center text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5"
+                >
                   Buy Now
                 </a>
               </div>
@@ -116,7 +123,13 @@ const ProductInfo: React.FC = () => {
               <div className="flex flex-col gap-2 w-full">
                 <button
                   onClick={() =>
-                    handleWishlistUpdate(product.$id, userdata, wishlist, products, setShowModal)
+                    handleWishlistUpdate(
+                      product.$id,
+                      userdata,
+                      wishlist,
+                      products,
+                      setShowModal
+                    )
                   }
                   className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
@@ -124,22 +137,25 @@ const ProductInfo: React.FC = () => {
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <a href={product.target} className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg text-center transition duration-500 hover:-translate-y-0.5">
+                <a
+                  href={product.target}
+                  className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg text-center transition duration-500 hover:-translate-y-0.5"
+                >
                   Buy Now
                 </a>
               </div>
             </div>
           </div>
           <Modal
-        isOpen={showModal}
-        isAuthenticated={isAuthenticated}
-        isVerified={isVerified}
-        onClose={() => setShowModal(false)}
-        onLogin={() => {
-          navigate('/login')
-          setShowModal(false);
-        }}
-      />
+            isOpen={showModal}
+            isAuthenticated={isAuthenticated}
+            isVerified={isVerified}
+            onClose={() => setShowModal(false)}
+            onLogin={() => {
+              navigate("/login");
+              setShowModal(false);
+            }}
+          />
         </>
       )}
     </>

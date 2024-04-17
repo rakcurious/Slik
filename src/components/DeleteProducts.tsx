@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { deleteProductInAppwrite, Prods, useAppDispatch, useAppSelector } from "../index";
+import {
+  deleteProductInAppwrite,
+  Prods,
+  useAppDispatch,
+  useAppSelector,
+} from "../index";
 import { deleteProduct } from "../redux_toolkit/productSlice";
 
 const DeleteProducts: React.FC = () => {

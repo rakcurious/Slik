@@ -1,5 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Prods, updateProductInAppwrite, useAppDispatch, useAppSelector } from "../index";
+import {
+  Prods,
+  updateProductInAppwrite,
+  useAppDispatch,
+  useAppSelector,
+} from "../index";
 import { updateProduct } from "../redux_toolkit/productSlice";
 import { useEffect, useState } from "react";
 
@@ -41,8 +46,8 @@ const UpdateProducts: React.FC = () => {
 
   const getProductDetails = () => {
     const foundProduct = products.find((product) => product.$id === id);
-    console.log(products)
-    console.log(foundProduct)
+    console.log(products);
+    console.log(foundProduct);
     if (foundProduct) {
       const updatedProduct: Partial<
         Omit<
@@ -106,8 +111,7 @@ const UpdateProducts: React.FC = () => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
-      wishlist: products.find((product) => product.$id === id).wishlist
-
+      wishlist: products.find((product) => product.$id === id).wishlist,
     });
     if (updatedProduct) {
       dispatch(updateProduct(updatedProduct));

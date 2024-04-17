@@ -1,6 +1,14 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Colls, updateCollections, updateProductInAppwrite, useAppDispatch, useAppSelector } from "../index";
-import { selectCollections, updateCollection, updateProduct } from "../redux_toolkit/productSlice";
+import {
+  Colls,
+  updateCollections,
+  useAppDispatch,
+  useAppSelector,
+} from "../index";
+import {
+  selectCollections,
+  updateCollection,
+} from "../redux_toolkit/productSlice";
 import { useEffect, useState } from "react";
 
 const UpdateCollections: React.FC = () => {
@@ -40,9 +48,11 @@ const UpdateCollections: React.FC = () => {
   });
 
   const getCollectionDetails = () => {
-    const foundCollection = collections.find((collection) => collection.$id === id);
-    console.log(collections)
-    console.log(foundCollection)
+    const foundCollection = collections.find(
+      (collection) => collection.$id === id
+    );
+    console.log(collections);
+    console.log(foundCollection);
     if (foundCollection) {
       const updatedCollection: Partial<
         Omit<
@@ -105,8 +115,9 @@ const UpdateCollections: React.FC = () => {
   > = async (data) => {
     const updatedCollection = await updateCollections(id, {
       ...data,
-      bannerImages: Array.isArray(data.bannerImages
-      ) ? data.bannerImages : data.bannerImages.split(",")
+      bannerImages: Array.isArray(data.bannerImages)
+        ? data.bannerImages
+        : data.bannerImages.split(","),
     });
     if (updatedCollection) {
       dispatch(updateCollection(updatedCollection));
@@ -139,13 +150,25 @@ const UpdateCollections: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
               <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
-              <input placeholder="Name" {...register("name")} required />
-            <input placeholder="Type" {...register("type")} required />
-            <input placeholder="Gender" {...register("gender")} required />
-            <input placeholder="Link" {...register("link")} required />
-            <input placeholder="Card Image" {...register("cardImage")} required />
-            <input placeholder="Header Image" {...register("headerImage")} required />
-            <input placeholder="Banner Image" {...register("bannerImages")} required />
+                <input placeholder="Name" {...register("name")} required />
+                <input placeholder="Type" {...register("type")} required />
+                <input placeholder="Gender" {...register("gender")} required />
+                <input placeholder="Link" {...register("link")} required />
+                <input
+                  placeholder="Card Image"
+                  {...register("cardImage")}
+                  required
+                />
+                <input
+                  placeholder="Header Image"
+                  {...register("headerImage")}
+                  required
+                />
+                <input
+                  placeholder="Banner Image"
+                  {...register("bannerImages")}
+                  required
+                />
               </div>
               <input
                 type="submit"

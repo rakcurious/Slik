@@ -8,7 +8,7 @@ function Profile() {
 
   const userdata = useAppSelector(selectUserData);
   let products = useAppSelector(selectProducts);
-  let wishlist = useAppSelector(selectWishlist)
+  let wishlist = useAppSelector(selectWishlist);
 
   wishlist = [...wishlist].reverse();
 
@@ -23,14 +23,12 @@ function Profile() {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       {userdata && (
         <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
           <div className="z-20 font-urbanist bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10">
             <div className="flex flex-col justify-start w-1/3">
-              <p className="font-semibold text-lg truncate">
-                {userdata.name}
-              </p>
+              <p className="font-semibold text-lg truncate">{userdata.name}</p>
               <p className="font-normal text-xs md:text-sm truncate">
                 {userdata.email}
               </p>

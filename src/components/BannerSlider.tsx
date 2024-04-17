@@ -9,17 +9,18 @@ import { useNavigate } from "react-router-dom";
 const BannerSlider: React.FC<{
   page: string;
 }> = ({ page }) => {
-
   const navigate = useNavigate();
 
-  let collections = useAppSelector(selectCollections)
+  let collections = useAppSelector(selectCollections);
 
-  if(page === 'men' || page === 'women'){
-    collections = collections.filter((collection)=> collection.gender.toLowerCase() === page)
+  if (page === "men" || page === "women") {
+    collections = collections.filter(
+      (collection) => collection.gender.toLowerCase() === page
+    );
   }
-  const navigateToCollection = (gender, id) =>{
-    navigate(`/${gender}/${id}`)
-  }
+  const navigateToCollection = (gender, id) => {
+    navigate(`/${gender}/${id}`);
+  };
 
   const settings = {
     dots: true,
@@ -36,31 +37,40 @@ const BannerSlider: React.FC<{
   return (
     <div className="w-screen px-4 mb-20">
       <div className="hidden lg:block">
-      <Slider {...settings} >
-        {collections.map((collection)=> (
+        <Slider {...settings}>
+          {collections.map((collection) => (
             <div key={collection.$id} className="relative h-full">
-                <img onClick={()=>navigateToCollection(collection.gender,collection.$id)}
-                  src={collection?.bannerImages[1]}
-                  alt={collection?.name}
-                  className="w-full aspect-[4/1] object-cover rounded-xl"
-                />
+              <img
+                onClick={() =>
+                  navigateToCollection(collection.gender, collection.$id)
+                }
+                src={collection?.bannerImages[1]}
+                alt={collection?.name}
+                className="w-full aspect-[4/1] object-cover rounded-xl"
+              />
             </div>
           ))}
-      </Slider>
+        </Slider>
       </div>
-            <div className="lg:hidden"> 
-            <Slider {...settings} >
-        {collections.map((collection)=> (
+      <div className="lg:hidden">
+        <Slider {...settings}>
+          {collections.map((collection) => (
             <div key={collection.$id} className="relative h-full">
-              
-                <img onClick={()=>navigate(`/${collection.gender}/${collection.name.toLowerCase().replace(' ','-')}`)}
-                  src={collection?.bannerImages[0]}
-                  alt={collection?.name}
-                  className="w-full h-3/5 rounded-xl"
-                />
+              <img
+                onClick={() =>
+                  navigate(
+                    `/${collection.gender}/${collection.name
+                      .toLowerCase()
+                      .replace(" ", "-")}`
+                  )
+                }
+                src={collection?.bannerImages[0]}
+                alt={collection?.name}
+                className="w-full h-3/5 rounded-xl"
+              />
             </div>
           ))}
-      </Slider>
+        </Slider>
       </div>
     </div>
   );

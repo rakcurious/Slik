@@ -1,26 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { updatePasswordRecovery } from "../appwrite/auth";
-import sliklogo from '../assets/sliklogo.webp';
+import sliklogo from "../assets/sliklogo.webp";
 
 export default function PasswordRecovery() {
   const navigate = useNavigate();
   const [reset, setReset] = useState(false);
-  const [password, setPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const resetPassword = async () => {
     try {
       const { success, error, data } = await updatePasswordRecovery(password);
       if (success) {
-        setSuccessMsg('Password reset successful');
+        setSuccessMsg("Password reset successful");
         setReset(true);
       } else {
         setErrorMsg(error);
       }
     } catch (error) {
-      setErrorMsg('Password reset failed, error: ' + error);
+      setErrorMsg("Password reset failed, error: " + error);
     }
   };
 
@@ -33,8 +33,13 @@ export default function PasswordRecovery() {
         </h2>
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <p className="text-red-500 font-semibold text-center">{errorMsg}</p>
-          <p className="text-green-500 font-semibold text-center">{successMsg}</p>
-          <label htmlFor="password" className="block text-sm font-semibold leading-6 text-gray-900">
+          <p className="text-green-500 font-semibold text-center">
+            {successMsg}
+          </p>
+          <label
+            htmlFor="password"
+            className="block text-sm font-semibold leading-6 text-gray-900"
+          >
             Password
           </label>
           <div className="mt-0">
@@ -59,7 +64,7 @@ export default function PasswordRecovery() {
         {reset && (
           <>
             <button
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
               className="text-center font-semibold mt-10 h-10 w-60 rounded-lg text-white bg-black"
             >
               Login

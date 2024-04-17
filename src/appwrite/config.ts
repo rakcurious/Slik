@@ -65,7 +65,6 @@ export const fetchAllDocuments = async () => {
       confvars.appwriteDatabaseId,
       confvars.appwriteProductsCollectionId
     );
-    console.log(response.documents);
     store.dispatch(getProducts(response.documents));
     return response.documents;
   } catch (error) {
@@ -127,8 +126,7 @@ export const fetchCollections = async () => {
       confvars.appwriteDatabaseId,
       confvars.appwriteCollectionsCollectionId,
     );
-    console.log(response)
-    store.dispatch(getCollections(response.documents));
+    store.dispatch(getCollections(response.documents.reverse()));
       return response.documents;
     
   } catch (error:any) {

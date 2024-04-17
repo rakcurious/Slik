@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import sliklogo from '../assets/sliklogo.webp';
-import { useNavigate } from 'react-router-dom';
-import { updateVerification } from '../appwrite/auth';
+import { useEffect, useState } from "react";
+import sliklogo from "../assets/sliklogo.webp";
+import { useNavigate } from "react-router-dom";
+import { updateVerification } from "../appwrite/auth";
 
 export default function Verification() {
   const navigate = useNavigate();
   const [verified, setVerified] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     const verification = async () => {
@@ -18,7 +18,7 @@ export default function Verification() {
           setErrorMsg(error);
         }
       } catch (error) {
-        setErrorMsg('Verification failed, error: ' + error);
+        setErrorMsg("Verification failed, error: " + error);
       }
     };
 
@@ -39,7 +39,7 @@ export default function Verification() {
               Congratulations, You are verified. Start manifesting...
             </p>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
               className="text-center text-xl font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
             >
               Home

@@ -25,7 +25,7 @@ const UploadImages: React.FC<{
       const data = new FormData();
       data.append("file", file);
       data.append("upload_preset", "beslik");
-     data.append('folder', folder)
+      data.append("folder", folder);
 
       fetch(
         `https://api.cloudinary.com/v1_1/dnhz5reqf/image/upload?upload_preset=beslik&log=true`,
@@ -62,7 +62,10 @@ const UploadImages: React.FC<{
                 key={index}
                 className="flex justify-center gap-1 w-screen px-4"
               >
-               <p className="h-10 w-6 text-lg font-semibold rounded-md text-center py-2 pl-2">{index+1}.</p> <input
+                <p className="h-10 w-6 text-lg font-semibold rounded-md text-center py-2 pl-2">
+                  {index + 1}.
+                </p>{" "}
+                <input
                   ref={urlRef}
                   value={image}
                   readOnly
@@ -89,6 +92,6 @@ const UploadImages: React.FC<{
       <hr />
     </>
   );
-}
+};
 
 export default UploadImages;

@@ -1,5 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { createProductInAppwrite, UploadImages, Prods, useAppDispatch } from "../index";
+import {
+  createProductInAppwrite,
+  UploadImages,
+  Prods,
+  useAppDispatch,
+} from "../index";
 import { addProduct } from "../redux_toolkit/productSlice";
 
 const CreateProducts: React.FC = () => {
@@ -10,7 +15,7 @@ const CreateProducts: React.FC = () => {
     const createdProduct = await createProductInAppwrite({
       ...data,
       images: data.images.split(","),
-      wishlist: []
+      wishlist: [],
     });
     if (createdProduct) {
       dispatch(addProduct(createdProduct));
@@ -23,7 +28,7 @@ const CreateProducts: React.FC = () => {
 
   return (
     <>
-      <UploadImages folder={'slik/products'} />
+      <UploadImages folder={"slik/products"} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
           <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1">
@@ -33,7 +38,7 @@ const CreateProducts: React.FC = () => {
             <input placeholder="Price" {...register("price")} required />
             <input placeholder="Brand" {...register("brand")} required />
             <input placeholder="Category" {...register("category")} required />
-            <input placeholder="UserID" {...register("userid")} required />
+            <input placeholder="User id" {...register("userid")} required />
             <input placeholder="Type" {...register("type")} required />
           </div>
           <input

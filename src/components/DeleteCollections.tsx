@@ -1,6 +1,14 @@
 import { useState } from "react";
-import { Colls, deleteCollections, useAppDispatch, useAppSelector } from "../index";
-import { deleteCollection, selectCollections } from "../redux_toolkit/productSlice";
+import {
+  Colls,
+  deleteCollections,
+  useAppDispatch,
+  useAppSelector,
+} from "../index";
+import {
+  deleteCollection,
+  selectCollections,
+} from "../redux_toolkit/productSlice";
 
 const DeleteCollections: React.FC = () => {
   const [id, setId] = useState("");
@@ -9,7 +17,9 @@ const DeleteCollections: React.FC = () => {
   const collections = useAppSelector(selectCollections);
 
   const getCollectionDetails = () => {
-    const foundCollection = collections.find((collection) => collection.$id === id);
+    const foundCollection = collections.find(
+      (collection) => collection.$id === id
+    );
     setCollection(foundCollection);
   };
   const handleDeleteCollection = async () => {
@@ -44,7 +54,7 @@ const DeleteCollections: React.FC = () => {
           <>
             <div className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip ">
               <p>{collection ? collection.$id : ""}</p>
-              <p>{collection ?collection.name : ""}</p>
+              <p>{collection ? collection.name : ""}</p>
               <p>{collection ? collection.type : ""}</p>
               <p>{collection ? collection.gender : ""}</p>
               <p>{collection ? collection.link : ""}</p>
