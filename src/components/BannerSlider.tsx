@@ -2,15 +2,25 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useAppSelector } from "../redux_toolkit/hooks";
+import { selectCollections } from "../redux_toolkit/productSlice";
+import { useNavigate } from "react-router-dom";
 
 const BannerSlider: React.FC<{
-  images: {
-    imageUrl: string;
-    collectionLink: string;
-    category: string;
-    size: string;
-  }[];
-}> = ({ images }) => {
+  page: string;
+}> = ({ page }) => {
+
+  const navigate = useNavigate();
+
+  let collections = useAppSelector(selectCollections)
+
+  if(page === 'men' || page === 'women'){
+    collections = collections.filter((collection)=> collection.gender.toLowerCase() === page)
+  }
+  const navigateToCollection = (gender, id) =>{
+    navigate(`/${gender}/${id}`)
+  }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -27,34 +37,27 @@ const BannerSlider: React.FC<{
     <div className="w-screen px-4 mb-20">
       <div className="hidden lg:block">
       <Slider {...settings} >
-        {images
-          .filter((image) => image.size === "big")
-          .map((image, index) => (
-            <div key={index} className="relative h-full">
-              <a href={image.collectionLink}>
-                <img
-                  src={image.imageUrl}
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-2/5 rounded-xl"
+        {collections.map((collection)=> (
+            <div key={collection.$id} className="relative h-full">
+                <img onClick={()=>navigateToCollection(collection.gender,collection.$id)}
+                  src={collection?.bannerImages[1]}
+                  alt={collection?.name}
+                  className="w-full aspect-[4/1] object-cover rounded-xl"
                 />
-              </a>
             </div>
           ))}
       </Slider>
       </div>
             <div className="lg:hidden"> 
-      <Slider {...settings}>
-        {images
-          .filter((image) => image.size === "small")
-          .map((image, index) => (
-            <div key={index} className="relative h-full">
-              <a href={image.collectionLink}>
-                <img
-                  src={image.imageUrl}
-                  alt={`Slide ${index + 1}`}
+            <Slider {...settings} >
+        {collections.map((collection)=> (
+            <div key={collection.$id} className="relative h-full">
+              
+                <img onClick={()=>navigate(`/${collection.gender}/${collection.name.toLowerCase().replace(' ','-')}`)}
+                  src={collection?.bannerImages[0]}
+                  alt={collection?.name}
                   className="w-full h-3/5 rounded-xl"
                 />
-              </a>
             </div>
           ))}
       </Slider>

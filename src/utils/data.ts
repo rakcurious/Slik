@@ -1,3 +1,5 @@
+import { Colls } from "..";
+
 interface ImageData {
   imageUrl: string;
   collectionLink: string;
@@ -474,3 +476,94 @@ export interface Prods  {
 
 
   export {banners, categories, products}
+
+  export const collections: Colls[] = [
+    {
+      $id: '1',
+    name: 'oversized t-shirts',
+  type: 'category',
+  gender: 'women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '2',
+      name: 'shirts',
+  type: 'category',
+  gender: 'men',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-37_c07CpXP.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '3',
+      name: 'Oversized T-Shirts',
+  type: 'category',
+  gender: 'Women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '4',
+      name: 'Oversized T-Shirts',
+  type: 'category',
+  gender: 'Women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '5',
+      name: 'Oversized T-Shirts',
+  type: 'category',
+  gender: 'Women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '6',
+      name: 'Oversized T-Shirts',
+  type: 'category',
+  gender: 'Women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '7',
+      name: 'Oversized T-Shirts',
+  type: 'category',
+  gender: 'Women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+    {
+      $id: '8',
+      name: 'Oversized T-Shirts',
+  type: 'category',
+  gender: 'Women',
+  link: '#',
+  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
+  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
+  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
+  }, 
+  
+]

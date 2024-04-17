@@ -26,16 +26,14 @@ account.updateRecovery = (
 
 export const loginWithGoogle = async () => {
   try {
-    await account.createOAuth2Session(
+   account.createOAuth2Session(
       "google",
       `http://localhost:5173/`,
       `http://localhost:5173/`
     );
-    const currentUser = await account.get();
-    store.dispatch(setUserData(currentUser));
-    return { success: true, data: currentUser };
-  } catch (error:any) {
-    return { success: false, error: error.message };
+    
+   } catch (error:any) {
+    console.log(error.message);
   }
 };
 

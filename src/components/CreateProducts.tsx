@@ -23,7 +23,7 @@ const CreateProducts: React.FC = () => {
 
   return (
     <>
-      <UploadImages />
+      <UploadImages folder={'slik/products'} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
           <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1">

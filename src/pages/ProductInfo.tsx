@@ -92,7 +92,7 @@ const ProductInfo: React.FC = () => {
             <div className="w-full mx-auto">
               <Slider {...settings}>
                 {product.images.map((image, index) => (
-                  <div key={index} className="relative w-full aspect-[2/3]">
+                  <div key={index} className="relative w-full aspect-[3/4]">
                     <img
                       key={index}
                       src={image}

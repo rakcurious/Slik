@@ -21,8 +21,6 @@ function Profile() {
     navigate("/");
   };
 
-  console.log(userdata)
-
   return (
     <>
     <Navbar />

@@ -19,13 +19,15 @@ import ProductInfo from "./pages/ProductInfo.tsx";
 import Login from "./pages/Login.tsx";
 import Verification from "./pages/Verification.tsx";
 import PasswordRecovery from "./pages/PasswordRecovery.tsx";
+import Collection from "./pages/Collection.tsx";
+import Cutie from "./pages/Cuties.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(
     <Route path="" element={<App />}>
       <Route path="/" element={<Home />} />
-      <Route path="/men" element={<Men />} />
-      <Route path="/women" element={<Women />} />
+      <Route path="/:cutie" element={<Cutie />} />
+      <Route path="/:category/:collectionid" element={<Collection />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin" element={<Admin/>} />
       <Route path="/login" element={<Login/>} />

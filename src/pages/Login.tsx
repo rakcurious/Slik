@@ -25,12 +25,7 @@ export default function Login() {
 
   const handleSubmit = async () => {
     if (page === 'Login') {
-      const { success, error, data } = await loginWithEmailAndPassword(email, password);
-      if (success) {
-        navigate('/');
-      } else {
-        setErrorMsg(error);
-      }
+      await loginWithEmailAndPassword(email, password);
     } else if (page === 'Sign up') {
       const { success, error, message } = await signup(email, password, name);
       if (success) {

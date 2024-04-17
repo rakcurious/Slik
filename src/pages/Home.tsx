@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import BannerSlider from "../components/BannerSlider";
-import CategoryCards from "../components/CategoryCards";
+import CategoryCards from "../components/CollectionCards";
 import ProductCards from "../components/ProductCards";
 import { banners, categories } from "../utils/data";
 import Admin from "./Admin";
 import Men from "./Men";
 import ProductInfo from "./ProductInfo";
 import { Navbar } from "..";
+import CollectionCards from "../components/CollectionCards";
 
 
 function Home() {
@@ -16,10 +17,10 @@ function Home() {
 });
   return (
     <>
-    <Navbar />
-      <BannerSlider images={banners} />
-      <CategoryCards categories={categories} />
-      <ProductCards category="all"/>
+     <Navbar />
+        <BannerSlider page="home" />
+        <CollectionCards page='home'/>
+        <ProductCards category="home" collection='home' />
     </>
   );
 }

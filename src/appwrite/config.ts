@@ -1,8 +1,8 @@
-import { Client, Databases, ID, Query } from "appwrite";
-import { Prods } from "../index";
+import { Client, Databases, ID } from "appwrite";
+import { Colls, Prods } from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
-import { getProducts } from "../redux_toolkit/productSlice";
+import { getCollections, getProducts } from "../redux_toolkit/productSlice";
 
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)
@@ -118,6 +118,69 @@ export const updateWishlist = async (id: string, updatedData: string[]) => {
     return response;
   } catch (error) {
     console.log(`Appwrite updateDocument error: Wishlist:: ${error}`);
+    return null;
+  }
+};
+export const fetchCollections = async () => {
+  try {
+    const response = await databases.listDocuments(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteCollectionsCollectionId,
+    );
+    console.log(response)
+    store.dispatch(getCollections(response.documents));
+      return response.documents;
+    
+  } catch (error:any) {
+    console.log(`Appwrite listDocuments error: Collections:: ${error}`);
+    console.log(error.message)
+    return null;
+  }
+};
+
+export const createCollections = async (collection: Colls) => {
+  try {
+    const response = await databases.createDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteCollectionsCollectionId,
+      ID.unique(),
+      collection
+    );
+    console.log("Collection created successfully:", response);
+    return response;
+  } catch (error) {
+    console.log(`Appwrite createDocument error: Collection:: ${error}`);
+    return null;
+  }
+};
+
+export const updateCollections = async (id: string, updatedData: Colls) => {
+  try {
+    const response = await databases.updateDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteCollectionsCollectionId,
+      id,
+      updatedData
+    );
+    console.log("Collection updated successfully:", response);
+    return response;
+  } catch (error) {
+    console.log(`Appwrite updateDocument error: Collection:: ${error}`);
+    return null;
+  }
+};
+
+export const deleteCollections = async (id: string) => {
+  try {
+    const response = await databases.deleteDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteCollectionsCollectionId,
+      id
+    );
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(`Appwrite deleteDocument error: Collections:: ${error}`);
     return null;
   }
 };

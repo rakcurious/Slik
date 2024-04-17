@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import {
   createWishlist,
   fetchAllDocuments,
+  fetchCollections,
   fetchWishlist,
 } from "./appwrite/config";
 import { useAppDispatch, useAppSelector } from "./redux_toolkit/hooks";
@@ -27,6 +28,7 @@ function App() {
     };
     lol();
     fetchAllDocuments();
+    fetchCollections();
 
   }, []);
 

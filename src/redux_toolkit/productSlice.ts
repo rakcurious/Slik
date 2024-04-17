@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { Prods } from "../index";
+import { Colls, Prods } from "../index";
+import { deleteCollections, updateCollections } from "../appwrite/config";
 
 interface ProductState {
-  products: any[];
+  products: Prods[];
+  collections: Colls[];
 }
 
 const initialState: ProductState = {
   products: [],
+  collections: [],
 };
 const productSlice = createSlice({
   name: "products",
@@ -36,10 +39,35 @@ const productSlice = createSlice({
     getProducts: (state, action: PayloadAction<any>) => {
       state.products = action.payload;
     },
+    addCollection: (state, action: PayloadAction<Colls>) => {
+      state.collections.push(action.payload);
+    },
+    updateCollection: (state, action: PayloadAction<Colls>) => {
+      const { $id, ...updatedData } = action.payload;
+      const collectionIndex = state.collections.findIndex(
+        (collection) => collection.$id === $id
+      );
+      if (collectionIndex !== -1) {
+        state.collections[collectionIndex] = {
+          ...state.collections[collectionIndex],
+          ...updatedData,
+        };
+      }
+    },
+    deleteCollection: (state, action: PayloadAction<string>) => {
+      state.collections = state.collections.filter(
+        (collection) => collection.$id !== action.payload
+      );
+    },
+    getCollections: (state, action: PayloadAction<any>) => {
+      state.collections = action.payload;
+    },
   },
 });
 
-export const { addProduct, updateProduct, deleteProduct, getProducts } =
+export const { addProduct, updateProduct, deleteProduct, getProducts, addCollection, updateCollection, deleteCollection, getCollections } =
   productSlice.actions;
 export const selectProducts = (state: RootState) => state.products.products;
+export const selectCollections = (state: RootState) => state.products.collections;
+
 export default productSlice.reducer;

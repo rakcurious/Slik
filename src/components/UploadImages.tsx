@@ -1,6 +1,8 @@
 import { useCallback, useRef, useState } from "react";
 
-export default function UploadImages() {
+const UploadImages: React.FC<{
+  folder: string;
+}> = ({ folder }) => {
   const [imageUrls, setImageUrls] = useState([]);
   const picsRef = useRef();
   const urlRef = useRef(null);
@@ -23,6 +25,7 @@ export default function UploadImages() {
       const data = new FormData();
       data.append("file", file);
       data.append("upload_preset", "beslik");
+     data.append('folder', folder)
 
       fetch(
         `https://api.cloudinary.com/v1_1/dnhz5reqf/image/upload?upload_preset=beslik&log=true`,
@@ -87,3 +90,5 @@ export default function UploadImages() {
     </>
   );
 }
+
+export default UploadImages;

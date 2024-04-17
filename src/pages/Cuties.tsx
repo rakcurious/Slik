@@ -2,14 +2,16 @@ import { useEffect } from "react";
 import {
   banners,
   categories,
-  CategoryCards,
   BannerSlider,
   ProductCards,
-  useAppSelector,
   Navbar,
 } from "../index";
+import CollectionCards from "../components/CollectionCards";
+import { useParams } from "react-router-dom";
 
-function Men() {
+const Cutie: React.FC = () => {
+
+    const { cutie } = useParams();
 
   useEffect(() => {
     document.body.scrollTo(0, 0); 
@@ -21,11 +23,11 @@ function Men() {
   return (
     <>
       <Navbar />
-        <BannerSlider images={menBanners} />
-        <CategoryCards categories={menCategories} />
-        <ProductCards category='men' />
+        <BannerSlider page={cutie} />
+        <CollectionCards page={cutie} />
+        <ProductCards category={cutie} collection={cutie} />
     </>
   );
 }
 
-export default Men;
+export default Cutie;
