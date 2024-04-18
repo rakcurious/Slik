@@ -6,6 +6,7 @@ import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
 import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
 import { useNavigate } from "react-router-dom";
+import { selectProducts } from "../redux_toolkit/productSlice";
 
 interface ProductCardProps {
   product: Prods;
@@ -15,6 +16,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const navigate = useNavigate();
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
+  const products = useAppSelector(selectProducts)
+
+  const prodct = products.find((prod)=> prod.$id === product.$id)
 
   return (
     <CardContainer key={product.$id} className="inter-var col-span-1">
@@ -49,18 +53,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <img
               onClick={() =>
                 handleWishlistUpdate(
-                  product.$id,
+                  prodct?.$id,
                   userdata,
                   wishlist,
-                  [],
+                  products,
                   () => {}
                 )
               }
-              src={wishlist.includes(product?.$id) ? heartfill : heart}
+              src={wishlist.includes(prodct?.$id) ? heartfill : heart}
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"
             />
             <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
-              {product?.wishlist.length}
+              {prodct?.wishlist.length}
             </div>
           </CardItem>
         </div>

@@ -1,4 +1,4 @@
-// handleWishlistUpdate.ts
+
 import { Prods } from "..";
 import { updateProductInAppwrite, updateWishlist } from "../appwrite/config";
 import { updateProduct } from "../redux_toolkit/productSlice";
@@ -13,18 +13,16 @@ export const handleWishlistUpdate = async (
   setShowModal: (show: boolean) => void
 ) => {
   if (!userdata) {
-    // User is not authenticated
-    setShowModal(true); // Show the modal with a message to log in
+  
+    setShowModal(true);
     return;
   }
 
   if (!userdata.emailVerification) {
-    // User is authenticated but not verified
-    setShowModal(true); // Show the modal with a message to verify email
+    setShowModal(true);
     return;
   }
 
-  // User is authenticated and verified, proceed with wishlist update
   const updatedWishlist = wishlist.includes(productId)
     ? wishlist.filter((id: string) => id !== productId)
     : [...wishlist, productId];
@@ -32,9 +30,9 @@ export const handleWishlistUpdate = async (
   const response = await updateWishlist(userdata.$id, updatedWishlist);
   if (response) {
     store.dispatch(setWishlist(updatedWishlist));
-    console.log("Wishlist updated successfully");
+    console.log("user wishlist updated successfully");
   } else {
-    console.log("Failed to update wishlist");
+    console.log("failed to update user wishlist");
   }
 
   const userid = userdata.$id;
@@ -43,7 +41,6 @@ export const handleWishlistUpdate = async (
   if (prodWishlist.includes(userid)) {
     prodWishlist = prodWishlist.filter((user: string) => user !== userid)
   } else {
-    console.log(prodWishlist)
     prodWishlist = [userid, ...prodWishlist]
   }
 
@@ -61,8 +58,8 @@ export const handleWishlistUpdate = async (
 
   if (updatedProduct) {
     store.dispatch(updateProduct(updatedProduct));
-    console.log("wishlist updated");
+    console.log("product wishlist updated");
   } else {
-    console.log("wishlist update failed");
+    console.log("product wishlist update failed");
   }
 };
