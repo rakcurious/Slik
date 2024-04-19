@@ -4,6 +4,9 @@ import CreateCollections from "../components/CreateCollections";
 import UpdateCollections from "../components/UpdateCollections";
 import DeleteCollections from "../components/DeleteCollections";
 import { selectCollections, selectProducts } from "../redux_toolkit/productSlice";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import Error from "../components/WrongPage";
+import Error404 from "../components/Error404Page";
 
 const Admin: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -11,6 +14,8 @@ const Admin: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const [toggle, setToggle] = useState("create");
   const [topToggle, setTopToggle] = useState("products");
+  const userdata = useAppSelector(selectUserData)
+
 
   useEffect(() => {
     fetchAllDocuments();
@@ -18,6 +23,7 @@ const Admin: React.FC = () => {
 
   return (
     <>
+    {(userdata?.$id === '660963212d52965c7a7f') ? <>
     <Navbar />
       <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100 font-urbanist">
       <div className="mb-5 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 font-urbanist text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
@@ -99,11 +105,12 @@ const Admin: React.FC = () => {
               <p>{product.category}</p>
               <p>{Number(product.price)}</p>
               <p>{product.userid}</p>
+              <p>{product.wishlist.length}</p>
             </div>
           ))}
         </div>
       ) : (
-        <p>No products found.</p>
+        <p className="font-semibold text-3xl text-center font-urbanist">No products found</p>
       )}
       </>}
       
@@ -137,7 +144,11 @@ const Admin: React.FC = () => {
       )}
       </>}
 
-    </>
+    </> : 
+    <>
+    <Navbar />
+    <Error /></>
+  }</>
   );
 };
 

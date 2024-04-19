@@ -1,6 +1,6 @@
 import { Account, Client, ID, Models } from "appwrite";
 import { confvars } from "../index";
-import { setUserData } from "../redux_toolkit/userSlice";
+import { setUserData, setWishlist } from "../redux_toolkit/userSlice";
 import { store } from "../redux_toolkit/store";
 
 const client = new Client()
@@ -77,6 +77,7 @@ export const logout = async () => {
   try {
     await account.deleteSession("current");
     store.dispatch(setUserData(null));
+    store.dispatch(setWishlist([]));
   } catch (error:any) {
     console.error("Logout failed:", error);
   }

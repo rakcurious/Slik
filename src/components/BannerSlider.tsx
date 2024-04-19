@@ -58,15 +58,11 @@ const BannerSlider: React.FC<{
             <div key={collection.$id} className="relative h-full">
               <img
                 onClick={() =>
-                  navigate(
-                    `/${collection.gender}/${collection.name
-                      .toLowerCase()
-                      .replace(" ", "-")}`
-                  )
+                  navigateToCollection(collection.gender, collection.$id)
                 }
-                src={collection?.bannerImages[0]}
+                src={collection?.cardImage}
                 alt={collection?.name}
-                className="w-full h-3/5 rounded-xl"
+                className="w-full aspect-1 rounded-xl"
               />
             </div>
           ))}

@@ -19,7 +19,7 @@ const userSlice = createSlice({
       setUserData: (state, action: PayloadAction<Models.Account<Models.Preferences> | null>) => {
         state.userData = action.payload;
       },
-      setWishlist: (state, action: PayloadAction<string[]>) => {
+      setWishlist: (state, action: PayloadAction<string[] | []>) => {
         state.wishlist = action.payload;
       },
     },

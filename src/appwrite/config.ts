@@ -84,7 +84,6 @@ export const fetchWishlist = async (id: string) => {
     
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
-    console.log(id)
     return null;
   }
 };

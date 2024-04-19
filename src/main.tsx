@@ -21,6 +21,8 @@ import Verification from "./pages/Verification.tsx";
 import PasswordRecovery from "./pages/PasswordRecovery.tsx";
 import Collection from "./pages/Collection.tsx";
 import Cutie from "./pages/Cuties.tsx";
+import Wanderer from "./components/Error404Page.tsx";
+import Error404 from "./components/Error404Page.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(
@@ -31,6 +33,7 @@ const router = createBrowserRouter(
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin" element={<Admin/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/*" element={<Error404/>} />
       <Route path="/verification" element={<Verification/>} />
       <Route path="/passwordrecovery" element={<PasswordRecovery/>} />
 

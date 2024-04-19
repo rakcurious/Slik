@@ -36,7 +36,7 @@ function Navbar() {
     <>
       <nav className="sticky z-20 top-0 w-screen h-20 flex mt-0 py-2 items-center justify-center px-4 bg-purple-100">
         <div className="flex justify-between font-bold text-lg font-urbanist gap-x-6 w-full">
-          <div className="md:hidden my-auto w-1/3">
+          <div className="md:hidden my-auto w-1/4">
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-gray-900"
@@ -82,7 +82,7 @@ function Navbar() {
               HOME
             </NavLink>
           </div>
-          <div className="flex justify-center w-1/3">
+          <div className="flex justify-center w-1/2">
             <img
               onClick={() => navigate("/")}
               src={sliklogo}
@@ -90,7 +90,7 @@ function Navbar() {
               alt="Slik Logo"
             />
           </div>
-          <div className="flex justify-end items-center w-1/3">
+          <div className="flex justify-end items-center w-1/4 md:w-1/3">
             {userdata ? (
               <img
                 onClick={profileClick}
@@ -101,7 +101,7 @@ function Navbar() {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="font-semibold text-lg rounded-xl py-2 px-8 bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2 mr-4"
+                className=" font-medium md:font-semibold text-md md:text-lg rounded-xl py-1 md:py-2 px-4 md:px-8 bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2 md:mr-4"
               >
                 Login
               </button>

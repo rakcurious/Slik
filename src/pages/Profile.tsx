@@ -1,11 +1,11 @@
-import { logout, Navbar, useAppSelector, WishlistCards } from "../index";
+import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards } from "../index";
 import { selectProducts } from "../redux_toolkit/productSlice";
-import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
+import { selectUserData, selectWishlist, setUserData } from "../redux_toolkit/userSlice";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const navigate = useNavigate();
-
+  const dispatch = useAppDispatch();
   const userdata = useAppSelector(selectUserData);
   let products = useAppSelector(selectProducts);
   let wishlist = useAppSelector(selectWishlist);
@@ -18,6 +18,7 @@ function Profile() {
 
   const handleLogout = async () => {
     await logout();
+    dispatch(setUserData({}))
     navigate("/");
   };
 

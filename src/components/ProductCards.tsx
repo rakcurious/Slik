@@ -1,9 +1,6 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import { Prods, useAppSelector } from "../index";
 import { selectProducts } from "../redux_toolkit/productSlice";
-import { Modal } from "./AuthModal";
-import { useNavigate } from "react-router-dom";
-import { selectUserData } from "../redux_toolkit/userSlice";
 
 const ProductCard = lazy(() => import("./ProductCard"));
 
@@ -11,15 +8,9 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   category,
   collection,
 }) => {
-  const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();
-
-  const userdata = useAppSelector(selectUserData);
   let products = useAppSelector(selectProducts);
 
-  const isAuthenticated = !!userdata;
-  const isVerified = userdata?.emailVerification || false;
 
   if (category === "men") {
     products = products.filter((product) => product.category === "men");
@@ -45,20 +36,10 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
           }
         >
           {products.map((product: Prods) => (
-            <ProductCard key={product.$id} product={product} />
+            <ProductCard key={product.$id} product={product}/>
           ))}
         </Suspense>
       </div>
-      <Modal
-        isOpen={showModal}
-        isAuthenticated={isAuthenticated}
-        isVerified={isVerified}
-        onClose={() => setShowModal(false)}
-        onLogin={() => {
-          navigate("/login");
-          setShowModal(false);
-        }}
-      />
     </>
   );
 };

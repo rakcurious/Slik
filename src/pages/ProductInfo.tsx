@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import {useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
 import { selectProducts } from "../redux_toolkit/productSlice";
@@ -10,11 +10,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Navbar } from "..";
 import { Modal } from "../components/AuthModal";
+import Error from "../components/WrongPage";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
+  const [share, setShare] = useState(false)
 
   const navigate = useNavigate();
 
@@ -29,6 +31,14 @@ const ProductInfo: React.FC = () => {
   useEffect(() => {
     document.body.scrollTo(0, 0);
   }, []);
+
+  const copyToShare = () => {
+    window.navigator.clipboard.writeText(window.location.href);
+    setShare(true);
+    setTimeout(() => {
+      setShare(false)
+    }, 5000);
+  }
 
   const settings = {
     dots: true,
@@ -45,7 +55,7 @@ const ProductInfo: React.FC = () => {
   return (
     <>
       <Navbar />
-      {product && (
+      {product ? (
         <>
           <div className="hidden xl:flex h-auto overflow-hidden">
             <div className="w-2/3 overflow-y-auto flex flex-wrap p-4 justify-center scrollbar-none">
@@ -80,18 +90,23 @@ const ProductInfo: React.FC = () => {
                       setShowModal
                     )
                   }
-                  className="bg-black text-xl  w-4/5 font-semibold h-14 text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
+                  className="bg-black text-xl  w-4/5 font-semibold h-auto text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
                   {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <a
+                <a target="_blank" 
                   href={product.target}
-                  className="bg-black text-xl w-4/5 font-semibold h-14 text-center text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5"
+                  className="bg-black text-xl w-4/5 font-semibold h-auto text-center text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
                   Buy Now
                 </a>
+                <button onClick={copyToShare}
+                  className={` text-xl w-4/5 font-semibold h-auto text-center  py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 ${share? 'text-black bg-indigo-200': 'bg-black text-white'}`}
+                >
+                  {share? 'Link Copied!': 'Share'}
+                </button>
               </div>
             </div>
           </div>
@@ -131,18 +146,23 @@ const ProductInfo: React.FC = () => {
                       setShowModal
                     )
                   }
-                  className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg transition duration-500 hover:-translate-y-0.5"
+                  className="bg-black text-xl font-semibold h-auto py-4 text-white rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
                   {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <a
+                <a target="_blank"
                   href={product.target}
-                  className="bg-black text-xl font-semibold h-14 text-white py-2 rounded-lg text-center transition duration-500 hover:-translate-y-0.5"
+                  className="bg-black text-xl font-semibold h-auto py-4 text-white rounded-lg text-center transition duration-500 hover:-translate-y-0.5"
                 >
                   Buy Now
                 </a>
+                <button onClick={copyToShare}
+                  className={`text-xl font-semibold h-auto py-4 rounded-lg text-center transition duration-500 hover:-translate-y-0.5 ${share? 'text-black bg-indigo-200': 'bg-black text-white'}`}
+                >
+                  {share? 'Link Copied!': 'Share'}
+                </button>
               </div>
             </div>
           </div>
@@ -157,7 +177,8 @@ const ProductInfo: React.FC = () => {
             }}
           />
         </>
-      )}
+      ): 
+      <Error />}
     </>
   );
 };

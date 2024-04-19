@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem, Prods } from "../index";
 import { handleWishlistUpdate } from "../utils/wishlist";
 import { useAppSelector } from "../redux_toolkit/hooks";
@@ -7,6 +7,7 @@ import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
 import { useNavigate } from "react-router-dom";
 import { selectProducts } from "../redux_toolkit/productSlice";
+import { Modal } from "./AuthModal";
 
 interface ProductCardProps {
   product: Prods;
@@ -17,10 +18,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
   const products = useAppSelector(selectProducts)
+  const [showModal, setShowModal] = useState(false);
 
   const prodct = products.find((prod)=> prod.$id === product.$id)
+  
+  const isAuthenticated = !!userdata;
+  const isVerified = userdata?.emailVerification || false;
 
   return (
+    <>
     <CardContainer key={product.$id} className="inter-var col-span-1">
       <CardBody className="flex flex-col items-center justify-start  relative group/card rounded-xl w-44 sm:w-60 md:w-52 lg:w-64">
         <CardItem translateZ="100" className="w-auto flex justify-center mb-2">
@@ -53,23 +59,34 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <img
               onClick={() =>
                 handleWishlistUpdate(
-                  prodct?.$id,
+                  product.$id,
                   userdata,
                   wishlist,
                   products,
-                  () => {}
+                  setShowModal
                 )
               }
-              src={wishlist.includes(prodct?.$id) ? heartfill : heart}
+              src={wishlist?.includes(product?.$id) ? heartfill : heart}
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"
             />
             <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
-              {prodct?.wishlist.length}
+              {/* {product?.wishlist.length} */}
             </div>
           </CardItem>
         </div>
       </CardBody>
     </CardContainer>
+    <Modal
+        isOpen={showModal}
+        isAuthenticated={isAuthenticated}
+        isVerified={isVerified}
+        onClose={() => setShowModal(false)}
+        onLogin={() => {
+          navigate("/login");
+          setShowModal(false);
+        }}
+      />
+</>
   );
 };
 

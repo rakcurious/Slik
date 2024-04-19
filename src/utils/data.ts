@@ -17,42 +17,44 @@ interface CategoryData {
 }
 
 interface ProductData {
-    id: number;
-    name: string;
-    href: string;
-    imageSrc: string;
-    imageAlt: string;
-    price: string;
-    brand: string;
-    category: string;
-  }
+  id: number;
+  name: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  price: string;
+  brand: string;
+  category: string;
+}
 
-  export interface Product {
-    id: string;
-    title: string;
-    target: string;
-    images: string[];
-    price: number;
-    brand: string;
-    likes?: number;
-    category: string;
-    clicks?: number;
-    userid: string;
-    collection: string;
-  }
+export interface Product {
+  id: string;
+  title: string;
+  target: string;
+  images: string[];
+  price: number;
+  brand: string;
+  likes?: number;
+  category: string;
+  clicks?: number;
+  userid: string;
+  collection: string;
+}
 
-  export const productD = {
-    title: "Polo Oversized",
-    target: "https://www.thesouledstore.com/product/tss-originals-wandering-soul-women-playsuit?gte=2",
-    image: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-    price: 499,
-    brand: "The Souled Store",
-    likes: 1,
-    category: "Men",
-    clicks: 0,
-    userid: "rak",
-    collection: "Oversized",
-  }
+export const productD = {
+  title: "Polo Oversized",
+  target:
+    "https://www.thesouledstore.com/product/tss-originals-wandering-soul-women-playsuit?gte=2",
+  image:
+    "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+  price: 499,
+  brand: "The Souled Store",
+  likes: 1,
+  category: "Men",
+  clicks: 0,
+  userid: "rak",
+  collection: "Oversized",
+};
 
 const banners: ImageData[] = [
   {
@@ -191,379 +193,417 @@ const categories: CategoryData[] = [
 ];
 
 const products: ProductData[] = [
-    {
-      id: 1,
-      name: "Basic Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹350",
-      brand: "AJIO",
-      category: "men"
-    },
-    {
-      id: 2,
-      name: "Basic",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹354",
-      brand: "MYNTRA",
-      category: "women"
-    },
-    {
-      id: 3,
-      name: "Superd",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹345",
-      brand: "THE SOULED STORE",
-      category: "men"
-    },
-    {
-      id: 4,
-      name: "Pink Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹435",
-      brand: "GUCCI",
-      category: "women"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-    {
-      id: 5,
-      name: "Lol Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹235",
-      brand: "H&M",
-      category: "women"
-    },
-    {
-      id: 6,
-      name: "Super Tee",
-      href: "#",
-      imageSrc:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "₹355",
-      brand: "ZARA",
-      category: "men"
-    },
-  ];
-export interface Prods  {
-  $collectionId?: string,
-  $createdAt?: string,
-  $databaseId?: string,
-  $id?: string,
-  $permissions?: string[],
-  $updatedAt?: string,
-  brand: string,
-  category: string,
-  images: string[],
-  wishlist: string[],
-  price: number,
-  target: string,
-  title: string,
-  userid: string,
-  type: string
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹350",
+    brand: "AJIO",
+    category: "men",
+  },
+  {
+    id: 2,
+    name: "Basic",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹354",
+    brand: "MYNTRA",
+    category: "women",
+  },
+  {
+    id: 3,
+    name: "Superd",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹345",
+    brand: "THE SOULED STORE",
+    category: "men",
+  },
+  {
+    id: 4,
+    name: "Pink Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹435",
+    brand: "GUCCI",
+    category: "women",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+  {
+    id: 5,
+    name: "Lol Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711544427_6307183.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹235",
+    brand: "H&M",
+    category: "women",
+  },
+  {
+    id: 6,
+    name: "Super Tee",
+    href: "#",
+    imageSrc:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711526675_6345129.jpg?format=webp&w=480&dpr=1.0",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "₹355",
+    brand: "ZARA",
+    category: "men",
+  },
+];
+export interface Prods {
+  $collectionId?: string;
+  $createdAt?: string;
+  $databaseId?: string;
+  $id?: string;
+  $permissions?: string[];
+  $updatedAt?: string;
+  brand: string;
+  category: string;
+  images: string[];
+  wishlist: string[];
+  price: number;
+  target: string;
+  title: string;
+  userid: string;
+  type: string;
 }
 
+export { banners, categories, products };
 
-  export {banners, categories, products}
+export const collections: Colls[] = [
+  {
+    $id: "1",
+    name: "oversized t-shirts",
+    type: "category",
+    gender: "women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
 
-  export const collections: Colls[] = [
-    {
-      $id: '1',
-    name: 'oversized t-shirts',
-  type: 'category',
-  gender: 'women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '2',
-      name: 'shirts',
-  type: 'category',
-  gender: 'men',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-37_c07CpXP.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '3',
-      name: 'Oversized T-Shirts',
-  type: 'category',
-  gender: 'Women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '4',
-      name: 'Oversized T-Shirts',
-  type: 'category',
-  gender: 'Women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '5',
-      name: 'Oversized T-Shirts',
-  type: 'category',
-  gender: 'Women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '6',
-      name: 'Oversized T-Shirts',
-  type: 'category',
-  gender: 'Women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '7',
-      name: 'Oversized T-Shirts',
-  type: 'category',
-  gender: 'Women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-    {
-      $id: '8',
-      name: 'Oversized T-Shirts',
-  type: 'category',
-  gender: 'Women',
-  link: '#',
-  cardImage: 'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0',
-  headerImage: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0',
-  bannerImages: ['https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0', 'https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0']
-  }, 
-  
-]
+  {
+    $id: "2",
+    name: "shirts",
+    type: "category",
+    gender: "men",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Small-Tile-37_c07CpXP.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+
+  {
+    $id: "3",
+    name: "Oversized T-Shirts",
+    type: "category",
+    gender: "Women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+
+  {
+    $id: "4",
+    name: "Oversized T-Shirts",
+    type: "category",
+    gender: "Women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+
+  {
+    $id: "5",
+    name: "Oversized T-Shirts",
+    type: "category",
+    gender: "Women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+
+  {
+    $id: "6",
+    name: "Oversized T-Shirts",
+    type: "category",
+    gender: "Women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+
+  {
+    $id: "7",
+    name: "Oversized T-Shirts",
+    type: "category",
+    gender: "Women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+
+  {
+    $id: "8",
+    name: "Oversized T-Shirts",
+    type: "category",
+    gender: "Women",
+    link: "#",
+    cardImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+    headerImage:
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    bannerImages: [
+      "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/Women-Small-Tile-OST_PH18NMi.jpg?format=webp&w=480&dpr=1.0",
+      "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020240409114030.jpg?format=webp&w=1366&dpr=1.0",
+    ],
+  },
+];

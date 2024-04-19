@@ -28,7 +28,7 @@ const CollectionCards: React.FC<{
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-0 gap-y-8 font-urbanist text-black pb-10 mb-10">
         {collections.map((collection) => (
           <CardContainer key={collection.$id} className="inter-var">
-            <CardBody className=" h-[27rem] lg:h-96 aspect-[4/5] relative group/card rounded-xl">
+            <CardBody className=" h-80 lg:h-72 aspect-1 relative group/card rounded-xl">
               <CardItem
                 translateZ="100"
                 className="w-full h-full flex justify-center"

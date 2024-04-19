@@ -38,7 +38,7 @@ export const Modal: React.FC<ModalProps> = ({
               Please login to use wishlists
             </p>
             <button
-              className="px-4 py-1 w-4/5 text-lg font-medium text-center bg-black rounded-lg text-white transition duration-200"
+              className="px-4 py-3 w-4/5 text-lg font-medium text-center bg-black rounded-lg text-white transition duration-200"
               onClick={onLogin}
             >
               Login
