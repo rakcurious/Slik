@@ -1,4 +1,4 @@
-import {useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
 import { selectProducts } from "../redux_toolkit/productSlice";
@@ -16,7 +16,7 @@ const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
-  const [share, setShare] = useState(false)
+  const [share, setShare] = useState(false);
 
   const navigate = useNavigate();
 
@@ -36,9 +36,9 @@ const ProductInfo: React.FC = () => {
     window.navigator.clipboard.writeText(window.location.href);
     setShare(true);
     setTimeout(() => {
-      setShare(false)
+      setShare(false);
     }, 5000);
-  }
+  };
 
   const settings = {
     dots: true,
@@ -96,16 +96,20 @@ const ProductInfo: React.FC = () => {
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <a target="_blank" 
+                <a
+                  target="_blank"
                   href={product.target}
                   className="bg-black text-xl w-4/5 font-semibold h-auto text-center text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
                   Buy Now
                 </a>
-                <button onClick={copyToShare}
-                  className={` text-xl w-4/5 font-semibold h-auto text-center  py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 ${share? 'text-black bg-indigo-200': 'bg-black text-white'}`}
+                <button
+                  onClick={copyToShare}
+                  className={` text-xl w-4/5 font-semibold h-auto text-center  py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 ${
+                    share ? "text-black bg-indigo-200" : "bg-black text-white"
+                  }`}
                 >
-                  {share? 'Link Copied!': 'Share'}
+                  {share ? "Link Copied!" : "Share"}
                 </button>
               </div>
             </div>
@@ -152,16 +156,20 @@ const ProductInfo: React.FC = () => {
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
-                <a target="_blank"
+                <a
+                  target="_blank"
                   href={product.target}
                   className="bg-black text-xl font-semibold h-auto py-4 text-white rounded-lg text-center transition duration-500 hover:-translate-y-0.5"
                 >
                   Buy Now
                 </a>
-                <button onClick={copyToShare}
-                  className={`text-xl font-semibold h-auto py-4 rounded-lg text-center transition duration-500 hover:-translate-y-0.5 ${share? 'text-black bg-indigo-200': 'bg-black text-white'}`}
+                <button
+                  onClick={copyToShare}
+                  className={`text-xl font-semibold h-auto py-4 rounded-lg text-center transition duration-500 hover:-translate-y-0.5 ${
+                    share ? "text-black bg-indigo-200" : "bg-black text-white"
+                  }`}
                 >
-                  {share? 'Link Copied!': 'Share'}
+                  {share ? "Link Copied!" : "Share"}
                 </button>
               </div>
             </div>
@@ -177,8 +185,9 @@ const ProductInfo: React.FC = () => {
             }}
           />
         </>
-      ): 
-      <Error />}
+      ) : (
+        <Error />
+      )}
     </>
   );
 };

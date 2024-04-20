@@ -24,3 +24,7 @@ body {
 .scrollbar-none::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
 }
+
+main {
+  flex-grow: 1;
+}

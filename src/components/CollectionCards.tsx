@@ -22,10 +22,11 @@ const CollectionCards: React.FC<{
 
   return (
     <>
-      <h1 className="text-center uppercase font-urbanist font-bold text-4xl mt-6">
+    
+      <h1 className="text-center uppercase font-urbanist font-medium text-4xl mt-6">
         COLLECTIONS
       </h1>
-      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-0 gap-y-8 font-urbanist text-black pb-10 mb-10">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-0 gap-y-8 font-urbanist text-black pb-10 mb-10">
         {collections.map((collection) => (
           <CardContainer key={collection.$id} className="inter-var">
             <CardBody className=" h-80 lg:h-72 aspect-1 relative group/card rounded-xl">

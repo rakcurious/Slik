@@ -34,7 +34,7 @@ function Profile() {
                 {userdata.email}
               </p>
             </div>
-            <h1 className="font-bold text-xl text-center w-1/3">WISHLIST</h1>
+            <h1 className="font-medium text-2xl text-center w-1/3">WISHLIST</h1>
             <div className="w-1/3 flex justify-end">
               <button
                 onClick={handleLogout}
