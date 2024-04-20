@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { BannerSlider, ProductCards, Navbar } from "../index";
 import CollectionCards from "../components/CollectionCards";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Error from "../components/WrongPage";
 import Footer from "../components/Footer";
 
 const Cutie: React.FC = () => {
-  const navigate = useNavigate();
   const { cutie } = useParams();
 
   useEffect(() => {

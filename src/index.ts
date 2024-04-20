@@ -52,22 +52,6 @@ export interface Prods {
   slug:string;
 }
 
-export interface Colls {
-  $collectionId?: string;
-  $createdAt?: string;
-  $databaseId?: string;
-  $id?: string;
-  $permissions?: string[];
-  $updatedAt?: string;
-  name: string; //Collection Name eg: Shirts or Aristobrat
-  type: string; // Brand or Category or else
-  gender: string; //men or women
-  link: string; //link of the collection page eg:beslik.in/men/shirts
-  cardImage: string; //Image on the card on homepage or women's page etc
-  headerImage: string; //Image at the top of the collection page
-  bannerImages?: string[]; //Banner Image on the homepage or men's page etc
-  slug?:string;
-}
 
 export interface Collection {
   $collectionId?: string;

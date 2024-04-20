@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { ProductCards, useAppSelector, Navbar } from "../index";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { selectCollections } from "../redux_toolkit/productSlice";
 import Error from "../components/WrongPage";
-import { cat } from "@cloudinary/url-gen/qualifiers/focusOn";
 
 const Collection: React.FC = () => {
-  const navigate = useNavigate();
   const collections = useAppSelector(selectCollections);
 
   const { category, slug } = useParams();
@@ -17,14 +15,7 @@ const Collection: React.FC = () => {
     (collection) => collection.slug == slug
   );
 
-  // if(category === 'men' || category == 'women'){
-  //   if(!collection){
-  //     navigate('/wanderer')
-  //   }
-  // }
-  // else{
-  //   navigate('/wanderer')
-  // }
+
 
   useEffect(() => {
     document.body.scrollTo(0, 0);

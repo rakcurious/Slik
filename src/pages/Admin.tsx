@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {fetchAllDocuments, useAppSelector, useAppDispatch, Navbar, Colls, DeleteProducts, UpdateProducts, CreateProducts, Prods, Collection } from "../index";
+import {fetchAllDocuments, useAppSelector, useAppDispatch, Navbar, DeleteProducts, UpdateProducts, CreateProducts, Prods, Collection } from "../index";
 import CreateCollections from "../components/CreateCollections";
 import UpdateCollections from "../components/UpdateCollections";
 import DeleteCollections from "../components/DeleteCollections";
 import { selectCollections, selectProducts } from "../redux_toolkit/productSlice";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import Error from "../components/WrongPage";
-import Error404 from "../components/Error404Page";
 
 const Admin: React.FC = () => {
   const dispatch = useAppDispatch();

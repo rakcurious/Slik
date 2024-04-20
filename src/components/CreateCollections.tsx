@@ -3,7 +3,6 @@ import {
   UploadImages,
   useAppDispatch,
   createCollections,
-  Colls,
   Collection,
 } from "../index";
 import { addCollection } from "../redux_toolkit/productSlice";

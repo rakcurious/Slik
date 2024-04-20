@@ -16,7 +16,7 @@ import Cutie from "./pages/Cuties.tsx";
 import Error404 from "./components/Error404Page.tsx";
 import Contact from "./pages/Contact.tsx";
 import PrivacyTerms from "./pages/PrivacyTerms.tsx";
-import React, { lazy, Suspense } from "react";
+import React from "react";
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(

@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   Collection,
-  Colls,
   updateCollections,
   useAppDispatch,
   useAppSelector,

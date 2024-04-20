@@ -1,4 +1,3 @@
-// Modal.tsx
 import React, { useState } from "react";
 import { startVerification } from "../appwrite/auth";
 
