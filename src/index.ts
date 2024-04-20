@@ -11,7 +11,6 @@ import UpdateProducts from "./components/UpdateProducts";
 import UploadImages from "./components/UploadImages";
 import { UserInfoLogout } from "./components/UserInfoLogout";
 import { cn } from "./utils/cn";
-import { categories, banners, products } from "./utils/data";
 import confvars from "./appwrite/confvars";
 import {
   createProductInAppwrite,
@@ -71,9 +70,6 @@ export {
   CategoryCards,
   BannerSlider,
   ProductCards,
-  banners,
-  categories,
-  products,
   CardBody,
   CardContainer,
   CardItem,

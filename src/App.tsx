@@ -7,8 +7,8 @@ import {
   fetchCollections,
   fetchWishlist,
 } from "./appwrite/config";
-import { useAppDispatch, useAppSelector } from "./redux_toolkit/hooks";
-import { selectUserData, setWishlist } from "./redux_toolkit/userSlice";
+import { useAppDispatch } from "./redux_toolkit/hooks";
+import { setWishlist } from "./redux_toolkit/userSlice";
 function App() {
   const dispatch = useAppDispatch();
 
