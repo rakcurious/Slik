@@ -1,5 +1,5 @@
 import { Client, Databases, ID } from "appwrite";
-import { Colls, Prods } from "../index";
+import { Collection, Prods } from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
 import { getCollections, getProducts } from "../redux_toolkit/productSlice";
@@ -135,7 +135,7 @@ export const fetchCollections = async () => {
   }
 };
 
-export const createCollections = async (collection: Colls) => {
+export const createCollections = async (collection: Collection) => {
   try {
     const response = await databases.createDocument(
       confvars.appwriteDatabaseId,
@@ -151,7 +151,7 @@ export const createCollections = async (collection: Colls) => {
   }
 };
 
-export const updateCollections = async (id: string, updatedData: Colls) => {
+export const updateCollections = async (id: string, updatedData: Collection) => {
   try {
     const response = await databases.updateDocument(
       confvars.appwriteDatabaseId,

@@ -4,17 +4,28 @@ import {
   useAppDispatch,
   createCollections,
   Colls,
+  Collection,
 } from "../index";
 import { addCollection } from "../redux_toolkit/productSlice";
 
 const CreateCollections: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { register, handleSubmit, reset } = useForm<Colls>();
+  const { register, handleSubmit, reset } = useForm<Collection>();
 
-  const onSubmit: SubmitHandler<Colls> = async (data) => {
+  const slugify = (str: string) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+
+
+  const onSubmit: SubmitHandler<Collection> = async (data) => {
     const createdCollection = await createCollections({
       ...data,
-      bannerImages: data.bannerImages.split(","),
+      slug: slugify(data.name),
     });
     if (createdCollection) {
       dispatch(addCollection(createdCollection));
@@ -32,9 +43,7 @@ const CreateCollections: React.FC = () => {
         <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
           <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1">
             <input placeholder="Name" {...register("name")} required />
-            <input placeholder="Type" {...register("type")} required />
-            <input placeholder="Gender" {...register("gender")} required />
-            <input placeholder="Link" {...register("link")} required />
+            <input placeholder="Category" {...register("category")} required />
             <input
               placeholder="Card Image"
               {...register("cardImage")}
@@ -43,11 +52,6 @@ const CreateCollections: React.FC = () => {
             <input
               placeholder="Header Image"
               {...register("headerImage")}
-              required
-            />
-            <input
-              placeholder="Banner Images"
-              {...register("bannerImages")}
               required
             />
           </div>

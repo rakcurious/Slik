@@ -49,6 +49,7 @@ export interface Prods {
   title: string;
   userid: string;
   type: string;
+  slug:string;
 }
 
 export interface Colls {
@@ -65,6 +66,21 @@ export interface Colls {
   cardImage: string; //Image on the card on homepage or women's page etc
   headerImage: string; //Image at the top of the collection page
   bannerImages?: string[]; //Banner Image on the homepage or men's page etc
+  slug?:string;
+}
+
+export interface Collection {
+  $collectionId?: string;
+  $createdAt?: string;
+  $databaseId?: string;
+  $id?: string;
+  $permissions?: string[];
+  $updatedAt?: string;
+  name: string; //Collection Name eg: Shirts or Aristobrat
+  category: string; // Brand or Category or else
+  cardImage: string; //Image on the card on homepage or women's page etc
+  headerImage: string; //Image at the top of the collection page
+  slug: string; //slug of the name of product
 }
 
 export {

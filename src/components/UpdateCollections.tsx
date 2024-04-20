@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
+  Collection,
   Colls,
   updateCollections,
   useAppDispatch,
@@ -14,7 +15,7 @@ import { useEffect, useState } from "react";
 const UpdateCollections: React.FC = () => {
   const [collection, setCollection] = useState<Partial<
     Omit<
-      Colls,
+      Collection,
       | "$databaseId"
       | "$collectionId"
       | "$id"
@@ -35,7 +36,7 @@ const UpdateCollections: React.FC = () => {
     formState: { isDirty },
   } = useForm<
     Omit<
-      Colls,
+      Collection,
       | "$databaseId"
       | "$collectionId"
       | "$id"
@@ -56,7 +57,7 @@ const UpdateCollections: React.FC = () => {
     if (foundCollection) {
       const updatedCollection: Partial<
         Omit<
-          Colls,
+          Collection,
           | "$databaseId"
           | "$collectionId"
           | "$id"
@@ -74,7 +75,7 @@ const UpdateCollections: React.FC = () => {
           key !== "$createdAt" &&
           key !== "$updatedAt"
         ) {
-          updatedCollection[key] = foundCollection[key as keyof Prods];
+          updatedCollection[key] = foundCollection[key as keyof Collection];
         }
       }
       setCollection(updatedCollection);
@@ -88,7 +89,7 @@ const UpdateCollections: React.FC = () => {
       Object.keys(collection).forEach((key) => {
         setValue(
           key as keyof Omit<
-            Colls,
+            Collection,
             | "$databaseId"
             | "$collectionId"
             | "$id"
@@ -104,7 +105,7 @@ const UpdateCollections: React.FC = () => {
 
   const onSubmit: SubmitHandler<
     Omit<
-      Colls,
+      Collection,
       | "$databaseId"
       | "$collectionId"
       | "$id"
@@ -113,12 +114,7 @@ const UpdateCollections: React.FC = () => {
       | "$updatedAt"
     >
   > = async (data) => {
-    const updatedCollection = await updateCollections(id, {
-      ...data,
-      bannerImages: Array.isArray(data.bannerImages)
-        ? data.bannerImages
-        : data.bannerImages.split(","),
-    });
+    const updatedCollection = await updateCollections(id, data);
     if (updatedCollection) {
       dispatch(updateCollection(updatedCollection));
       reset();
@@ -151,9 +147,12 @@ const UpdateCollections: React.FC = () => {
             <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
               <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
                 <input placeholder="Name" {...register("name")} required />
-                <input placeholder="Type" {...register("type")} required />
-                <input placeholder="Gender" {...register("gender")} required />
-                <input placeholder="Link" {...register("link")} required />
+                <input placeholder="Category" {...register("category")} required />
+                <input
+                  placeholder="slug"
+                  {...register("slug")}
+                  required
+                />
                 <input
                   placeholder="Card Image"
                   {...register("cardImage")}
@@ -164,16 +163,12 @@ const UpdateCollections: React.FC = () => {
                   {...register("headerImage")}
                   required
                 />
-                <input
-                  placeholder="Banner Image"
-                  {...register("bannerImages")}
-                  required
-                />
+                
               </div>
               <input
                 type="submit"
                 value="Update Collection"
-                className="h-12 w-auto px-6 py-1 text-2xl font-semibold text-center bg-black rounded-lg text-white transition duration-200"
+                className="cursor-pointer h-12 w-auto px-6 py-1 text-2xl font-medium text-center bg-black rounded-lg text-white transition duration-200"
                 disabled={!isDirty}
               />
             </div>

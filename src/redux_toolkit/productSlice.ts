@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { Colls, Prods } from "../index";
-import { deleteCollections, updateCollections } from "../appwrite/config";
+import { Collection, Prods } from "../index";
 
 interface ProductState {
   products: Prods[];
-  collections: Colls[];
+  collections: Collection[];
 }
 
 const initialState: ProductState = {
@@ -39,10 +38,10 @@ const productSlice = createSlice({
     getProducts: (state, action: PayloadAction<any>) => {
       state.products = action.payload;
     },
-    addCollection: (state, action: PayloadAction<Colls>) => {
+    addCollection: (state, action: PayloadAction<Collection>) => {
       state.collections.push(action.payload);
     },
-    updateCollection: (state, action: PayloadAction<Colls>) => {
+    updateCollection: (state, action: PayloadAction<Collection>) => {
       const { $id, ...updatedData } = action.payload;
       const collectionIndex = state.collections.findIndex(
         (collection) => collection.$id === $id

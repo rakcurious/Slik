@@ -23,14 +23,14 @@ const router = createBrowserRouter(
     <Route path="" element={<App />}>
       <Route path="/" element={<Home />} />
       <Route path="/:cutie" element={<Cutie />} />
-      <Route path="/:category/:collectionid" element={<Collection />} />
+      <Route path="/:category/:slug" element={<Collection />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/login" element={<Login />} />
       <Route path="/*" element={<Error404 />} />
       <Route path="/verification" element={<Verification />} />
       <Route path="/passwordrecovery" element={<PasswordRecovery />} />
-      <Route path="/product/:productid" element={<ProductInfo />} />
+      <Route path="/product/:slug" element={<ProductInfo />} />
       <Route path="/privacyterms" element={<PrivacyTerms />} />
       <Route path="/contact" element={<Contact />} />
     </Route>

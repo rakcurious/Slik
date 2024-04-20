@@ -9,6 +9,7 @@ import { updateProduct } from "../redux_toolkit/productSlice";
 import { useEffect, useState } from "react";
 
 const UpdateProducts: React.FC = () => {
+
   const [product, setProduct] = useState<Partial<
     Omit<
       Prods,
@@ -136,7 +137,7 @@ const UpdateProducts: React.FC = () => {
           onClick={getProductDetails}
           className="h-12 w-48 text-2xl font-normal text-center bg-black text-white rounded-lg transition duration-200"
         >
-          Get product
+          get product
         </button>
       </div>
       {product && (
@@ -159,8 +160,8 @@ const UpdateProducts: React.FC = () => {
               </div>
               <input
                 type="submit"
-                value="Update Product"
-                className="h-12 w-48 text-2xl font-semibold text-center bg-black rounded-lg text-white transition duration-200"
+                value="update product"
+                className="cursor-pointer h-12 w-48 text-2xl font-medium text-center bg-black rounded-lg text-white transition duration-200"
                 disabled={!isDirty}
               />
             </div>

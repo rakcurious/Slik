@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <CardBody className="flex flex-col items-center justify-start  relative group/card rounded-xl w-44 sm:w-60 md:w-52 lg:w-64">
         <CardItem translateZ="100" className="w-auto flex justify-center mb-2">
           <img
-            onClick={() => navigate(`/product/${product.$id}`)}
+            onClick={() => navigate(`/product/${product.slug}`)}
             src={product.images[0]}
             className="w-full aspect-[3/4] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
             alt={product.title}

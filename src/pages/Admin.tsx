@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {fetchAllDocuments, useAppSelector, useAppDispatch, Navbar, Colls, DeleteProducts, UpdateProducts, CreateProducts, Prods } from "../index";
+import {fetchAllDocuments, useAppSelector, useAppDispatch, Navbar, Colls, DeleteProducts, UpdateProducts, CreateProducts, Prods, Collection } from "../index";
 import CreateCollections from "../components/CreateCollections";
 import UpdateCollections from "../components/UpdateCollections";
 import DeleteCollections from "../components/DeleteCollections";
@@ -106,6 +106,7 @@ const Admin: React.FC = () => {
               <p>{Number(product.price)}</p>
               <p>{product.userid}</p>
               <p>{product.wishlist.length}</p>
+              <p>{product.slug}</p>
             </div>
           ))}
         </div>
@@ -124,18 +125,17 @@ const Admin: React.FC = () => {
       </h1>
       {collections && collections.length > 0 ? (
         <div className="h-auto w-screen px-10 pb-10 flex flex-col justify-start items-center gap-4 text-sm font-semibold *:h-auto *:w-auto *:text-center *:rounded-xl *:px-1">
-          {collections.map((collection: Colls) => (
+          {collections.map((collection: Collection) => (
             <div
               className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
               key={collection.$id}
             >
               <p>{collection.$id}</p>
               <p>{collection.name}</p>
-              <p>{collection.type}</p>
-              <p>{collection.gender}</p>
+              <p>{collection.category}</p>
+              <p>{collection.slug}</p>
               <p>{collection.cardImage}</p>
               <p>{collection.headerImage}</p>
-              <p>{collection.bannerImages}</p>
             </div>
           ))}
         </div>

@@ -11,10 +11,22 @@ const CreateProducts: React.FC = () => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit, reset } = useForm<Prods>();
 
+  const slugify = (str: string) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    console.log(slugify('ahsan shirt & skirt co-ord set'+' '+'women'+' '+'oversized t-shirts'))
+
   const onSubmit: SubmitHandler<Prods> = async (data) => {
     const createdProduct = await createProductInAppwrite({
       ...data,
+      slug: slugify(data.title+ ' ' + data.category + ' ' + data.type),
       images: data.images.split(","),
+
       wishlist: [],
     });
     if (createdProduct) {
@@ -43,8 +55,8 @@ const CreateProducts: React.FC = () => {
           </div>
           <input
             type="submit"
-            value="Add Products"
-            className="h-12 w-48 text-2xl font-normal text-center bg-black rounded-lg text-white transition duration-200"
+            value="Add Product"
+            className="cursor-pointer h-12 w-48 text-2xl font-normal text-center bg-black rounded-lg text-white transition duration-200"
           />
         </div>
       </form>

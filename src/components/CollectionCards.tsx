@@ -4,20 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { selectCollections } from "../redux_toolkit/productSlice";
 
 const CollectionCards: React.FC<{
-  page: string;
-}> = ({ page }) => {
+  category: string;
+}> = ({ category }) => {
   let collections = useAppSelector(selectCollections);
 
   const navigate = useNavigate();
 
-  if (page === "men" || page === "women") {
+  if (category === "men" || category === "women" || category === "brands") {
     collections = collections.filter(
-      (collection) => collection.gender.toLowerCase() == page
+      (collection) => collection.category.toLowerCase() == category
     );
   }
 
-  const navigateToCollection = (gender, id) => {
-    navigate(`/${gender}/${id}`);
+  const navigateToCollection = (category:string, slug:string) => {
+    navigate(`/${category}/${slug}`);
   };
 
   return (
@@ -36,7 +36,7 @@ const CollectionCards: React.FC<{
               >
                 <img
                   onClick={() =>
-                    navigateToCollection(collection.gender, collection.$id)
+                    navigateToCollection(collection.category, collection.slug)
                   }
                   src={collection.cardImage}
                   className="h-full w-full object-cover rounded-lg group-hover/card:shadow-xl"

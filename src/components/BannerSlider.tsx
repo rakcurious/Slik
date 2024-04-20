@@ -7,19 +7,19 @@ import { selectCollections } from "../redux_toolkit/productSlice";
 import { useNavigate } from "react-router-dom";
 
 const BannerSlider: React.FC<{
-  page: string;
-}> = ({ page }) => {
+  category: string;
+}> = ({ category }) => {
   const navigate = useNavigate();
 
   let collections = useAppSelector(selectCollections);
 
-  if (page === "men" || page === "women") {
+  if (category === "men" || category === "women" || category ==="brands") {
     collections = collections.filter(
-      (collection) => collection.gender.toLowerCase() === page
+      (collection) => collection.category.toLowerCase() === category
     );
   }
-  const navigateToCollection = (gender, id) => {
-    navigate(`/${gender}/${id}`);
+  const navigateToCollection = (category:string, slug:string) => {
+    navigate(`/${category}/${slug}`);
   };
 
   const settings = {
@@ -42,9 +42,9 @@ const BannerSlider: React.FC<{
             <div key={collection.$id} className="relative h-full">
               <img
                 onClick={() =>
-                  navigateToCollection(collection.gender, collection.$id)
+                  navigateToCollection(collection.category, collection.slug)
                 }
-                src={collection?.bannerImages[1]}
+                src={collection?.headerImage}
                 alt={collection?.name}
                 className="w-full aspect-[4/1] object-cover rounded-xl"
               />
@@ -58,7 +58,7 @@ const BannerSlider: React.FC<{
             <div key={collection.$id} className="relative h-full">
               <img
                 onClick={() =>
-                  navigateToCollection(collection.gender, collection.$id)
+                  navigateToCollection(collection.category, collection.slug)
                 }
                 src={collection?.cardImage}
                 alt={collection?.name}

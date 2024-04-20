@@ -10,12 +10,13 @@ function Home() {
     document.body.scrollTo(0, 0);
   }, []);
 
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <BannerSlider page="home" />
-        <CollectionCards page="home" />
+        <BannerSlider category="home" />
+        <CollectionCards category="home" />
         <ProductCards category="home" collection="home" />
       </main>
       <Footer />

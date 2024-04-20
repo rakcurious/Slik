@@ -20,10 +20,10 @@ const ProductInfo: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const { productid } = useParams();
+  const { slug } = useParams();
   const [showModal, setShowModal] = useState(false);
 
-  const product = products.find((product) => product.$id == productid);
+  const product = products.find((product) => product.slug == slug);
 
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;

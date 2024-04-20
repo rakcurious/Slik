@@ -3,17 +3,18 @@ import { ProductCards, useAppSelector, Navbar } from "../index";
 import { useNavigate, useParams } from "react-router-dom";
 import { selectCollections } from "../redux_toolkit/productSlice";
 import Error from "../components/WrongPage";
+import { cat } from "@cloudinary/url-gen/qualifiers/focusOn";
 
 const Collection: React.FC = () => {
   const navigate = useNavigate();
   const collections = useAppSelector(selectCollections);
 
-  const { category, collectionid } = useParams();
+  const { category, slug } = useParams();
 
  
 
   const collection = collections.find(
-    (collection) => collection.$id == collectionid
+    (collection) => collection.slug == slug
   );
 
   // if(category === 'men' || category == 'women'){
@@ -32,14 +33,11 @@ const Collection: React.FC = () => {
   return (
     <>
       <Navbar />
-      {(category === 'men' || category == 'women') && collection ? <>
+      {(category === 'men' || category == 'women' || category === 'brands') && collection ? <>
       <img
         src={collection?.headerImage}
         className="mt-0 h-auto w-screen aspect-4"
       />
-      <h1 className=" my-10 text-center font-urbanist capitalize font-bold text-4xl mt-10">
-        {collection?.name}
-      </h1>
       <ProductCards category={category} collection={collection?.name} />
     </>: 
     <Error />}

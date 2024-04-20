@@ -58,7 +58,7 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                       className="w-auto flex justify-center mb-2"
                     >
                       <img
-                        onClick={() => navigate(`/product/${product.$id}`)}
+                        onClick={() => navigate(`/product/${product.slug}`)}
                         src={product.images[0]}
                         className="w-full aspect-[3/4] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
                         alt={product.title}

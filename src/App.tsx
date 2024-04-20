@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import { Outlet } from "react-router-dom";
 import { getCurrentSession } from "./appwrite/auth";
 import { useEffect } from "react";
@@ -10,10 +9,8 @@ import {
 } from "./appwrite/config";
 import { useAppDispatch, useAppSelector } from "./redux_toolkit/hooks";
 import { selectUserData, setWishlist } from "./redux_toolkit/userSlice";
-import Footer from "./components/Footer";
 function App() {
   const dispatch = useAppDispatch();
-  const userdata = useAppSelector(selectUserData);
 
   useEffect(() => {
     const lol = async () => {
