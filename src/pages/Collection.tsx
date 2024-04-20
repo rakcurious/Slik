@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ProductCards, useAppSelector, Navbar } from "../index";
 import { useParams } from "react-router-dom";
-import { selectCollections } from "../redux_toolkit/productSlice";
+import productSlice, { selectCollections } from "../redux_toolkit/productSlice";
 import Error from "../components/WrongPage";
 
 const Collection: React.FC = () => {
@@ -21,6 +21,8 @@ const Collection: React.FC = () => {
     document.body.scrollTo(0, 0);
   });
 
+ 
+
   return (
     <>
       <Navbar />
@@ -29,7 +31,7 @@ const Collection: React.FC = () => {
         src={collection?.headerImage}
         className="mt-0 h-auto w-screen aspect-4"
       />
-      <ProductCards category={category} collection={collection?.name} />
+      <ProductCards category={category} collection={collection?.name}/>
     </>: 
     <Error />}
     </>

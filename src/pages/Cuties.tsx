@@ -18,7 +18,7 @@ const Cutie: React.FC = () => {
       {(cutie === 'men' || cutie ==='women') ? <>
       <BannerSlider category={cutie} />
       <CollectionCards category={cutie} />
-      <ProductCards category={cutie} collection={cutie} />
+      <ProductCards category={cutie} collection={cutie}/>
       <Footer />
       </>: 
       <Error /> }

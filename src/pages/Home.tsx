@@ -17,7 +17,7 @@ function Home() {
       <main className="flex-grow">
         <BannerSlider category="home" />
         <CollectionCards category="home" />
-        <ProductCards category="home" collection="home" />
+        <ProductCards category="home" collection="home"/>
       </main>
       <Footer />
     </div>

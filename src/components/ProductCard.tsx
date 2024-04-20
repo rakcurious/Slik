@@ -70,7 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"
             />
             <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
-              {/* {product?.wishlist.length} */}
+              {product?.wishlist.length}
             </div>
           </CardItem>
         </div>
