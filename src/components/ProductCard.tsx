@@ -43,10 +43,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="truncate capitalize font-semibold">
               {product.title}
             </div>
-            <div className=" font-normal truncate uppercase">
+            <div className="text-xs font-medium truncate uppercase">
               {product.brand}
             </div>
-            <div className=" mb-1 font-semibold  truncate">
+            <div className=" mb-1 font-medium truncate">
               {`₹${product.price}`}
             </div>
           </CardItem>
@@ -70,7 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"
             />
             <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
-              {product?.wishlist.length}
+              {/* {product?.wishlist.length} */}
             </div>
           </CardItem>
         </div>

@@ -7,9 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily : {
-        'urbanist' : ['Urbanist', 'sans-serif'],
-        'poiretone' : ['Poiret One', 'sans-serif'],
-        'julius' : ['Julius Sans One', 'sans-serif'],
+        'urbanist' : ['Urbanist', 'sans-serif']
       },
       screens: {
         'lol': {'max': '1023px'},

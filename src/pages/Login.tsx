@@ -1,5 +1,4 @@
 import { useState } from "react";
-import sliklogo from "../assets/sliklogo.webp";
 import signinwithgoogle from "../assets/signinwithgoogle.svg";
 import {
   loginWithEmailAndPassword,
@@ -56,7 +55,7 @@ export default function Login() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8 font-urbanist">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-14 w-auto" src={sliklogo} alt="Slik" />
+          <img className="mx-auto h-14 w-auto" src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp' alt="Slik" />
           <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
             {page}
           </h2>

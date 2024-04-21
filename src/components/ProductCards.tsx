@@ -47,8 +47,8 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
 
   return (
     <>
-      <h1 className="text-center font-urbanist font-medium text-4xl mt-10">
-        {category === collection? 'PRODUCTS' : collection}
+      <h1 className="text-center uppercase font-urbanist font-medium text-4xl mt-10">
+        {category === collection? 'Products' : collection}
       </h1>
       {category !== collection && <div className="mt-4 flex flex-col items-center justify-start font-urbanist">
         <p className="font-medium mb-0 translate-y-2">Sort by</p>

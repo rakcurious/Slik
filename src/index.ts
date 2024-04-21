@@ -9,7 +9,6 @@ import ProductInfo from "./pages/ProductInfo";
 import WishlistCards from "./components/WishlistCards";
 import UpdateProducts from "./components/UpdateProducts";
 import UploadImages from "./components/UploadImages";
-import { UserInfoLogout } from "./components/UserInfoLogout";
 import { cn } from "./utils/cn";
 import confvars from "./appwrite/confvars";
 import {
@@ -87,8 +86,7 @@ export {
   Navbar,
   ProductInfo,
   WishlistCards,
-  UserInfoLogout,
-  cn,
+    cn,
   confvars,
   useAppSelector,
   useAppDispatch,

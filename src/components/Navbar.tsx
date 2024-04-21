@@ -1,5 +1,4 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import sliklogo from "../assets/sliklogo.webp";
 import { useAppSelector } from "../index";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import { useState } from "react";
@@ -85,7 +84,7 @@ function Navbar() {
           <div className="flex justify-center w-1/2">
             <img
               onClick={() => navigate("/")}
-              src={sliklogo}
+              src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp'
               className="h-14 w-auto m-0"
               alt="Slik Logo"
             />
