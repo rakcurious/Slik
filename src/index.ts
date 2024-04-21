@@ -60,10 +60,10 @@ export interface Collection {
   $permissions?: string[];
   $updatedAt?: string;
   name: string; //Collection Name eg: Shirts or Aristobrat
-  category: string; // Brand or Category or else
+  category: string; // BrandName or Men or Women
   cardImage: string; //Image on the card on homepage or women's page etc
   headerImage: string; //Image at the top of the collection page
-  slug: string; //slug of the name of product
+  slug: string; //slug of the name of collection
 }
 
 export {

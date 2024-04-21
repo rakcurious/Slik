@@ -16,8 +16,10 @@ function Home() {
       <Navbar />
       <main className="flex-grow">
         <BannerSlider category="home" />
-        <CollectionCards category="home" />
         <ProductCards category="home" collection="home"/>
+        <CollectionCards category="home" />
+        <CollectionCards category="brands" />
+        
       </main>
       <Footer />
     </div>

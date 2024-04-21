@@ -10,6 +10,14 @@ import { useEffect, useState } from "react";
 
 const UpdateProducts: React.FC = () => {
 
+  const slugify = (str: string) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
   const [product, setProduct] = useState<Partial<
     Omit<
       Prods,
@@ -111,6 +119,7 @@ const UpdateProducts: React.FC = () => {
   > = async (data) => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
+      slug: slugify(data.title+ ' ' + data.category + ' ' + data.type),
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
       wishlist: products.find((product) => product.$id === id).wishlist,
     });

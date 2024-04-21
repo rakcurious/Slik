@@ -15,6 +15,11 @@ const CollectionCards: React.FC<{
       (collection) => collection.category.toLowerCase() == category
     );
   }
+  else if(category === 'home'){
+    collections = collections.filter((collection)=>collection.category.toLowerCase() == 'men' || collection.category.toLowerCase() == 'women' )
+  }
+
+
 
   const navigateToCollection = (category:string, slug:string) => {
     navigate(`/${category}/${slug}`);
@@ -24,7 +29,7 @@ const CollectionCards: React.FC<{
     <>
     
       <h1 className="text-center uppercase font-urbanist font-medium text-4xl mt-6">
-        COLLECTIONS
+        {category === 'brands' ? 'Brands' : 'Collections'}
       </h1>
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-0 gap-y-8 font-urbanist text-black pb-10 mb-10">
         {collections.map((collection) => (
@@ -39,7 +44,7 @@ const CollectionCards: React.FC<{
                     navigateToCollection(collection.category, collection.slug)
                   }
                   src={collection.cardImage}
-                  className="h-full w-full object-cover rounded-lg group-hover/card:shadow-xl"
+                  className="cursor-pointer h-full w-full object-cover rounded-lg group-hover/card:shadow-xl"
                   alt={collection.name}
                 />
               </CardItem>

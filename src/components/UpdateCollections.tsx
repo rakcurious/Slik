@@ -12,6 +12,15 @@ import {
 import { useEffect, useState } from "react";
 
 const UpdateCollections: React.FC = () => {
+
+  const slugify = (str: string) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
   const [collection, setCollection] = useState<Partial<
     Omit<
       Collection,
@@ -113,7 +122,10 @@ const UpdateCollections: React.FC = () => {
       | "$updatedAt"
     >
   > = async (data) => {
-    const updatedCollection = await updateCollections(id, data);
+    const updatedCollection = await updateCollections(id, {
+      ...data,
+      slug: slugify(data.name),
+    });
     if (updatedCollection) {
       dispatch(updateCollection(updatedCollection));
       reset();

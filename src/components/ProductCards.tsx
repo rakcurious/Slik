@@ -18,8 +18,9 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
     products = products.filter((product) => product.category === category);
     
   } else if (category == "brands") {
-    products = products.filter((product) => product.brand === category);
+    products = products.filter((product) => product.brand.toLowerCase() === collection.toLowerCase());
      }
+
 
   if ((category !== collection) && (category !== 'brands')) {
     products = products.filter((product) => product.type == collection);
@@ -46,12 +47,12 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
 
   return (
     <>
-      <h1 className="capitalize text-center font-urbanist font-medium text-4xl mt-10">
+      <h1 className="text-center font-urbanist font-medium text-4xl mt-10">
         {category === collection? 'PRODUCTS' : collection}
       </h1>
-      <div className="mt-4 flex flex-col items-center justify-start font-urbanist">
+      {category !== collection && <div className="mt-4 flex flex-col items-center justify-start font-urbanist">
         <p className="font-medium mb-0 translate-y-2">Sort by</p>
-      {category !== collection && <div className="mb-1 bg-transparent h-12 w-full md:w-2/3 lg:w-1/2 flex justify-center items-center gap-1 md:gap-3 mt-2 px-2 rounded-3xl ring-2 ring-violet-200 font-urbanist text-sm sm:text-base md:text-lg lg:text-lg font-semibold *:w-1/4 *:px-3 *:py-1 *:rounded-3xl *:cursor-pointer *:text-center *:truncate">
+       <div className="mb-1 bg-transparent h-12 w-full md:w-2/3 lg:w-1/2 flex justify-center items-center gap-1 md:gap-3 mt-2 px-2 rounded-3xl ring-2 ring-violet-200 font-urbanist text-sm sm:text-base md:text-lg lg:text-lg font-semibold *:w-1/4 *:px-3 *:py-1 *:rounded-3xl *:cursor-pointer *:text-center *:truncate">
           <p
             onClick={() => setSort("likes")}
             className={
@@ -93,8 +94,8 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
             Newest
           </p>
           
-        </div>}
         </div>
+        </div>}
       <div className="mt-10 pb-40 font-urbanis items-start mx-auto grid grid-cols-2 gap-x-2 gap-y-10 px-2 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4">
         <Suspense
           fallback={

@@ -40,6 +40,19 @@ const ProductInfo: React.FC = () => {
     }, 5000);
   };
 
+  const slugify = (str: string) =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+      const brandPage = (name:string) => {
+        const brandSlug = slugify(name)
+        navigate(`/brands/${brandSlug}`)
+      }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -73,7 +86,7 @@ const ProductInfo: React.FC = () => {
               <h1 className="text-xl font-bold mb-4 capitalize text-center">
                 {product?.title}
               </h1>
-              <p className="mb-2 gap-2 text-lg capitalize font-medium text-center">
+              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer mb-2 gap-2 text-lg capitalize font-semibold text-center">
                 {product?.brand}
               </p>
               <p className="text-lg font-semibold text-center mb-4">
@@ -133,7 +146,7 @@ const ProductInfo: React.FC = () => {
               <h1 className="text-xl font-bold mb-2 capitalize text-center">
                 {product?.title}
               </h1>
-              <p className=" text-lg capitalize font-medium text-center">
+              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-lg capitalize font-semibold text-center">
                 {product?.brand}
               </p>
               <p className="text-lg font-semibold text-center mb-2">

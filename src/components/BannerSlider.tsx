@@ -18,6 +18,10 @@ const BannerSlider: React.FC<{
       (collection) => collection.category.toLowerCase() === category
     );
   }
+  else if(category === 'home'){
+    collections = collections.filter((collection)=>collection.category.toLowerCase() == 'men' || collection.category.toLowerCase() == 'women' )
+  }
+  
   const navigateToCollection = (category:string, slug:string) => {
     navigate(`/${category}/${slug}`);
   };
