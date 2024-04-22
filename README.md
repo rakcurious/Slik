@@ -1,13 +1,13 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.beslik.in/"><img src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713628428/slik/misc/slikogwebp_cfnzyt.webp" alt="Slik" width="200"></a>
+  <a href="http://www.beslik.in/"><img src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713799552/slik/slikthumb_dbv2zz.webp" alt="Slik" width="400"></a>
   <br>
   Slik
   <br>
 </h1>
 
-<h4 align="center">Find all your favourite fashion brands at one place</h4>
+<h4 align="center">curated drip from your favorite fashion brands</h4>
 
 
 ## About the Project
