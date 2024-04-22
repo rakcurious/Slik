@@ -1,26 +1,15 @@
 import React, { useState } from "react";
-import { CardBody, CardContainer, CardItem, Prods } from "../index";
-import { handleWishlistUpdate } from "../utils/wishlist";
-import { useAppSelector } from "../redux_toolkit/hooks";
-import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
+import { CardBody, CardContainer, CardItem, Prods, selectProducts, selectUserData, selectWishlist, useAppSelector, handleWishlistUpdate, Modal } from "../index";
 import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
 import { useNavigate } from "react-router-dom";
-import { selectProducts } from "../redux_toolkit/productSlice";
-import { Modal } from "./AuthModal";
 
-interface ProductCardProps {
-  product: Prods;
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
   const navigate = useNavigate();
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
   const products = useAppSelector(selectProducts)
   const [showModal, setShowModal] = useState(false);
-
-  const prodct = products.find((prod)=> prod.$id === product.$id)
   
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;

@@ -3,9 +3,8 @@ import {
   UploadImages,
   useAppDispatch,
   createCollections,
-  Collection,
+  Collection, addCollection
 } from "../index";
-import { addCollection } from "../redux_toolkit/productSlice";
 
 const CreateCollections: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -39,7 +38,7 @@ const CreateCollections: React.FC = () => {
     <>
       <UploadImages folder={"slik/misc"} />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+        <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
           <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1">
             <input placeholder="Name" {...register("name")} required />
             <input placeholder="Category" {...register("category")} required />
@@ -56,7 +55,7 @@ const CreateCollections: React.FC = () => {
           </div>
           <input
             type="submit"
-            value="Add Collection"
+            value="add collection"
             className="h-12 cursor-pointer w-48 text-2xl font-normal text-center bg-black rounded-lg text-white transition duration-200"
           />
         </div>

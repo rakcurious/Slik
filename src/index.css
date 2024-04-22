@@ -16,7 +16,7 @@ body {
   position: sticky;
 }
 
-/* Tailwind's scrollbar-none utility class */
+
 .scrollbar-none {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */

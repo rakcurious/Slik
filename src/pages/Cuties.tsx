@@ -1,9 +1,6 @@
 import { useEffect } from "react";
-import { BannerSlider, ProductCards, Navbar } from "../index";
-import CollectionCards from "../components/CollectionCards";
 import { useParams } from "react-router-dom";
-import Error from "../components/WrongPage";
-import Footer from "../components/Footer";
+import { BannerSlider, ProductCards, Navbar, CollectionCards, Error, Footer } from "../index";
 
 const Cutie: React.FC = () => {
   const { cutie } = useParams();

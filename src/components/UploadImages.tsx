@@ -36,7 +36,6 @@ const UploadImages: React.FC<{
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           const url = data.secure_url;
           setImageUrls((prev) => [...prev, url]);
         })
@@ -46,13 +45,13 @@ const UploadImages: React.FC<{
 
   return (
     <>
-      <div className="font-urbanist w-screen h-auto flex-col gap-y-4 flex items-center mb-10">
+      <div className="w-screen h-auto flex-col gap-y-4 flex items-center mb-10">
         <input type="file" multiple ref={picsRef} />
         <button
           className="h-12 w-48 text-2xl font-normal text-center bg-black text-white rounded-lg  transition duration-200"
           onClick={submitImages}
         >
-          Upload
+          upload
         </button>
 
         <div className=" flex flex-col items-center w-auto gap-2">

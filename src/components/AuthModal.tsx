@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { startVerification } from "../appwrite/auth";
+import { startVerification } from "../index";
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface ModalProps {
   onLogin: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ({
+const Modal: React.FC<ModalProps> = ({
   isOpen,
   isAuthenticated,
   isVerified,
@@ -28,13 +28,13 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="font-urbanist fixed inset-0 flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black bg-opacity-70" onClick={onClose} />
       <div className="bg-purple-100 p-6 z-10 h-auto w-60 md:h-auto md:w-96 rounded-lg flex flex-col items-center justify-center">
         {!isAuthenticated ? (
           <>
             <p className="font-medium text-md md:text-lg text-black my-4">
-              Please login to use wishlists
+              Please login to use wishlist
             </p>
             <button
               className="px-4 py-3 w-4/5 text-lg font-medium text-center bg-black rounded-lg text-white transition duration-200"
@@ -46,7 +46,7 @@ export const Modal: React.FC<ModalProps> = ({
         ) : !isVerified ? (
           <>
             <p className="font-medium text-md md:text-lg text-black my-4">
-              Please verify your email to use wishlists.
+              Please verify your email to use wishlist
             </p>
             {!verificationStarted ? (
               <button
@@ -67,3 +67,5 @@ export const Modal: React.FC<ModalProps> = ({
     </div>
   );
 };
+
+export default Modal;

@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom";
 
-interface FloatingMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const FloatingMenu: React.FC<FloatingMenuProps> = ({ isOpen, onClose }) => {
+const FloatingMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
+  isOpen,
+  onClose,
+}) => {
   return (
     <div
-      className={`font-urbanist font-bold fixed top-0 left-0 z-50 h-screen rounded-xl w-64 bg-purple-100 transition-all duration-300 ${
+      className={`font-bold fixed top-0 left-0 z-50 h-screen rounded-xl w-64 bg-purple-100 transition-all duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -51,6 +49,18 @@ const FloatingMenu: React.FC<FloatingMenuProps> = ({ isOpen, onClose }) => {
           onClick={onClose}
         >
           MEN
+        </NavLink>
+
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
+              isActive ? "bg-purple-200" : ""
+            }`
+          }
+          onClick={onClose}
+        >
+          WISHLIST
         </NavLink>
         <NavLink
           to="/"

@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-8 font-urbanist text-lg font-medium">
+      <div className="container mx-auto p-8 text-lg font-medium">
         <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
         <p className="mb-4 text-xl font-medium">Email: rakcurious@gmail.com</p>
         <div className="mb-8">

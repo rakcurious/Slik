@@ -17,7 +17,6 @@ export const createProductInAppwrite = async (product: Prods) => {
       ID.unique(),
       product
     );
-    console.log("Document created successfully:", response);
     return response;
   } catch (error) {
     console.log(`Appwrite createDocument error: ${error}`);
@@ -36,7 +35,6 @@ export const updateProductInAppwrite = async (
       id,
       updatedData
     );
-    console.log("Document updated successfully:", response);
     return response;
   } catch (error) {
     console.log(`Appwrite updateDocument error: ${error}`);
@@ -51,7 +49,6 @@ export const deleteProductInAppwrite = async (id: string) => {
       confvars.appwriteProductsCollectionId,
       id
     );
-    console.log(response);
     return response;
   } catch (error) {
     console.log(`Appwrite deleteDocument error: ${error}`);
@@ -112,10 +109,9 @@ export const updateWishlist = async (id: string, updatedData: string[]) => {
       id,
       { wishlist: updatedData }
     );
-    console.log("Wishlist updated successfully:", response);
     return response;
   } catch (error) {
-    console.log(`Appwrite updateDocument error: Wishlist:: ${error}`);
+    console.log(`Wishlist update failed: ${error}`);
     return null;
   }
 };
@@ -129,8 +125,7 @@ export const fetchCollections = async () => {
       return response.documents;
     
   } catch (error:any) {
-    console.log(`Appwrite listDocuments error: Collections:: ${error}`);
-    console.log(error.message)
+    console.log(`Collections listing failed:: ${error}`);
     return null;
   }
 };
@@ -143,10 +138,9 @@ export const createCollections = async (collection: Collection) => {
       ID.unique(),
       collection
     );
-    console.log("Collection created successfully:", response);
     return response;
   } catch (error) {
-    console.log(`Appwrite createDocument error: Collection:: ${error}`);
+    console.log(`Collection creation failed: ${error}`);
     return null;
   }
 };
@@ -159,10 +153,9 @@ export const updateCollections = async (id: string, updatedData: Collection) => 
       id,
       updatedData
     );
-    console.log("Collection updated successfully:", response);
     return response;
   } catch (error) {
-    console.log(`Appwrite updateDocument error: Collection:: ${error}`);
+    console.log(`Collection updation failed: ${error}`);
     return null;
   }
 };
@@ -174,10 +167,9 @@ export const deleteCollections = async (id: string) => {
       confvars.appwriteCollectionsCollectionId,
       id
     );
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(`Appwrite deleteDocument error: Collections:: ${error}`);
+    console.log(`Collection deletion failed: ${error}`);
     return null;
   }
 };

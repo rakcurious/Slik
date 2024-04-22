@@ -9,6 +9,15 @@ import { updateProduct } from "../redux_toolkit/productSlice";
 import { useEffect, useState } from "react";
 
 const UpdateProducts: React.FC = () => {
+  type ProductsWithoutMeta = Omit<
+    Prods,
+    | "$databaseId"
+    | "$collectionId"
+    | "$id"
+    | "$permissions"
+    | "$createdAt"
+    | "$updatedAt"
+  >;
 
   const slugify = (str: string) =>
     str
@@ -18,17 +27,9 @@ const UpdateProducts: React.FC = () => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const [product, setProduct] = useState<Partial<
-    Omit<
-      Prods,
-      | "$databaseId"
-      | "$collectionId"
-      | "$id"
-      | "$permissions"
-      | "$createdAt"
-      | "$updatedAt"
-    >
-  > | null>(null);
+  const [product, setProduct] = useState<Partial<ProductsWithoutMeta> | null>(
+    null
+  );
   const [id, setId] = useState("");
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products.products);
@@ -39,36 +40,14 @@ const UpdateProducts: React.FC = () => {
     reset,
     setValue,
     formState: { isDirty },
-  } = useForm<
-    Omit<
-      Prods,
-      | "$databaseId"
-      | "$collectionId"
-      | "$id"
-      | "$permissions"
-      | "$createdAt"
-      | "$updatedAt"
-    >
-  >({
+  } = useForm<ProductsWithoutMeta>({
     defaultValues: product || {},
   });
 
   const getProductDetails = () => {
     const foundProduct = products.find((product) => product.$id === id);
-    console.log(products);
-    console.log(foundProduct);
     if (foundProduct) {
-      const updatedProduct: Partial<
-        Omit<
-          Prods,
-          | "$databaseId"
-          | "$collectionId"
-          | "$id"
-          | "$permissions"
-          | "$createdAt"
-          | "$updatedAt"
-        >
-      > = {};
+      const updatedProduct: Partial<ProductsWithoutMeta> = {};
       for (const key in foundProduct) {
         if (
           key !== "$databaseId" &&
@@ -90,36 +69,15 @@ const UpdateProducts: React.FC = () => {
   useEffect(() => {
     if (product) {
       Object.keys(product).forEach((key) => {
-        setValue(
-          key as keyof Omit<
-            Prods,
-            | "$databaseId"
-            | "$collectionId"
-            | "$id"
-            | "$permissions"
-            | "$createdAt"
-            | "$updatedAt"
-          >,
-          product[key]
-        );
+        setValue(key as keyof ProductsWithoutMeta, product[key]);
       });
     }
   }, [product, setValue]);
 
-  const onSubmit: SubmitHandler<
-    Omit<
-      Prods,
-      | "$databaseId"
-      | "$collectionId"
-      | "$id"
-      | "$permissions"
-      | "$createdAt"
-      | "$updatedAt"
-    >
-  > = async (data) => {
+  const onSubmit: SubmitHandler<ProductsWithoutMeta> = async (data) => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
-      slug: slugify(data.title+ ' ' + data.category + ' ' + data.type),
+      slug: slugify(data.title + " " + data.category + " " + data.type),
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
       wishlist: products.find((product) => product.$id === id).wishlist,
     });
@@ -135,10 +93,10 @@ const UpdateProducts: React.FC = () => {
 
   return (
     <>
-      <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+      <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
         <input
           className="h-10 w-60 rounded-xl text-center px-1"
-          placeholder="Product ID"
+          placeholder="product id"
           value={id}
           onChange={(e) => setId(e.target.value)}
         />
@@ -152,7 +110,7 @@ const UpdateProducts: React.FC = () => {
       {product && (
         <>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+            <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
               <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
                 <input placeholder="Title" {...register("title")} required />
                 <input placeholder="Target" {...register("target")} required />

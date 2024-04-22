@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navbar } from "..";
+import { Navbar } from "../index";
 
 const PrivacyTerms = () => {
   useEffect(() => {
@@ -8,7 +8,7 @@ const PrivacyTerms = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto py-8 font-urbanist">
+      <div className="container mx-auto py-8">
         <div className="p-8 pt-1">
           <h1 className=" text-xl md:text-3xl font-bold mb-6">
             Privacy Policy & Terms of Use
@@ -86,17 +86,32 @@ const PrivacyTerms = () => {
             <p className="mb-4">
               <strong>Introduction</strong>
               <br />
-              This website, Slik, is operated by Slik team. Throughout the site, the terms "we", "us", and "our" refer to Slik team. We offer this website, including all information, tools, and services available on this site, to you, the user, upon your acceptance of these terms, conditions, policies, and notices.
+              This website, Slik, is operated by Slik team. Throughout the site,
+              the terms "we", "us", and "our" refer to Slik team. We offer this
+              website, including all information, tools, and services available
+              on this site, to you, the user, upon your acceptance of these
+              terms, conditions, policies, and notices.
               <br />
-
-
-By visiting our site or using our services, you engage in our "Service" and agree to be bound by these Terms of Use ("Terms"), including any additional terms, conditions, and policies referenced herein or available through hyperlinks. These Terms apply to all users of the site.
-<br />
-
-Please read these Terms carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms. If you do not agree with all the terms and conditions, you may not access the website or use any services. If these Terms are considered an offer, acceptance is expressly limited to these Terms.
-<br />
-
-Any new features or tools added to the website shall also be subject to these Terms of Use. We reserve the right to update, change, or replace any part of these Terms by posting updates on our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
+              By visiting our site or using our services, you engage in our
+              "Service" and agree to be bound by these Terms of Use ("Terms"),
+              including any additional terms, conditions, and policies
+              referenced herein or available through hyperlinks. These Terms
+              apply to all users of the site.
+              <br />
+              Please read these Terms carefully before accessing or using our
+              website. By accessing or using any part of the site, you agree to
+              be bound by these Terms. If you do not agree with all the terms
+              and conditions, you may not access the website or use any
+              services. If these Terms are considered an offer, acceptance is
+              expressly limited to these Terms.
+              <br />
+              Any new features or tools added to the website shall also be
+              subject to these Terms of Use. We reserve the right to update,
+              change, or replace any part of these Terms by posting updates on
+              our website. It is your responsibility to check this page
+              periodically for changes. Your continued use of or access to the
+              website following the posting of any changes constitutes
+              acceptance of those changes.
             </p>
             <p className="mb-4">
               <strong>Account Use</strong>

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { updatePasswordRecovery } from "../appwrite/auth";
+import { updatePasswordRecovery } from "../index";
 
 export default function PasswordRecovery() {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function PasswordRecovery() {
 
   return (
     <>
-      <div className="font-urbanist w-screen flex flex-col justify-start items-center py-10 px-5">
+      <div className="w-screen flex flex-col justify-start items-center py-10 px-5">
         <img className="mx-auto h-14 w-auto" src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp' alt="Slik" />
         <h2 className="mt-20 mb-6 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
           Password Reset

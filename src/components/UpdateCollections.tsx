@@ -4,15 +4,17 @@ import {
   updateCollections,
   useAppDispatch,
   useAppSelector,
-} from "../index";
-import {
   selectCollections,
-  updateCollection,
-} from "../redux_toolkit/productSlice";
+  updateCollection
+} from "../index";
 import { useEffect, useState } from "react";
 
-const UpdateCollections: React.FC = () => {
+type CollectionWithoutMeta = Omit<
+  Collection,
+  "$databaseId" | "$collectionId" | "$id" | "$permissions" | "$createdAt" | "$updatedAt"
+>;
 
+const UpdateCollections: React.FC = () => {
   const slugify = (str: string) =>
     str
       .toLowerCase()
@@ -21,59 +23,19 @@ const UpdateCollections: React.FC = () => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-  const [collection, setCollection] = useState<Partial<
-    Omit<
-      Collection,
-      | "$databaseId"
-      | "$collectionId"
-      | "$id"
-      | "$permissions"
-      | "$createdAt"
-      | "$updatedAt"
-    >
-  > | null>(null);
+  const [collection, setCollection] = useState<Partial<CollectionWithoutMeta> | null>(null);
   const [id, setId] = useState("");
   const dispatch = useAppDispatch();
   const collections = useAppSelector(selectCollections);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    setValue,
-    formState: { isDirty },
-  } = useForm<
-    Omit<
-      Collection,
-      | "$databaseId"
-      | "$collectionId"
-      | "$id"
-      | "$permissions"
-      | "$createdAt"
-      | "$updatedAt"
-    >
-  >({
+  const { register, handleSubmit, reset, setValue, formState: { isDirty } } = useForm<CollectionWithoutMeta>({
     defaultValues: collection || {},
   });
 
   const getCollectionDetails = () => {
-    const foundCollection = collections.find(
-      (collection) => collection.$id === id
-    );
-    console.log(collections);
-    console.log(foundCollection);
+    const foundCollection = collections.find((collection) => collection.$id === id);
     if (foundCollection) {
-      const updatedCollection: Partial<
-        Omit<
-          Collection,
-          | "$databaseId"
-          | "$collectionId"
-          | "$id"
-          | "$permissions"
-          | "$createdAt"
-          | "$updatedAt"
-        >
-      > = {};
+      const updatedCollection: Partial<CollectionWithoutMeta> = {};
       for (const key in foundCollection) {
         if (
           key !== "$databaseId" &&
@@ -95,33 +57,12 @@ const UpdateCollections: React.FC = () => {
   useEffect(() => {
     if (collection) {
       Object.keys(collection).forEach((key) => {
-        setValue(
-          key as keyof Omit<
-            Collection,
-            | "$databaseId"
-            | "$collectionId"
-            | "$id"
-            | "$permissions"
-            | "$createdAt"
-            | "$updatedAt"
-          >,
-          collection[key]
-        );
+        setValue(key as keyof CollectionWithoutMeta, collection[key]);
       });
     }
   }, [collection, setValue]);
 
-  const onSubmit: SubmitHandler<
-    Omit<
-      Collection,
-      | "$databaseId"
-      | "$collectionId"
-      | "$id"
-      | "$permissions"
-      | "$createdAt"
-      | "$updatedAt"
-    >
-  > = async (data) => {
+  const onSubmit: SubmitHandler<CollectionWithoutMeta> = async (data) => {
     const updatedCollection = await updateCollections(id, {
       ...data,
       slug: slugify(data.name),
@@ -130,7 +71,7 @@ const UpdateCollections: React.FC = () => {
       dispatch(updateCollection(updatedCollection));
       reset();
       setId("");
-      alert("collectin updated successfully");
+      alert("collection updated successfully");
     } else {
       alert("Failed to update collection");
     }
@@ -138,10 +79,10 @@ const UpdateCollections: React.FC = () => {
 
   return (
     <>
-      <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+      <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
         <input
           className="h-10 w-60 rounded-xl text-center px-1"
-          placeholder="Product ID"
+          placeholder="collection id"
           value={id}
           onChange={(e) => setId(e.target.value)}
         />
@@ -149,13 +90,13 @@ const UpdateCollections: React.FC = () => {
           onClick={getCollectionDetails}
           className="h-12 w-auto px-6 py-1 text-2xl font-normal text-center bg-black text-white rounded-lg transition duration-200"
         >
-          Get collection
+          get collection
         </button>
       </div>
       {collection && (
         <>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+            <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
               <div className="h-auto w-auto flex flex-wrap justify-center gap-4 text-xl font-semibold *:h-10 *:w-60 *:text-center *:rounded-xl *:px-1 ">
                 <input placeholder="Name" {...register("name")} required />
                 <input placeholder="Category" {...register("category")} required />
@@ -178,7 +119,7 @@ const UpdateCollections: React.FC = () => {
               </div>
               <input
                 type="submit"
-                value="Update Collection"
+                value="update collection"
                 className="cursor-pointer h-12 w-auto px-6 py-1 text-2xl font-medium text-center bg-black rounded-lg text-white transition duration-200"
                 disabled={!isDirty}
               />

@@ -1,16 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useAppSelector } from "../redux_toolkit/hooks";
-import { selectUserData, selectWishlist } from "../redux_toolkit/userSlice";
-import { selectProducts } from "../redux_toolkit/productSlice";
-import { handleWishlistUpdate } from "../utils/wishlist";
 import { useEffect, useState } from "react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Navbar } from "..";
-import { Modal } from "../components/AuthModal";
-import Error from "../components/WrongPage";
+import { Navbar, Modal, Error, handleWishlistUpdate, selectProducts, selectUserData, selectWishlist, useAppSelector } from "../index";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
@@ -82,7 +76,7 @@ const ProductInfo: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="w-1/3  px-4 py-10 rounded-xl fixed top-32 right-4 h-auto font-urbanist">
+            <div className="w-1/3  px-4 py-10 rounded-xl fixed top-32 right-4 h-auto">
               <h1 className="text-xl font-bold mb-4 capitalize text-center">
                 {product?.title}
               </h1>
@@ -103,7 +97,7 @@ const ProductInfo: React.FC = () => {
                       setShowModal
                     )
                   }
-                  className="bg-black text-xl  w-4/5 font-semibold h-auto text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
+                  className="bg-black text-xl  w-4/5 font-medium h-auto text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
                   {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
@@ -112,13 +106,13 @@ const ProductInfo: React.FC = () => {
                 <a
                   target="_blank"
                   href={product.target}
-                  className="bg-black text-xl w-4/5 font-semibold h-auto text-center text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5"
+                  className="bg-black text-xl w-4/5 font-medium h-auto text-center text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
                   Buy Now
                 </a>
                 <button
                   onClick={copyToShare}
-                  className={` text-xl w-4/5 font-semibold h-auto text-center  py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 ${
+                  className={` text-xl w-4/5 font-medium h-auto text-center  py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 ${
                     share ? "text-black bg-indigo-200" : "bg-black text-white"
                   }`}
                 >
@@ -142,7 +136,7 @@ const ProductInfo: React.FC = () => {
                 ))}
               </Slider>
             </div>
-            <div className="font-urbanist w-full flex flex-col items-center justify-center p-5">
+            <div className="w-full flex flex-col items-center justify-center p-5">
               <h1 className="text-xl font-bold mb-2 capitalize text-center">
                 {product?.title}
               </h1>
@@ -163,7 +157,7 @@ const ProductInfo: React.FC = () => {
                       setShowModal
                     )
                   }
-                  className="bg-black text-xl font-semibold h-auto py-4 text-white rounded-lg transition duration-500 hover:-translate-y-0.5"
+                  className="bg-black text-xl font-medium h-auto py-4 text-white rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
                   {wishlist.includes(product.$id)
                     ? "Remove from Wishlist"
@@ -172,13 +166,13 @@ const ProductInfo: React.FC = () => {
                 <a
                   target="_blank"
                   href={product.target}
-                  className="bg-black text-xl font-semibold h-auto py-4 text-white rounded-lg text-center transition duration-500 hover:-translate-y-0.5"
+                  className="bg-black text-xl font-medium h-auto py-4 text-white rounded-lg text-center transition duration-500 hover:-translate-y-0.5"
                 >
                   Buy Now
                 </a>
                 <button
                   onClick={copyToShare}
-                  className={`text-xl font-semibold h-auto py-4 rounded-lg text-center transition duration-500 hover:-translate-y-0.5 ${
+                  className={`text-xl font-medium h-auto py-4 rounded-lg text-center transition duration-500 hover:-translate-y-0.5 ${
                     share ? "text-black bg-indigo-200" : "bg-black text-white"
                   }`}
                 >

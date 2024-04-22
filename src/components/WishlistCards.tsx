@@ -7,13 +7,12 @@ import {
   Prods,
   cn,
   useAppSelector,
+  selectUserData
 } from "../index";
-import { selectUserData } from "../redux_toolkit/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
   const gridRef = useRef<HTMLDivElement>(null);
-  const userdata = useAppSelector(selectUserData);
   const navigate = useNavigate();
 
   const { scrollYProgress } = useScroll({
@@ -66,7 +65,7 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                     </CardItem>
                     <CardItem
                       translateZ="50"
-                      className="w-full px-2 flex flex-col items-start justify-center font-urbanist"
+                      className="w-full px-2 flex flex-col items-start justify-center"
                     >
                       <div className="truncate font-semibold text-base w-full">
                         {product.title}

@@ -1,10 +1,5 @@
 import { useEffect } from "react";
-import BannerSlider from "../components/BannerSlider";
-import ProductCards from "../components/ProductCards";
-import { Navbar } from "../index";
-import CollectionCards from "../components/CollectionCards";
-import Footer from "../components/Footer";
-
+import { Navbar, BannerSlider, ProductCards, Footer, CollectionCards } from "../index";
 function Home() {
   useEffect(() => {
     document.body.scrollTo(0, 0);
@@ -14,12 +9,11 @@ function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex flex-col flex-grow">
         <BannerSlider category="home" />
         <ProductCards category="home" collection="home"/>
         <CollectionCards category="home" />
-        <CollectionCards category="brands" />
-        
+        <CollectionCards category="brands" />  
       </main>
       <Footer />
     </div>

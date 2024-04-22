@@ -3,14 +3,34 @@ import BannerSlider from "./components/BannerSlider";
 import { CardBody, CardContainer, CardItem } from "./components/3dCard";
 import CreateProducts from "./components/CreateProducts";
 import DeleteProducts from "./components/DeleteProducts";
+import CreateCollections from "./components/CreateCollections";
+import DeleteCollections from "./components/DeleteCollections";
+import UpdateCollections from "./components/UpdateCollections";
 import Navbar from "./components/Navbar";
 import ProductCards from "./components/ProductCards";
+import CollectionCards from "./components/CollectionCards";
 import ProductInfo from "./pages/ProductInfo";
 import WishlistCards from "./components/WishlistCards";
 import UpdateProducts from "./components/UpdateProducts";
 import UploadImages from "./components/UploadImages";
+import Modal from "./components/AuthModal";
+import Error from "./components/WrongPage";
+import Error404 from "./pages/Error404Page";
+import Footer from "./components/Footer";
+import Cutie from "./pages/Cuties";
+import Login from "./pages/Login";
+import PasswordRecovery from "./pages/PasswordRecovery";
+import Verification from "./pages/Verification";
+import Admin from "./pages/Admin";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Contact from "./pages/Contact";
+import PrivacyTerms from "./pages/PrivacyTerms";
+import FloatingMenu from "./components/FloatingMenu";
+import Collection from "./pages/Collection";
 import { cn } from "./utils/cn";
 import confvars from "./appwrite/confvars";
+import { handleWishlistUpdate } from "./utils/wishlist";
 import {
   createProductInAppwrite,
   updateProductInAppwrite,
@@ -25,11 +45,37 @@ import {
   fetchWishlist,
 } from "./appwrite/config";
 import {
+  signup,
   loginWithEmailAndPassword,
   logout,
   getCurrentSession,
+  startPasswordRecovery,
+  startVerification,
+  updatePasswordRecovery,
+  updateVerification,
+  loginWithGoogle,
 } from "./appwrite/auth";
 import { useAppSelector, useAppDispatch } from "./redux_toolkit/hooks";
+
+import {
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getProducts,
+  addCollection,
+  updateCollection,
+  deleteCollection,
+  getCollections,
+  selectCollections,
+  selectProducts,
+} from "./redux_toolkit/productSlice";
+
+import {
+  setUserData,
+  setWishlist,
+  selectUserData,
+  selectWishlist,
+} from "./redux_toolkit/userSlice";
 
 export interface Prods {
   $collectionId?: string;
@@ -47,9 +93,8 @@ export interface Prods {
   title: string;
   userid: string;
   type: string;
-  slug:string;
+  slug: string;
 }
-
 
 export interface Collection {
   $collectionId?: string;
@@ -67,26 +112,51 @@ export interface Collection {
 
 export {
   CategoryCards,
+  CollectionCards,
   BannerSlider,
   ProductCards,
+  Cutie, 
+  Login,
+  Admin,
+  Collection,
+  Profile,
+  Contact,
+  PrivacyTerms,
+  PasswordRecovery,
+  Verification,
+  Home,
   CardBody,
   CardContainer,
   CardItem,
   CreateProducts,
   DeleteProducts,
   UpdateProducts,
+  CreateCollections,
+  UpdateCollections,
+  DeleteCollections,
   UploadImages,
+  Modal,
+  FloatingMenu,
+  Error,
+  Error404,
+  Footer,
   createProductInAppwrite,
   updateProductInAppwrite,
   deleteProductInAppwrite,
   fetchAllDocuments,
+  signup,
   loginWithEmailAndPassword,
   logout,
   getCurrentSession,
+  startPasswordRecovery,
+  startVerification,
+  updatePasswordRecovery,
+  updateVerification,
+  loginWithGoogle,
   Navbar,
   ProductInfo,
   WishlistCards,
-    cn,
+  cn,
   confvars,
   useAppSelector,
   useAppDispatch,
@@ -97,4 +167,19 @@ export {
   createWishlist,
   updateWishlist,
   fetchWishlist,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getProducts,
+  addCollection,
+  updateCollection,
+  deleteCollection,
+  getCollections,
+  selectProducts,
+  selectCollections,
+  setUserData,
+  setWishlist,
+  selectUserData,
+  selectWishlist,
+  handleWishlistUpdate,
 };

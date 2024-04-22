@@ -1,6 +1,5 @@
-import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards } from "../index";
-import { selectProducts } from "../redux_toolkit/productSlice";
-import { selectUserData, selectWishlist, setUserData } from "../redux_toolkit/userSlice";
+import { useState } from "react";
+import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards, Modal, selectProducts, selectUserData, selectWishlist, setUserData } from "../index";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
@@ -9,6 +8,11 @@ function Profile() {
   const userdata = useAppSelector(selectUserData);
   let products = useAppSelector(selectProducts);
   let wishlist = useAppSelector(selectWishlist);
+
+  const [showModal, setShowModal] = useState(true);
+  
+  const isAuthenticated = !!userdata;
+  const isVerified = userdata?.emailVerification || false;
 
   wishlist = [...wishlist].reverse();
 
@@ -25,9 +29,9 @@ function Profile() {
   return (
     <>
       <Navbar />
-      {userdata && (
+      {userdata ? (
         <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
-          <div className="z-20 font-urbanist bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10">
+          <div className="z-20 bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10">
             <div className="flex flex-col justify-start w-1/3">
               <p className="font-semibold text-lg truncate">{userdata.name}</p>
               <p className="font-normal text-xs md:text-sm truncate">
@@ -47,7 +51,17 @@ function Profile() {
 
           <WishlistCards products={prods} />
         </div>
-      )}
+      ): 
+      <Modal
+        isOpen={showModal}
+        isAuthenticated={isAuthenticated}
+        isVerified={isVerified}
+        onClose={() => setShowModal(false)}
+        onLogin={() => {
+          navigate("/login");
+          setShowModal(false);
+        }}
+      />}
     </>
   );
 }

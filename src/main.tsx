@@ -2,21 +2,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { Route, RouteObject, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home.tsx";
-import Profile from "./pages/Profile.tsx";
+import {ProductInfo, Error404, Home, Profile, Admin, Login, Verification, PasswordRecovery, Cutie, Contact, PrivacyTerms} from './index.ts'
 import { Provider } from "react-redux";
 import { store } from "./redux_toolkit/store.ts";
-import Admin from "./pages/Admin.tsx";
-import ProductInfo from "./pages/ProductInfo.tsx";
-import Login from "./pages/Login.tsx";
-import Verification from "./pages/Verification.tsx";
-import PasswordRecovery from "./pages/PasswordRecovery.tsx";
-import Collection from "./pages/Collection.tsx";
-import Cutie from "./pages/Cuties.tsx";
-import Error404 from "./components/Error404Page.tsx";
-import Contact from "./pages/Contact.tsx";
-import PrivacyTerms from "./pages/PrivacyTerms.tsx";
 import React from "react";
+import Collection from './pages/Collection.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements<RouteObject>(

@@ -4,14 +4,14 @@ import {
   Prods,
   useAppDispatch,
   useAppSelector,
+  selectProducts, deleteProduct
 } from "../index";
-import { deleteProduct } from "../redux_toolkit/productSlice";
 
 const DeleteProducts: React.FC = () => {
   const [id, setId] = useState("");
   const dispatch = useAppDispatch();
   const [product, setProduct] = useState<Prods | null>(null);
-  const products = useAppSelector((state) => state.products.products);
+  const products = useAppSelector(selectProducts);
 
   const getProductDetails = () => {
     const foundProduct = products.find((product) => product.$id === id);
@@ -31,10 +31,10 @@ const DeleteProducts: React.FC = () => {
 
   return (
     <>
-      <div className="flex h-auto w-auto flex-col gap-6 items-center font-urbanist mb-10">
+      <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
         <input
           className="h-10 w-60 rounded-xl text-center px-1"
-          placeholder="Product ID"
+          placeholder="product id"
           value={id}
           onChange={(e) => setId(e.target.value)}
         />
@@ -42,7 +42,7 @@ const DeleteProducts: React.FC = () => {
           onClick={getProductDetails}
           className="h-12 w-48 text-2xl font-normal text-center bg-black rounded-lg text-white transition duration-200"
         >
-          Get product
+          get product
         </button>
 
         {product && (

@@ -5,7 +5,7 @@ import {
   loginWithGoogle,
   signup,
   startPasswordRecovery,
-} from "../appwrite/auth";
+} from "../index";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -19,12 +19,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLoginWithGoogle = async () => {
-    const { success, error, data } = await loginWithGoogle();
-    if (success) {
-      navigate("/");
-    } else {
-      setErrorMsg(error);
-    }
+    await loginWithGoogle();
   };
 
   const handleSubmit = async () => {
@@ -53,9 +48,13 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8 font-urbanist">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-14 w-auto" src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp' alt="Slik" />
+          <img
+            className="mx-auto h-14 w-auto"
+            src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp"
+            alt="Slik"
+          />
           <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
             {page}
           </h2>
@@ -64,7 +63,7 @@ export default function Login() {
         {page === "Verification" ? (
           <div className="flex flex-col items-center">
             {" "}
-            <p className="font-urbanist text-center text-2xl font-semibold mt-10">
+            <p className="text-center text-2xl font-semibold mt-10">
               We have sent you a verification email from appwrite. Please verify
               your email address using the link in the email to make the most
               out of Slik

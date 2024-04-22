@@ -1,5 +1,4 @@
-import { Navbar } from "..";
-import Error from "./WrongPage";
+import {Navbar, Error} from "../index";
 
 const Error404: React.FC = () => {
   return (

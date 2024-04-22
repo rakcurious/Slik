@@ -1,12 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAppSelector } from "../index";
-import { selectUserData } from "../redux_toolkit/userSlice";
+import { useAppSelector, selectUserData, FloatingMenu } from "../index";
 import { useState } from "react";
-import FloatingMenu from "./FloatingMenu";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [pfps, setPfps] = useState<String>(
+  const [pfp, setPfp] = useState<string>(
     "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg"
   );
   const navigate = useNavigate();
@@ -21,7 +19,7 @@ function Navbar() {
 
   const profileClick = () => {
     if (window.location.pathname === "/profile") {
-      setPfps(profilePics[Math.floor(Math.random() * profilePics.length)]);
+      setPfp(profilePics[Math.floor(Math.random() * profilePics.length)]);
     } else {
       navigate("/profile");
     }
@@ -34,7 +32,7 @@ function Navbar() {
   return (
     <>
       <nav className="sticky z-20 top-0 w-screen h-20 flex mt-0 py-2 items-center justify-center px-4 bg-purple-100">
-        <div className="flex justify-between font-bold text-lg font-urbanist gap-x-6 w-full">
+        <div className="flex justify-between font-bold text-lg gap-x-6 w-full">
           <div className="md:hidden my-auto w-1/4">
             <button
               onClick={toggleMenu}
@@ -84,7 +82,7 @@ function Navbar() {
           <div className="flex justify-center w-1/2">
             <img
               onClick={() => navigate("/")}
-              src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp'
+              src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp"
               className="h-14 w-auto m-0"
               alt="Slik Logo"
             />
@@ -93,7 +91,7 @@ function Navbar() {
             {userdata ? (
               <img
                 onClick={profileClick}
-                src={pfps}
+                src={pfp}
                 alt="pfp"
                 className="cursor-pointer object-cover mr-4 !p-0 object-top rounded-full h-12 w-12 border-2 border-purple-200 transition duration-500"
               />
