@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.beslik.in/"><img src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713628428/slik/misc/slikogwebp_cfnzyt.webp" alt="Slik" width="200"></a>
+  <a href="http://www.beslik.in/"><img src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713628428/slik/misc/slikogwebp_cfnzyt.webp" alt="Slik" width="400"></a>
   <br>
   Slik
   <br>
