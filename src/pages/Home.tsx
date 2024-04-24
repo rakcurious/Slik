@@ -11,9 +11,9 @@ function Home() {
       <Navbar />
       <main className="flex flex-col flex-grow">
         <BannerSlider category="home" />
-        <ProductCards category="home" collection="home"/>
         <CollectionCards category="home" />
-        <CollectionCards category="brands" />  
+        <CollectionCards category="brands" />
+        <ProductCards category="home" collection="home"/>
       </main>
       <Footer />
     </div>

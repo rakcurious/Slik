@@ -93,7 +93,7 @@ function Navbar() {
                 onClick={profileClick}
                 src={pfp}
                 alt="pfp"
-                className="cursor-pointer object-cover mr-4 !p-0 object-top rounded-full h-12 w-12 border-2 border-purple-200 transition duration-500"
+                className="cursor-pointer object-cover xl:mr-4 !p-0 object-top rounded-full h-12 w-12 border-2 border-purple-200 transition duration-500"
               />
             ) : (
               <button

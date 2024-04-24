@@ -24,7 +24,7 @@ const BannerSlider: React.FC<{
   collections.reverse();
 
   if(collections.length>6){
-    collections = collections.slice(0,20)
+    collections = collections.slice(0,6)
  }
   
   const navigateToCollection = (category:string, slug:string) => {

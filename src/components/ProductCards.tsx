@@ -7,7 +7,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   category,
   collection,
 }) => {
-  const [sort, setSort] = useState("likes");
+  const [sort, setSort] = useState("newest");
 
   let products: Prods[] = useAppSelector(selectProducts);
 
@@ -103,7 +103,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
           </div>
         </div>
       )}
-      <div className="mt-5 pb-10 w-screen font-urbanis items-start mx-auto grid grid-cols-2 gap-x-2 gap-y-10 px-2 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4">
+      <div className="mt-5 pb-10 w-screen items-start mx-auto grid grid-cols-2 gap-x-2 gap-y-5 px-2 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4">
         <Suspense
           fallback={
             <div className="animate-pulse mt-4 w-screen text-center font-semibold text-3xl">

@@ -14,9 +14,9 @@ const Cutie: React.FC = () => {
       <Navbar />
       {(cutie === 'men' || cutie ==='women') ? <>
       <BannerSlider category={cutie} />
-      <ProductCards category={cutie} collection={cutie}/>
       <CollectionCards category={cutie} />
       <CollectionCards category={'brands'} />
+      <ProductCards category={cutie} collection={cutie}/>
       <Footer />
       </>: 
       (cutie === 'brands') ? 

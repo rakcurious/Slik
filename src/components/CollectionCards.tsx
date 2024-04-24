@@ -30,10 +30,10 @@ const CollectionCards: React.FC<{
       <h1 className="text-center uppercase font-medium text-2xl lg:text-4xl mt-6">
         {category === "brands" ? "Brands" : "Collections"}
       </h1>
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-0 gap-y-8 text-black pb-10 mb-10">
+      <div className="mt-5 grid grid-cols-2 gap-x-2 gap-y-5 px-2 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-0 xl:gap-y-8 text-black pb-10 mb-10">
         {collections.map((collection) => (
           <CardContainer key={collection.$id} className="inter-var">
-            <CardBody className=" h-80 lg:h-72 aspect-1 relative group/card rounded-xl">
+            <CardBody className="w-44 sm:w-60 md:w-52 lg:w-64 aspect-1 relative group/card rounded-xl">
               <CardItem
                 translateZ="100"
                 className="w-full h-full flex justify-center"

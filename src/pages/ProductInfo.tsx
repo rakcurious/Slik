@@ -76,14 +76,14 @@ const ProductInfo: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="w-1/3  px-4 py-10 rounded-xl fixed top-32 right-4 h-auto">
-              <h1 className="text-xl font-bold mb-4 capitalize text-center">
+            <div className="w-1/3 flex flex-col gap-1 px-4 py-10 rounded-xl fixed top-32 right-4 h-auto">
+              <h1 className="text-xl font-bold mb-1 capitalize text-center">
                 {product?.title}
               </h1>
-              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer mb-2 gap-2 text-lg capitalize font-semibold text-center">
+              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-purple-950 text-lg capitalize font-semibold text-center">
                 {product?.brand}
               </p>
-              <p className="text-lg font-semibold text-center mb-4">
+              <p className="text-lg font-semibold text-center mb-2">
                 ₹{product?.price}
               </p>
               <div className="flex flex-col items-center gap-2 w-full">
@@ -136,11 +136,11 @@ const ProductInfo: React.FC = () => {
                 ))}
               </Slider>
             </div>
-            <div className="w-full flex flex-col items-center justify-center p-5">
-              <h1 className="text-xl font-bold mb-2 capitalize text-center">
+            <div className="w-full flex flex-col gap-1 items-center justify-center p-5">
+              <h1 className="text-xl font-bold my-1 capitalize text-center">
                 {product?.title}
               </h1>
-              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-lg capitalize font-semibold text-center">
+              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-indigo-950 text-lg capitalize font-semibold text-center">
                 {product?.brand}
               </p>
               <p className="text-lg font-semibold text-center mb-2">

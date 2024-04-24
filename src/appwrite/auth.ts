@@ -141,8 +141,8 @@ export const getCurrentSession = async () => {
   try {
     const currentUser = await account.get();
     store.dispatch(setUserData(currentUser));
-    return { success: true, data: currentUser };
+    return currentUser;
   } catch (error:any) {
-    return { success: false, error: error.message };
+    return null;
   }
 };
