@@ -16,11 +16,11 @@ function App() {
     const everythingEverywhereAllAtOnce = async () => {
       const userdata = await getCurrentSession();
       if (userdata) {
-        const wishlist = await fetchWishlist(userdata.data?.$id);
+        const wishlist = await fetchWishlist(userdata?.$id);
         if (wishlist) {
           dispatch(setWishlist(wishlist));
         } else {
-          createWishlist(userdata.data?.$id);
+          createWishlist(userdata?.$id);
         }
       }
     };
