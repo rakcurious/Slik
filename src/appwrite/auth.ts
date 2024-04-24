@@ -32,8 +32,8 @@ export const loginWithGoogle = async () => {
   try {
     account.createOAuth2Session(
       "google",
-      `http://localhost:5173/`,
-      `http://localhost:5173/`
+      `https://beslik.in/`,
+      `https://beslik.in/login`
     );
     
    } catch (error:any) {
