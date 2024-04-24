@@ -44,7 +44,7 @@ const BannerSlider: React.FC<{
   };
 
   return (
-    <div className="w-screen px-4 mb-20">
+    <div className="w-screen px-4  mb-1 lg:mb-5">
       <div className="hidden lg:block">
         <Slider {...settings}>
           {collections.map((collection) => (

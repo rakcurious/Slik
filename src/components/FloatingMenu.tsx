@@ -11,7 +11,7 @@ const FloatingMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       }`}
     >
       <div className="flex justify-end p-4">
-        <button onClick={onClose} className="text-gray-700 hover:text-gray-900">
+        <button name="menu" onClick={onClose} className="text-gray-700 hover:text-gray-900">
           <svg
             className="h-6 w-6"
             stroke="currentColor"

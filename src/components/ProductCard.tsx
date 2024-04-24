@@ -45,7 +45,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
             translateZ="60"
             className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/6"
           >
-            <img
+            <img alt="heart icon"
               onClick={() =>
                 handleWishlistUpdate(
                   product.$id,
