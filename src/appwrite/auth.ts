@@ -9,6 +9,7 @@ const client = new Client()
   .setProject(confvars.appwriteProjectId);
 const account = new Account(client);
 
+/* downgraded to version 13.0.2 for some query issues, so this is no longer needed
 // Custom implementation of account.updateRecovery because it doesn't work in the latest appwrite version at the time i am writing this, i.e. april '24. someone had raised the issue on appwrite's github and from there i got this workaround. the other option was to not use the latest version of appwrite, so i went with this instead.
 // account.updateRecovery = (
 //   userId: string,
@@ -24,6 +25,8 @@ const account = new Account(client);
 //     'content-type': 'application/json',
 //   }, { userId, secret, password, passwordAgain });
 // };
+
+*/
 
 export const loginWithGoogle = async () => {
   try {
@@ -84,7 +87,7 @@ export const logout = async () => {
 
 export const startVerification = async () => {
   try {
-    const response = await account.createVerification('http://localhost:5173/verification');
+    const response = await account.createVerification('http://beslik.in/verification');
     if (response) {
       return { success: true, data: response };
     } else {
@@ -114,7 +117,7 @@ export const updateVerification = async () => {
 
 export const startPasswordRecovery = async (email: string) => {
   try {
-    const response = await account.createRecovery(email, 'http://localhost:5173/passwordrecovery');
+    const response = await account.createRecovery(email, 'http://beslik.in/passwordrecovery');
     return { success: true, data: response };
   } catch (error:any) {
     return { success: false, error: error.message };
