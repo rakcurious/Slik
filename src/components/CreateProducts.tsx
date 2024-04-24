@@ -22,6 +22,7 @@ const CreateProducts: React.FC = () => {
     const createdProduct = await createProductInAppwrite({
       ...data,
       slug: slugify(data.title+ ' ' + data.category + ' ' + data.type),
+      //@ts-ignore
       images: data.images.split(","),
 
       wishlist: [],

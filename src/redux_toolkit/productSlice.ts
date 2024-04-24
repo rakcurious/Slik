@@ -15,10 +15,10 @@ const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    addProduct: (state, action: PayloadAction<Prods>) => {
+    addProduct: (state, action: PayloadAction<any>) => {
       state.products.push(action.payload);
     },
-    updateProduct: (state, action: PayloadAction<Prods>) => {
+    updateProduct: (state, action: PayloadAction<any>) => {
       const { $id, ...updatedData } = action.payload;
       const productIndex = state.products.findIndex(
         (product) => product.$id === $id
@@ -30,7 +30,7 @@ const productSlice = createSlice({
         };
       }
     },
-    deleteProduct: (state, action: PayloadAction<string>) => {
+    deleteProduct: (state, action: PayloadAction<any>) => {
       state.products = state.products.filter(
         (product) => product.$id !== action.payload
       );
@@ -38,10 +38,10 @@ const productSlice = createSlice({
     getProducts: (state, action: PayloadAction<any>) => {
       state.products = action.payload;
     },
-    addCollection: (state, action: PayloadAction<Collection>) => {
+    addCollection: (state, action: PayloadAction<any>) => {
       state.collections.push(action.payload);
     },
-    updateCollection: (state, action: PayloadAction<Collection>) => {
+    updateCollection: (state, action: PayloadAction<any>) => {
       const { $id, ...updatedData } = action.payload;
       const collectionIndex = state.collections.findIndex(
         (collection) => collection.$id === $id

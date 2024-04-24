@@ -36,7 +36,7 @@ export const handleWishlistUpdate = async (
   }
 
   const userid = userdata.$id;
-  const product: Prods = products.find((product) => product.$id === productId);
+  const product: any = products.find((product) => product.$id === productId);
   let prodWishlist: string[] = product?.wishlist;
   if (prodWishlist.includes(userid)) {
     prodWishlist = prodWishlist.filter((user: string) => user !== userid);

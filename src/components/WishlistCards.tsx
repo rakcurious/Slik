@@ -5,9 +5,7 @@ import {
   CardContainer,
   CardItem,
   Prods,
-  cn,
-  useAppSelector,
-  selectUserData
+  cn
 } from "../index";
 import { useNavigate } from "react-router-dom";
 

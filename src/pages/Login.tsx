@@ -24,10 +24,17 @@ export default function Login() {
 
   const handleSubmit = async () => {
     if (page === "Login") {
-      await loginWithEmailAndPassword(email, password);
+      const { success, error } = await loginWithEmailAndPassword(email, password);
+      if(success){
+        navigate('/')
+      }
+      else {
+        setErrorMsg(error);
+      }
     } else if (page === "Sign up") {
       const { success, error, message } = await signup(email, password, name);
       if (success) {
+        //@ts-ignore
         setSuccessMsg(message);
         setPage("Verification");
       } else {

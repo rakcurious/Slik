@@ -20,13 +20,14 @@ function App() {
         if (wishlist) {
           dispatch(setWishlist(wishlist));
         } else {
-          createWishlist(userdata.data.$id);
+          createWishlist(userdata.data?.$id);
         }
       }
     };
     everythingEverywhereAllAtOnce();
     fetchAllDocuments();
     fetchCollections();
+    
 
   }, []);
 

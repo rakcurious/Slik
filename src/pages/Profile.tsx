@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards, Modal, selectProducts, selectUserData, selectWishlist, setUserData } from "../index";
+import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards, Modal, selectProducts, selectUserData, selectWishlist, setUserData, setWishlist } from "../index";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
@@ -22,7 +22,8 @@ function Profile() {
 
   const handleLogout = async () => {
     await logout();
-    dispatch(setUserData({}))
+    dispatch(setUserData(null))
+    dispatch(setWishlist([]));
     navigate("/");
   };
 

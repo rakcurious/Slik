@@ -1,4 +1,5 @@
-import { Client, Databases, ID } from "appwrite";
+//@ts-nocheck
+import { Client, Databases, ID, Query } from "appwrite";
 import { Collection, Prods } from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
@@ -60,24 +61,24 @@ export const fetchAllDocuments = async () => {
   try {
     const response = await databases.listDocuments(
       confvars.appwriteDatabaseId,
-      confvars.appwriteProductsCollectionId
+      confvars.appwriteProductsCollectionId,
+      [Query.limit(1000)]
     );
     store.dispatch(getProducts(response.documents));
-    return response.documents;
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
     return null;
   }
 };
 
-export const fetchWishlist = async (id: string) => {
+export const fetchWishlist = async (id: any) => {
   try {
     const response = await databases.listDocuments(
       confvars.appwriteDatabaseId,
       confvars.appwriteUsersCollectionId,
+      [Query.equal("$id", id)]
     );
-    const wishlist = response.documents.find((user)=> user.$id == id).wishlist;
-      return wishlist;
+      return response.documents[0].wishlist;
     
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
@@ -85,7 +86,7 @@ export const fetchWishlist = async (id: string) => {
   }
 };
 
-export const createWishlist = async (id: string) => {
+export const createWishlist = async (id: any) => {
   try {
     const response = await databases.createDocument(
       confvars.appwriteDatabaseId,

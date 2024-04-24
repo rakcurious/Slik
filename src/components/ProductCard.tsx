@@ -32,7 +32,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
             <div className="truncate capitalize font-semibold">
               {product.title}
             </div>
-            <div className="text-xs font-medium truncate uppercase">
+            <div className="text-xs font-semibold truncate uppercase">
               {product.brand}
             </div>
             <div className=" mb-1 font-medium truncate">

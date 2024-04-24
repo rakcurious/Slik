@@ -55,7 +55,7 @@ const BannerSlider: React.FC<{
                 }
                 src={collection?.headerImage}
                 alt={collection?.name}
-                className="w-full aspect-[4/1] object-cover rounded-xl"
+                className="cursor-pointer w-full aspect-[4/1] object-cover rounded-xl"
               />
             </div>
           ))}

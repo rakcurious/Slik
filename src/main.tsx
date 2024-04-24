@@ -9,6 +9,7 @@ import React from "react";
 import Collection from './pages/Collection.tsx'
 
 const router = createBrowserRouter(
+  //@ts-ignore
   createRoutesFromElements<RouteObject>(
     <Route path="" element={<App />}>
       <Route path="/" element={<Home />} />

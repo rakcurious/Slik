@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Account, Client, ID, Models } from "appwrite";
 import { confvars } from "../index";
 import { setUserData, setWishlist } from "../redux_toolkit/userSlice";
@@ -9,20 +10,20 @@ const client = new Client()
 const account = new Account(client);
 
 // Custom implementation of account.updateRecovery because it doesn't work in the latest appwrite version at the time i am writing this, i.e. april '24. someone had raised the issue on appwrite's github and from there i got this workaround. the other option was to not use the latest version of appwrite, so i went with this instead.
-account.updateRecovery = (
-  userId: string,
-  secret: string,
-  password: string,
-  passwordAgain: string,
-): Promise<Models.Token> => {
-  if (!userId || !secret || !password || !passwordAgain) {
-    throw new Error('Missing argument');
-  }
-  const uri = new URL(client.config.endpoint + '/account/recovery');
-  return client.call('put', uri, {
-    'content-type': 'application/json',
-  }, { userId, secret, password, passwordAgain });
-};
+// account.updateRecovery = (
+//   userId: string,
+//   secret: string,
+//   password: string,
+//   passwordAgain: string,
+// ): Promise<Models.Token> => {
+//   if (!userId || !secret || !password || !passwordAgain) {
+//     throw new Error('Missing argument');
+//   }
+//   const uri = new URL(client.config.endpoint + '/account/recovery');
+//   return client.call('put', uri, {
+//     'content-type': 'application/json',
+//   }, { userId, secret, password, passwordAgain });
+// };
 
 export const loginWithGoogle = async () => {
   try {
@@ -39,7 +40,7 @@ export const loginWithGoogle = async () => {
 
 export const loginWithEmailAndPassword = async (email: string, password: any) => {
   try {
-    const currentUser = await account.createEmailPasswordSession(email, password);
+    const currentUser = await account.createEmailSession(email, password);
     if (currentUser) {
       return { success: true, data: currentUser };
     } else {
@@ -76,8 +77,6 @@ export const signup = async (email: string, password: any, name: any) => {
 export const logout = async () => {
   try {
     await account.deleteSession("current");
-    store.dispatch(setUserData(null));
-    store.dispatch(setWishlist([]));
   } catch (error:any) {
     console.error("Logout failed:", error);
   }

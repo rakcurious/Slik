@@ -18,6 +18,7 @@ const DeleteCollections: React.FC = () => {
     const foundCollection = collections.find(
       (collection) => collection.$id === id
     );
+    //@ts-ignore
     setCollection(foundCollection);
   };
   const handleDeleteCollection = async () => {

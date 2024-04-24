@@ -102,6 +102,7 @@ const Admin: React.FC = () => {
                   {products.map((product: Prods) => (
                     <div
                       onClick={() =>
+                        //@ts-ignore
                         window.navigator.clipboard.writeText(product?.$id)
                       }
                       className="cursor-pointer  overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:min-w-40 *:text-center *:p-1 *:text-clip"
@@ -141,6 +142,7 @@ const Admin: React.FC = () => {
                   {collections.map((collection: Collection) => (
                     <div
                       onClick={() =>
+                        //@ts-ignore
                         window.navigator.clipboard.writeText(collection?.$id)
                       }
                       className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"

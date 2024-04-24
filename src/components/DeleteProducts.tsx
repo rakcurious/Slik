@@ -15,6 +15,7 @@ const DeleteProducts: React.FC = () => {
 
   const getProductDetails = () => {
     const foundProduct = products.find((product) => product.$id === id);
+    //@ts-ignore
     setProduct(foundProduct);
   };
   const handleDeleteProduct = async () => {

@@ -12,7 +12,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   let products: Prods[] = useAppSelector(selectProducts);
 
   if (category === "men" || category == "women") {
-    products = products.filter((product) => product.category === category);
+    products = products.filter((product) => product.category === category || product.category === 'unisex');
   } else if (category == "brands") {
     products = products.filter(
       (product) => product.brand.toLowerCase() === collection.toLowerCase()
@@ -40,12 +40,12 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
     products = products.reverse();
   }
 
-  if (
-    (category === "men" || category === "women" || category === "home") &&
-    products.length > 20
-  ) {
-    products = products.slice(0, 20);
-  }
+  // if (
+  //   (category === "men" || category === "women" || category === "home") &&
+  //   products.length > 20
+  // ) {
+  //   products = products.slice(0, 20);
+  // }
 
   return (
     <>

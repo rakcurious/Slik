@@ -10,7 +10,7 @@ export default function Verification() {
   useEffect(() => {
     const verification = async () => {
       try {
-        const { success, error, data } = await updateVerification();
+        const { success, error } = await updateVerification();
         if (success) {
           setVerified(true);
         } else {

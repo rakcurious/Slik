@@ -11,7 +11,7 @@ export default function PasswordRecovery() {
 
   const resetPassword = async () => {
     try {
-      const { success, error, data } = await updatePasswordRecovery(password);
+      const { success, error } = await updatePasswordRecovery(password);
       if (success) {
         setSuccessMsg("Password reset successful");
         setReset(true);

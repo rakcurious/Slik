@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { Models } from "appwrite";
 
 
 interface UserState {
-    userData: Models.Account<Models.Preferences> | null;
+    userData: any;
     wishlist: any;
   }
   
@@ -16,7 +15,7 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-      setUserData: (state, action: PayloadAction<Models.Account<Models.Preferences> | null>) => {
+      setUserData: (state, action: PayloadAction<any>) => {
         state.userData = action.payload;
       },
       setWishlist: (state, action: PayloadAction<string[] | []>) => {
