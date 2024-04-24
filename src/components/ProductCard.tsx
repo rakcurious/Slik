@@ -28,7 +28,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
         </CardItem>
 
         <div className="flex justify-start w-full">
-          <CardItem translateZ="50" className="text-xs lg:text-sm w-5/6 pl-2">
+          <CardItem translateZ="50" className="text-xs lg:text-sm w-2/3 pl-2">
             <div className="truncate capitalize font-semibold">
               {product.title}
             </div>
@@ -43,7 +43,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
           <CardItem
             as="div"
             translateZ="60"
-            className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/6"
+            className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/3"
           >
             <img alt="heart icon"
               onClick={() =>
@@ -56,11 +56,11 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
                 )
               }
               src={wishlist?.includes(product?.$id) ? heartfill : heart}
-              className="h-4 w-4 md:h-6 md:w-6 cursor-pointer"
+              className="h-8 w-8 cursor-pointer"
             />
-            <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
-              {/* {product?.wishlist.length} */}
-            </div>
+            {/* <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
+              {product?.wishlist.length} 
+            </div> */}
           </CardItem>
         </div>
       </CardBody>

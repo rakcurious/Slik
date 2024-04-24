@@ -80,7 +80,7 @@ const ProductInfo: React.FC = () => {
               <h1 className="text-xl font-bold mb-1 capitalize text-center">
                 {product?.title}
               </h1>
-              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-purple-950 text-lg capitalize font-semibold text-center">
+              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-purple-500 text-lg capitalize font-semibold text-center">
                 {product?.brand}
               </p>
               <p className="text-lg font-semibold text-center mb-2">
@@ -140,7 +140,7 @@ const ProductInfo: React.FC = () => {
               <h1 className="text-xl font-bold my-1 capitalize text-center">
                 {product?.title}
               </h1>
-              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-indigo-950 text-lg capitalize font-semibold text-center">
+              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-purple-500 text-lg capitalize font-semibold text-center">
                 {product?.brand}
               </p>
               <p className="text-lg font-semibold text-center mb-2">

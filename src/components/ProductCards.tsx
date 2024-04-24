@@ -7,7 +7,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   category,
   collection,
 }) => {
-  const [sort, setSort] = useState("newest");
+  const [sort, setSort] = useState("new");
 
   let products: Prods[] = useAppSelector(selectProducts);
 
@@ -20,7 +20,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   }
 
   if (category !== collection && category !== "brands") {
-    products = products.filter((product) => product.type == collection);
+    products = products.filter((product) => product.type.toLowerCase() == collection.toLowerCase());
   }
 
   let prd = [...products];
