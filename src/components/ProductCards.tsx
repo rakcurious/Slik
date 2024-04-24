@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
 import { Prods, useAppSelector, selectProducts } from "../index";
 
-const ProductCard = lazy(() => import("./ProductCard"));
+const ProductCard = lazy(() => import("./ProductCard.tsx"));
 
 const ProductCards: React.FC<{ category: string; collection: string }> = ({
   category,
@@ -37,7 +37,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   } else if (sort == "pricelow") {
     products = sortedByPriceLowToHigh;
   } else if (sort == "new") {
-    products = products.reverse();
+    products = [...products].reverse();
   }
 
   // if (

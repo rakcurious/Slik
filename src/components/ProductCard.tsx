@@ -18,7 +18,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
     <>
     <CardContainer key={product.$id} className="inter-var col-span-1">
       <CardBody className="flex flex-col items-center justify-start  relative group/card rounded-xl w-44 sm:w-60 md:w-52 lg:w-64">
-        <CardItem translateZ="100" className="w-auto flex justify-center mb-2">
+        <CardItem translateZ="100" className="w-auto flex justify-center mb-1">
           <img
             onClick={() => navigate(`/product/${product.slug}`)}
             src={product.images[0]}
@@ -32,10 +32,10 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
             <div className="truncate capitalize font-semibold">
               {product.title}
             </div>
-            <div className="text-xs font-semibold truncate uppercase">
+            <div className="text-xs font-medium truncate uppercase">
               {product.brand}
             </div>
-            <div className=" mb-1 font-medium truncate">
+            <div className=" mb-1 font-semibold truncate">
               {`₹${product.price}`}
             </div>
           </CardItem>

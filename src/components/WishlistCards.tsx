@@ -52,7 +52,7 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                   <CardBody className=" flex flex-col items-center justify-start relative group/card rounded-xl w-44 sm:w-60 md:w-72 lg:w-56 xl:w-64">
                     <CardItem
                       translateZ="100"
-                      className="w-auto flex justify-center mb-2"
+                      className="w-auto flex justify-center mb-1"
                     >
                       <img
                         onClick={() => navigate(`/product/${product.slug}`)}
@@ -68,7 +68,7 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                       <div className="truncate font-semibold text-base w-full">
                         {product.title}
                       </div>
-                      <div className="text-xs md:text-sm font-normal truncate w-full uppercase">
+                      <div className="text-xs md:text-sm font-medium truncate w-full uppercase">
                         {product.brand}
                       </div>
                       <div className="text-xs mb-1 md:text-sm font-semibold truncate w-full pb-1">
