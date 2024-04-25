@@ -3,6 +3,7 @@ import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards, Modal, s
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const [load, setLoad] = useState(true)
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const userdata = useAppSelector(selectUserData);
@@ -19,6 +20,13 @@ function Profile() {
   const prods = wishlist.map((userid: string) =>
     products.find((product) => product.$id == userid)
   );
+
+    const loadingtime = () => {
+        setTimeout(() => {
+            setLoad(true)
+        }, 2000);
+    }
+    loadingtime();
 
   const handleLogout = async () => {
     await logout();
@@ -52,7 +60,11 @@ function Profile() {
 
           <WishlistCards products={prods} />
         </div>
-      ): 
+      ): load ? 
+      <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
+    <img src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png' className='mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce' />
+
+      </div> :
       <Modal
         isOpen={showModal}
         isAuthenticated={isAuthenticated}
