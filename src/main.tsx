@@ -1,12 +1,31 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { Route, RouteObject, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
-import {ProductInfo, Error404, Home, Profile, Admin, Login, Verification, PasswordRecovery, Cutie, Contact, PrivacyTerms} from './index.ts'
+import {
+  Route,
+  RouteObject,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import {
+  ProductInfo,
+  Error404,
+  Home,
+  Profile,
+  Admin,
+  Login,
+  Verification,
+  PasswordRecovery,
+  Cutie,
+  Contact,
+  PrivacyTerms,
+  ErrorBoundary,
+} from "./index.ts";
 import { Provider } from "react-redux";
 import { store } from "./redux_toolkit/store.ts";
 import React from "react";
-import Collection from './pages/Collection.tsx'
+import Collection from "./pages/Collection.tsx";
 
 const router = createBrowserRouter(
   //@ts-ignore
@@ -28,12 +47,12 @@ const router = createBrowserRouter(
   )
 );
 
-
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ErrorBoundary>
+      <Provider store={store}>
         <RouterProvider router={router} />
-    </Provider>
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>
 );

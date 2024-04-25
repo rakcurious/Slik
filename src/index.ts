@@ -28,6 +28,7 @@ import Contact from "./pages/Contact";
 import PrivacyTerms from "./pages/PrivacyTerms";
 import FloatingMenu from "./components/FloatingMenu";
 import Collection from "./pages/Collection";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { cn } from "./utils/cn";
 import confvars from "./appwrite/confvars";
 import { handleWishlistUpdate } from "./utils/wishlist";
@@ -125,6 +126,7 @@ export {
   PasswordRecovery,
   Verification,
   Home,
+  ErrorBoundary,
   CardBody,
   CardContainer,
   CardItem,

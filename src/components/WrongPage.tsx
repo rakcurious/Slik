@@ -15,7 +15,7 @@ const Error:React.FC =()=> {
 return (
     <>
     { <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
-    <img src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png' className='mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce' />
+    <img src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png' alt='Slik' className='mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce' />
         {load &&<>
         <p className='text-center font-semibold text-2xl'>Oops, this page is empty!</p>
         <p className='text-center font-normal text-2xl'>Go back and continue your manifesting session</p>
