@@ -62,7 +62,7 @@ export const fetchAllDocuments = async () => {
     const response = await databases.listDocuments(
       confvars.appwriteDatabaseId,
       confvars.appwriteProductsCollectionId,
-      [Query.limit(1000)]
+      [Query.limit(2000)]
     );
     store.dispatch(getProducts(response.documents));
   } catch (error) {
@@ -120,6 +120,7 @@ export const fetchCollections = async () => {
     const response = await databases.listDocuments(
       confvars.appwriteDatabaseId,
       confvars.appwriteCollectionsCollectionId,
+      [Query.limit(500)]
     );
     store.dispatch(getCollections(response.documents.reverse()));
       return response.documents;

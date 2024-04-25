@@ -31,7 +31,7 @@ const Admin: React.FC = () => {
 
   return (
     <>
-      {userdata?.$id === "660963212d52965c7a7f" ? (
+      {(userdata?.$id === "660963212d52965c7a7f" || userdata?.$id === "662904776a9304ca8686") ? (
         <>
           <Navbar />
           <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
