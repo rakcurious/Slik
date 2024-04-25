@@ -28,23 +28,29 @@ export const handleWishlistUpdate = async (
     ? wishlist.filter((id: string) => id !== productId)
     : [...wishlist, productId];
 
-  const response = await updateWishlist(userdata.$id, updatedWishlist);
-  if (response) {
-    store.dispatch(setWishlist(updatedWishlist));
-  } else {
-    console.log("failed to update user wishlist");
-  }
-
   const userid = userdata.$id;
   const product: any = products.find((product) => product.$id === productId);
   let prodWishlist: string[] = product?.wishlist;
+
   if (prodWishlist.includes(userid)) {
     prodWishlist = prodWishlist.filter((user: string) => user !== userid);
   } else {
     prodWishlist = [userid, ...prodWishlist];
   }
 
-  const updatedProduct = await updateProductInAppwrite(productId, {
+  const updatedProduct = { ...product, wishlist: prodWishlist };
+
+  store.dispatch(setWishlist(updatedWishlist));
+  store.dispatch(updateProduct(updatedProduct));
+
+  const response = await updateWishlist(userdata.$id, updatedWishlist);
+  if (response) {
+  } else {
+    console.log("failed to update user wishlist");
+    store.dispatch(setWishlist(wishlist));
+  }
+
+  const res = await updateProductInAppwrite(productId, {
     title: product?.title,
     target: product?.target,
     images: product?.images,
@@ -56,9 +62,9 @@ export const handleWishlistUpdate = async (
     wishlist: prodWishlist,
   });
 
-  if (updatedProduct) {
-    store.dispatch(updateProduct(updatedProduct));
+  if (res) {
   } else {
     console.log("product wishlist update failed");
+    store.dispatch(updateProduct(product));
   }
 };
