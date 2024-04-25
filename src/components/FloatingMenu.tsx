@@ -50,7 +50,17 @@ const FloatingMenu: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
         >
           MEN
         </NavLink>
-
+        <NavLink
+          to="/brands"
+          className={({ isActive }) =>
+            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
+              isActive ? "bg-purple-200" : ""
+            }`
+          }
+          onClick={onClose}
+        >
+          BRANDS
+        </NavLink>
         <NavLink
           to="/profile"
           className={({ isActive }) =>

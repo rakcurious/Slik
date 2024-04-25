@@ -56,7 +56,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
                 )
               }
               src={wishlist?.includes(product?.$id) ? heartfill : heart}
-              className="h-8 w-8 cursor-pointer"
+              className="h-6 w-6 cursor-pointer"
             />
             {/* <div className="text-center h-4 w-4 md:h-6 md:w-6 font-semibold">
               {product?.wishlist.length} 

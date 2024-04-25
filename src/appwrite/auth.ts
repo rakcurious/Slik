@@ -27,6 +27,15 @@ const account = new Account(client);
 // };
 
 */
+export const getCurrentSession = async () => {
+  try {
+    const currentUser = await account.get();
+    store.dispatch(setUserData(currentUser));
+    return currentUser;
+  } catch (error:any) {
+    return null;
+  }
+};
 
 export const loginWithGoogle = async () => {
   try {
@@ -45,6 +54,7 @@ export const loginWithEmailAndPassword = async (email: string, password: any) =>
   try {
     const currentUser = await account.createEmailSession(email, password);
     if (currentUser) {
+      await getCurrentSession()
       return { success: true, data: currentUser };
     } else {
       return { success: false, error: 'Login failed' };
@@ -87,7 +97,7 @@ export const logout = async () => {
 
 export const startVerification = async () => {
   try {
-    const response = await account.createVerification('http://beslik.in/verification');
+    const response = await account.createVerification('https://beslik.in/verification');
     if (response) {
       return { success: true, data: response };
     } else {
@@ -106,6 +116,7 @@ export const updateVerification = async () => {
   try {
     const response = await account.updateVerification(userId, secret);
     if (response) {
+      await getCurrentSession()
       return { success: true, data: response };
     } else {
       return { success: false, error: 'Verification failed' };
@@ -117,7 +128,7 @@ export const updateVerification = async () => {
 
 export const startPasswordRecovery = async (email: string) => {
   try {
-    const response = await account.createRecovery(email, 'http://beslik.in/passwordrecovery');
+    const response = await account.createRecovery(email, 'https://beslik.in/passwordrecovery');
     return { success: true, data: response };
   } catch (error:any) {
     return { success: false, error: error.message };
@@ -137,12 +148,3 @@ export const updatePasswordRecovery = async (password: any) => {
   }
 };
 
-export const getCurrentSession = async () => {
-  try {
-    const currentUser = await account.get();
-    store.dispatch(setUserData(currentUser));
-    return currentUser;
-  } catch (error:any) {
-    return null;
-  }
-};

@@ -105,7 +105,7 @@ const Admin: React.FC = () => {
                         //@ts-ignore
                         window.navigator.clipboard.writeText(product?.$id)
                       }
-                      className="cursor-pointer  overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:min-w-40 *:text-center *:p-1 *:text-clip"
+                      className="cursor-pointer overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:min-w-40 *:text-center *:p-1 *:text-clip"
                       key={product.$id}
                     >
                       <p>{product.$id}</p>
@@ -145,7 +145,7 @@ const Admin: React.FC = () => {
                         //@ts-ignore
                         window.navigator.clipboard.writeText(collection?.$id)
                       }
-                      className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
+                      className="cursor-pointer overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
                       key={collection.$id}
                     >
                       <p>{collection.$id}</p>

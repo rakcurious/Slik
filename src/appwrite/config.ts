@@ -94,7 +94,6 @@ export const createWishlist = async (id: any) => {
       id,
       { wishlist: [] }
     );
-    console.log("Wishlist created successfully:", response);
     return response;
   } catch (error) {
     console.log(`Appwrite createDocument error: Wishlist:: ${error}`);

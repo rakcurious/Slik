@@ -61,7 +61,7 @@ const DeleteCollections: React.FC = () => {
             </div>
 
             <button
-              className="h-12 w-48 text-2xl font-normal text-center bg-purple-300 rounded-lg hover:bg-purple-400 transition duration-200"
+              className="h-12 w-48 text-2xl font-normal text-center bg-black rounded-lg hover:bg-purple-400 transition duration-200"
               onClick={handleDeleteCollection}
             >
               delete collection

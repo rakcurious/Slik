@@ -15,12 +15,15 @@ const Cutie: React.FC = () => {
       {(cutie === 'men' || cutie ==='women') ? <>
       <BannerSlider category={cutie} />
       <CollectionCards category={cutie} />
-      <CollectionCards category={'brands'} />
       <ProductCards category={cutie} collection={cutie}/>
       <Footer />
       </>: 
       (cutie === 'brands') ? 
-      <CollectionCards category={cutie} /> :
+      <>
+      <CollectionCards category={cutie} />
+      <Footer />
+      </> 
+      :
       <Error /> }
     </>
   );

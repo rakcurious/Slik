@@ -12,7 +12,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [page, setPage] = useState("Login");
+  const [page, setPage] = useState("Sign up");
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
@@ -32,6 +32,7 @@ export default function Login() {
         setErrorMsg(error);
       }
     } else if (page === "Sign up") {
+      setSuccessMsg('Signing up, please wait...')
       const { success, error, message } = await signup(email, password, name);
       if (success) {
         //@ts-ignore
@@ -57,7 +58,7 @@ export default function Login() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
+          <img onClick={()=>navigate('/')}
             className="mx-auto h-14 w-auto"
             src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp"
             alt="Slik"
@@ -70,14 +71,14 @@ export default function Login() {
         {page === "Verification" ? (
           <div className="flex flex-col items-center">
             {" "}
-            <p className="text-center text-2xl font-semibold mt-10">
+            <p className="text-center text-green-500 text-2xl font-semibold mt-10">
               We have sent you a verification email from appwrite. Please verify
               your email address using the link in the email to make the most
               out of Slik
             </p>
             <button
               onClick={() => navigate("/")}
-              className="text-center text-2xl font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
+              className="text-center text-2xl py-2 font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
             >
               Home
             </button>

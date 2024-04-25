@@ -4,26 +4,18 @@ import { useState } from "react";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [pfp, setPfp] = useState<string>(
-    "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg"
-  );
+  
   const navigate = useNavigate();
   const userdata = useAppSelector(selectUserData);
-  const profilePics = [
-    "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg",
-    "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/rpsoght3oeatsvqxlqss.jpg",
-    "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/zvjd7dceroirkkbfta0k.jpg",
-    "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/g79soyfwfh3o7aihapwj.jpg",
-    "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg",
-  ];
+  // const profilePics = [
+  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg",
+  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/rpsoght3oeatsvqxlqss.jpg",
+  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/zvjd7dceroirkkbfta0k.jpg",
+  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/g79soyfwfh3o7aihapwj.jpg",
+  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg",
+  // ];
 
-  const profileClick = () => {
-    if (window.location.pathname === "/profile") {
-      setPfp(profilePics[Math.floor(Math.random() * profilePics.length)]);
-    } else {
-      navigate("/profile");
-    }
-  };
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,7 +31,7 @@ function Navbar() {
               className="text-gray-700 hover:text-gray-900"
             >
               <svg
-                className="h-6 w-6"
+                className="h-8 w-8"
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -90,8 +82,8 @@ function Navbar() {
           <div className="flex justify-end items-center w-1/4 md:w-1/3">
             {userdata ? (
               <img
-                onClick={profileClick}
-                src={pfp}
+                onClick={()=> navigate('/profile')}
+                src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg'
                 alt="pfp"
                 className="cursor-pointer object-cover xl:mr-4 !p-0 object-top rounded-full h-12 w-12 border-2 border-purple-200 transition duration-500"
               />
