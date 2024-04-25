@@ -2,6 +2,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import {
   Prods,
+  UploadImages,
   updateProductInAppwrite,
   useAppDispatch,
   useAppSelector,
@@ -94,6 +95,7 @@ const UpdateProducts: React.FC = () => {
 
   return (
     <>
+    <UploadImages folder={"slik/products"} />
       <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
         <input
           className="h-10 w-60 rounded-xl text-center px-1"

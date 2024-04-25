@@ -6,7 +6,8 @@ import {
   useAppDispatch,
   useAppSelector,
   selectCollections,
-  updateCollection
+  updateCollection,
+  UploadImages
 } from "../index";
 import { useEffect, useState } from "react";
 
@@ -80,6 +81,7 @@ const UpdateCollections: React.FC = () => {
 
   return (
     <>
+    <UploadImages folder={"slik/misc"} />
       <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
         <input
           className="h-10 w-60 rounded-xl text-center px-1"

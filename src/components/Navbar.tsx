@@ -26,7 +26,7 @@ function Navbar() {
       <nav className="sticky z-20 top-0 w-screen h-20 flex mt-0 py-2 items-center justify-center px-4 bg-purple-100">
         <div className="flex justify-between font-bold text-lg gap-x-6 w-full">
           <div className="md:hidden my-auto w-1/4">
-            <button
+            <button aria-label="Menu"
               onClick={toggleMenu}
               className="text-gray-700 hover:text-gray-900"
             >
