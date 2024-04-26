@@ -63,15 +63,15 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                     </CardItem>
                     <CardItem
                       translateZ="50"
-                      className="w-full px-2 flex flex-col items-start justify-center"
+                      className="w-full px-2 flex flex-col items-start justify-center text-xs lg:text-sm"
                     >
-                      <div className="truncate font-semibold text-base w-full">
+                      <div className="truncate font-semibold w-full">
                         {product?.title}
                       </div>
-                      <div className="text-xs md:text-sm font-medium truncate w-full uppercase">
+                      <div className="text-xs font-medium truncate w-full uppercase">
                         {product?.brand}
                       </div>
-                      <div className="text-xs mb-1 md:text-sm font-semibold truncate w-full pb-1">
+                      <div className="mb-1 font-semibold truncate w-full pb-1">
                         {product? `₹${product?.price}`: ''}
                       </div>
                     </CardItem>

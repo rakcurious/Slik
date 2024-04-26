@@ -74,18 +74,12 @@ export default function Login() {
 
         {page === "Verification" ? (
           <div className="flex flex-col items-center">
-            {" "}
             <p className="text-center text-green-500 text-2xl font-semibold mt-10">
               We have sent you a verification email from appwrite. Please verify
               your email address using the link in the email to make the most
               out of Slik
             </p>
-            <button
-              onClick={() => navigate("/")}
-              className="text-center text-2xl py-2 font-semibold mt-10 h-14 w-60 rounded-lg text-white bg-black"
-            >
-              Home
-            </button>
+            
           </div>
         ) : (
           <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">

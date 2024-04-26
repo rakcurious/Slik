@@ -28,7 +28,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
         </CardItem>
 
         <div className="flex justify-start w-full">
-          <CardItem translateZ="50" className="text-xs lg:text-sm w-2/3 pl-2">
+          <CardItem translateZ="50" className="text-xs lg:text-sm w-3/4 sm:w-5/6 pl-2">
             <div className="truncate capitalize font-semibold">
               {product.title}
             </div>
@@ -43,7 +43,7 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
           <CardItem
             as="div"
             translateZ="60"
-            className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/3"
+            className="flex flex-col justify-start items-center text-xs lg:text-sm font-normal w-1/4 sm:w-1/6"
           >
             <img alt="heart icon"
               onClick={() =>
