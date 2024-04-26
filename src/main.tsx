@@ -30,8 +30,8 @@ import Collection from "./pages/Collection.tsx";
 const router = createBrowserRouter(
   //@ts-ignore
   createRoutesFromElements<RouteObject>(
-    <Route path="" element={<App />}>
-      <Route path="/" element={<Home />} />
+    <Route path="/" element={<App />} errorElement={<ErrorBoundary />}>
+      <Route index element={<Home />} />
       <Route path="/:cutie" element={<Cutie />} />
       <Route path="/:category/:slug" element={<Collection />} />
       <Route path="/profile" element={<Profile />} />
@@ -49,10 +49,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ErrorBoundary>
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
-    </ErrorBoundary>
   </React.StrictMode>
 );

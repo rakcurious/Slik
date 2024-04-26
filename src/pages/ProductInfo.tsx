@@ -99,7 +99,7 @@ const ProductInfo: React.FC = () => {
                   }
                   className="bg-black text-xl  w-4/5 font-medium h-auto text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
-                  {wishlist.includes(product.$id)
+                  {wishlist?.includes(product.$id)
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
@@ -159,7 +159,7 @@ const ProductInfo: React.FC = () => {
                   }
                   className="bg-black text-xl font-medium h-auto py-4 text-white rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
-                  {wishlist.includes(product.$id)
+                  {wishlist?.includes(product.$id)
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
