@@ -48,17 +48,17 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                 }}
                 key={`grid-${columnIndex}-${idx}`}
               >
-                <CardContainer key={product.$id} className="inter-var">
+                <CardContainer key={product?.$id} className="inter-var">
                   <CardBody className=" flex flex-col items-center justify-start relative group/card rounded-xl w-44 sm:w-60 md:w-72 lg:w-56 xl:w-64">
                     <CardItem
                       translateZ="100"
                       className="w-auto flex justify-center mb-1"
                     >
                       <img
-                        onClick={() => navigate(`/product/${product.slug}`)}
-                        src={product.images[0]}
+                        onClick={() => navigate(`/product/${product?.slug}`)}
+                        src={product?.images[0]}
                         className="w-full aspect-[3/4] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
-                        alt={product.title}
+                        alt={product?.title}
                       />
                     </CardItem>
                     <CardItem
@@ -66,13 +66,13 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
                       className="w-full px-2 flex flex-col items-start justify-center"
                     >
                       <div className="truncate font-semibold text-base w-full">
-                        {product.title}
+                        {product?.title}
                       </div>
                       <div className="text-xs md:text-sm font-medium truncate w-full uppercase">
-                        {product.brand}
+                        {product?.brand}
                       </div>
                       <div className="text-xs mb-1 md:text-sm font-semibold truncate w-full pb-1">
-                        {`₹${product.price}`}
+                        {product? `₹${product?.price}`: ''}
                       </div>
                     </CardItem>
                   </CardBody>

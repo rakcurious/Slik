@@ -1,7 +1,6 @@
 //@ts-nocheck
 import { Account, Client, ID, Models } from "appwrite";
-import { confvars } from "../index";
-import { setUserData, setWishlist } from "../redux_toolkit/userSlice";
+import { confvars, fetchWishlist, setUserData } from "../index";
 import { store } from "../redux_toolkit/store";
 
 const client = new Client()
@@ -31,6 +30,7 @@ export const getCurrentSession = async () => {
   try {
     const currentUser = await account.get();
     store.dispatch(setUserData(currentUser));
+    await fetchWishlist(currentUser.$id)
     return currentUser;
   } catch (error:any) {
     return null;

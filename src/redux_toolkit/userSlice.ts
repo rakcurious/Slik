@@ -9,7 +9,7 @@ interface UserState {
   
   const initialState: UserState = {
     userData: null,
-    wishlist: []
+    wishlist: null,
   };
 const userSlice = createSlice({
     name: "user",

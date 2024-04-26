@@ -1,9 +1,22 @@
 import { useState } from "react";
-import { logout, Navbar, useAppDispatch, useAppSelector, WishlistCards, Modal, selectProducts, selectUserData, selectWishlist, setUserData, setWishlist } from "../index";
+import {
+  logout,
+  Navbar,
+  useAppDispatch,
+  useAppSelector,
+  WishlistCards,
+  Modal,
+  selectProducts,
+  selectUserData,
+  selectWishlist,
+  setUserData,
+  setWishlist,
+  updateWishlist,
+} from "../index";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
-  const [load, setLoad] = useState(true)
+  const [load, setLoad] = useState(true);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const userdata = useAppSelector(selectUserData);
@@ -11,26 +24,41 @@ function Profile() {
   let wishlist = useAppSelector(selectWishlist);
 
   const [showModal, setShowModal] = useState(true);
-  
+
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
+  let prods;
 
-  wishlist = [...wishlist].reverse();
+  if (wishlist) {
+    const existingProductIds = new Set(products.map((product) => product.$id));
+    let finalWishlist = wishlist.filter((productId: string) =>
+      existingProductIds.has(productId)
+    );
 
-  const prods = wishlist.map((userid: string) =>
-    products.find((product) => product.$id == userid)
-  );
-
-    const loadingtime = () => {
-        setTimeout(() => {
-            setLoad(true)
-        }, 2000);
+    if (
+      wishlist.length !== 0 &&
+      wishlist?.length !== finalWishlist?.length
+    ) {
+      updateWishlist(userdata?.$id, finalWishlist);
     }
-    loadingtime();
+
+    finalWishlist = [...finalWishlist].reverse();
+
+    prods = finalWishlist.map((productId: string) =>
+      products.find((product) => product.$id == productId)
+    );
+  }
+
+  const loadingtime = () => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 2000);
+  };
+  loadingtime();
 
   const handleLogout = async () => {
     await logout();
-    dispatch(setUserData(null))
+    dispatch(setUserData(null));
     dispatch(setWishlist([]));
     navigate("/");
   };
@@ -58,23 +86,27 @@ function Profile() {
             </div>
           </div>
 
-          <WishlistCards products={prods} />
+          {wishlist && <WishlistCards products={prods} />}
         </div>
-      ): load ? 
-      <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
-    <img src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png' className='mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce' />
-
-      </div> :
-      <Modal
-        isOpen={showModal}
-        isAuthenticated={isAuthenticated}
-        isVerified={isVerified}
-        onClose={() => setShowModal(false)}
-        onLogin={() => {
-          navigate("/login");
-          setShowModal(false);
-        }}
-      />}
+      ) : load ? (
+        <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
+          <img
+            src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png"
+            className="mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce"
+          />
+        </div>
+      ) : (
+        <Modal
+          isOpen={showModal}
+          isAuthenticated={isAuthenticated}
+          isVerified={isVerified}
+          onClose={() => setShowModal(false)}
+          onLogin={() => {
+            navigate("/login");
+            setShowModal(false);
+          }}
+        />
+      )}
     </>
   );
 }

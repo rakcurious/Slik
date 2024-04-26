@@ -15,6 +15,7 @@ export default function Login() {
   const [page, setPage] = useState("Sign up");
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,7 +24,9 @@ export default function Login() {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     if (page === "Login") {
+
       const { success, error } = await loginWithEmailAndPassword(email, password);
       if(success){
         navigate('/')
@@ -52,6 +55,7 @@ export default function Login() {
         setErrorMsg(error);
       }
     }
+    setIsLoading(false)
   };
 
   return (
@@ -175,7 +179,7 @@ export default function Login() {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  {page}
+                  {isLoading ? 'Please wait...' : page}
                 </button>
               </div>
               <p className="my-3 mx-5 text-center text-red-500 text-lg font-semibold">

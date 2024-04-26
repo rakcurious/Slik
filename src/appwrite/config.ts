@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { Client, Databases, ID, Query } from "appwrite";
-import { Collection, Prods } from "../index";
+import { Collection, Prods, setWishlist } from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
 import { getCollections, getProducts } from "../redux_toolkit/productSlice";
@@ -78,6 +78,7 @@ export const fetchWishlist = async (id: any) => {
       confvars.appwriteUsersCollectionId,
       [Query.equal("$id", id)]
     );
+    store.dispatch(setWishlist(response.documents[0].wishlist))
       return response.documents[0].wishlist;
     
   } catch (error) {
@@ -94,6 +95,7 @@ export const createWishlist = async (id: any) => {
       id,
       { wishlist: [] }
     );
+    await fetchWishlist(id)
     return response;
   } catch (error) {
     console.log(`Appwrite createDocument error: Wishlist:: ${error}`);
