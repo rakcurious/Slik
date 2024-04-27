@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,aviv}'],
+        globPatterns: ['**/*.{js,css,html,ico,jpg,png,svg,webp,aviv}'],
       },
       manifest: {
         name: 'Slik',
@@ -34,6 +34,23 @@ export default defineConfig({
             purpose: 'maskable'
           },
         ],
+        screenshots: [
+          {
+            "src": "screenshot2349x1080.jpg",
+             "sizes": "2349x1080",
+             "type": "image/jpg",
+             "form_factor": "wide",
+             "label": "Curated drip from your favorite fashion brands",
+             
+           },
+          {
+            "src": "screenshot1080x2336.jpg",
+             "sizes": "1080x2336",
+             "type": "image/jpg",
+             "form_factor": "narrow",
+             "label": "Curated drip from your favorite fashion brands"
+          },
+        ]
       },
       devOptions: {
         enabled: false, // for enabling pwa in dev mode ;)
