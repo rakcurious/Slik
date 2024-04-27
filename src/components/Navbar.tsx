@@ -4,18 +4,9 @@ import { useState } from "react";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const navigate = useNavigate();
   const userdata = useAppSelector(selectUserData);
-  // const profilePics = [
-  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg",
-  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/rpsoght3oeatsvqxlqss.jpg",
-  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/zvjd7dceroirkkbfta0k.jpg",
-  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109558/g79soyfwfh3o7aihapwj.jpg",
-  //   "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg",
-  // ];
-
-  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,7 +17,8 @@ function Navbar() {
       <nav className="sticky z-20 top-0 w-screen h-20 flex mt-0 py-2 items-center justify-center px-4 bg-purple-100">
         <div className="flex justify-between font-bold text-lg gap-x-6 w-full">
           <div className="md:hidden my-auto w-1/4">
-            <button aria-label="Menu"
+            <button
+              aria-label="Menu"
               onClick={toggleMenu}
               className="text-gray-700 hover:text-gray-900"
             >
@@ -82,8 +74,8 @@ function Navbar() {
           <div className="flex justify-end items-center w-1/4 md:w-1/3">
             {userdata ? (
               <img
-                onClick={()=> navigate('/profile')}
-                src='https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg'
+                onClick={() => navigate("/profile")}
+                src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713109014/l1yqyacfz0ycvomn5yuw.jpg"
                 alt="pfp"
                 className="cursor-pointer object-cover xl:mr-4 !p-0 object-top rounded-full h-12 w-12 border-2 border-purple-200 transition duration-500"
               />
@@ -98,7 +90,11 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <FloatingMenu isOpen={isMenuOpen} onClose={toggleMenu} />
+      <FloatingMenu
+        userdata={userdata}
+        isOpen={isMenuOpen}
+        onClose={toggleMenu}
+      />
     </>
   );
 }

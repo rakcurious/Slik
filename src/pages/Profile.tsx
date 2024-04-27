@@ -52,7 +52,7 @@ function Profile() {
   const loadingtime = () => {
     setTimeout(() => {
       setLoad(false);
-    }, 2000);
+    }, 3000);
   };
   loadingtime();
 
@@ -69,17 +69,17 @@ function Profile() {
       {userdata ? (
         <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
           <div className="z-20 bg-purple-100 flex items-center justify-center w-screen px-8 md:px-10">
-            <div className="flex flex-col justify-start w-1/3">
+            <div className="hidden md:flex flex-col justify-start w-1/4">
               <p className="font-semibold text-lg truncate">{userdata.name}</p>
               <p className="font-normal text-xs md:text-sm truncate">
                 {userdata.email}
               </p>
             </div>
-            <h1 className="font-medium text-2xl lg:text-3xl 2xl:text-4xl text-center w-1/3">WISHLIST</h1>
-            <div className="w-1/3 flex justify-end">
+            <h1 className="font-medium text-2xl lg:text-3xl 2xl:text-4xl text-center w-1/2">WISHLIST</h1>
+            <div className="hidden md:flex w-1/4 justify-end">
               <button
                 onClick={handleLogout}
-                className="font-bold text-sm rounded-lg px-4 py-1 bg-black/70  hover:bg-black text-white text-center cursor-pointer transition duration-500 -translate-y-1 hover:-translate-y-2"
+                className="font-bold text-sm rounded-lg px-4 py-1 bg-black/70  hover:bg-black text-white text-center cursor-pointer transition duration-500 hover:-translate-y-1"
               >
                 Logout
               </button>

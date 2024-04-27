@@ -39,9 +39,9 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
         className={`mt-4 lg:mt-10 pb-4 items-start grid grid-cols-2 gap-x-5 sm:gap-x-8 md:gap-x-10 lg:grid-cols-4 px-5 lg:gap-x-16`}
         ref={gridRef}
       >
-        {columnArrays.map((columnProducts, columnIndex) => (
+        {columnArrays?.map((columnProducts, columnIndex) => (
           <div key={columnIndex} className="col-span-1 grid grid-cols-1 gap-5  md:gap-7 lg:gap-10"> 
-            {columnProducts.map((product, idx) => (
+            {columnProducts?.map((product, idx) => (
               <motion.div
                 style={{
                   y: columnIndex % 2 === 0 ? translateFirst : translateSecond,
