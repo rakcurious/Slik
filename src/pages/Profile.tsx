@@ -68,14 +68,14 @@ function Profile() {
       <Navbar />
       {userdata ? (
         <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
-          <div className="z-20 bg-purple-100 flex items-center justify-center w-screen px-2 md:px-10">
+          <div className="z-20 bg-purple-100 flex items-center justify-center w-screen px-8 md:px-10">
             <div className="flex flex-col justify-start w-1/3">
               <p className="font-semibold text-lg truncate">{userdata.name}</p>
               <p className="font-normal text-xs md:text-sm truncate">
                 {userdata.email}
               </p>
             </div>
-            <h1 className="font-medium text-2xl text-center w-1/3">WISHLIST</h1>
+            <h1 className="font-medium text-2xl lg:text-3xl 2xl:text-4xl text-center w-1/3">WISHLIST</h1>
             <div className="w-1/3 flex justify-end">
               <button
                 onClick={handleLogout}

@@ -21,6 +21,7 @@ const CreateProducts: React.FC = () => {
   const onSubmit: SubmitHandler<Prods> = async (data) => {
     const createdProduct = await createProductInAppwrite({
       ...data,
+      price: Number(data.price),
       slug: slugify(data.title+ ' ' + data.category + ' ' + data.type),
       //@ts-ignore
       images: data.images.split(","),
@@ -45,7 +46,7 @@ const CreateProducts: React.FC = () => {
             <input placeholder="Title" {...register("title")} required />
             <input placeholder="Target" {...register("target")} required />
             <input placeholder="Images" {...register("images")} required />
-            <input placeholder="Price" {...register("price")} required />
+            <input type="number" placeholder="Price" {...register("price")} required />
             <input placeholder="Brand" {...register("brand")} required />
             <input placeholder="Category" {...register("category")} required />
             <input placeholder="Cutiepie" {...register("userid")} required />

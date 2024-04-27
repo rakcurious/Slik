@@ -7,6 +7,15 @@ const UploadImages: React.FC<{
   const [imageUrls, setImageUrls] = useState([]);
   const picsRef = useRef();
   const urlRef = useRef(null);
+  const [share, setShare] = useState(false);
+
+  // const copyToShare = () => {
+  //   window.navigator.clipboard.writeText(window.location.href);
+  //   setShare(true);
+  //   setTimeout(() => {
+  //     setShare(false);
+  //   }, 5000);
+  // };
 
   const copyUrlToClipboard = useCallback(
     (id: number) => {
@@ -16,6 +25,10 @@ const UploadImages: React.FC<{
   );
   const copyAll = useCallback(() => {
     window.navigator.clipboard.writeText(imageUrls.join(","));
+    setShare(true);
+    setTimeout(() => {
+      setShare(false);
+    }, 5000);
   }, [imageUrls]);
 
   function submitImages() {
@@ -55,12 +68,13 @@ const UploadImages: React.FC<{
           upload
         </button>
 
-        <div className=" flex flex-col items-center w-auto gap-2">
+        <div className=" flex flex-col items-center w-screen gap-2">
+          <div className="flex justify-center w-full px-5">
           {imageUrls &&
             imageUrls.map((image, index) => (
               <div
                 key={index}
-                className="flex justify-center gap-1 w-screen px-4"
+                className="flex justify-center gap-1 w-auto px-2"
               >
                 <p className="h-10 w-6 text-lg font-semibold rounded-md text-center py-2 pl-2">
                   {index + 1}.
@@ -69,22 +83,24 @@ const UploadImages: React.FC<{
                   ref={urlRef}
                   value={image}
                   readOnly
-                  className="truncate font-mono text-lg rounded-lg px-1 py-1 h-10 bg-white w-80"
+                  className="truncate font-mono text-sm rounded-lg px-1 py-1 h-8 bg-white w-16"
                 />
                 <button
                   onClick={() => copyUrlToClipboard(index)}
-                  className="h-10 w-20 text-xl text-center outline-none rounded-lg bg-black text-white shrink-0"
+                  className="h-8 w-16 text-lg text-center outline-none rounded-lg bg-black text-white shrink-0"
                 >
                   copy
                 </button>
               </div>
             ))}
+            </div>
           {imageUrls.length > 0 && (
             <button
               onClick={copyAll}
-              className="h-12 w-48 text-2xl font-normal text-center outline-none rounded-lg bg-black text-white px-3 my-2 py-1 shrink-0"
+              className={`h-12 w-48 text-2xl font-normal text-center outline-none rounded-lg px-3 my-2 py-1 shrink-0 ${
+                share ? "text-black bg-violet-400" : "bg-black text-white"}`}
             >
-              copy all
+             {share? 'copied': 'copy'}
             </button>
           )}
         </div>

@@ -49,7 +49,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
 
   return (
     <>
-      <h1 className="text-center capitalize font-medium text-2xl lg:text-4xl mt-4 md:mt-10">
+      <h1 className="text-center uppercase font-medium text-2xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-6 lg:mt-10 xl:mt-16">
         {category === collection
           ? "PRODUCTS"
           : category === "brands"
@@ -103,7 +103,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
           </div>
         </div>
       )}
-      <div className="mt-5 pb-10 w-screen items-start mx-auto grid grid-cols-2 gap-x-2 gap-y-5 px-2 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4">
+      <div className="mt-5 lg:mt-10 xl:mt-16 grid grid-cols-2 gap-5 px-4 sm:gap-10 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-20 xl:grid-cols-4 xl:gap-16 text-black pb-5 xl:mr-5">
         <Suspense
           fallback={
             <div className="animate-pulse mt-4 w-screen text-center font-semibold text-3xl">

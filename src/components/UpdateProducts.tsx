@@ -79,6 +79,7 @@ const UpdateProducts: React.FC = () => {
   const onSubmit: SubmitHandler<ProductsWithoutMeta> = async (data) => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
+      price: Number(data.price),
       slug: slugify(data.title + " " + data.category + " " + data.type),
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
       wishlist: products.find((product) => product.$id === id).wishlist,
@@ -118,7 +119,7 @@ const UpdateProducts: React.FC = () => {
                 <input placeholder="Title" {...register("title")} required />
                 <input placeholder="Target" {...register("target")} required />
                 <input placeholder="Images" {...register("images")} required />
-                <input placeholder="Price" {...register("price")} required />
+                <input type="number" placeholder="Price" {...register("price")} required />
                 <input placeholder="Brand" {...register("brand")} required />
                 <input
                   placeholder="Category"
