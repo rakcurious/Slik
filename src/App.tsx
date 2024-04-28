@@ -1,32 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import {
-  createWishlist,
   fetchAllDocuments,
   fetchCollections,
-  fetchWishlist,
-  useAppDispatch,
-  setWishlist,
-  getCurrentSession
+  getCurrentSession,
 } from "./index";
 function App() {
-  const dispatch = useAppDispatch();
-
   useEffect(() => {
-    const everythingEverywhereAllAtOnce = async () => {
-      const userdata = await getCurrentSession();
-      if (userdata) {
-        const wishlist = await fetchWishlist(userdata?.$id);
-        if (wishlist) {
-          dispatch(setWishlist(wishlist));
-        } else {
-          createWishlist(userdata?.$id);
-        }
-      }
-    };
-    everythingEverywhereAllAtOnce();
     fetchAllDocuments();
     fetchCollections();
+    getCurrentSession();
+
     
 
   }, []);

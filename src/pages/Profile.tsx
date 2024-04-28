@@ -8,10 +8,8 @@ import {
   Modal,
   selectProducts,
   selectUserData,
-  selectWishlist,
   setUserData,
   setWishlist,
-  updateWishlist,
 } from "../index";
 import { useNavigate } from "react-router-dom";
 
@@ -21,32 +19,25 @@ function Profile() {
   const dispatch = useAppDispatch();
   const userdata = useAppSelector(selectUserData);
   let products = useAppSelector(selectProducts);
-  let wishlist = useAppSelector(selectWishlist);
 
   const [showModal, setShowModal] = useState(true);
 
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
+
+  const userID = userdata?.$id;
   let prods;
-
-  if (wishlist) {
-    const existingProductIds = new Set(products.map((product) => product.$id));
-    let finalWishlist = wishlist.filter((productId: string) =>
-      existingProductIds.has(productId)
+  if (products && userdata) {
+    prods = products.filter((prod) =>
+      prod.likes?.find((like) => like.userid === userID)
     );
 
-    if (
-      wishlist.length !== 0 &&
-      wishlist?.length !== finalWishlist?.length
-    ) {
-      updateWishlist(userdata?.$id, finalWishlist);
-    }
+    prods.sort((a: any, b: any) => {
+      const aUserLike = a.likes?.find((like: any) => like.userid === userID);
+      const bUserLike = b.likes?.find((like: any) => like.userid === userID);
 
-    finalWishlist = [...finalWishlist].reverse();
-
-    prods = finalWishlist.map((productId: string) =>
-      products.find((product) => product.$id == productId)
-    );
+      return (bUserLike?.time || 0) - (aUserLike?.time || 0);
+    });
   }
 
   const loadingtime = () => {
@@ -63,6 +54,8 @@ function Profile() {
     navigate("/");
   };
 
+  console.log(prods);
+
   return (
     <>
       <Navbar />
@@ -75,7 +68,9 @@ function Profile() {
                 {userdata.email}
               </p>
             </div>
-            <h1 className="font-medium text-2xl lg:text-3xl 2xl:text-4xl text-center w-1/2">WISHLIST</h1>
+            <h1 className="font-medium text-2xl lg:text-3xl 2xl:text-4xl text-center w-1/2">
+              WISHLIST
+            </h1>
             <div className="hidden md:flex w-1/4 justify-end">
               <button
                 onClick={handleLogout}
@@ -86,7 +81,7 @@ function Profile() {
             </div>
           </div>
 
-          {wishlist && <WishlistCards products={prods} />}
+          {prods && <WishlistCards products={prods} />}
         </div>
       ) : load ? (
         <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">

@@ -1,16 +1,14 @@
 import {
   Prods,
   updateProductInAppwrite,
-  updateWishlist,
   updateProduct,
-  setWishlist,
+  Likes,
 } from "../index";
 import { store } from "../redux_toolkit/store";
 
 export const handleWishlistUpdate = async (
   productId: any,
   userdata: any,
-  wishlist: string[],
   products: Prods[],
   setShowModal: (show: boolean) => void
 ) => {
@@ -24,31 +22,24 @@ export const handleWishlistUpdate = async (
     return;
   }
 
-  const updatedWishlist = wishlist.includes(productId)
-    ? wishlist.filter((id: string) => id !== productId)
-    : [...wishlist, productId];
 
   const userid = userdata.$id;
   const product: any = products.find((product) => product.$id === productId);
-  let prodWishlist: string[] = product?.wishlist;
 
-  if (prodWishlist.includes(userid)) {
-    prodWishlist = prodWishlist.filter((user: string) => user !== userid);
-  } else {
-    prodWishlist = [userid, ...prodWishlist];
-  }
 
-  const updatedProduct = { ...product, wishlist: prodWishlist };
+  let likesArr: Likes[] = product.likes;
 
-  store.dispatch(setWishlist(updatedWishlist));
+  let prods = product.likes?.find((like: Likes) => like.userid === userid)
+
+    if(prods){
+      likesArr = likesArr.filter(((like: Likes) => like.userid !== userid))
+    } else {
+      likesArr = [{userid, time: Number(Date.now())}, ...likesArr]
+    }
+    const updatedProduct = {...product, likes: likesArr}
+
   store.dispatch(updateProduct(updatedProduct));
 
-  const response = await updateWishlist(userdata.$id, updatedWishlist);
-  if (response) {
-  } else {
-    console.log("failed to update user wishlist");
-    store.dispatch(setWishlist(wishlist));
-  }
 
   const res = await updateProductInAppwrite(productId, {
     title: product?.title,
@@ -59,7 +50,8 @@ export const handleWishlistUpdate = async (
     category: product?.category,
     type: product?.type,
     userid: product?.userid,
-    wishlist: prodWishlist,
+    likes : likesArr,
+
   });
 
   if (res) {

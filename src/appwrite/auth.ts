@@ -30,7 +30,6 @@ export const getCurrentSession = async () => {
   try {
     const currentUser = await account.get();
     store.dispatch(setUserData(currentUser));
-    await fetchWishlist(currentUser.$id);
     return currentUser;
   } catch (error: any) {
     return null;

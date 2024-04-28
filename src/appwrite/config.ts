@@ -34,8 +34,12 @@ export const updateProductInAppwrite = async (
       confvars.appwriteDatabaseId,
       confvars.appwriteProductsCollectionId,
       id,
-      updatedData
+      {
+        ...updatedData,
+        likes: updatedData.likes.map((user: any)=> JSON.stringify(user))
+       }
     );
+
     return response;
   } catch (error) {
     console.log(`Appwrite updateDocument error: ${error}`);
@@ -64,22 +68,14 @@ export const fetchAllDocuments = async () => {
       confvars.appwriteProductsCollectionId,
       [Query.limit(2000)]
     );
-    store.dispatch(getProducts(response.documents));
-  } catch (error) {
-    console.log(`Appwrite listDocuments error: ${error}`);
-    return null;
-  }
-};
-
-export const fetchWishlist = async (id: any) => {
-  try {
-    const response = await databases.listDocuments(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteUsersCollectionId,
-      [Query.equal("$id", id)]
-    );
-    store.dispatch(setWishlist(response.documents[0].wishlist))
-      return response.documents[0].wishlist;
+    if(response){
+      const products = response.documents.map((product) => ({
+        ...product,
+        likes: product.likes?.map((user: any)=> JSON.parse(user))
+      }))
+      store.dispatch(getProducts(products));
+    }
+    
     
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
@@ -87,36 +83,6 @@ export const fetchWishlist = async (id: any) => {
   }
 };
 
-export const createWishlist = async (id: any) => {
-  try {
-    const response = await databases.createDocument(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteUsersCollectionId,
-      id,
-      { wishlist: [] }
-    );
-    await fetchWishlist(id)
-    return response;
-  } catch (error) {
-    console.log(`Appwrite createDocument error: Wishlist:: ${error}`);
-    return null;
-  }
-};
-
-export const updateWishlist = async (id: string, updatedData: string[]) => {
-  try {
-    const response = await databases.updateDocument(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteUsersCollectionId,
-      id,
-      { wishlist: updatedData }
-    );
-    return response;
-  } catch (error) {
-    console.log(`Wishlist update failed: ${error}`);
-    return null;
-  }
-};
 export const fetchCollections = async () => {
   try {
     const response = await databases.listDocuments(

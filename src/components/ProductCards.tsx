@@ -25,7 +25,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
 
   let prd = [...products];
   const sortedByLikes = [...prd].sort(
-    (a, b) => b.wishlist.length - a.wishlist.length
+    (a, b) => b.likes.length - a.likes.length
   );
   const sortedByPriceHighToLow = [...prd].sort((a, b) => b.price - a.price);
   const sortedByPriceLowToHigh = [...prd].sort((a, b) => a.price - b.price);
@@ -40,20 +40,13 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
     products = [...products].reverse();
   }
 
-  // if (
-  //   (category === "men" || category === "women" || category === "home") &&
-  //   products.length > 20
-  // ) {
-  //   products = products.slice(0, 20);
-  // }
-
   return (
     <>
-      <h1 className="text-center uppercase font-medium text-2xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-6 lg:mt-10 xl:mt-16">
+      <h1 className="text-center capitalize font-medium text-2xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-6 lg:mt-10 xl:mt-16">
         {category === collection
           ? "PRODUCTS"
           : category === "brands"
-          ? collection
+          ? collection?.toUpperCase()
           : `${category}'s ${collection}`}
       </h1>
       {category !== collection && (
@@ -68,7 +61,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              Popularity
+              Most Loved
             </p>
             <p
               onClick={() => setSort("pricehigh")}

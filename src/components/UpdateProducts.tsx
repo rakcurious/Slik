@@ -83,12 +83,14 @@ const UpdateProducts: React.FC = () => {
       slug: slugify(data.title + " " + data.category + " " + data.type),
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
       wishlist: products.find((product) => product.$id === id).wishlist,
+      likes: products.find((product) => product.$id === id)?.likes,
+
     });
     if (updatedProduct) {
       dispatch(updateProduct(updatedProduct));
       reset();
       setId("");
-      alert("Product updated successfully");
+      alert("Product updated");
     } else {
       alert("Failed to update product");
     }

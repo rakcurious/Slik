@@ -7,7 +7,7 @@ const Error:React.FC =()=> {
     const loadingtime = () => {
         setTimeout(() => {
             setLoad(true)
-        }, 2000);
+        }, 3000);
     }
     loadingtime();
     const navigate = useNavigate();

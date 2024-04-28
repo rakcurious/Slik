@@ -4,12 +4,11 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Navbar, Modal, Error, handleWishlistUpdate, selectProducts, selectUserData, selectWishlist, useAppSelector } from "../index";
+import { Navbar, Modal, Error, handleWishlistUpdate, selectProducts, selectUserData, useAppSelector } from "../index";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
-  const wishlist = useAppSelector(selectWishlist);
   const [share, setShare] = useState(false);
 
   const navigate = useNavigate();
@@ -18,7 +17,12 @@ const ProductInfo: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
   const product = products.find((product) => product.slug == slug);
-
+  let prod;
+  if(products && userdata) {
+   prod = product?.likes?.find((like) => like?.userid === userdata.$id) || null;
+  } else {
+    prod = null;
+  }
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
 
@@ -92,14 +96,13 @@ const ProductInfo: React.FC = () => {
                     handleWishlistUpdate(
                       product.$id,
                       userdata,
-                      wishlist,
                       products,
                       setShowModal
                     )
                   }
                   className="bg-black w-4/5 h-auto text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
-                  {wishlist?.includes(product.$id)
+                  {prod
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
@@ -152,14 +155,13 @@ const ProductInfo: React.FC = () => {
                     handleWishlistUpdate(
                       product.$id,
                       userdata,
-                      wishlist,
                       products,
                       setShowModal
                     )
                   }
                   className="bg-black h-auto py-4 text-white rounded-lg transition duration-500 hover:-translate-y-0.5"
                 >
-                  {wishlist?.includes(product.$id)
+                  {prod
                     ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>

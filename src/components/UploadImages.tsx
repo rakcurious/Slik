@@ -9,14 +9,6 @@ const UploadImages: React.FC<{
   const urlRef = useRef(null);
   const [share, setShare] = useState(false);
 
-  // const copyToShare = () => {
-  //   window.navigator.clipboard.writeText(window.location.href);
-  //   setShare(true);
-  //   setTimeout(() => {
-  //     setShare(false);
-  //   }, 5000);
-  // };
-
   const copyUrlToClipboard = useCallback(
     (id: number) => {
       window.navigator.clipboard.writeText(imageUrls[id]);
@@ -27,7 +19,8 @@ const UploadImages: React.FC<{
     window.navigator.clipboard.writeText(imageUrls.join(","));
     setShare(true);
     setTimeout(() => {
-      setShare(false);
+      setShare(false)
+      setImageUrls([])
     }, 5000);
   }, [imageUrls]);
 
@@ -74,7 +67,7 @@ const UploadImages: React.FC<{
             imageUrls.map((image, index) => (
               <div
                 key={index}
-                className="flex justify-center gap-1 w-auto px-2"
+                className="flex flex-wrap justify-center gap-1 w-auto px-2"
               >
                 <p className="h-10 w-6 text-lg font-semibold rounded-md text-center py-2 pl-2">
                   {index + 1}.
@@ -98,9 +91,9 @@ const UploadImages: React.FC<{
             <button
               onClick={copyAll}
               className={`h-12 w-48 text-2xl font-normal text-center outline-none rounded-lg px-3 my-2 py-1 shrink-0 ${
-                share ? "text-black bg-violet-400" : "bg-black text-white"}`}
+                share ? "text-black bg-indigo-200 font-normal text-2xl" : "bg-black text-white"}`}
             >
-             {share? 'copied': 'copy'}
+             {share? 'copied': `copy all • ${imageUrls.length}`}
             </button>
           )}
         </div>

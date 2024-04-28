@@ -41,9 +41,6 @@ import {
   updateCollections,
   deleteCollections,
   fetchCollections,
-  createWishlist,
-  updateWishlist,
-  fetchWishlist,
 } from "./appwrite/config";
 import {
   signup,
@@ -88,13 +85,18 @@ export interface Prods {
   brand: string;
   category: string;
   images: string[];
-  wishlist: string[];
   price: number;
   target: string;
   title: string;
   userid: string;
   type: string;
   slug: string;
+  likes: Likes[];
+}
+
+export interface Likes {
+  userid: string;
+  time: number;
 }
 
 export interface Collection {
@@ -116,7 +118,7 @@ export {
   CollectionCards,
   BannerSlider,
   ProductCards,
-  Cutie, 
+  Cutie,
   Login,
   Admin,
   Collection,
@@ -166,9 +168,6 @@ export {
   updateCollections,
   deleteCollections,
   fetchCollections,
-  createWishlist,
-  updateWishlist,
-  fetchWishlist,
   addProduct,
   updateProduct,
   deleteProduct,

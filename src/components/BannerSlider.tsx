@@ -21,7 +21,7 @@ const BannerSlider: React.FC<{
     collections = collections.filter((collection)=>collection.category.toLowerCase() == 'men' || collection.category.toLowerCase() == 'women' )
   }
 
-  collections = [...collections].reverse();
+ 
 
   if(collections.length>6){
     collections = collections.slice(0,6)

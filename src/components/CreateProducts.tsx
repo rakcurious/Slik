@@ -26,12 +26,12 @@ const CreateProducts: React.FC = () => {
       //@ts-ignore
       images: data.images.split(","),
 
-      wishlist: [],
+      likes: [],
     });
     if (createdProduct) {
       dispatch(addProduct(createdProduct));
       reset();
-      alert("Product added successfully");
+      alert("Product added");
     } else {
       alert("Failed to add product");
     }

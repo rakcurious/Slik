@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CardBody, CardContainer, CardItem, Prods, selectProducts, selectUserData, selectWishlist, useAppSelector, handleWishlistUpdate, Modal } from "../index";
+import { CardBody, CardContainer, CardItem, Prods, selectProducts, selectUserData, useAppSelector, handleWishlistUpdate, Modal } from "../index";
 import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
 import { useNavigate } from "react-router-dom";
@@ -7,12 +7,17 @@ import { useNavigate } from "react-router-dom";
 const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
   const navigate = useNavigate();
   const userdata = useAppSelector(selectUserData);
-  const wishlist = useAppSelector(selectWishlist);
   const products = useAppSelector(selectProducts)
   const [showModal, setShowModal] = useState(false);
   
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
+let prod;
+  if(products && userdata) {
+    prod = product?.likes?.find((like) => like?.userid === userdata.$id) || null;
+   } else {
+     prod = null;
+   }
 
   return (
     <>
@@ -50,16 +55,15 @@ const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
                 handleWishlistUpdate(
                   product.$id,
                   userdata,
-                  wishlist,
                   products,
                   setShowModal
                 )
               }
-              src={wishlist?.includes(product?.$id) ? heartfill : heart}
+              src={prod ? heartfill : heart}
               className="h-6 w-6 lg:h-8 lg:w-8 2xl:h-10 2xl:w-10 cursor-pointer"
             />
             <div className="text-center h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16">
-              {product?.wishlist.length} 
+              {product?.likes.length} 
             </div>
           </CardItem>
         </div>
