@@ -116,7 +116,7 @@ const Admin: React.FC = () => {
                       <p>{Number(product.price)}</p>
                       <p>{product.userid}</p>
                       <p>{product.slug}</p>
-                      <p>Wishlist: {product.wishlist.length}</p>
+                      <p>Lovers: {product.likes.length}</p>
                     </div>
                   ))}
                 </div>
