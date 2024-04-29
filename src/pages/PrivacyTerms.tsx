@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navbar } from "../index";
+import Navbar from "../components/Navbar";
 
 const PrivacyTerms = () => {
   useEffect(() => {

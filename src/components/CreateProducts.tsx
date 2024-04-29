@@ -1,11 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  createProductInAppwrite,
-  UploadImages,
-  Prods,
-  useAppDispatch, addProduct
-} from "../index";
-
+import { createProductInAppwrite } from "../appwrite/config";
+import UploadImages from "./UploadImages";
+import { useAppDispatch } from "../redux_toolkit/hooks";
+import { addProduct } from "../redux_toolkit/productSlice";
+import { Prods } from "../index";
 const CreateProducts: React.FC = () => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit, reset } = useForm<Prods>();

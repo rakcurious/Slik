@@ -4,7 +4,13 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Navbar, Modal, Error, handleWishlistUpdate, selectProducts, selectUserData, useAppSelector } from "../index";
+import { handleWishlistUpdate } from "../utils/wishlist";
+import { useAppSelector } from "../redux_toolkit/hooks";
+import { selectProducts } from "../redux_toolkit/productSlice";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import Navbar from "../components/Navbar";
+import Modal from "../components/AuthModal";
+import Error from "../components/WrongPage";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);

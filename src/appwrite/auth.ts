@@ -1,7 +1,8 @@
-//@ts-nocheck
-import { Account, Client, ID, Models } from "appwrite";
-import { confvars, fetchWishlist, setUserData } from "../index";
+// @ts-nocheck
+import { Account, Client, ID } from "appwrite";
 import { store } from "../redux_toolkit/store";
+import confvars from "./confvars";
+import { setUserData } from "../redux_toolkit/userSlice";
 
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)

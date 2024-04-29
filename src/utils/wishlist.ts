@@ -1,9 +1,6 @@
-import {
-  Prods,
-  updateProductInAppwrite,
-  updateProduct,
-  Likes,
-} from "../index";
+import { Prods,Likes} from "../index";
+import { updateProductInAppwrite } from "../appwrite/config";
+import { updateProduct } from "../redux_toolkit/productSlice";
 import { store } from "../redux_toolkit/store";
 
 export const handleWishlistUpdate = async (

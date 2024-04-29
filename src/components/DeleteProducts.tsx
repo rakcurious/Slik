@@ -1,11 +1,10 @@
 import { useState } from "react";
-import {
-  deleteProductInAppwrite,
-  Prods,
-  useAppDispatch,
-  useAppSelector,
-  selectProducts, deleteProduct
-} from "../index";
+
+import { deleteProductInAppwrite } from "../appwrite/config";
+import { useAppDispatch, useAppSelector } from "../redux_toolkit/hooks";
+import { selectProducts } from "../redux_toolkit/productSlice";
+import { deleteProduct } from "../redux_toolkit/productSlice";
+import { Prods } from "../index";
 
 const DeleteProducts: React.FC = () => {
   const [id, setId] = useState("");

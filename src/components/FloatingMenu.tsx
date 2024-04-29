@@ -1,5 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { logout, useAppDispatch, setUserData } from "../index";
+import { logout } from "../appwrite/auth";
+import { useAppDispatch } from "../redux_toolkit/hooks";
+import { setUserData } from "../redux_toolkit/userSlice";
 
 const FloatingMenu: React.FC<{
   userdata: any;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateVerification } from "../index";
+import { updateVerification } from "../appwrite/auth";
 
 export default function Verification() {
   const navigate = useNavigate();

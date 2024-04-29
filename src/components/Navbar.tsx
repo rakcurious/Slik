@@ -1,6 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAppSelector, selectUserData, FloatingMenu } from "../index";
 import { useState } from "react";
+import { useAppSelector } from "../redux_toolkit/hooks";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import FloatingMenu from "./FloatingMenu";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

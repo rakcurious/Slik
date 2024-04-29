@@ -5,7 +5,7 @@ import {
   loginWithGoogle,
   signup,
   startPasswordRecovery,
-} from "../index";
+} from "../appwrite/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {

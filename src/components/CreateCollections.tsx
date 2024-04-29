@@ -1,10 +1,11 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  UploadImages,
-  useAppDispatch,
-  createCollections,
-  Collection, addCollection
-} from "../index";
+
+import UploadImages from "./UploadImages";
+import { useAppDispatch } from "../redux_toolkit/hooks";
+import { createCollections } from "../appwrite/config";
+import { Collection } from "../index";
+import { addCollection } from "../redux_toolkit/productSlice";
+
 
 const CreateCollections: React.FC = () => {
   const dispatch = useAppDispatch();

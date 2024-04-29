@@ -1,5 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
-import { Prods, useAppSelector, selectProducts } from "../index";
+import { Prods } from "../index";
+import { useAppSelector } from "../redux_toolkit/hooks.ts";
+import { selectProducts } from "../redux_toolkit/productSlice.ts";
 
 const ProductCard = lazy(() => import("./ProductCard.tsx"));
 

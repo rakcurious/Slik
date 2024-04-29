@@ -1,13 +1,11 @@
 import { useState } from "react";
-import {
-  Navbar,
-  useAppSelector,
-  WishlistCards,
-  Modal,
-  selectProducts,
-  selectUserData,
-} from "../index";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../redux_toolkit/hooks";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import { selectProducts } from "../redux_toolkit/productSlice";
+import Navbar from "../components/Navbar";
+import WishlistCards from "../components/WishlistCards";
+import Modal from "../components/AuthModal";
 
 function Profile() {
   const [load, setLoad] = useState(true);

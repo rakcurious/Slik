@@ -1,6 +1,6 @@
-//@ts-nocheck
+// @ts-nocheck
 import { Client, Databases, ID, Query } from "appwrite";
-import { Collection, Prods, setWishlist } from "../index";
+import { Collection, Prods} from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
 import { getCollections, getProducts } from "../redux_toolkit/productSlice";

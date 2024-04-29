@@ -1,10 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import {
-  fetchAllDocuments,
-  fetchCollections,
-  getCurrentSession,
-} from "./index";
+import { fetchAllDocuments, fetchCollections } from "./appwrite/config";
+import { getCurrentSession } from "./appwrite/auth";
 function App() {
   useEffect(() => {
     fetchCollections();

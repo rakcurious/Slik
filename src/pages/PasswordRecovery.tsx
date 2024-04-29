@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { updatePasswordRecovery } from "../index";
+import { updatePasswordRecovery } from "../appwrite/auth";
 
 export default function PasswordRecovery() {
   const navigate = useNavigate();

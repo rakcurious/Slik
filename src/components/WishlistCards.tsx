@@ -1,15 +1,11 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-  Prods,
-  cn,
-  logout,
-  setUserData,
-  useAppDispatch
-} from "../index";
+import { Prods } from "../index";
+import { CardBody, CardContainer, CardItem } from "./3dCard";
+import { cn } from "../utils/cn";
+import { logout } from "../appwrite/auth";
+import { setUserData } from "../redux_toolkit/userSlice";
+import { useAppDispatch } from "../redux_toolkit/hooks";
 import { useNavigate } from "react-router-dom";
 
 const WishlistCards: React.FC<{ products: Prods[], userdata:any }> = ({ products, userdata }) => {

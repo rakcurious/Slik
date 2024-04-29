@@ -1,12 +1,9 @@
-//@ts-nocheck
+// @ts-nocheck
 import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  Prods,
-  UploadImages,
-  updateProductInAppwrite,
-  useAppDispatch,
-  useAppSelector,
-} from "../index";
+import { Prods } from "../index";
+import UploadImages from "./UploadImages";
+import { updateProductInAppwrite } from "../appwrite/config";
+import { useAppDispatch, useAppSelector } from "../redux_toolkit/hooks";
 import { updateProduct } from "../redux_toolkit/productSlice";
 import { useEffect, useState } from "react";
 
@@ -84,7 +81,6 @@ const UpdateProducts: React.FC = () => {
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
       wishlist: products.find((product) => product.$id === id).wishlist,
       likes: products.find((product) => product.$id === id)?.likes,
-
     });
     if (updatedProduct) {
       dispatch(updateProduct(updatedProduct));
@@ -98,7 +94,7 @@ const UpdateProducts: React.FC = () => {
 
   return (
     <>
-    <UploadImages folder={"slik/products"} />
+      <UploadImages folder={"slik/products"} />
       <div className="flex h-auto w-auto flex-col gap-6 items-center mb-10">
         <input
           className="h-10 w-60 rounded-xl text-center px-1"
@@ -121,7 +117,12 @@ const UpdateProducts: React.FC = () => {
                 <input placeholder="Title" {...register("title")} required />
                 <input placeholder="Target" {...register("target")} required />
                 <input placeholder="Images" {...register("images")} required />
-                <input type="number" placeholder="Price" {...register("price")} required />
+                <input
+                  type="number"
+                  placeholder="Price"
+                  {...register("price")}
+                  required
+                />
                 <input placeholder="Brand" {...register("brand")} required />
                 <input
                   placeholder="Category"

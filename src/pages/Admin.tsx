@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { Prods, Collection } from "../index";
+
+import { fetchAllDocuments } from "../appwrite/config";
+import CreateProducts from "../components/CreateProducts";
+import UpdateProducts from "../components/UpdateProducts";
+import DeleteProducts from "../components/DeleteProducts";
+import CreateCollections from "../components/CreateCollections";
+import UpdateCollections from "../components/UpdateCollections";
+import DeleteCollections from "../components/DeleteCollections";
+import Navbar from "../components/Navbar";
+import { useAppSelector, useAppDispatch } from "../redux_toolkit/hooks";
 import {
-  fetchAllDocuments,
-  useAppSelector,
-  useAppDispatch,
-  Navbar,
-  DeleteProducts,
-  UpdateProducts,
-  CreateProducts,
-  Prods,
-  Collection,
-  CreateCollections,
-  UpdateCollections,
-  DeleteCollections,
   selectCollections,
   selectProducts,
-  Error,
-  selectUserData,
-} from "../index";
+} from "../redux_toolkit/productSlice";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import Error from "../components/WrongPage";
+
 const Admin: React.FC = () => {
   const dispatch = useAppDispatch();
   const collections = useAppSelector(selectCollections);
@@ -25,18 +25,17 @@ const Admin: React.FC = () => {
   const [topToggle, setTopToggle] = useState("products");
   const userdata = useAppSelector(selectUserData);
 
-
   useEffect(() => {
     fetchAllDocuments();
   }, [dispatch]);
 
-
-if(products){
-  products = [...products].reverse()
-}
+  if (products) {
+    products = [...products].reverse();
+  }
   return (
     <>
-      {(userdata?.$id === "660963212d52965c7a7f" || userdata?.$id === "662904776a9304ca8686") ? (
+      {userdata?.$id === "660963212d52965c7a7f" ||
+      userdata?.$id === "662904776a9304ca8686" ? (
         <>
           <Navbar />
           <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">

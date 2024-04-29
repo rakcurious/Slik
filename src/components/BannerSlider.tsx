@@ -2,7 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {useAppSelector, selectCollections} from '../index'
+import { useAppSelector } from "../redux_toolkit/hooks"; 
+import { selectCollections } from "../redux_toolkit/productSlice";
 import { useNavigate } from "react-router-dom";
 
 const BannerSlider: React.FC<{

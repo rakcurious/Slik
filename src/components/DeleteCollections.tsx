@@ -1,12 +1,9 @@
 import { useState } from "react";
-import {
-  deleteCollections,
-  useAppDispatch,
-  useAppSelector,
-  deleteCollection,
-  selectCollections,
-  Collection
-} from "../index";
+import { deleteCollections } from "../appwrite/config";
+import { useAppDispatch, useAppSelector } from "../redux_toolkit/hooks";
+import { deleteCollection } from "../redux_toolkit/productSlice";
+import { selectCollections } from "../redux_toolkit/productSlice";
+import { Collection } from "../index";
 
 const DeleteCollections: React.FC = () => {
   const [id, setId] = useState("");

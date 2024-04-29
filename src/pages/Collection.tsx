@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  ProductCards,
-  useAppSelector,
-  Navbar,
-  selectCollections,
-  Error,
-} from "../index";
+import { selectCollections } from "../redux_toolkit/productSlice";
+import { useAppSelector } from "../redux_toolkit/hooks";
+import Navbar from "../components/Navbar";
+import ProductCards from "../components/ProductCards";
+import Error from "../components/WrongPage";
 
 
 const Collection: React.FC = () => {

@@ -1,15 +1,12 @@
-//@ts-nocheck
+// @ts-nocheck
 import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  Collection,
-  updateCollections,
-  useAppDispatch,
-  useAppSelector,
-  selectCollections,
-  updateCollection,
-  UploadImages
-} from "../index";
+import { Collection } from "../index";
 import { useEffect, useState } from "react";
+import { updateCollections } from "../appwrite/config";
+import { useAppDispatch, useAppSelector } from "../redux_toolkit/hooks";
+import { selectCollections, updateCollection } from "../redux_toolkit/productSlice";
+import UploadImages from "./UploadImages";
+
 
 type CollectionWithoutMeta = Omit<
   Collection,

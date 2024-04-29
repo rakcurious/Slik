@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { startVerification } from "../index";
+import { startVerification } from "../appwrite/auth"; 
 
 interface ModalProps {
   isOpen: boolean;

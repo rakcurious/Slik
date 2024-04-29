@@ -1,6 +1,8 @@
 import { useEffect } from "react";
-import { Navbar, Footer, CollectionCards } from "../index";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import CollectionCards from "../components/CollectionCards";
+import Footer from "../components/Footer";
 function Home() {
   useEffect(() => {
     document.body.scrollTo(0, 0);

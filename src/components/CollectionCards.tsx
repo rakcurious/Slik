@@ -1,7 +1,8 @@
 import React from "react";
-import { CardBody, CardContainer, CardItem, useAppSelector, selectCollections } from "../index";
 import { useNavigate } from "react-router-dom";
-
+import { CardBody, CardContainer, CardItem } from "./3dCard";
+import { useAppSelector } from "../redux_toolkit/hooks";
+import { selectCollections } from "../redux_toolkit/productSlice";
 const CollectionCards: React.FC<{
   category: string;
 }> = ({ category }) => {

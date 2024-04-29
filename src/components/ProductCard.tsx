@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { CardBody, CardContainer, CardItem, Prods, selectProducts, selectUserData, useAppSelector, handleWishlistUpdate, Modal } from "../index";
+import { CardBody, CardContainer, CardItem } from "./3dCard";
+import Modal from "./AuthModal";
+import { Prods } from "../index";
+import { selectUserData } from "../redux_toolkit/userSlice";
+import { selectProducts } from "../redux_toolkit/productSlice";
+import { useAppSelector } from "../redux_toolkit/hooks";
 import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
 import { useNavigate } from "react-router-dom";
+import {handleWishlistUpdate} from '../utils/wishlist'
 
 const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
   const navigate = useNavigate();

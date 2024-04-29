@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 import { useCallback, useRef, useState } from "react";
 
 const UploadImages: React.FC<{
