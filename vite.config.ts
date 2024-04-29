@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'Slik',
         short_name: 'Slik',
-        description: 'drip, drippy, drippin',
+        description: "drip, drippy, drippin'",
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
         start_url: 'https://beslik.in/',
@@ -40,7 +40,7 @@ export default defineConfig({
              "sizes": "1200x630",
              "type": "image/png",
              "form_factor": "wide",
-             "label": "drip, drippy, drippin",
+             "label": "drip, drippy, drippin'",
              
            },
           {
@@ -48,14 +48,14 @@ export default defineConfig({
              "sizes": "1080x2344",
              "type": "image/png",
              "form_factor": "narrow",
-             "label": "drip, drippy, drippin"
+             "label": "drip, drippy, drippin'"
           },
           {
             "src": "screenshotnarrow1080x2344b.png",
              "sizes": "1080x2344",
              "type": "image/png",
              "form_factor": "narrow",
-             "label": "drip, drippy, drippin"
+             "label": "drip, drippy, drippin'"
           },
         ]
       },

@@ -5,11 +5,17 @@ import {
   CardContainer,
   CardItem,
   Prods,
-  cn
+  cn,
+  logout,
+  setUserData,
+  useAppDispatch
 } from "../index";
 import { useNavigate } from "react-router-dom";
 
-const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
+const WishlistCards: React.FC<{ products: Prods[], userdata:any }> = ({ products, userdata }) => {
+
+  const dispatch = useAppDispatch()
+
   const gridRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -28,15 +34,40 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
     products.filter((_, index) => index % numColumns === i)
   );
 
+  const handleLogout = async () => {
+    await logout();
+    dispatch(setUserData(null));
+    navigate("/");
+  };
+
   return (
     <div
       className={cn(
-        "pt-28 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
+        "pt-20 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
       )}
       ref={gridRef}
     >
+       <div className=" flex items-center justify-center w-screen px-8 md:px-10">
+            <div className="hidden md:flex flex-col justify-start w-1/4">
+              <p className="font-semibold text-lg truncate">{userdata.name}</p>
+              <p className="font-normal text-xs md:text-sm truncate">
+                {userdata.email}
+              </p>
+            </div>
+            <h1 className="font-medium text-2xl lg:text-3xl 2xl:text-4xl text-center w-1/2">
+              WISHLIST
+            </h1>
+            <div className="hidden md:flex w-1/4 justify-end">
+              <button
+                onClick={handleLogout}
+                className="font-bold text-sm rounded-lg px-4 py-1 bg-black/70  hover:bg-black text-white text-center cursor-pointer transition duration-500 hover:-translate-y-1"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
       <div
-        className={`mt-4 lg:mt-10 pb-4 items-start grid grid-cols-2 gap-x-5 sm:gap-x-8 md:gap-x-10 lg:grid-cols-4 px-5 lg:gap-x-16`}
+        className={`mt-4 lg:mt-6 pb-4 items-start grid grid-cols-2 gap-x-5 sm:gap-x-8 md:gap-x-10 lg:grid-cols-4 px-5 lg:gap-x-16`}
         ref={gridRef}
       >
         {columnArrays?.map((columnProducts, columnIndex) => (

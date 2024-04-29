@@ -70,9 +70,7 @@ import {
 
 import {
   setUserData,
-  setWishlist,
   selectUserData,
-  selectWishlist,
 } from "./redux_toolkit/userSlice";
 
 export interface Prods {
@@ -179,8 +177,6 @@ export {
   selectProducts,
   selectCollections,
   setUserData,
-  setWishlist,
   selectUserData,
-  selectWishlist,
   handleWishlistUpdate,
 };

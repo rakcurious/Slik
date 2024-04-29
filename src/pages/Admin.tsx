@@ -20,15 +20,20 @@ import {
 const Admin: React.FC = () => {
   const dispatch = useAppDispatch();
   const collections = useAppSelector(selectCollections);
-  const products = useAppSelector(selectProducts);
+  let products = useAppSelector(selectProducts);
   const [toggle, setToggle] = useState("create");
   const [topToggle, setTopToggle] = useState("products");
   const userdata = useAppSelector(selectUserData);
+
 
   useEffect(() => {
     fetchAllDocuments();
   }, [dispatch]);
 
+
+if(products){
+  products = [...products].reverse()
+}
   return (
     <>
       {(userdata?.$id === "660963212d52965c7a7f" || userdata?.$id === "662904776a9304ca8686") ? (
@@ -105,18 +110,16 @@ const Admin: React.FC = () => {
                         //@ts-ignore
                         window.navigator.clipboard.writeText(product?.$id)
                       }
-                      className="cursor-pointer overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:min-w-40 *:text-center *:p-1 *:text-clip"
+                      className="cursor-pointer overflow-x-0 w-screen px-4 flex flex-wrap bg-purple-200 *:truncate *:h-auto *:text-center *:p-2 *:mx-2 *:text-clip"
                       key={product.$id}
                     >
-                      <p>{product.$id}</p>
-                      <p>{product.brand}</p>
-                      <p>{product.title}</p>
-                      <p>{product.type}</p>
-                      <p>{product.category}</p>
-                      <p>{Number(product.price)}</p>
-                      <p>{product.userid}</p>
-                      <p>{product.slug}</p>
-                      <p>Lovers: {product.likes.length}</p>
+                      <p className="w-40">{product.$id}</p>
+                      <p className="w-28">{product.brand}</p>
+                      <p className="w-40">{product.title}</p>
+                      <p className="w-28">{product.type}</p>
+                      <p className="w-20">{product.category}</p>
+                      <p className="w-20">₹{Number(product.price)}</p>
+                      <p className="w-20">lovers: {product.likes.length}</p>
                     </div>
                   ))}
                 </div>

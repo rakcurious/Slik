@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { logout, useAppDispatch, setUserData, setWishlist } from "../index";
+import { logout, useAppDispatch, setUserData } from "../index";
 
 const FloatingMenu: React.FC<{
   userdata: any;
@@ -12,7 +12,6 @@ const FloatingMenu: React.FC<{
   const handleLogout = async () => {
     await logout();
     dispatch(setUserData(null));
-    dispatch(setWishlist([]));
     navigate("/");
   };
 
@@ -92,7 +91,7 @@ const FloatingMenu: React.FC<{
         >
           BRANDS
         </NavLink>
-        <NavLink
+        {userdata && <NavLink
           to="/profile"
           className={({ isActive }) =>
             `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
@@ -102,7 +101,7 @@ const FloatingMenu: React.FC<{
           onClick={onClose}
         >
           WISHLIST
-        </NavLink>
+        </NavLink>}
         <NavLink
           to="/"
           className={({ isActive }) =>
