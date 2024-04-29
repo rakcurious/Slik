@@ -31,7 +31,7 @@ const WishlistCards: React.FC<{ products: Prods[] }> = ({ products }) => {
   return (
     <div
       className={cn(
-        "pt-32 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
+        "pt-28 min-h-screen items-start w-full overflow-y-auto overflow-x-hidden absolute inset-0"
       )}
       ref={gridRef}
     >

@@ -7,12 +7,9 @@ import {
 } from "./index";
 function App() {
   useEffect(() => {
-    fetchAllDocuments();
     fetchCollections();
     getCurrentSession();
-
-    
-
+    fetchAllDocuments();
   }, []);
 
   return (

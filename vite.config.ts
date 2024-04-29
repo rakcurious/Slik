@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'Slik',
         short_name: 'Slik',
-        description: 'curated drip from your favorite fashion brands',
+        description: 'drip, drippy, drippin',
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
         start_url: 'https://beslik.in/',
@@ -36,19 +36,26 @@ export default defineConfig({
         ],
         screenshots: [
           {
-            "src": "screenshot2349x1080.jpg",
-             "sizes": "2349x1080",
-             "type": "image/jpg",
+            "src": "screenshotwide1200x630.png",
+             "sizes": "1200x630",
+             "type": "image/png",
              "form_factor": "wide",
-             "label": "Curated drip from your favorite fashion brands",
+             "label": "drip, drippy, drippin",
              
            },
           {
-            "src": "screenshot1080x2336.jpg",
-             "sizes": "1080x2336",
-             "type": "image/jpg",
+            "src": "screenshotnarrow1080x2344a.png",
+             "sizes": "1080x2344",
+             "type": "image/png",
              "form_factor": "narrow",
-             "label": "Curated drip from your favorite fashion brands"
+             "label": "drip, drippy, drippin"
+          },
+          {
+            "src": "screenshotnarrow1080x2344b.png",
+             "sizes": "1080x2344",
+             "type": "image/png",
+             "form_factor": "narrow",
+             "label": "drip, drippy, drippin"
           },
         ]
       },

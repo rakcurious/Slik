@@ -62,14 +62,14 @@ const UploadImages: React.FC<{
         </button>
 
         <div className=" flex flex-col items-center w-screen gap-2">
-          <div className="flex justify-center w-full px-5">
+          <div className="flex flex-wrap justify-center w-full px-5">
           {imageUrls &&
             imageUrls.map((image, index) => (
               <div
                 key={index}
-                className="flex flex-wrap justify-center gap-1 w-auto px-2"
+                className="flex flex-col justify-center iterms-center gap-1 w-auto px-2"
               >
-                <p className="h-10 w-6 text-lg font-semibold rounded-md text-center py-2 pl-2">
+                <p className="h-auto w-auto text-lg font-semibold rounded-md text-center self-center pb-0 px-auto">
                   {index + 1}.
                 </p>{" "}
                 <input
