@@ -1,13 +1,13 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.beslik.in/"><img src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713799552/slik/slikthumb_dbv2zz.webp" alt="Slik" width="800"></a>
+  <a href="http://www.beslik.in/"><img src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1714373699/slik/level_up_your_fashion_game_pkf4ye.webp" alt="Slik" width="800"></a>
   <br>
   Slik
   <br>
 </h1>
 
-<h4 align="center">curated drip from your favorite fashion brands</h4>
+<h4 align="center">drip, drippy, drippin'</h4>
 
 
 ## About the Project

@@ -17,7 +17,7 @@ const FloatingMenu: React.FC<{
 
   return (
     <div
-      className={`font-bold fixed top-0 left-0 z-50 h-screen rounded-xl w-64 bg-gradient-to-b from-purple-100 to-indigo-100 transition-all duration-300 ${
+      className={`font-bold fixed top-0 left-0 z-50 h-screen rounded-xl w-64 bg-gradient-to-b from-purple-200/40 to-indigo-200/40 backdrop-blur-lg transition-all duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -32,7 +32,7 @@ const FloatingMenu: React.FC<{
           name="close"
           aria-label="Close"
           onClick={onClose}
-          className="text-gray-700 hover:text-gray-900 -translate-y-1"
+          className="text-black  -translate-y-1"
         >
           <svg
             className="h-8 w-8"
@@ -52,7 +52,7 @@ const FloatingMenu: React.FC<{
       {userdata && (
         <button
           onClick={handleLogout}
-          className=" mx-4 mt-2 mb-4 px-3 py-1 font-semibold text-xs rounded-md w-auto bg-black/70 text-white block text-center"
+          className=" mx-4 mt-2 mb-4 px-3 py-1 font-semibold text-xs rounded-md w-auto bg-black/70 text-white/80 block text-center"
         >
           Logout
         </button>
@@ -61,8 +61,8 @@ const FloatingMenu: React.FC<{
         <NavLink
           to="/women"
           className={({ isActive }) =>
-            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
-              isActive ? "bg-purple-200 text-black" : ""
+            `block px-4 py-2 text-black ${
+              isActive ? "backdrop-blur-sm bg-indigo-200/10 " : ""
             }`
           }
           onClick={onClose}
@@ -72,8 +72,8 @@ const FloatingMenu: React.FC<{
         <NavLink
           to="/men"
           className={({ isActive }) =>
-            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
-              isActive ? "bg-purple-200 text-black" : ""
+            `block px-4 py-2 text-black  ${
+              isActive ? "backdrop-blur-sm bg-indigo-200/10" : ""
             }`
           }
           onClick={onClose}
@@ -83,8 +83,8 @@ const FloatingMenu: React.FC<{
         <NavLink
           to="/brands"
           className={({ isActive }) =>
-            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
-              isActive ? "bg-purple-200 text-black" : ""
+            `block px-4 py-2 text-black ${
+              isActive ? "backdrop-blur-sm bg-indigo-200/10" : ""
             }`
           }
           onClick={onClose}
@@ -94,8 +94,8 @@ const FloatingMenu: React.FC<{
         {userdata && <NavLink
           to="/profile"
           className={({ isActive }) =>
-            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
-              isActive ? "bg-purple-200 text-black" : ""
+            `block px-4 py-2 text-black  ${
+              isActive ? "backdrop-blur-sm bg-indigo-200/10" : ""
             }`
           }
           onClick={onClose}
@@ -105,8 +105,8 @@ const FloatingMenu: React.FC<{
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `block px-4 py-2 text-gray-700 hover:bg-purple-200 ${
-              isActive ? "bg-purple-200 text-black" : ""
+            `block px-4 py-2 text-black ${
+              isActive ? "backdrop-blur-sm bg-indigo-200/10" : ""
             }`
           }
           onClick={onClose}
