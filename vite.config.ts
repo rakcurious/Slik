@@ -17,7 +17,7 @@ export default defineConfig({
         description: "'drip, drippy, drippin'",
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
-        start_url: '/index.html',
+        start_url: 'https://beslik.in/',
         display: 'fullscreen',
         prefer_related_applications: false,
         icons: [
