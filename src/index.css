@@ -4,24 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* for better display on screens with notches*/
-html {
-  min-height: calc(100% + env(safe-area-inset-top));
-}
-
-.fmenu {
-  padding: env(safe-area-inset-top) 0 0 env(safe-area-inset-left);
-}
-
-.navbartop {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  height: calc(5rem + env(safe-area-inset-top));
-}
-
-
+html,
 body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
+  background-size: 100%;
+  position: sticky;
 }
 
 

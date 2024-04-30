@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbartop sticky z-20 top-0 w-screen flex mt-0 items-center justify-center bg-purple-100/40 backdrop-blur-md ">
+      <nav className="navbartop sticky z-20 top-0 w-screen h-20 flex mt-0 items-center justify-center bg-purple-100/40 backdrop-blur-md ">
         <div className="flex justify-between font-bold text-lg gap-x-6 w-full px-4 py-2">
           <div className="md:hidden my-auto w-1/4">
             <button
