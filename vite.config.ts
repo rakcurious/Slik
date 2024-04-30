@@ -18,8 +18,22 @@ export default defineConfig({
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
         start_url: '/',
-        display: 'fullscreen',
+        display: 'standalone',
         prefer_related_applications: false,
+        shortcuts: [
+          {
+            name: 'Men',
+            url: '/men'
+          },
+          {
+            name: 'Women',
+            url: '/women'
+          },
+          {
+            name: 'Wishlist',
+            url: '/profile'
+          },
+        ],
         icons: [
           {
             src: 'pwa-192x192.png',
