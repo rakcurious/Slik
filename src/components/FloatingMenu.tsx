@@ -19,7 +19,7 @@ const FloatingMenu: React.FC<{
 
   return (
     <div
-      className={`font-bold fixed top-0 left-0 z-50 h-screen rounded-xl w-64 bg-gradient-to-b from-purple-200/40 to-indigo-200/40 backdrop-blur-lg transition-all duration-300 ${
+      className={`fmenu font-bold fixed top-0 left-0 z-50 h-screen rounded-xl w-64 bg-gradient-to-b from-purple-200/40 to-indigo-200/40 backdrop-blur-lg transition-all duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >

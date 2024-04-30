@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="fixed inset-0 bg-black bg-opacity-70" onClick={onClose} />
+      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
       <div className="bg-purple-100 p-6 z-10 h-auto w-60 md:h-auto md:w-96 rounded-lg flex flex-col items-center justify-center">
         {!isAuthenticated ? (
           <>

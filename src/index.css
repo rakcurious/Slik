@@ -5,6 +5,21 @@
 @tailwind utilities;
 
 
+/* for better display on screens with notches*/
+html {
+  min-height: calc(100% + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background-attachment: fixed;
+  background-color: #F3E8FF ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fmenu {
+  padding: env(safe-area-inset-top) 0 0 env(safe-area-inset-left);
+}
+
 html,
 body {
   height: 100%;

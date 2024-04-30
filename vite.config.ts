@@ -14,10 +14,10 @@ export default defineConfig({
       manifest: {
         name: 'Slik',
         short_name: 'Slik',
-        description: "drip, drippy, drippin'",
+        description: "'drip, drippy, drippin'",
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
-        start_url: 'https://beslik.in/',
+        start_url: '/index.html',
         display: 'fullscreen',
         prefer_related_applications: false,
         icons: [
