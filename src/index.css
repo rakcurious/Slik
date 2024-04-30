@@ -7,7 +7,7 @@
 
 /* for better display on screens with notches*/
 html {
-  background-color: #F3E8FF  ;
+  min-height: calc(100% + env(safe-area-inset-top));
 }
 
 .fmenu {
