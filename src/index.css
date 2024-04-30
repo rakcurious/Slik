@@ -7,12 +7,10 @@
 
 /* for better display on screens with notches*/
 html {
-  min-height: calc(100% + env(safe-area-inset-top));
   background-attachment: fixed;
   background-color: #F3E8FF  ;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .fmenu {
@@ -20,7 +18,7 @@ html {
 }
 
 .navbartop {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: calc(0.5rem + env(safe-area-inset-top)) calc(1rem + env(safe-area-inset-right)) envcalc(0.5rem + env(safe-area-inset-bottom)) calc(1rem + env(safe-area-inset-left)) ;
 }
 
 
