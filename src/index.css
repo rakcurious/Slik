@@ -10,15 +10,19 @@ html {
   min-height: calc(100% + env(safe-area-inset-top));
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   background-attachment: fixed;
-  background-color: #F3E8FF ;
+  background-color: rgb(243 232 255 / 0.4);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+    --tw-backdrop-blur: blur(12px);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+
 }
 
 .fmenu {
   padding: env(safe-area-inset-top) 0 0 env(safe-area-inset-left);
 }
+
 
 html,
 body {
