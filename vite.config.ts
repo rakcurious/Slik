@@ -22,16 +22,19 @@ export default defineConfig({
         prefer_related_applications: false,
         shortcuts: [
           {
-            name: 'Men',
-            url: '/men'
+            name: 'Women',
+            url: '/women',
+            icons: [{ src : 'shorticonwomen.png', sizes: "192x192" }],
           },
           {
-            name: 'Women',
-            url: '/women'
+            name: 'Men',
+            url: '/men',
+            icons: [{ src : 'shorticonmen.png', sizes: "192x192" }],
           },
           {
             name: 'Wishlist',
-            url: '/profile'
+            url: '/profile',
+            icons: [{ src : 'shorticonwishlist.png', sizes: "192x192" }]
           },
         ],
         icons: [
