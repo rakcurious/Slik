@@ -20,7 +20,7 @@ html {
 
 
 
-body {
+/* body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -28,7 +28,7 @@ body {
   overflow-x: hidden;
   background-size: 100%;
   position: sticky;
-}
+} */
 
 
 .scrollbar-none {
