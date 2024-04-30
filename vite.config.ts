@@ -18,7 +18,7 @@ export default defineConfig({
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
         start_url: '/',
-        display: 'standalone',
+        display: 'fullscreen',
         prefer_related_applications: false,
         icons: [
           {
