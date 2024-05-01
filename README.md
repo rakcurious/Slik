@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">drip, drippy, drippin'</h4>
+<h4 align="center">hand-picked highest quality products from the best Indian fashion brands</h4>
 
 
 ## About the Project
