@@ -21,7 +21,7 @@ const UploadImages: React.FC<{
     setTimeout(() => {
       setShare(false)
       setImageUrls([])
-    }, 2000);
+    }, 1000);
   }, [imageUrls]);
 
   function submitImages() {
@@ -53,7 +53,7 @@ const UploadImages: React.FC<{
   return (
     <>
       <div className="w-screen h-auto flex-col gap-y-4 flex items-center mb-10">
-        <input type="file" multiple ref={picsRef} />
+        <input className="pl-32" type="file" multiple ref={picsRef} />
         <button
           className="h-12 w-48 text-2xl font-normal text-center bg-black text-white rounded-lg  transition duration-200"
           onClick={submitImages}

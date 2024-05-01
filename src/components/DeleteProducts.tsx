@@ -47,17 +47,17 @@ const DeleteProducts: React.FC = () => {
 
         {product && (
           <>
-            <div className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip ">
-              <p>{product ? product.$id : ""}</p>
-              <p>{product ? product.brand : ""}</p>
-              <p>{product ? product.title : ""}</p>
-              <p>{product ? product.type : ""}</p>
-              <p>{product ? product.category : ""}</p>
-              <p>{product ? Number(product.price) : ""}</p>
-              <p>{product ? product.userid : ""}</p>
-              <p>{product ? product.target : ""}</p>
-              <p>{product ? product.images : ""}</p>
-            </div>
+            <div className="overflow-x-0 w-auto rounded-xl font-bold px-4 flex flex-wrap bg-purple-200 *:truncate *:h-auto *:text-center *:p-2 *:mx-2 *:text-clip"
+                    >
+                      <p className="w-48">{product.$id}</p>
+                      <p className="w-28">{product.brand}</p>
+                      <p className="w-40">{product.title}</p>
+                      <p className="w-28">{product.type}</p>
+                      <p className="w-20">{product.category}</p>
+                      <p className="w-20">₹{Number(product.price)}</p>
+                      <p className="w-20">lovers: {product.likes.length}</p>
+                      <p className="w-20">{product.userid}</p>
+                    </div>
 
             <button
               className="h-12 w-48 text-2xl font-normal text-center text-white bg-black rounded-lg"

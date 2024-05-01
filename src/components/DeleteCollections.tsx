@@ -48,14 +48,13 @@ const DeleteCollections: React.FC = () => {
 
         {collection && (
           <>
-            <div className="overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip ">
-              <p>{collection ? collection.$id : ""}</p>
-              <p>{collection ? collection.name : ""}</p>
-              <p>{collection ? collection.category : ""}</p>
-              <p>{collection ? collection.cardImage : ""}</p>
-              <p>{collection ? collection.headerImage : ""}</p>
-              <p>{collection ? collection.slug : ""}</p>
-            </div>
+            <div className="overflow-x-0 w-auto px-4 py-1 rounded-xl font-bold flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
+                    >
+                      <p>{collection.$id}</p>
+                      <p>{collection.name}</p>
+                      <p>{collection.category}</p>
+                      <p>{collection.slug}</p>
+                    </div>
 
             <button
               className="h-12 w-48 text-2xl text-white font-normal text-center bg-black rounded-lg"

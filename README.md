@@ -12,14 +12,20 @@
 
 ## About the Project
 
-* Slik is an e-commerce discovery platform where you can find products from your favorite fashion brands without having to visit 10 different apps and websites to buy fashion. You can login and save products to your wishlist.
+* Slik is an e-commerce discovery platform where you can find hand-picked highest quality products from the best Indian fashion brands. You can login and save products to your wishlist to visit later. You can use it in your browser or download it as an app on your device as it is also available as a pwa.
 
 
 ## Tech
 
-* Slik is built with Typescript, React, Redux Toolkit, Tailwind CSS and Aceternity UI. Appwrite is used for Auth and Database. Cloudinary is used for Storage. Hosting is done using Netlify.
+* Slik is built with Typescript, React, Redux Toolkit, Tailwind CSS and Aceternity UI. Appwrite is used for Auth and Database. Cloudinary is used for Storage. Hosting is done using Netlify. PWA is done using vite-plugin-pwa.
 
 
 ## Creators
 
-* [Rakesh](https://github.com/rakcurious) - Developer - Built the whole thing alone.
+* [Rakesh](https://github.com/rakcurious) - Idea and Research
+* [Rakesh](https://github.com/rakcurious) - Designer
+* [Rakesh](https://github.com/rakcurious) - Developer
+* [Rakesh](https://github.com/rakcurious) - Catalogue Curation (Men)
+* [Rakesh](https://github.com/rakcurious) - Catalogue Curation (Women)
+* [Rakesh](https://github.com/rakcurious) - Marketing
+* [Nusrat](https://open.spotify.com/artist/5HcunTidTUrOaf8V0iJcvl) - In-house Therapist

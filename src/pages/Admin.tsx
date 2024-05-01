@@ -38,7 +38,7 @@ const Admin: React.FC = () => {
       userdata?.$id === "662904776a9304ca8686" ? (
         <>
           <Navbar />
-          <div className="h-auto w-screen flex flex-col justify-start items-center bg-violet-100">
+          <div className="h-auto w-screen flex flex-col justify-start items-center">
             <div className="mb-5 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
               <p
                 onClick={() => setTopToggle("products")}
