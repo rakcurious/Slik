@@ -54,7 +54,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
       {category !== collection && (
         <div className="md:mt-4 flex flex-col items-center justify-start">
           <p className="font-medium mb-0 translate-y-2">Sort by</p>
-          <div className="mb-1 bg-transparent h-12 w-full md:w-2/3 lg:w-1/2 flex justify-center items-center gap-1 md:gap-3 mt-2 px-2 rounded-3xl ring-2 ring-violet-200 text-sm sm:text-base md:text-lg lg:text-lg font-semibold *:w-1/4 *:px-3 *:py-1 *:rounded-3xl *:cursor-pointer *:text-center *:truncate">
+          <div className="mb-1 bg-transparent h-12 w-11/12 md:w-2/3 lg:w-1/2 2xl:w-2/5 flex justify-center items-center gap-1 md:gap-3 mt-2 px-2 rounded-3xl ring-2 ring-violet-200 text-sm sm:text-base md:text-lg lg:text-lg 2xl:text-xl font-semibold *:w-1/4 *:px-2 *:py-1 *:rounded-3xl *:cursor-pointer *:text-center *:truncate">
             <p
               onClick={() => setSort("likes")}
               className={
@@ -63,7 +63,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              Most Loved
+            Love
             </p>
             <p
               onClick={() => setSort("pricehigh")}
@@ -73,7 +73,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              High Price
+              Price <svg className="inline h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 xl:w-4 xl:h-4 2xl:h-4 2xl:w-4" enableBackground="new 0 0 256 256" height="256px" id="Layer_1" version="1.1" viewBox="0 0 256 256" width="256px" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"> <path d="M222.138,91.475l-89.6-89.6c-2.5-2.5-6.551-2.5-9.051,0l-89.6,89.6c-2.5,2.5-2.5,6.551,0,9.051s6.744,2.5,9.244,0L122,21.85  V249.6c0,3.535,2.466,6.4,6,6.4s6-2.865,6-6.4V21.85l78.881,78.676c1.25,1.25,2.992,1.875,4.629,1.875s3.326-0.625,4.576-1.875  C224.586,98.025,224.638,93.975,222.138,91.475z"/></svg>
             </p>
             <p
               onClick={() => setSort("pricelow")}
@@ -83,7 +83,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              Low Price
+              Price <svg className="inline h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 xl:w-4 xl:h-4 2xl:h-4 2xl:w-4" enableBackground="new 0 0 256 256" height="256px" id="Layer_1" version="1.1" viewBox="0 0 256 256" width="256px" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><path d="M33.861,164.526l89.6,89.6c2.5,2.5,6.551,2.5,9.051,0l89.6-89.6c2.5-2.5,2.5-6.551,0-9.051s-6.742-2.5-9.242,0L134,234.151  V6.401c0-3.535-2.466-6.4-6-6.4s-6,2.865-6,6.4v227.75l-78.881-78.676c-1.25-1.25-2.993-1.875-4.629-1.875s-3.326,0.625-4.576,1.875  C31.413,157.976,31.361,162.026,33.861,164.526z"/></svg>
             </p>
             <p
               onClick={() => setSort("new")}
@@ -93,7 +93,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              Newest
+              New
             </p>
           </div>
         </div>
