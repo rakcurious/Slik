@@ -55,7 +55,7 @@ const DeleteProducts: React.FC = () => {
                       <p className="w-28">{product.type}</p>
                       <p className="w-20">{product.category}</p>
                       <p className="w-20">₹{Number(product.price)}</p>
-                      <p className="w-20">lovers: {product.likes.length}</p>
+                      <p className="w-20">lovers: {product.lovers?.length}</p>
                       <p className="w-20">{product.userid}</p>
                     </div>
 
