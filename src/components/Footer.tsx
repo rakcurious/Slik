@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
           <img
             src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp"
-            className="h-8 w-auto m-0"
+            className="h-8 w-auto m-0 mr-2"
             alt="Slik Logo"
           />
         </div>
@@ -15,7 +15,7 @@ const Footer = () => {
             Privacy Policy & Terms
           </Link>
           <Link className="font-medium uppercase" to="/contact">
-            Contact
+            Team & Contact
           </Link>
         </div>
       </footer>

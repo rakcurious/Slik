@@ -27,7 +27,8 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
 
   let prd = [...products];
   const sortedByLikes = [...prd].sort(
-    (a, b) => b.likes.length - a.likes.length
+    //@ts-ignore
+    (a, b) => b.lovers?.length - a.lovers?.length
   );
   const sortedByPriceHighToLow = [...prd].sort((a, b) => b.price - a.price);
   const sortedByPriceLowToHigh = [...prd].sort((a, b) => a.price - b.price);
@@ -46,7 +47,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
     <>
       <h1 className="text-center capitalize font-medium text-2xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-6 lg:mt-10 xl:mt-16">
         {category === collection
-          ? "PRODUCTS"
+          ? "ALL PRODUCTS"
           : category === "brands"
           ? collection?.toUpperCase()
           : `${category}'s ${collection}`}

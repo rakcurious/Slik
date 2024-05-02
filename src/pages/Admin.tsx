@@ -35,7 +35,7 @@ const Admin: React.FC = () => {
   return (
     <>
       {userdata?.$id === "660963212d52965c7a7f" ||
-      userdata?.$id === "662904776a9304ca8686" ? (
+      userdata?.$id === "6633e3a9e0ec5c0491bb" ? (
         <>
           <Navbar />
           <div className="h-auto w-screen flex flex-col justify-start items-center">
@@ -118,7 +118,7 @@ const Admin: React.FC = () => {
                       <p className="w-28">{product.type}</p>
                       <p className="w-20">{product.category}</p>
                       <p className="w-20">₹{Number(product.price)}</p>
-                      <p className="w-20">lovers: {product.likes.length}</p>
+                      <p className="w-20">lovers: {product.lovers?.length}</p>
                     </div>
                   ))}
                 </div>

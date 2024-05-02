@@ -23,8 +23,6 @@ const CreateProducts: React.FC = () => {
       slug: slugify(data.title+ ' ' + data.category + ' ' + data.type),
       //@ts-ignore
       images: data.images.split(","),
-
-      likes: [],
     });
     if (createdProduct) {
       dispatch(addProduct(createdProduct));

@@ -4,7 +4,7 @@ import { Prods } from "../index";
 import { CardBody, CardContainer, CardItem } from "./3dCard";
 import { cn } from "../utils/cn";
 import { logout } from "../appwrite/auth";
-import { setUserData } from "../redux_toolkit/userSlice";
+import { setUserData, setWishlist } from "../redux_toolkit/userSlice";
 import { useAppDispatch } from "../redux_toolkit/hooks";
 import { useNavigate } from "react-router-dom";
 
@@ -33,6 +33,7 @@ const WishlistCards: React.FC<{ products: Prods[], userdata:any }> = ({ products
   const handleLogout = async () => {
     await logout();
     dispatch(setUserData(null));
+    dispatch(setWishlist([]))
     navigate("/");
   };
 

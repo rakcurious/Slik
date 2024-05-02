@@ -3,6 +3,7 @@ import { Account, Client, ID } from "appwrite";
 import { store } from "../redux_toolkit/store";
 import confvars from "./confvars";
 import { setUserData } from "../redux_toolkit/userSlice";
+import { createWishlist, fetchWishlist } from "./config";
 
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)
@@ -56,7 +57,16 @@ export const loginWithEmailAndPassword = async (
   try {
     const currentUser = await account.createEmailSession(email, password);
     if (currentUser) {
-      await getCurrentSession();
+     const userdata = await getCurrentSession();
+      if(userdata){
+        const wishlist = await fetchWishlist(userdata.$id)
+        if(wishlist){
+        }
+        else{
+         await createWishlist(userdata.$id)
+              fetchWishlist(userdata.$id);
+        }
+       }
       return { success: true, data: currentUser };
     } else {
       return { success: false, error: "Login failed" };

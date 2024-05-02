@@ -4,11 +4,60 @@ import { Collection, Prods} from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
 import { getCollections, getProducts } from "../redux_toolkit/productSlice";
+import { setWishlist } from "../redux_toolkit/userSlice";
 
 const client = new Client()
   .setEndpoint(confvars.appwriteUrl)
   .setProject(confvars.appwriteProjectId);
 const databases = new Databases(client);
+
+export const fetchWishlist = async (id: any) => {
+  try {
+    const response = await databases.listDocuments(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteUsersCollectionId,
+      [Query.equal("$id", id)]
+    );
+    let wishlist = response.documents[0]?.wishlist?.reverse();
+    store.dispatch(setWishlist(wishlist))
+    return wishlist;
+  } catch (error) {
+    console.log(`Wishlist fetching failed: ${error}`);
+    return null;
+  }
+}
+
+export const createWishlist = async (id: any) => {
+  try {
+    const response = await databases.createDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteUsersCollectionId,
+      id,
+      { wishlist: [] }
+    )
+    console.log(id)
+    return response;
+  } catch (error) {
+    console.log(id)
+    console.log(`Appwrite createWishlist failed:: ${error}`);
+    return null;
+  }
+};
+
+export const updateWishlist = async (id: string, updatedData: string[]) => {
+  try {
+    const response = await databases.updateDocument(
+      confvars.appwriteDatabaseId,
+      confvars.appwriteUsersCollectionId,
+      id,
+      { wishlist: updatedData }
+    );
+    return response;
+  } catch (error) {
+    console.log(`Wishlist update failed: ${error}`);
+    return null;
+  }
+};
 
 export const createProductInAppwrite = async (product: Prods) => {
   try {
@@ -34,10 +83,7 @@ export const updateProductInAppwrite = async (
       confvars.appwriteDatabaseId,
       confvars.appwriteProductsCollectionId,
       id,
-      {
-        ...updatedData,
-        likes: updatedData.likes.map((user: any)=> JSON.stringify(user))
-       }
+      updatedData
     );
 
     return response;
@@ -68,15 +114,7 @@ export const fetchAllDocuments = async () => {
       confvars.appwriteProductsCollectionId,
       [Query.limit(2000)]
     );
-    if(response){
-      const products = response.documents.map((product) => ({
-        ...product,
-        likes: product.likes?.map((user: any)=> JSON.parse(user))
-      }))
-      store.dispatch(getProducts(products));
-    }
-    
-    
+      store.dispatch(getProducts(response.documents));
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
     return null;

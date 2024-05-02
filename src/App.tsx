@@ -1,11 +1,23 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { fetchAllDocuments, fetchCollections } from "./appwrite/config";
+import { createWishlist, fetchAllDocuments, fetchCollections, fetchWishlist } from "./appwrite/config";
 import { getCurrentSession } from "./appwrite/auth";
 function App() {
   useEffect(() => {
+    const sessionAndWishlist = async () => {
+      const userdata = await getCurrentSession()
+      if(userdata){
+       const wishlist = await fetchWishlist(userdata.$id)
+       if(wishlist){
+       }
+       else{
+        await createWishlist(userdata.$id)
+       fetchWishlist(userdata.$id);
+       }
+      }
+    }
+    sessionAndWishlist();
     fetchCollections();
-    getCurrentSession();
     fetchAllDocuments();
   }, []);
 

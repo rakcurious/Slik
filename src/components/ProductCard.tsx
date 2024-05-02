@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CardBody, CardContainer, CardItem } from "./3dCard";
 import Modal from "./AuthModal";
 import { Prods } from "../index";
-import { selectUserData } from "../redux_toolkit/userSlice";
+import { selectUserData, selectWishlist, selectWishlistIds } from "../redux_toolkit/userSlice";
 import { selectProducts } from "../redux_toolkit/productSlice";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import heartfill from "../assets/heartfill.svg";
@@ -13,17 +13,14 @@ import {handleWishlistUpdate} from '../utils/wishlist'
 const ProductCard: React.FC<{product: Prods}> = ({ product }) => {
   const navigate = useNavigate();
   const userdata = useAppSelector(selectUserData);
-  const products = useAppSelector(selectProducts)
+  const products = useAppSelector(selectProducts);
+  const wishlist = useAppSelector(selectWishlist)
+  const wishIds = useAppSelector(selectWishlistIds)
+
   const [showModal, setShowModal] = useState(false);
   
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
-let prod;
-  if(products && userdata) {
-    prod = product?.likes?.find((like) => like?.userid === userdata.$id) || null;
-   } else {
-     prod = null;
-   }
 
   return (
     <>
@@ -59,17 +56,19 @@ let prod;
             <img alt="heart icon"
               onClick={() =>
                 handleWishlistUpdate(
-                  product.$id,
+                  wishIds,
+                  wishlist,
                   userdata,
+                  product.$id,
                   products,
                   setShowModal
                 )
               }
-              src={prod ? heartfill : heart}
+              src={wishIds?.includes(product?.$id) ? heartfill : heart}
               className="h-6 w-6 lg:h-8 lg:w-8 2xl:h-10 2xl:w-10 cursor-pointer"
             />
             <div className="text-center h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16">
-              {product?.likes.length} 
+              {product?.lovers?.length} 
             </div>
           </CardItem>
         </div>

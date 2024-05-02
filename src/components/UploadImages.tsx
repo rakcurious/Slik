@@ -21,7 +21,7 @@ const UploadImages: React.FC<{
     setTimeout(() => {
       setShare(false)
       setImageUrls([])
-    }, 500);
+    }, 300);
   }, [imageUrls]);
 
   function submitImages() {

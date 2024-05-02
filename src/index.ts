@@ -14,7 +14,7 @@ export interface Prods {
   userid: string;
   type: string;
   slug: string;
-  likes: Likes[];
+  lovers?: any[];
 }
 
 export interface Likes {

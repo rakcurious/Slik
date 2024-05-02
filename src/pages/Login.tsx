@@ -64,14 +64,14 @@ export default function Login() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             onClick={() => navigate("/")}
-            className="mx-auto h-14 w-auto"
+            className="mx-auto h-14 w-auto mb-10"
             src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp"
             alt="Slik"
           />
           {(page == "Login" || page === "Sign up") && (
             <div className="flex flex-col justify-start items-center">
-              <p className="text-center uppercase font-medium text-xs mt-10">
-                Fast. easy. no extra verification
+              <p className="text-center uppercase font-semibold text-xs">
+                Recommended
               </p>
               <img
                 className=" cursor-pointer h-auto flex w-2/3 justify-center leading-6"
@@ -81,14 +81,14 @@ export default function Login() {
               <p className="text-center font-medium text-sm mt-7 mb-2">OR</p>
             </div>
           )}
-          <h2 className="mt-2 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-2 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 mb-2">
             {page}
           </h2>
         </div>
 
         {page === "Verification" ? (
           <div className="flex flex-col items-center">
-            <p className="text-center text-green-500 text-2xl font-semibold mt-10">
+            <p className="text-center text-lg font-semibold mt-3">
               We have sent you a verification email from appwrite. Please verify
               your email address using the link in the email to make the most
               out of Slik
