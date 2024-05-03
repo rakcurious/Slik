@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'Slik',
         short_name: 'Slik',
-        description: "'drip, drippy, drippin'",
+        description: "hand-picked high quality fashion from top Indian fashion brands",
         theme_color: '#F3E8FF',
         background_color: '#F3E8FF',
         start_url: '/',

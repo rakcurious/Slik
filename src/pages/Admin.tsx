@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Prods, Collection } from "../index";
-
 import { fetchAllDocuments } from "../appwrite/config";
 import CreateProducts from "../components/CreateProducts";
 import UpdateProducts from "../components/UpdateProducts";
 import DeleteProducts from "../components/DeleteProducts";
-// import CreateCollections from "../components/CreateCollections";
-// import UpdateCollections from "../components/UpdateCollections";
-// import DeleteCollections from "../components/DeleteCollections";
 import Navbar from "../components/Navbar";
 import { useAppSelector, useAppDispatch } from "../redux_toolkit/hooks";
 import {
@@ -61,7 +57,7 @@ const Admin: React.FC = () => {
                 Collections
               </p>
             </div>
-            <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
+           {topToggle === 'products' && <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
               <p
                 onClick={() => setToggle("create")}
                 className={
@@ -92,14 +88,13 @@ const Admin: React.FC = () => {
               >
                 Delete
               </p>
-            </div>
+            </div>}
           </div>
           {topToggle === "products" && (
             <>
               {toggle === "create" && <CreateProducts />}
               {toggle === "update" && <UpdateProducts />}
               {toggle === "delete" && <DeleteProducts />}
-              <hr />
               <h1 className="text-2xl mb-6 font-bold text-center">PRODUCTS</h1>
               {products && products.length > 0 ? (
                 <div className="h-auto w-screen px-10 pb-10 flex flex-col justify-start items-center gap-4 text-sm font-semibold *:h-auto *:w-auto *:text-center *:rounded-xl *:px-1">
@@ -133,10 +128,6 @@ const Admin: React.FC = () => {
 
           {topToggle === "collections" && (
             <>
-              {/* {toggle === "create" && <CreateCollections />}
-              {toggle === "update" && <UpdateCollections />}
-              {toggle === "delete" && <DeleteCollections />}
-              <hr /> */}
               <h1 className="text-2xl capitalize mb-6 font-bold text-center">
                 COLLECTIONS
               </h1>

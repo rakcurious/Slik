@@ -1,9 +1,7 @@
 // @ts-nocheck
 import { useCallback, useRef, useState } from "react";
 
-const UploadImages: React.FC<{
-  folder: string;
-}> = ({ folder }) => {
+const UploadImages: React.FC = () => {
   const [imageUrls, setImageUrls] = useState([]);
   const picsRef = useRef();
   const urlRef = useRef(null);
@@ -32,7 +30,7 @@ const UploadImages: React.FC<{
       const data = new FormData();
       data.append("file", file);
       data.append("upload_preset", "beslik");
-      data.append("folder", folder);
+      data.append("folder", 'slik/products');
 
       fetch(
         `https://api.cloudinary.com/v1_1/dnhz5reqf/image/upload?upload_preset=beslik&log=true`,

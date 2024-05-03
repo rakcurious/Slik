@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useAppSelector } from "../redux_toolkit/hooks"; 
+import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectCollections } from "../redux_toolkit/productSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -13,18 +13,13 @@ const BannerSlider: React.FC<{
 
   let collections = useAppSelector(selectCollections);
 
-  if (category === "men" || category === "women" || category ==="brands") {
-    collections = collections.filter(
-      (collection) => collection.category.toLowerCase() === category
-    );
-  }
-  else if(category === 'home'){
-    collections = collections.filter((collection)=>collection.category.toLowerCase() == 'men' || collection.category.toLowerCase() == 'women' )
-  }
+  collections = collections.filter(
+    (collection) => collection.category.toLowerCase() === category
+  );
 
-  collections = [...collections].reverse()
-  
-  const navigateToCollection = (category:string, slug:string) => {
+  collections = [...collections].reverse();
+
+  const navigateToCollection = (category: string, slug: string) => {
     navigate(`/${category}/${slug}`);
   };
 

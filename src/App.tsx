@@ -16,8 +16,6 @@ function App() {
        }
       }
     }
-    
-    // fetchCollections();
     sessionAndWishlist();
     fetchAllDocuments();
   }, []);

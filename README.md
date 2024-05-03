@@ -7,12 +7,12 @@
   <br>
 </h1>
 
-<h4 align="center">hand-picked highest quality products from the best Indian fashion brands</h4>
+<h4 align="center">hand-picked high quality fashion from top Indian fashion brands</h4>
 
 
 ## About the Project
 
-* Slik is an e-commerce discovery platform where you can find hand-picked highest quality products from the best Indian fashion brands. You can login and save products to your wishlist to visit later. You can use it in your browser or download it as an app on your device as it is also available as a pwa.
+* Slik is an e-commerce discovery platform where you can find hand-picked high quality fashion from top Indian fashion brands. You can login and save products to your wishlist to visit later. You can use it in your browser or download it as an app on your device as it is also available as a pwa.
 
 
 ## Tech
@@ -22,10 +22,4 @@
 
 ## Creators
 
-* [Rakesh](https://github.com/rakcurious) - Idea and Research
-* [Rakesh](https://github.com/rakcurious) - Designer
-* [Rakesh](https://github.com/rakcurious) - Developer
-* [Rakesh](https://github.com/rakcurious) - Catalogue Curation (Men)
-* [Rakesh](https://github.com/rakcurious) - Catalogue Curation (Women)
-* [Rakesh](https://github.com/rakcurious) - Marketing
-* [Nusrat](https://open.spotify.com/artist/5HcunTidTUrOaf8V0iJcvl) - In-house Therapist
+* [See the team behind Slik on our site](https://beslik.in/contact)
