@@ -150,8 +150,7 @@ const Admin: React.FC = () => {
                       }
                       className="cursor-pointer overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
                       key={collection.$id}
-                    >
-                      
+                    > 
                       <p>{collection.$id}</p>
                       <p>{collection.name}</p>
                       <p>{collection.category}</p>

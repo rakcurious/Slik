@@ -49,6 +49,7 @@ const DeleteProducts: React.FC = () => {
           <>
             <div className="overflow-x-0 w-auto rounded-xl font-bold px-4 flex flex-wrap bg-purple-200 *:truncate *:h-auto *:text-center *:p-2 *:mx-2 *:text-clip"
                     >
+                      <p className="w-20">{product.order}.</p>
                       <p className="w-48">{product.$id}</p>
                       <p className="w-28">{product.brand}</p>
                       <p className="w-40">{product.title}</p>
@@ -56,7 +57,7 @@ const DeleteProducts: React.FC = () => {
                       <p className="w-20">{product.category}</p>
                       <p className="w-20">₹{Number(product.price)}</p>
                       <p className="w-20">lovers: {product.lovers?.length}</p>
-                      <p className="w-20">{product.userid}</p>
+                      
                     </div>
 
             <button
