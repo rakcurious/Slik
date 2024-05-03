@@ -45,7 +45,7 @@ const CollectionCards: React.FC<{
                   }
                   src={collection.cardImage}
                   className="cursor-pointer h-full w-full object-cover rounded-lg group-hover/card:shadow-xl"
-                  alt={collection.name}
+                  alt={`${collection.name} ${collection.name}`}
                 />
               </CardItem>
             </CardBody>

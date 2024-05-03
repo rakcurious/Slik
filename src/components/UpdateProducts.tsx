@@ -77,10 +77,9 @@ const UpdateProducts: React.FC = () => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
       price: Number(data.price),
+      order: Number(data.order),
       slug: slugify(data.title + " " + data.category + " " + data.type),
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
-      
-      
     });
     if (updatedProduct) {
       dispatch(updateProduct(updatedProduct));
@@ -125,12 +124,21 @@ const UpdateProducts: React.FC = () => {
                 />
                 <input placeholder="Brand" {...register("brand")} required />
                 <input
-                  placeholder="Category"
+                  placeholder="Gender"
                   {...register("category")}
                   required
                 />
-                <input placeholder="UserID" {...register("userid")} required />
-                <input placeholder="Type" {...register("type")} required />
+                <input
+                  placeholder="Collection"
+                  {...register("type")}
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="Order "
+                  {...register("order")}
+                  required
+                />
               </div>
               <input
                 type="submit"

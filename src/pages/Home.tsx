@@ -23,7 +23,7 @@ function Home() {
           <Link to={'/men'}>
         <img
                 
-                src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1714029926/slik/misc/menswearcard_dldeyd.webp"
+                src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1714729992/slik/slikmenswear_tnu00y.webp"
                 alt="Menswear"
                 className="cursor-pointer w-full aspect-[2/1] object-cover rounded-xl"
               />

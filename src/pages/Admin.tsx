@@ -5,9 +5,9 @@ import { fetchAllDocuments } from "../appwrite/config";
 import CreateProducts from "../components/CreateProducts";
 import UpdateProducts from "../components/UpdateProducts";
 import DeleteProducts from "../components/DeleteProducts";
-import CreateCollections from "../components/CreateCollections";
-import UpdateCollections from "../components/UpdateCollections";
-import DeleteCollections from "../components/DeleteCollections";
+// import CreateCollections from "../components/CreateCollections";
+// import UpdateCollections from "../components/UpdateCollections";
+// import DeleteCollections from "../components/DeleteCollections";
 import Navbar from "../components/Navbar";
 import { useAppSelector, useAppDispatch } from "../redux_toolkit/hooks";
 import {
@@ -112,6 +112,7 @@ const Admin: React.FC = () => {
                       className="cursor-pointer overflow-x-0 w-screen px-4 flex flex-wrap bg-purple-200 *:truncate *:h-auto *:text-center *:p-2 *:mx-2 *:text-clip"
                       key={product.$id}
                     >
+                      <p className="w-20">{product.order} • </p>
                       <p className="w-40">{product.$id}</p>
                       <p className="w-28">{product.brand}</p>
                       <p className="w-40">{product.title}</p>
@@ -132,10 +133,10 @@ const Admin: React.FC = () => {
 
           {topToggle === "collections" && (
             <>
-              {toggle === "create" && <CreateCollections />}
+              {/* {toggle === "create" && <CreateCollections />}
               {toggle === "update" && <UpdateCollections />}
               {toggle === "delete" && <DeleteCollections />}
-              <hr />
+              <hr /> */}
               <h1 className="text-2xl capitalize mb-6 font-bold text-center">
                 COLLECTIONS
               </h1>
@@ -150,6 +151,7 @@ const Admin: React.FC = () => {
                       className="cursor-pointer overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
                       key={collection.$id}
                     >
+                      
                       <p>{collection.$id}</p>
                       <p>{collection.name}</p>
                       <p>{collection.category}</p>

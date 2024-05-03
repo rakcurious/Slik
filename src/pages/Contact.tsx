@@ -16,6 +16,10 @@ const Contact = () => {
       image: 'https://res.cloudinary.com/dnhz5reqf/image/upload/v1714635700/slik/SlikDeveloper_zqyn2d.webp'
     },
     {
+      role: 'Vibes',
+      image: 'https://res.cloudinary.com/dnhz5reqf/image/upload/v1714719598/slik/SlikVibes_ouahlm.webp'
+    },
+    {
       role: 'Catalogue Curation (Women)',
       image: 'https://res.cloudinary.com/dnhz5reqf/image/upload/v1714635700/slik/SlikCatalogueCurationWomen_hrah6r.webp'
     },
@@ -24,8 +28,8 @@ const Contact = () => {
       image: 'https://res.cloudinary.com/dnhz5reqf/image/upload/v1714635700/slik/SlikCatalogueCurationMen_ow2fto.webp'
     },
     {
-      role: 'Marketing',
-      image: 'https://res.cloudinary.com/dnhz5reqf/image/upload/v1714635700/slik/SlikMarketing_rchdg1.webp'
+      role: 'Customer Support',
+      image: 'https://res.cloudinary.com/dnhz5reqf/image/upload/v1714719598/slik/SlikCustomerSupport_uvweoq.webp'
     },
     {
       role: 'In-house Therapist',

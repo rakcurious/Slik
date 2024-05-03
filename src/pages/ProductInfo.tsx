@@ -7,7 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { handleWishlistUpdate } from "../utils/wishlist";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectProducts } from "../redux_toolkit/productSlice";
-import { selectUserData, selectWishlist, selectWishlistIds } from "../redux_toolkit/userSlice";
+import {
+  selectUserData,
+  selectWishlist,
+  selectWishlistIds,
+} from "../redux_toolkit/userSlice";
 import Navbar from "../components/Navbar";
 import Modal from "../components/AuthModal";
 import Error from "../components/WrongPage";
@@ -15,8 +19,8 @@ import Error from "../components/WrongPage";
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
-  const wishlist = useAppSelector(selectWishlist)
-  const wishIds = useAppSelector(selectWishlistIds)
+  const wishlist = useAppSelector(selectWishlist);
+  const wishIds = useAppSelector(selectWishlistIds);
   const [share, setShare] = useState(false);
 
   const navigate = useNavigate();
@@ -48,10 +52,10 @@ const ProductInfo: React.FC = () => {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-      const brandPage = (name:string) => {
-        const brandSlug = slugify(name)
-        navigate(`/brands/${brandSlug}`)
-      }
+  const brandPage = (name: string) => {
+    const brandSlug = slugify(name);
+    navigate(`/brands/${brandSlug}`);
+  };
 
   const settings = {
     dots: true,
@@ -86,11 +90,14 @@ const ProductInfo: React.FC = () => {
               <h1 className="text-xl 2xl:text-2xl font-semibold mb-1 capitalize text-center">
                 {product?.title}
               </h1>
-              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer text-purple-900 uppercase text-center">
+              <p
+                onClick={() => brandPage(product?.brand.toLowerCase())}
+                className="cursor-pointer text-purple-900 uppercase text-center"
+              >
                 {product?.brand}
               </p>
               <p className="text-center mb-2">
-                ₹{product?.price}
+                ₹{product?.price.toLocaleString("en-IN")}
               </p>
               <div className="flex flex-col items-center gap-2 w-full">
                 <button
@@ -106,8 +113,8 @@ const ProductInfo: React.FC = () => {
                   }
                   className="bg-black w-4/5 h-auto text-white py-4 rounded-lg transition duration-500 hover:-translate-y-0.5 hover:text-purple-100"
                 >
-                  {wishIds?.includes(product.$id) 
-                  ? "Remove from Wishlist"
+                  {wishIds?.includes(product.$id)
+                    ? "Remove from Wishlist"
                     : "Add to Wishlist"}
                 </button>
                 <a
@@ -147,11 +154,14 @@ const ProductInfo: React.FC = () => {
               <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold my-1 capitalize text-center">
                 {product?.title}
               </h1>
-              <p onClick={()=>brandPage(product?.brand.toLowerCase())} className="cursor-pointer uppercase text-purple-900 text-center">
+              <p
+                onClick={() => brandPage(product?.brand.toLowerCase())}
+                className="cursor-pointer uppercase text-purple-900 text-center"
+              >
                 {product?.brand}
               </p>
               <p className=" text-center mb-2">
-                ₹{product?.price}
+                ₹{product?.price.toLocaleString("en-IN")}
               </p>
               <div className="flex flex-col gap-2 w-full">
                 <button

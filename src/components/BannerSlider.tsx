@@ -22,11 +22,7 @@ const BannerSlider: React.FC<{
     collections = collections.filter((collection)=>collection.category.toLowerCase() == 'men' || collection.category.toLowerCase() == 'women' )
   }
 
- 
-
-  if(collections.length>6){
-    collections = collections.slice(0,6)
- }
+  collections = [...collections].reverse()
   
   const navigateToCollection = (category:string, slug:string) => {
     navigate(`/${category}/${slug}`);

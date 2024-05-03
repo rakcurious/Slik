@@ -1,9 +1,9 @@
-// @ts-nocheck
+//@ts-nocheck
 import { Client, Databases, ID, Query } from "appwrite";
-import { Collection, Prods} from "../index";
+import {Prods} from "../index";
 import confvars from './confvars'
 import { store } from "../redux_toolkit/store";
-import { getCollections, getProducts } from "../redux_toolkit/productSlice";
+import {getProducts} from "../redux_toolkit/productSlice";
 import { setWishlist } from "../redux_toolkit/userSlice";
 
 const client = new Client()
@@ -121,62 +121,62 @@ export const fetchAllDocuments = async () => {
   }
 };
 
-export const fetchCollections = async () => {
-  try {
-    const response = await databases.listDocuments(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionsCollectionId,
-      [Query.limit(500)]
-    );
-    store.dispatch(getCollections(response.documents.reverse()));
-      return response.documents;
+// export const fetchCollections = async () => {
+//   try {
+//     const response = await databases.listDocuments(
+//       confvars.appwriteDatabaseId,
+//       confvars.appwriteCollectionsCollectionId,
+//       [Query.limit(500)]
+//     );
+//     store.dispatch(getCollections(response.documents));
+//       return response.documents;
     
-  } catch (error:any) {
-    console.log(`Collections listing failed:: ${error}`);
-    return null;
-  }
-};
+//   } catch (error:any) {
+//     console.log(`Collections listing failed:: ${error}`);
+//     return null;
+//   }
+// };
 
-export const createCollections = async (collection: Collection) => {
-  try {
-    const response = await databases.createDocument(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionsCollectionId,
-      ID.unique(),
-      collection
-    );
-    return response;
-  } catch (error) {
-    console.log(`Collection creation failed: ${error}`);
-    return null;
-  }
-};
+// export const createCollections = async (collection: Collection) => {
+//   try {
+//     const response = await databases.createDocument(
+//       confvars.appwriteDatabaseId,
+//       confvars.appwriteCollectionsCollectionId,
+//       ID.unique(),
+//       collection
+//     );
+//     return response;
+//   } catch (error) {
+//     console.log(`Collection creation failed: ${error}`);
+//     return null;
+//   }
+// };
 
-export const updateCollections = async (id: string, updatedData: Collection) => {
-  try {
-    const response = await databases.updateDocument(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionsCollectionId,
-      id,
-      updatedData
-    );
-    return response;
-  } catch (error) {
-    console.log(`Collection updation failed: ${error}`);
-    return null;
-  }
-};
+// export const updateCollections = async (id: string, updatedData: Collection) => {
+//   try {
+//     const response = await databases.updateDocument(
+//       confvars.appwriteDatabaseId,
+//       confvars.appwriteCollectionsCollectionId,
+//       id,
+//       updatedData
+//     );
+//     return response;
+//   } catch (error) {
+//     console.log(`Collection updation failed: ${error}`);
+//     return null;
+//   }
+// };
 
-export const deleteCollections = async (id: string) => {
-  try {
-    const response = await databases.deleteDocument(
-      confvars.appwriteDatabaseId,
-      confvars.appwriteCollectionsCollectionId,
-      id
-    );
-    return response;
-  } catch (error) {
-    console.log(`Collection deletion failed: ${error}`);
-    return null;
-  }
-};
+// export const deleteCollections = async (id: string) => {
+//   try {
+//     const response = await databases.deleteDocument(
+//       confvars.appwriteDatabaseId,
+//       confvars.appwriteCollectionsCollectionId,
+//       id
+//     );
+//     return response;
+//   } catch (error) {
+//     console.log(`Collection deletion failed: ${error}`);
+//     return null;
+//   }
+// };

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { Collection, Prods } from "../index";
+import { Collection, Prods, collections } from "../index";
 
 interface ProductState {
   products: Prods[];
@@ -9,7 +9,7 @@ interface ProductState {
 
 const initialState: ProductState = {
   products: [],
-  collections: [],
+  collections: collections,
 };
 const productSlice = createSlice({
   name: "products",
@@ -38,33 +38,34 @@ const productSlice = createSlice({
     getProducts: (state, action: PayloadAction<any>) => {
       state.products = action.payload;
     },
-    addCollection: (state, action: PayloadAction<any>) => {
-      state.collections.push(action.payload);
-    },
-    updateCollection: (state, action: PayloadAction<any>) => {
-      const { $id, ...updatedData } = action.payload;
-      const collectionIndex = state.collections.findIndex(
-        (collection) => collection.$id === $id
-      );
-      if (collectionIndex !== -1) {
-        state.collections[collectionIndex] = {
-          ...state.collections[collectionIndex],
-          ...updatedData,
-        };
-      }
-    },
-    deleteCollection: (state, action: PayloadAction<string>) => {
-      state.collections = state.collections.filter(
-        (collection) => collection.$id !== action.payload
-      );
-    },
-    getCollections: (state, action: PayloadAction<any>) => {
-      state.collections = action.payload;
-    },
+    // addCollection: (state, action: PayloadAction<any>) => {
+    //   state.collections.push(action.payload);
+    // },
+    // updateCollection: (state, action: PayloadAction<any>) => {
+    //   const { $id, ...updatedData } = action.payload;
+    //   const collectionIndex = state.collections.findIndex(
+    //     (collection) => collection.$id === $id
+    //   );
+    //   if (collectionIndex !== -1) {
+    //     state.collections[collectionIndex] = {
+    //       ...state.collections[collectionIndex],
+    //       ...updatedData,
+    //     };
+    //   }
+    // },
+    // deleteCollection: (state, action: PayloadAction<string>) => {
+    //   state.collections = state.collections.filter(
+    //     (collection) => collection.$id !== action.payload
+    //   );
+    // },
+    // getCollections: (state, action: PayloadAction<any>) => {
+    //   const cols = action.payload.sort((a: Collection, b:Collection)=>a.order-b.order)
+    //   state.collections = cols;
+    // },
   },
 });
 
-export const { addProduct, updateProduct, deleteProduct, getProducts, addCollection, updateCollection, deleteCollection, getCollections } =
+export const { addProduct, updateProduct, deleteProduct, getProducts} =
   productSlice.actions;
 export const selectProducts = (state: RootState) => state.products.products;
 export const selectCollections = (state: RootState) => state.products.collections;

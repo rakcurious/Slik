@@ -12,7 +12,7 @@ const Collection: React.FC = () => {
 
   const { category, slug } = useParams();
 
-  const collection = collections.find((collection) => collection.slug == slug);
+  const collection = collections.find((collection) => collection.slug == slug && collection.category == category);
 
   useEffect(() => {
     document.body.scrollTo(0, 0);

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { createWishlist, fetchAllDocuments, fetchCollections, fetchWishlist } from "./appwrite/config";
+import { createWishlist, fetchAllDocuments, fetchWishlist } from "./appwrite/config";
 import { getCurrentSession } from "./appwrite/auth";
 function App() {
   useEffect(() => {
@@ -16,8 +16,9 @@ function App() {
        }
       }
     }
+    
+    // fetchCollections();
     sessionAndWishlist();
-    fetchCollections();
     fetchAllDocuments();
   }, []);
 
