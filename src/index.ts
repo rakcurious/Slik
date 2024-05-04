@@ -14,7 +14,6 @@ export interface Prods {
   type: string;
   slug: string;
   lovers?: any[];
-  order: number;
 }
 
 export interface Collection {
@@ -66,14 +65,6 @@ export const collections = [
      "slug": "co-ords",
      "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714733362/slik/misc/rqrqibilpgcv7yeyw8dg.webp",
      "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714264941/slik/misc/z9uggv7vy3fqi6m2gafp.webp"
-  },
-  {
-     "$id": "6634e045925e0a19c9f6",
-     "name": "Bewakoof",
-     "category": "brands",
-     "slug": "bewakoof",
-     "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714741298/slik/misc/qgzuocybct2girc0qgfp.webp",
-     "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714741309/slik/misc/geasv43jcmmntecl0frk.webp"
   },
   {
      "$id": "6624d34d9c3da32a2b37",
@@ -235,6 +226,14 @@ export const collections = [
      "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714036343/slik/misc/kzs27hwtjb1matmmrjcp.webp",
      "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713691559/slik/misc/jawcnfwwf4tcfdgsdodc.webp"
   },
+  {
+   "$id": "6634e045925e0a19c9f6",
+   "name": "Bewakoof",
+   "category": "brands",
+   "slug": "bewakoof",
+   "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714741298/slik/misc/qgzuocybct2girc0qgfp.webp",
+   "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714741309/slik/misc/geasv43jcmmntecl0frk.webp"
+},
   {
      "$id": "6624c43a6654968dd768",
      "name": "Snitch",

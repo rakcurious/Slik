@@ -77,7 +77,6 @@ const UpdateProducts: React.FC = () => {
     const updatedProduct = await updateProductInAppwrite(id, {
       ...data,
       price: Number(data.price),
-      order: Number(data.order),
       slug: slugify(data.title + " " + data.category + " " + data.type),
       images: Array.isArray(data.images) ? data.images : data.images.split(","),
     });
@@ -131,12 +130,6 @@ const UpdateProducts: React.FC = () => {
                 <input
                   placeholder="Collection"
                   {...register("type")}
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Order "
-                  {...register("order")}
                   required
                 />
               </div>

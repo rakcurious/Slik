@@ -14,7 +14,10 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   let products: Prods[] = useAppSelector(selectProducts);
 
   if (category === "men" || category == "women") {
-    products = products.filter((product) => product.category === category || product.category === 'unisex');
+    products = products.filter(
+      (product) =>
+        product.category === category || product.category === "unisex"
+    );
   } else if (category == "brands") {
     products = products.filter(
       (product) => product.brand.toLowerCase() === collection.toLowerCase()
@@ -22,7 +25,9 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   }
 
   if (category !== collection && category !== "brands") {
-    products = products.filter((product) => product.type.toLowerCase() == collection.toLowerCase());
+    products = products.filter(
+      (product) => product.type.toLowerCase() == collection.toLowerCase()
+    );
   }
 
   let prd = [...products];
@@ -64,7 +69,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-            Love
+              Love
             </p>
             <p
               onClick={() => setSort("pricehigh")}
@@ -74,7 +79,22 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              Price <svg className="inline h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 xl:w-4 xl:h-4 2xl:h-4 2xl:w-4" enableBackground="new 0 0 256 256" height="256px" id="Layer_1" version="1.1" viewBox="0 0 256 256" width="256px" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"> <path d="M222.138,91.475l-89.6-89.6c-2.5-2.5-6.551-2.5-9.051,0l-89.6,89.6c-2.5,2.5-2.5,6.551,0,9.051s6.744,2.5,9.244,0L122,21.85  V249.6c0,3.535,2.466,6.4,6,6.4s6-2.865,6-6.4V21.85l78.881,78.676c1.25,1.25,2.992,1.875,4.629,1.875s3.326-0.625,4.576-1.875  C224.586,98.025,224.638,93.975,222.138,91.475z"/></svg>
+              Price{" "}
+              <svg
+                className="inline h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 xl:w-4 xl:h-4 2xl:h-4 2xl:w-4"
+                enableBackground="new 0 0 256 256"
+                height="256px"
+                id="Layer_1"
+                version="1.1"
+                viewBox="0 0 256 256"
+                width="256px"
+                xmlSpace="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                {" "}
+                <path d="M222.138,91.475l-89.6-89.6c-2.5-2.5-6.551-2.5-9.051,0l-89.6,89.6c-2.5,2.5-2.5,6.551,0,9.051s6.744,2.5,9.244,0L122,21.85  V249.6c0,3.535,2.466,6.4,6,6.4s6-2.865,6-6.4V21.85l78.881,78.676c1.25,1.25,2.992,1.875,4.629,1.875s3.326-0.625,4.576-1.875  C224.586,98.025,224.638,93.975,222.138,91.475z" />
+              </svg>
             </p>
             <p
               onClick={() => setSort("pricelow")}
@@ -84,7 +104,21 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
                   : "hover:ring-1 hover:ring-violet-300"
               }
             >
-              Price <svg className="inline h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 xl:w-4 xl:h-4 2xl:h-4 2xl:w-4" enableBackground="new 0 0 256 256" height="256px" id="Layer_1" version="1.1" viewBox="0 0 256 256" width="256px" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><path d="M33.861,164.526l89.6,89.6c2.5,2.5,6.551,2.5,9.051,0l89.6-89.6c2.5-2.5,2.5-6.551,0-9.051s-6.742-2.5-9.242,0L134,234.151  V6.401c0-3.535-2.466-6.4-6-6.4s-6,2.865-6,6.4v227.75l-78.881-78.676c-1.25-1.25-2.993-1.875-4.629-1.875s-3.326,0.625-4.576,1.875  C31.413,157.976,31.361,162.026,33.861,164.526z"/></svg>
+              Price{" "}
+              <svg
+                className="inline h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 xl:w-4 xl:h-4 2xl:h-4 2xl:w-4"
+                enableBackground="new 0 0 256 256"
+                height="256px"
+                id="Layer_1"
+                version="1.1"
+                viewBox="0 0 256 256"
+                width="256px"
+                xmlSpace="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <path d="M33.861,164.526l89.6,89.6c2.5,2.5,6.551,2.5,9.051,0l89.6-89.6c2.5-2.5,2.5-6.551,0-9.051s-6.742-2.5-9.242,0L134,234.151  V6.401c0-3.535-2.466-6.4-6-6.4s-6,2.865-6,6.4v227.75l-78.881-78.676c-1.25-1.25-2.993-1.875-4.629-1.875s-3.326,0.625-4.576,1.875  C31.413,157.976,31.361,162.026,33.861,164.526z" />
+              </svg>
             </p>
             <p
               onClick={() => setSort("new")}

@@ -57,38 +57,40 @@ const Admin: React.FC = () => {
                 Collections
               </p>
             </div>
-           {topToggle === 'products' && <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
-              <p
-                onClick={() => setToggle("create")}
-                className={
-                  toggle === "create"
-                    ? "ring-1 ring-violet-300"
-                    : "hover:ring-1 hover:ring-violet-300"
-                }
-              >
-                Create
-              </p>
-              <p
-                onClick={() => setToggle("update")}
-                className={
-                  toggle === "update"
-                    ? "ring-1 ring-violet-300"
-                    : "hover:ring-1 hover:ring-violet-300"
-                }
-              >
-                Update
-              </p>
-              <p
-                onClick={() => setToggle("delete")}
-                className={
-                  toggle === "delete"
-                    ? "ring-1 ring-violet-300"
-                    : "hover:ring-1 hover:ring-violet-300"
-                }
-              >
-                Delete
-              </p>
-            </div>}
+            {topToggle === "products" && (
+              <div className="mb-10 bg-transparent h-12 w-auto flex justify-center items-center gap-1 md:gap-5 mt-2 px-2 md:px-2 rounded-3xl ring-2 ring-violet-200 text-xl font-semibold *:w-auto *:px-6 *:py-1 *:rounded-full *:cursor-pointer">
+                <p
+                  onClick={() => setToggle("create")}
+                  className={
+                    toggle === "create"
+                      ? "ring-1 ring-violet-300"
+                      : "hover:ring-1 hover:ring-violet-300"
+                  }
+                >
+                  Create
+                </p>
+                <p
+                  onClick={() => setToggle("update")}
+                  className={
+                    toggle === "update"
+                      ? "ring-1 ring-violet-300"
+                      : "hover:ring-1 hover:ring-violet-300"
+                  }
+                >
+                  Update
+                </p>
+                <p
+                  onClick={() => setToggle("delete")}
+                  className={
+                    toggle === "delete"
+                      ? "ring-1 ring-violet-300"
+                      : "hover:ring-1 hover:ring-violet-300"
+                  }
+                >
+                  Delete
+                </p>
+              </div>
+            )}
           </div>
           {topToggle === "products" && (
             <>
@@ -107,7 +109,6 @@ const Admin: React.FC = () => {
                       className="cursor-pointer overflow-x-0 w-screen px-4 flex flex-wrap bg-purple-200 *:truncate *:h-auto *:text-center *:p-2 *:mx-2 *:text-clip"
                       key={product.$id}
                     >
-                      <p className="w-20">{product.order} • </p>
                       <p className="w-40">{product.$id}</p>
                       <p className="w-28">{product.brand}</p>
                       <p className="w-40">{product.title}</p>
@@ -141,7 +142,7 @@ const Admin: React.FC = () => {
                       }
                       className="cursor-pointer overflow-x-0 flex flex-wrap bg-purple-200 *:truncate *:h-8 *:w-40 *:text-center *:p-1 *:text-clip"
                       key={collection.$id}
-                    > 
+                    >
                       <p>{collection.$id}</p>
                       <p>{collection.name}</p>
                       <p>{collection.category}</p>

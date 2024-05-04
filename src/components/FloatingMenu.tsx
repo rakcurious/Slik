@@ -93,17 +93,19 @@ const FloatingMenu: React.FC<{
         >
           BRANDS
         </NavLink>
-        {userdata && <NavLink
-          to="/profile"
-          className={({ isActive }) =>
-            `block px-4 py-2 text-black  ${
-              isActive ? "backdrop-blur-sm bg-indigo-200/10" : ""
-            }`
-          }
-          onClick={onClose}
-        >
-          WISHLIST
-        </NavLink>}
+        {userdata && (
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              `block px-4 py-2 text-black  ${
+                isActive ? "backdrop-blur-sm bg-indigo-200/10" : ""
+              }`
+            }
+            onClick={onClose}
+          >
+            WISHLIST
+          </NavLink>
+        )}
         <NavLink
           to="/"
           className={({ isActive }) =>

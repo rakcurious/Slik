@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { startVerification } from "../appwrite/auth"; 
+import { startVerification } from "../appwrite/auth";
 
 interface ModalProps {
   isOpen: boolean;
   isAuthenticated: boolean;
-  isVerified: boolean;
+  isVerified: boolean; 
   onClose: () => void;
   onLogin: () => void;
 }
@@ -29,7 +29,10 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" onClick={onClose} />
+      <div
+        className="fixed inset-0 bg-black/30 backdrop-blur-sm"
+        onClick={onClose}
+      />
       <div className="bg-purple-100 p-6 z-10 h-auto w-60 md:h-auto md:w-96 rounded-lg flex flex-col items-center justify-center">
         {!isAuthenticated ? (
           <>

@@ -1,9 +1,9 @@
 //@ts-nocheck
 import { Client, Databases, ID, Query } from "appwrite";
-import {Prods} from "../index";
-import confvars from './confvars'
+import { Prods } from "../index";
+import confvars from "./confvars";
 import { store } from "../redux_toolkit/store";
-import {getProducts} from "../redux_toolkit/productSlice";
+import { getProducts } from "../redux_toolkit/productSlice";
 import { setWishlist } from "../redux_toolkit/userSlice";
 
 const client = new Client()
@@ -19,13 +19,13 @@ export const fetchWishlist = async (id: any) => {
       [Query.equal("$id", id)]
     );
     let wishlist = response.documents[0]?.wishlist?.reverse();
-    store.dispatch(setWishlist(wishlist))
+    store.dispatch(setWishlist(wishlist));
     return wishlist;
   } catch (error) {
     console.log(`Wishlist fetching failed: ${error}`);
     return null;
   }
-}
+};
 
 export const createWishlist = async (id: any) => {
   try {
@@ -34,11 +34,11 @@ export const createWishlist = async (id: any) => {
       confvars.appwriteUsersCollectionId,
       id,
       { wishlist: [] }
-    )
-    console.log(id)
+    );
+    console.log(id);
     return response;
   } catch (error) {
-    console.log(id)
+    console.log(id);
     console.log(`Appwrite createWishlist failed:: ${error}`);
     return null;
   }
@@ -114,7 +114,7 @@ export const fetchAllDocuments = async () => {
       confvars.appwriteProductsCollectionId,
       [Query.limit(2000)]
     );
-      store.dispatch(getProducts(response.documents));
+    store.dispatch(getProducts(response.documents));
   } catch (error) {
     console.log(`Appwrite listDocuments error: ${error}`);
     return null;

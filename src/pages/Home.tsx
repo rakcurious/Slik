@@ -12,7 +12,7 @@ function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex flex-col flex-grow">
-        <div className="flex flex-col w-screen gap-4 xl:gap-10 px-4 xl:px-10 mb-5">
+        <div className="flex flex-col w-screen gap-4 xl:gap-10 px-4 xl:px-10 mb-0">
           <Link to={'/women'}>
         <img   
                 src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1714029926/slik/misc/womenswearcard_wnmt5r.webp"

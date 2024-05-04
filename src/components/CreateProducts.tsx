@@ -20,7 +20,6 @@ const CreateProducts: React.FC = () => {
     const createdProduct = await createProductInAppwrite({
       ...data,
       price: Number(data.price),
-      order: Number(data.order),
       slug: slugify(data.title + " " + data.category + " " + data.type),
       //@ts-ignore
       images: data.images.split(","),
@@ -52,12 +51,6 @@ const CreateProducts: React.FC = () => {
             <input placeholder="Brand" {...register("brand")} required />
             <input placeholder="Gender" {...register("category")} required />
             <input placeholder="Collection" {...register("type")} required />
-            <input
-              type="number"
-              placeholder="Order"
-              {...register("order")}
-              required
-            />
           </div>
           <input
             type="submit"

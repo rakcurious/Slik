@@ -10,24 +10,6 @@ const client = new Client()
   .setProject(confvars.appwriteProjectId);
 const account = new Account(client);
 
-/* downgraded to version 13.0.2 for some query issues, so this is no longer needed
-// Custom implementation of account.updateRecovery because it doesn't work in the latest appwrite version at the time i am writing this, i.e. april '24. someone had raised the issue on appwrite's github and from there i got this workaround. the other option was to not use the latest version of appwrite, so i went with this instead.
-// account.updateRecovery = (
-//   userId: string,
-//   secret: string,
-//   password: string,
-//   passwordAgain: string,
-// ): Promise<Models.Token> => {
-//   if (!userId || !secret || !password || !passwordAgain) {
-//     throw new Error('Missing argument');
-//   }
-//   const uri = new URL(client.config.endpoint + '/account/recovery');
-//   return client.call('put', uri, {
-//     'content-type': 'application/json',
-//   }, { userId, secret, password, passwordAgain });
-// };
-
-*/
 export const getCurrentSession = async () => {
   try {
     const currentUser = await account.get();
@@ -57,16 +39,15 @@ export const loginWithEmailAndPassword = async (
   try {
     const currentUser = await account.createEmailSession(email, password);
     if (currentUser) {
-     const userdata = await getCurrentSession();
-      if(userdata){
-        const wishlist = await fetchWishlist(userdata.$id)
-        if(wishlist){
+      const userdata = await getCurrentSession();
+      if (userdata) {
+        const wishlist = await fetchWishlist(userdata.$id);
+        if (wishlist) {
+        } else {
+          await createWishlist(userdata.$id);
+          fetchWishlist(userdata.$id);
         }
-        else{
-         await createWishlist(userdata.$id)
-              fetchWishlist(userdata.$id);
-        }
-       }
+      }
       return { success: true, data: currentUser };
     } else {
       return { success: false, error: "Login failed" };
