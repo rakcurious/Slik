@@ -1,24 +1,29 @@
-import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
-import { createWishlist, fetchAllDocuments, fetchWishlist } from "./appwrite/config";
+import {
+  createWishlist,
+  fetchAllDocuments,
+  fetchWishlist,
+} from "./appwrite/config";
 import { getCurrentSession } from "./appwrite/auth";
-import { initializeGoogleAnalytics } from "./utils/analytics";
+import ReactGA from "react-ga4";
+import { Outlet } from "react-router-dom";
 function App() {
+  const gtrackingid = String(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKING_ID);
   useEffect(() => {
-    initializeGoogleAnalytics();
-    
+    ReactGA.initialize(gtrackingid);
+    ReactGA.send({ hitType: "pageview", page: "/", title: "Home" });
+
     const sessionAndWishlist = async () => {
-      const userdata = await getCurrentSession()
-      if(userdata){
-       const wishlist = await fetchWishlist(userdata.$id)
-       if(wishlist){
-       }
-       else{
-        await createWishlist(userdata.$id)
-       fetchWishlist(userdata.$id);
-       }
+      const userdata = await getCurrentSession();
+      if (userdata) {
+        const wishlist = await fetchWishlist(userdata.$id);
+        if (wishlist) {
+        } else {
+          await createWishlist(userdata.$id);
+          fetchWishlist(userdata.$id);
+        }
       }
-    }
+    };
     sessionAndWishlist();
     fetchAllDocuments();
   }, []);
