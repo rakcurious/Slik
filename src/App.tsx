@@ -2,8 +2,11 @@ import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { createWishlist, fetchAllDocuments, fetchWishlist } from "./appwrite/config";
 import { getCurrentSession } from "./appwrite/auth";
+import { initializeGoogleAnalytics } from "./utils/analytics";
 function App() {
   useEffect(() => {
+    initializeGoogleAnalytics();
+    
     const sessionAndWishlist = async () => {
       const userdata = await getCurrentSession()
       if(userdata){
