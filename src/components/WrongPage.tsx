@@ -19,8 +19,11 @@ const Error: React.FC = () => {
           <img
             src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png"
             alt="Slik"
-            className="mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce"
+            className="mt-24 lg:mt-0 mb-0 h-60 w-60 animate-bounce"
           />
+          <div className="mb-5 w-screen animate-pulse text-center font-medium text-3xl">
+              LOADING
+            </div>
           {load && (
             <>
               <p className="text-center font-semibold text-2xl">

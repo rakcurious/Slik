@@ -133,27 +133,32 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
           </div>
         </div>
       )}
-     {products ?  <div className="mt-5 lg:mt-10 xl:mt-16 grid grid-cols-2 gap-5 px-4 sm:gap-10 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-20 xl:grid-cols-4 xl:gap-16 text-black pb-5 xl:mr-5">
-        <Suspense
-          fallback={
-            <div className="animate-pulse mt-4 w-screen text-center font-semibold text-3xl">
-              Loading...
-            </div>
-          }
-        >
-          {products.map((product: Prods) => (
-            <ProductCard key={product.$id} product={product} />
-          ))}
-        </Suspense>
-      </div> : 
-      <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
-      <img
-        src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png"
-        alt="Slik"
-        className="mt-24 lg:mt-0 mb-5 h-60 w-60 animate-bounce"
-      />
-      </div>
-      }
+      {products.length !== 0 ? (
+        <div className="mt-5 lg:mt-10 xl:mt-16 grid grid-cols-2 gap-5 px-4 sm:gap-10 md:grid-cols-3 md:px-5 lg:grid-cols-3 lg:gap-20 xl:grid-cols-4 xl:gap-16 text-black pb-5 xl:mr-5">
+          <Suspense
+            fallback={
+              <div className="animate-pulse mt-4 w-screen text-center font-medium text-3xl">
+                LOADING
+              </div>
+            }
+          >
+            {products.map((product: Prods) => (
+              <ProductCard key={product.$id} product={product} />
+            ))}
+          </Suspense>
+        </div>
+      ) : (
+        <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
+          <img
+            src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png"
+            alt="Slik"
+            className="mt-24 lg:mt-0 mb-0 h-60 w-60 animate-bounce"
+          />
+          <div className="mb-5 w-screen animate-pulse text-center font-medium text-3xl">
+            LOADING
+          </div>
+        </div>
+      )}
     </>
   );
 };
