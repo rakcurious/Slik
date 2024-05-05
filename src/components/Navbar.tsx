@@ -69,7 +69,7 @@ function Navbar() {
             <img
               onClick={() => navigate("/")}
               src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705965/slik/sliklogo_iiawiz.webp"
-              className="h-14 w-auto m-0"
+              className="h-14 w-auto m-0 cursor-pointer"
               alt="Slik Logo"
             />
           </div>
