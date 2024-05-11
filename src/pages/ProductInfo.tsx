@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { handleWishlistUpdate } from "../utils/wishlist";
 import { useAppSelector } from "../redux_toolkit/hooks";
-import { selectProducts } from "../redux_toolkit/productSlice";
+import { selectLikes, selectProducts } from "../redux_toolkit/productSlice";
 import {
   selectUserData,
   selectWishlist,
@@ -21,6 +21,7 @@ const ProductInfo: React.FC = () => {
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
   const wishIds = useAppSelector(selectWishlistIds);
+  const likeList = useAppSelector(selectLikes)
   const [share, setShare] = useState(false);
 
   const navigate = useNavigate();
@@ -108,6 +109,7 @@ const ProductInfo: React.FC = () => {
                       userdata,
                       product.$id,
                       products,
+                      likeList,
                       setShowModal
                     )
                   }
@@ -172,6 +174,7 @@ const ProductInfo: React.FC = () => {
                       userdata,
                       product.$id,
                       products,
+                      likeList,
                       setShowModal
                     )
                   }

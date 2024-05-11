@@ -7,7 +7,7 @@ import {
   selectWishlist,
   selectWishlistIds,
 } from "../redux_toolkit/userSlice";
-import { selectProducts } from "../redux_toolkit/productSlice";
+import { selectLikes, selectProducts } from "../redux_toolkit/productSlice";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
@@ -20,6 +20,13 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
   const products = useAppSelector(selectProducts);
   const wishlist = useAppSelector(selectWishlist);
   const wishIds = useAppSelector(selectWishlistIds);
+  let likeList = useAppSelector(selectLikes)
+
+  let x;
+  if(likeList.length>0){
+    x = likeList?.find((pro)=>pro.$id === product.$id).wishlist?.length
+  }
+   
 
   const [showModal, setShowModal] = useState(false);
 
@@ -72,6 +79,7 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
                     userdata,
                     product.$id,
                     products,
+                    likeList,
                     setShowModal
                   )
                 }
@@ -79,7 +87,7 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
                 className="h-6 w-6 lg:h-8 lg:w-8 2xl:h-10 2xl:w-10 cursor-pointer"
               />
               <div className="text-center h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16">
-                {product?.lovers?.length}
+                {x}
               </div>
             </CardItem>
           </div>

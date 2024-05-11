@@ -5,11 +5,13 @@ import { Collection, Prods, collections } from "../index";
 interface ProductState {
   products: Prods[];
   collections: Collection[];
+  likes: any[];
 }
 
 const initialState: ProductState = {
   products: [],
   collections: collections,
+  likes: [],
 };
 const productSlice = createSlice({
   name: "products",
@@ -38,12 +40,27 @@ const productSlice = createSlice({
     getProducts: (state, action: PayloadAction<any>) => {
       state.products = action.payload;
     },
+    getLikes: (state, action: PayloadAction<any>) => {
+      state.likes = action.payload;
+    },
+    updateLike: (state, action: PayloadAction<any>) => {
+      const { $id, wishlist } = action.payload;
+      const likeIndex = state.likes.findIndex(
+        (product) => product.$id === $id
+      );
+      if (likeIndex !== -1) {
+        state.likes[likeIndex] = {
+          $id, wishlist
+        };
+      }
+    },
   },
 });
 
-export const { addProduct, updateProduct, deleteProduct, getProducts} =
+export const { addProduct, updateProduct, deleteProduct, getProducts, getLikes, updateLike} =
   productSlice.actions;
 export const selectProducts = (state: RootState) => state.products.products;
 export const selectCollections = (state: RootState) => state.products.collections;
+export const selectLikes = (state: RootState) => state.products.likes;
 
 export default productSlice.reducer;

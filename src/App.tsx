@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import {
   createWishlist,
   fetchAllDocuments,
+  fetchAllLikes,
   fetchWishlist,
 } from "./appwrite/config";
 import { getCurrentSession } from "./appwrite/auth";
@@ -26,6 +27,7 @@ function App() {
     };
     sessionAndWishlist();
     fetchAllDocuments();
+    fetchAllLikes();
   }, []);
 
   return (

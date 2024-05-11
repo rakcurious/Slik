@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Prods } from "../index";
 import { updateWishlist } from "../appwrite/config";
-import { updateProduct } from "../redux_toolkit/productSlice";
+import { updateLike } from "../redux_toolkit/productSlice";
 import { store } from "../redux_toolkit/store";
 import { setWishlist } from "../redux_toolkit/userSlice";
 
@@ -11,6 +11,7 @@ export const handleWishlistUpdate = async (
   userdata: any,
   productId: any,
   products: Prods[],
+  likeList: any[],
   setShowModal: (show: boolean) => void
 ) => {
   if (!userdata) {
@@ -23,15 +24,20 @@ export const handleWishlistUpdate = async (
     return;
   }
 
+  if(likeList.length === 0){
+    return;
+  }
+
+
   const userid = userdata.$id;
-  const likeUser = {
-    $collectionId: userdata.$collectionId,
-    $createdAt: userdata.$createdAt,
-    $databaseId: userdata.$databaseId,
-    $id: userdata.$id,
-    $permissions: userdata.$permissions,
-    $updatedAt: userdata.$updatedAt,
-  };
+  // const likeUser = {
+  //   $collectionId: userdata.$collectionId,
+  //   $createdAt: userdata.$createdAt,
+  //   $databaseId: userdata.$databaseId,
+  //   $id: userdata.$id,
+  //   $permissions: userdata.$permissions,
+  //   $updatedAt: userdata.$updatedAt,
+  // };
   const product = products.find((prod) => prod.$id == productId);
 
   const updatedWishlist = wishIds?.includes(productId)
@@ -44,21 +50,34 @@ export const handleWishlistUpdate = async (
     ? wishIds.filter((id) => id !== productId)
     : [productId, ...wishIds];
 
-  let prodLovers: any[] = product.lovers;
-  let prodLoverIds = prodLovers.map((user: any) => user.$id);
-  prodLovers = prodLoverIds.includes(userid)
-    ? prodLovers.filter((user: any) => user.$id !== userid)
-    : [...prodLovers, likeUser];
 
-  const updatedProduct = { ...product, lovers: prodLovers };
+    let likeProd = likeList?.find((prod)=>prod.$id === product.$id)
 
-  store.dispatch(updateProduct(updatedProduct));
+
+    let likeWishlist: string[] = likeProd.wishlist;
+    
+    likeWishlist = likeWishlist?.includes(userid)
+      ? likeWishlist.filter((id: string) => id !== userid)
+      : [...likeWishlist, userid];
+    const updatedLike = { $id: product?.$id, wishlist:likeWishlist };
+
+  store.dispatch(updateLike(updatedLike))
+
+  // let prodLovers: any[] = product.lovers;
+  // let prodLoverIds = prodLovers.map((user: any) => user.$id);
+  // prodLovers = prodLoverIds.includes(userid)
+  //   ? prodLovers.filter((user: any) => user.$id !== userid)
+  //   : [...prodLovers, likeUser];
+
+  // const updatedProduct = { ...product, lovers: prodLovers };
+
+  // store.dispatch(updateProduct(updatedProduct));
 
   const response = await updateWishlist(userdata.$id, updatedWishIds);
   if (response) {
   } else {
     console.log("failed to update user wishlist");
     store.dispatch(setWishlist(wishlist));
-    store.dispatch(updateProduct(product));
+    store.dispatch(updateLike(likeProd));
   }
 };

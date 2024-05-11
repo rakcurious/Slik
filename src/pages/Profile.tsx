@@ -5,6 +5,7 @@ import { selectUserData, selectWishlist} from "../redux_toolkit/userSlice";
 import Navbar from "../components/Navbar";
 import WishlistCards from "../components/WishlistCards";
 import Modal from "../components/AuthModal";
+import { selectProducts } from "../redux_toolkit/productSlice";
 
 function Profile() {
   const [load, setLoad] = useState(true);
@@ -12,6 +13,12 @@ function Profile() {
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist)
   const [showModal, setShowModal] = useState(true);
+  const products = useAppSelector(selectProducts)
+
+  
+
+  let wishProds = wishlist?.map((prod:any)=> products?.find((pro)=> pro.$id === prod.$id)
+  )
 
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
@@ -19,15 +26,15 @@ function Profile() {
   const loadingtime = () => {
     setTimeout(() => {
       setLoad(false);
-    }, 3000);
+    }, 10000);
   };
   loadingtime();
   return (
     <>
       <Navbar />
-      {userdata ? (
+      {(userdata && products.length>0) ? (
         <>
-          {wishlist && <WishlistCards products={wishlist} userdata={userdata} />}
+          {wishProds && <WishlistCards products={wishProds} userdata={userdata} />}
        </>
       ) : load ? (
         <div className="px-10 mt-20 flex flex-col items-center justify-center w-screen h-auto bg-transparent">
