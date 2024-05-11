@@ -73,15 +73,15 @@ const ProductInfo: React.FC = () => {
 
   return (
     <>
-      <Meta
-        title={product?.title || ''}
+      <Navbar />
+      {product ? (
+        <>
+        <Meta
+        title={product?.title}
         description={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`}
         image={product?.images?.[0]}
         url={window.location.href}
       />
-      <Navbar />
-      {product ? (
-        <>
           <div className="hidden xl:flex h-auto overflow-hidden">
             <div className="w-2/3 overflow-y-auto flex flex-wrap p-4 justify-center scrollbar-none">
               {product?.images.map((image, index) => (
