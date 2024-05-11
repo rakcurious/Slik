@@ -1,4 +1,3 @@
-// Meta.tsx
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -16,13 +15,13 @@ const Meta: React.FC<MetaProps> = ({ title, description, image, url }) => (
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
-    {image && <meta property="og:image" content={image} />}
+    <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Slik" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    {image && <meta name="twitter:image" content={image} />}
-    {image && <meta name="twitter:image:alt" content={title} />}
+   <meta name="twitter:image" content={image} />
+   <meta name="twitter:image:alt" content={title} />
   </Helmet>
 );
 

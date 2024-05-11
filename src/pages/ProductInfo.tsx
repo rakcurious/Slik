@@ -79,7 +79,7 @@ const ProductInfo: React.FC = () => {
         <Meta
         title={product?.title}
         description={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`}
-        image={product?.images?.[0]}
+        image={product?.images[0]}
         url={window.location.href}
       />
           <div className="hidden xl:flex h-auto overflow-hidden">
