@@ -24,10 +24,9 @@ export const handleWishlistUpdate = async (
     return;
   }
 
-  if(likeList.length === 0){
+  if (likeList.length === 0) {
     return;
   }
-
 
   const userid = userdata.$id;
   // const likeUser = {
@@ -50,28 +49,16 @@ export const handleWishlistUpdate = async (
     ? wishIds.filter((id) => id !== productId)
     : [productId, ...wishIds];
 
+  let likeProd = likeList?.find((prod) => prod.$id === product.$id);
 
-    let likeProd = likeList?.find((prod)=>prod.$id === product.$id)
+  let likeWishlist: string[] = likeProd.wishlist;
 
+  likeWishlist = likeWishlist?.includes(userid)
+    ? likeWishlist.filter((id: string) => id !== userid)
+    : [...likeWishlist, userid];
+  const updatedLike = { $id: product?.$id, wishlist: likeWishlist };
 
-    let likeWishlist: string[] = likeProd.wishlist;
-    
-    likeWishlist = likeWishlist?.includes(userid)
-      ? likeWishlist.filter((id: string) => id !== userid)
-      : [...likeWishlist, userid];
-    const updatedLike = { $id: product?.$id, wishlist:likeWishlist };
-
-  store.dispatch(updateLike(updatedLike))
-
-  // let prodLovers: any[] = product.lovers;
-  // let prodLoverIds = prodLovers.map((user: any) => user.$id);
-  // prodLovers = prodLoverIds.includes(userid)
-  //   ? prodLovers.filter((user: any) => user.$id !== userid)
-  //   : [...prodLovers, likeUser];
-
-  // const updatedProduct = { ...product, lovers: prodLovers };
-
-  // store.dispatch(updateProduct(updatedProduct));
+  store.dispatch(updateLike(updatedLike));
 
   const response = await updateWishlist(userdata.$id, updatedWishIds);
   if (response) {

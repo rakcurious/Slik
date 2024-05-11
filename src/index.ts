@@ -13,7 +13,6 @@ export interface Prods {
   title: string;
   type: string;
   slug: string;
-  lovers?: any[];
 }
 
 export interface Collection {
