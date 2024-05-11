@@ -15,7 +15,7 @@ import {
 import Navbar from "../components/Navbar";
 import Modal from "../components/AuthModal";
 import Error from "../components/WrongPage";
-import Meta from "../components/Meta";
+import { Helmet } from "react-helmet";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
@@ -73,15 +73,37 @@ const ProductInfo: React.FC = () => {
 
   return (
     <>
+    <Helmet>
+    <title>{product?.title}</title>
+    <meta name="description" content={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`} />
+    <meta property="og:title" content={product?.title} />
+    <meta property="og:description" content={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`} />
+    <meta property="og:url" content={window.location.href} />
+    <meta property="og:image" content={product?.images[0]} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Slik" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={product?.title} />
+    <meta name="twitter:image" content={product?.images[0]} />
+    <meta name="twitter:image:alt" content={product?.title} />
+  </Helmet>
       <Navbar />
       {product ? (
         <>
-        <Meta
-        title={product?.title}
-        description={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`}
-        image={product?.images[0]}
-        url={window.location.href}
-      />
+  <Helmet>
+    <title>{product?.title}</title>
+    <meta name="description" content={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`} />
+    <meta property="og:title" content={product?.title} />
+    <meta property="og:description" content={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`} />
+    <meta property="og:url" content={window.location.href} />
+    <meta property="og:image" content={product?.images[0]} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Slik" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={product?.title} />
+    <meta name="twitter:image" content={product?.images[0]} />
+    <meta name="twitter:image:alt" content={product?.title} />
+  </Helmet>
           <div className="hidden xl:flex h-auto overflow-hidden">
             <div className="w-2/3 overflow-y-auto flex flex-wrap p-4 justify-center scrollbar-none">
               {product?.images.map((image, index) => (
