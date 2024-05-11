@@ -15,7 +15,6 @@ import {
 import Navbar from "../components/Navbar";
 import Modal from "../components/AuthModal";
 import Error from "../components/WrongPage";
-import { Helmet } from "react-helmet";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
@@ -73,20 +72,6 @@ const ProductInfo: React.FC = () => {
 
   return (
     <>
-    <Helmet>
-    <title>Product</title>
-    <meta name="description" content='Product Details on Slik' data-react-helmet="true" />
-    <meta property="og:title" content='Product' />
-    <meta property="og:description" content='Product Details on Slik' data-react-helmet="true" />
-    <meta property="og:url" content={window.location.href} />
-    <meta property="og:image" content="https://res.cloudinary.com/dnhz5reqf/image/upload/v1714373699/slik/level_up_your_fashion_game_pkf4ye.webp" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Slik" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content='Product' />
-    <meta name="twitter:image" content="https://res.cloudinary.com/dnhz5reqf/image/upload/v1714373699/slik/level_up_your_fashion_game_pkf4ye.webp" />
-    <meta name="twitter:image:alt" content='Product' />
-  </Helmet>
       <Navbar />
       {product ? (
         <>
