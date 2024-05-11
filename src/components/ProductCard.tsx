@@ -20,13 +20,12 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
   const products = useAppSelector(selectProducts);
   const wishlist = useAppSelector(selectWishlist);
   const wishIds = useAppSelector(selectWishlistIds);
-  let likeList = useAppSelector(selectLikes)
+  let likeList = useAppSelector(selectLikes);
 
   let x;
-  if(likeList.length>0){
-    x = likeList?.find((pro)=>pro.$id === product.$id).wishlist?.length
+  if (likeList.length > 0) {
+    x = likeList?.find((pro) => pro.$id === product.$id).wishlist?.length;
   }
-   
 
   const [showModal, setShowModal] = useState(false);
 

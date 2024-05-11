@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
 import { Prods } from "../index";
 import { useAppSelector } from "../redux_toolkit/hooks.ts";
-import { selectProducts } from "../redux_toolkit/productSlice.ts";
+import { selectLikes, selectProducts } from "../redux_toolkit/productSlice.ts";
 
 const ProductCard = lazy(() => import("./ProductCard.tsx"));
 
@@ -12,6 +12,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
   const [sort, setSort] = useState("new");
 
   let products: Prods[] = useAppSelector(selectProducts);
+  let likeList = useAppSelector(selectLikes);
 
   if (category === "men" || category == "women") {
     products = products.filter(
@@ -30,24 +31,36 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
     );
   }
 
+  const filteredLikes = likeList?.filter((like: any) =>
+    products.some((product) => product.$id === like.$id)
+  );
+
+  if (filteredLikes.length > 0) {
+    filteredLikes?.sort(
+      (a: any, b: any) => b.wishlist.length - a.wishlist.length
+    );
+  }
+
   let prd = [...products];
-  const sortedByLikes = [...prd].sort(
-    //@ts-ignore
-    (a, b) => b.lovers?.length - a.lovers?.length
+
+  const sortedByLikes = filteredLikes?.map((prod: any) =>
+    products?.find((pro) => pro.$id === prod.$id)
   );
   const sortedByPriceHighToLow = [...prd].sort((a, b) => b.price - a.price);
   const sortedByPriceLowToHigh = [...prd].sort((a, b) => a.price - b.price);
 
-  if (sort == "likes") {
-    products = sortedByLikes;
-  } else if (sort == "pricehigh") {
+  if (sort === "likes") {
+    if (filteredLikes.length > 0) {
+      //@ts-ignore
+      products = sortedByLikes;
+    }
+  } else if (sort === "pricehigh") {
     products = sortedByPriceHighToLow;
-  } else if (sort == "pricelow") {
+  } else if (sort === "pricelow") {
     products = sortedByPriceLowToHigh;
-  } else if (sort == "new") {
+  } else if (sort === "new") {
     products = [...products].reverse();
   }
-
   return (
     <>
       <h1 className="text-center capitalize font-medium text-2xl sm:text-4xl md:text-4xl lg:text-5xl 2xl:text-6xl mt-6 lg:mt-10 xl:mt-16">
@@ -143,7 +156,7 @@ const ProductCards: React.FC<{ category: string; collection: string }> = ({
             }
           >
             {products.map((product: Prods) => (
-              <ProductCard key={product.$id} product={product} />
+              <ProductCard key={product?.$id} product={product} />
             ))}
           </Suspense>
         </div>
