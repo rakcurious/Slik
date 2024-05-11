@@ -15,6 +15,7 @@ import {
 import Navbar from "../components/Navbar";
 import Modal from "../components/AuthModal";
 import Error from "../components/WrongPage";
+import Meta from "../components/Meta";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
@@ -72,6 +73,12 @@ const ProductInfo: React.FC = () => {
 
   return (
     <>
+      <Meta
+        title={product?.title || ''}
+        description={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`}
+        image={product?.images?.[0]}
+        url={window.location.href}
+      />
       <Navbar />
       {product ? (
         <>
