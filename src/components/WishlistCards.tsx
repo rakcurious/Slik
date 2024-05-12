@@ -93,7 +93,7 @@ const WishlistCards: React.FC<{ products: Prods[]; userdata: any }> = ({
                       <img
                         onClick={() => navigate(`/product/${product?.slug}`)}
                         src={product?.images[0]}
-                        className="w-full h-auto aspect-[3/4] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
+                        className="w-full h-auto aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
                         alt={product?.title}
                       />
                     </CardItem>
