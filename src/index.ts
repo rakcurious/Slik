@@ -25,6 +25,14 @@ export interface Collection {
 }
 
 export const collections = [
+   {
+      "$id": "6624d34d9c3da32a2b37",
+      "name": "Freakins",
+      "category": "brands",
+      "slug": "freakins",
+      "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714036382/slik/misc/cq0yrhjujijszsrj85uv.webp",
+      "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713689401/slik/misc/p7wjxdv4qqetd8ntsdbq.webp"
+   },
   {
      "$id": "6628b3bce0c3534210ac",
      "name": "House of Stori",
@@ -42,6 +50,14 @@ export const collections = [
      "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714269323/slik/misc/aq1x6im9tbcthsvgvwu9.webp"
   },
   {
+   "$id": "6640b2ca0036c3057b18",
+   "name": "Urbanic",
+   "category": "brands",
+   "slug": "urbanic",
+   "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1715515961/slik/misc/urbaniclogo_f10bji.webp",
+   "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1715515962/slik/misc/urbanicheader_nzfhz3.webp"
+},
+  {
      "$id": "6624a1721766dc83d0f4",
      "name": "The Souled Store",
      "category": "brands",
@@ -49,6 +65,14 @@ export const collections = [
      "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713679748/slik/misc/wkzbskgshamrzlahy2w6.webp",
      "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713676643/slik/misc/wilt0wvv7r1gmkmo0ysc.webp"
   },
+  {
+   "$id": "6640be46001390de8677",
+   "name": "Virgio",
+   "category": "brands",
+   "slug": "virgio",
+   "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1715518976/slik/misc/virgiologo_mtynu2.webp",
+   "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1715518976/slik/misc/virgioheader_so2ndj.webp"
+},
   {
      "$id": "662da72bf29f6f8387bc",
      "name": "Shirts",
@@ -64,14 +88,6 @@ export const collections = [
      "slug": "co-ords",
      "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714733362/slik/misc/rqrqibilpgcv7yeyw8dg.webp",
      "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714264941/slik/misc/z9uggv7vy3fqi6m2gafp.webp"
-  },
-  {
-     "$id": "6624d34d9c3da32a2b37",
-     "name": "Freakins",
-     "category": "brands",
-     "slug": "freakins",
-     "cardImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1714036382/slik/misc/cq0yrhjujijszsrj85uv.webp",
-     "headerImage": "https://res.cloudinary.com/dnhz5reqf/image/upload/v1713689401/slik/misc/p7wjxdv4qqetd8ntsdbq.webp"
   },
   {
      "$id": "6634dae6bf6f412e8716",
