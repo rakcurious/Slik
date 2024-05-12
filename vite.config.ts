@@ -53,24 +53,24 @@ export default defineConfig({
         ],
         screenshots: [
           {
-            "src": "screenshotwide1200x630.png",
+            "src": "screenshotwide1200x630.jpg",
              "sizes": "1200x630",
-             "type": "image/png",
+             "type": "image/jpg",
              "form_factor": "wide",
              "label": "drip, drippy, drippin'",
              
            },
           {
-            "src": "screenshotnarrow1080x2344a.png",
+            "src": "screenshotnarrow1080x2344a.jpg",
              "sizes": "1080x2344",
-             "type": "image/png",
+             "type": "image/jpg",
              "form_factor": "narrow",
              "label": "drip, drippy, drippin'"
           },
           {
-            "src": "screenshotnarrow1080x2344b.png",
+            "src": "screenshotnarrow1080x2344b.jpg",
              "sizes": "1080x2344",
-             "type": "image/png",
+             "type": "image/jpg",
              "form_factor": "narrow",
              "label": "drip, drippy, drippin'"
           },
