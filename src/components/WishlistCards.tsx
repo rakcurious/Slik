@@ -6,7 +6,7 @@ import { cn } from "../utils/cn";
 import { logout } from "../appwrite/auth";
 import { setUserData, setWishlist } from "../redux_toolkit/userSlice";
 import { useAppDispatch } from "../redux_toolkit/hooks";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const WishlistCards: React.FC<{ products: Prods[]; userdata: any }> = ({
   products,
@@ -90,12 +90,14 @@ const WishlistCards: React.FC<{ products: Prods[]; userdata: any }> = ({
                       translateZ="100"
                       className="w-full flex justify-center mb-1"
                     >
+                      <Link to={`/product/${product.slug}`} unstable_viewTransition>
                       <img
-                        onClick={() => navigate(`/product/${product?.slug}`)}
                         src={product?.images[0]}
                         className="w-full h-auto aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
                         alt={product?.title}
+                        style={{viewTransitionName: `image${product.$id}`}}
                       />
+                      </Link>
                     </CardItem>
                     <CardItem
                       translateZ="50"
