@@ -11,7 +11,7 @@ import { selectLikes, selectProducts } from "../redux_toolkit/productSlice";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import heartfill from "../assets/heartfill.svg";
 import heart from "../assets/heart.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { handleWishlistUpdate } from "../utils/wishlist";
 
 const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
@@ -40,12 +40,14 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
             translateZ="100"
             className="w-full flex justify-center mb-1"
           >
+            <Link to={`/product/${product.slug}`} unstable_viewTransition>
             <img
-              onClick={() => navigate(`/product/${product.slug}`)}
               src={product.images[0]}
               className="w-full h-auto aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
               alt={product.title}
+              style={{viewTransitionName: `image${product.$id}`}}
             />
+            </Link>
           </CardItem>
 
           <div className="flex justify-start w-full xl:mt-1">

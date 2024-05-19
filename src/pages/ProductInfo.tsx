@@ -1,9 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { handleWishlistUpdate } from "../utils/wishlist";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectLikes, selectProducts } from "../redux_toolkit/productSlice";
@@ -15,13 +12,18 @@ import {
 import Navbar from "../components/Navbar";
 import Modal from "../components/AuthModal";
 import Error from "../components/WrongPage";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const ProductInfo: React.FC = () => {
   const products = useAppSelector(selectProducts);
   const userdata = useAppSelector(selectUserData);
   const wishlist = useAppSelector(selectWishlist);
   const wishIds = useAppSelector(selectWishlistIds);
-  const likeList = useAppSelector(selectLikes)
+  const likeList = useAppSelector(selectLikes);
   const [share, setShare] = useState(false);
 
   const navigate = useNavigate();
@@ -32,10 +34,6 @@ const ProductInfo: React.FC = () => {
   const product = products.find((product) => product.slug == slug);
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
-
-  useEffect(() => {
-    document.body.scrollTo(0, 0);
-  }, []);
 
   const copyToShare = () => {
     window.navigator.clipboard.writeText(window.location.href);
@@ -58,37 +56,11 @@ const ProductInfo: React.FC = () => {
     navigate(`/brands/${brandSlug}`);
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    adaptiveHeight: false,
-    swipeToSlide: true,
-  };
-
   return (
     <>
       <Navbar />
       {product ? (
         <>
-  {/* <Helmet>
-    <title>{product?.title}</title>
-    <meta name="description" content={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`} />
-    <meta property="og:title" content={product?.title} />
-    <meta property="og:description" content={`${product?.brand} - ₹${product?.price.toLocaleString("en-IN")}`} />
-    <meta property="og:url" content={window.location.href} />
-    <meta property="og:image" content={product?.images[0]} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Slik" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={product?.title} />
-    <meta name="twitter:image" content={product?.images[0]} />
-    <meta name="twitter:image:alt" content={product?.title} />
-  </Helmet> */}
           <div className="hidden xl:flex h-auto overflow-hidden">
             <div className="w-2/3 overflow-y-auto flex flex-wrap p-4 justify-center scrollbar-none">
               {product?.images.map((image, index) => (
@@ -97,6 +69,11 @@ const ProductInfo: React.FC = () => {
                     src={image}
                     alt={`Product Image ${index + 1}`}
                     className="w-full h-full object-cover rounded-lg"
+                    style={
+                      index === 0
+                        ? { viewTransitionName: `image${product.$id}` }
+                        : {}
+                    }
                   />
                 </div>
               ))}
@@ -153,21 +130,34 @@ const ProductInfo: React.FC = () => {
           </div>
           <div className="xl:hidden h-auto w-screen flex flex-col">
             <div className="w-full mx-auto">
-              <Slider {...settings}>
+              <Swiper
+                autoplay={{ delay: 3000 }}
+                pagination={true}
+                modules={[Pagination, Autoplay]}
+                className="mySwiper"
+              >
                 {product.images.map((image, index) => (
-                  <div key={index} className="relative w-full aspect-[2/3]">
+                  <SwiperSlide
+                    key={index}
+                    className="relative w-full aspect-[2/3]"
+                  >
                     <img
                       key={index}
                       src={image}
                       alt={product.title}
                       className="absolute w-full h-full object-cover"
+                      style={
+                        index === 0
+                          ? { viewTransitionName: `image${product.$id}` }
+                          : {}
+                      }
                     />
-                  </div>
+                  </SwiperSlide>
                 ))}
-              </Slider>
+              </Swiper>
             </div>
-            <div className="font-medium text-lg md:text-xl lg:text-2xl w-full flex flex-col gap-1 items-center justify-center p-5">
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold my-1 capitalize text-center">
+            <div className="font-medium text-lg md:text-xl lg:text-2xl w-full flex flex-col gap-1 items-center justify-center pt-1 p-5">
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold mt-1 capitalize text-center">
                 {product?.title}
               </h1>
               <p
@@ -176,7 +166,7 @@ const ProductInfo: React.FC = () => {
               >
                 {product?.brand}
               </p>
-              <p className=" text-center mb-2">
+              <p className=" text-center mb-1">
                 ₹{product?.price.toLocaleString("en-IN")}
               </p>
               <div className="flex flex-col gap-2 w-full">

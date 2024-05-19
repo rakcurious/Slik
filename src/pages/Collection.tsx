@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { selectCollections } from "../redux_toolkit/productSlice";
 import { useAppSelector } from "../redux_toolkit/hooks";
@@ -6,17 +5,14 @@ import Navbar from "../components/Navbar";
 import ProductCards from "../components/ProductCards";
 import Error from "../components/WrongPage";
 
-
 const Collection: React.FC = () => {
   const collections = useAppSelector(selectCollections);
 
   const { category, slug } = useParams();
 
-  const collection = collections.find((collection) => collection.slug == slug && collection.category == category);
-
-  useEffect(() => {
-    document.body.scrollTo(0, 0);
-  });
+  const collection = collections.find(
+    (collection) => collection.slug == slug && collection.category == category
+  );
 
   return (
     <>

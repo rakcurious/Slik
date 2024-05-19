@@ -7,7 +7,7 @@ const Error: React.FC = () => {
   const loadingtime = () => {
     setTimeout(() => {
       setLoad(true);
-    }, 10000);
+    }, 5000);
   };
   loadingtime();
   const navigate = useNavigate();
@@ -19,11 +19,11 @@ const Error: React.FC = () => {
           <img
             src="https://res.cloudinary.com/dnhz5reqf/image/upload/v1713705966/slik/slikbearog_wx3vqt.png"
             alt="Slik"
-            className="mt-24 lg:mt-0 mb-0 h-60 w-60 animate-bounce"
+            className={`mt-24 lg:mt-0 mb-0 h-60 w-60  ${load? '' : 'animate-bounce' }`}
           />
-          <div className="mb-5 w-screen animate-pulse text-center font-medium text-3xl">
+          {!load && <div className="mb-5 w-screen animate-pulse text-center font-medium text-3xl">
               LOADING
-            </div>
+            </div>}
           {load && (
             <>
               <p className="text-center font-semibold text-2xl">
