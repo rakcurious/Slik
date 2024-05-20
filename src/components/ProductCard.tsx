@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { CardBody, CardContainer, CardItem } from "./3dCard";
 import Modal from "./AuthModal";
 import { Prods } from "../index";
@@ -21,16 +21,43 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
   const wishlist = useAppSelector(selectWishlist);
   const wishIds = useAppSelector(selectWishlistIds);
   let likeList = useAppSelector(selectLikes);
-
   let x;
   if (likeList.length > 0) {
     x = likeList?.find((pro) => pro.$id === product.$id).wishlist?.length;
   }
-
   const [showModal, setShowModal] = useState(false);
-
   const isAuthenticated = !!userdata;
   const isVerified = userdata?.emailVerification || false;
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsLoaded(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: "200px",
+    });
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+    }
+
+    return () => {
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current);
+      }
+    };
+  }, [handleIntersection]);
 
   return (
     <>
@@ -41,14 +68,17 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
             className="w-full flex justify-center mb-1"
           >
             <Link to={`/product/${product.slug}`}>
-            <img
-              src={product.images[0]}
-              className="w-full h-auto aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
-              alt={product.title}
-            />
+              {!isLoaded && (
+                <div className="rounded-xl w-full aspect-[2/3] animate-pulse bg-indigo-200"></div>
+              )}
+              <img
+                ref={imageRef}
+                src={isLoaded ? product.images[0] : ""}
+                className="w-full h-auto aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
+                alt={product.title}
+              />
             </Link>
           </CardItem>
-
           <div className="flex justify-start w-full xl:mt-1">
             <CardItem
               translateZ="50"
@@ -64,7 +94,6 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
                 {`₹${product.price.toLocaleString("en-IN")}`}
               </div>
             </CardItem>
-
             <CardItem
               as="div"
               translateZ="60"
