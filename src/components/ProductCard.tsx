@@ -67,7 +67,7 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
             translateZ="100"
             className="w-full flex justify-center mb-1"
           >
-            <Link to={`/product/${product.slug}`}>
+            <Link to={`/product/${product.slug}`} unstable_viewTransition>
               {!isLoaded && (
                 <div className="rounded-xl w-full aspect-[2/3] animate-pulse bg-indigo-200"></div>
               )}
@@ -76,6 +76,7 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
                 src={isLoaded ? product.images[0] : ""}
                 className="w-full h-auto aspect-[2/3] object-cover rounded-lg group-hover/card:shadow-xl cursor-pointer"
                 alt={product.title}
+                style={{viewTransitionName: `image${product.$id}`}}
               />
             </Link>
           </CardItem>

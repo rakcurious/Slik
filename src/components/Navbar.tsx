@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../redux_toolkit/hooks";
 import { selectUserData } from "../redux_toolkit/userSlice";
 import FloatingMenu from "./FloatingMenu";
@@ -14,9 +14,30 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+
+      setIsVisible(currentScrollPos === 0 || !isScrollingDown);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
   return (
     <>
-      <nav className="navbartop sticky z-20 top-0 w-screen h-20 flex mt-0 items-center justify-center bg-purple-100/40 backdrop-blur-md ">
+      <nav className={`navbartop sticky z-20 top-0 w-screen h-20 flex mt-0 items-center justify-center bg-purple-100/40 backdrop-blur-md transition-transform duration-500 ease-in-out ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}>
         <div className="flex justify-between font-bold text-lg gap-x-6 w-full px-4 py-2">
           <div className="md:hidden my-auto w-1/4">
             <button
