@@ -61,7 +61,7 @@ const ProductInfo: React.FC = () => {
       <Navbar />
       {product ? (
         <>
-          <div className="hidden xl:flex h-auto overflow-hidden">
+          <div className="hidden lg:flex h-auto overflow-hidden">
             <div className="w-2/3 overflow-y-auto flex flex-wrap p-4 justify-center scrollbar-none">
               {product?.images.map((image, index) => (
                 <div key={index} className="w-1/2 p-2">
@@ -128,7 +128,7 @@ const ProductInfo: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="xl:hidden h-auto w-screen flex flex-col">
+          <div className="lg:hidden h-auto w-screen flex flex-col">
             <div className="w-full mx-auto">
               <Swiper
                 autoplay={{ delay: 3000 }}
