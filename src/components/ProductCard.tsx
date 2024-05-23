@@ -21,9 +21,9 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
   const wishlist = useAppSelector(selectWishlist);
   const wishIds = useAppSelector(selectWishlistIds);
   let likeList = useAppSelector(selectLikes);
-  let x;
+  let likes;
   if (likeList.length > 0) {
-    x = likeList?.find((pro) => pro.$id === product.$id).wishlist?.length;
+    likes = likeList?.find((pro) => pro.$id === product.$id).wishlist?.length;
   }
   const [showModal, setShowModal] = useState(false);
   const isAuthenticated = !!userdata;
@@ -116,7 +116,7 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
                 className="h-6 w-6 lg:h-8 lg:w-8 2xl:h-10 2xl:w-10 cursor-pointer"
               />
               <div className="text-center h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16">
-                {x}
+                {likes>0 ? likes : ''}
               </div>
             </CardItem>
           </div>
