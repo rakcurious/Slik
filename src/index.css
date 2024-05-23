@@ -26,3 +26,7 @@ body {
 main {
   flex-grow: 1;
 }
+
+:root:has(.no-scroll) {
+  overflow: hidden;
+}
