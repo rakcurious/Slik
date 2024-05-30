@@ -45,7 +45,7 @@ const ProductCard: React.FC<{ product: Prods }> = ({ product }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: "200px",
+      rootMargin: "600px",
     });
 
     if (imageRef.current) {
